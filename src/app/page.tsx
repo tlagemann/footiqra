@@ -98,7 +98,7 @@ export default async function HomePage() {
 
       {ranking.status === "ok" ? (
         <>
-          <section aria-labelledby="ranking" id="ranking-section" className="scroll-mt-32">
+          <section aria-labelledby="ranking" id="ranking-section" className="scroll-mt-24">
             <SectionHeading
               id="ranking"
               title="Power Ranking"

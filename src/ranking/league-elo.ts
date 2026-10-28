@@ -47,6 +47,12 @@ export interface LeagueEloResult {
    * forecasts against the results that followed.
    */
   preMatch: { matchId: string; ratingDiff: number; homeGoals: number; awayGoals: number }[];
+  /**
+   * Effective rating of both teams right after each match, in chronological
+   * order, plus each team's effective rating before its first match
+   * (matchId null). Used for the rating history charts.
+   */
+  timeline: { teamId: string; matchId: string | null; kickoffUtc: string; rating: number }[];
 }
 
 export function computeLeagueElo(
@@ -61,6 +67,8 @@ export function computeLeagueElo(
   const matchesPlayed = new Map<string, number>();
   let crossLeagueMatches = 0;
   const preMatch: LeagueEloResult["preMatch"] = [];
+  const timeline: LeagueEloResult["timeline"] = [];
+  const started = new Set<string>();
 
   const leagueOf = (teamId: string): string => {
     const league = teamLeague.get(teamId);
@@ -94,6 +102,21 @@ export function computeLeagueElo(
     const surprise = actualHome - expectedHome;
     const multiplier = goalDifferenceMultiplier(match.homeGoals - match.awayGoals);
 
+    for (const [id, league, r] of [
+      [match.homeTeamId, homeLeague, home],
+      [match.awayTeamId, awayLeague, away],
+    ] as const) {
+      if (!started.has(id)) {
+        started.add(id);
+        timeline.push({
+          teamId: id,
+          matchId: null,
+          kickoffUtc: match.kickoffUtc,
+          rating: r + leagueAdj.get(league)!,
+        });
+      }
+    }
+
     const delta = opts.kFactor * multiplier * surprise;
     teamRating.set(match.homeTeamId, home + delta);
     teamRating.set(match.awayTeamId, away - delta);
@@ -108,6 +131,20 @@ export function computeLeagueElo(
     for (const id of [match.homeTeamId, match.awayTeamId]) {
       matchesPlayed.set(id, (matchesPlayed.get(id) ?? 0) + 1);
     }
+    timeline.push(
+      {
+        teamId: match.homeTeamId,
+        matchId: match.id,
+        kickoffUtc: match.kickoffUtc,
+        rating: teamRating.get(match.homeTeamId)! + leagueAdj.get(homeLeague)!,
+      },
+      {
+        teamId: match.awayTeamId,
+        matchId: match.id,
+        kickoffUtc: match.kickoffUtc,
+        rating: teamRating.get(match.awayTeamId)! + leagueAdj.get(awayLeague)!,
+      },
+    );
   }
 
   const ratings = new Map<string, number>();
@@ -120,5 +157,6 @@ export function computeLeagueElo(
     leagueAdjustments: leagueAdj,
     crossLeagueMatches,
     preMatch,
+    timeline,
   };
 }

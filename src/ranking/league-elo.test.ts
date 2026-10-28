@@ -110,3 +110,29 @@ describe("leagueStartingOffsets", () => {
     expect(Object.values(o).reduce((a, b) => a + b, 0)).toBeCloseTo(0, 9);
   });
 });
+
+describe("rating timeline", () => {
+  it("starts each team at its starting value and ends at its current rating", () => {
+    const result = computeLeagueElo(
+      [
+        match({ id: "1" }),
+        match({
+          id: "2",
+          kickoffUtc: "2026-09-08T15:00:00Z",
+          homeTeamId: "a2",
+          awayTeamId: "a1",
+          homeGoals: 2,
+          awayGoals: 2,
+        }),
+      ],
+      teamLeague,
+      offsets,
+    );
+    const a1 = result.timeline.filter((t) => t.teamId === "a1");
+    expect(a1.map((t) => t.matchId)).toEqual([null, "1", "2"]);
+    expect(a1[0]!.rating).toBe(1520); // base 1500 + league offset 20
+    expect(a1[1]!.rating).toBeGreaterThan(1520); // won match 1
+    expect(a1.at(-1)!.rating).toBeCloseTo(result.ratings.get("a1")!, 10);
+    expect(result.timeline.some((t) => t.teamId === "b1")).toBe(false); // no match played
+  });
+});

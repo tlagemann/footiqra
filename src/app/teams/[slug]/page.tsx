@@ -7,7 +7,14 @@ import { ForecastList } from "@/components/forecast-list";
 import { LastUpdated, MatchList } from "@/components/match-list";
 import { Crest, FormGuide, SectionHeading } from "@/components/ui";
 import { getLeagueBySlug } from "@/config/leagues";
-import { getAllTeamSlugs, getTeam, getTeamRanking, getUpcomingForecasts } from "@/data";
+import {
+  getAllTeamSlugs,
+  getRatingHistory,
+  getTeam,
+  getTeamRanking,
+  getUpcomingForecasts,
+} from "@/data";
+import { RatingChart } from "@/components/rating-chart";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 /**
@@ -61,6 +68,26 @@ export default async function TeamPage({ params }: PageProps<"/teams/[slug]">) {
   const { team, results, fixtures } = result.data;
   const league = getLeagueBySlug(team.leagueSlug);
   const ranking = await getTeamRanking(team.slug);
+  const history = await getRatingHistory(team.slug);
+  const historyStats =
+    history.length > 1
+      ? (() => {
+          const values = history.map((p) => p.rating);
+          const best = history.reduce((a, b) => (b.change > a.change ? b : a));
+          return [
+            { label: "Season start", value: Math.round(values[0]!) },
+            { label: "Now", value: Math.round(ranking?.rating ?? values.at(-1)!) },
+            { label: "Season high", value: Math.round(Math.max(...values)) },
+            {
+              label: "Biggest gain",
+              value: best.change > 0 ? `+${best.change.toFixed(1)}` : "·",
+              hint: best.match
+                ? `${best.match.home ? "vs" : "at"} ${best.match.opponent} ${best.match.goalsFor}:${best.match.goalsAgainst}`
+                : undefined,
+            },
+          ];
+        })()
+      : [];
   const forecasts = (await getUpcomingForecasts())
     .filter((f) => f.home.slug === team.slug || f.away.slug === team.slug)
     .slice(0, 3);
@@ -134,6 +161,32 @@ export default async function TeamPage({ params }: PageProps<"/teams/[slug]">) {
               How the rating works
             </Link>
           </p>
+        </section>
+      )}
+
+      {historyStats.length > 0 && (
+        <section aria-labelledby="history-heading">
+          <SectionHeading
+            id="history-heading"
+            title="Rating this season"
+            aside={<span className="text-sm text-muted">After every rated match</span>}
+          />
+          <div className="rounded-3xl bg-surface p-4 sm:p-6">
+            <dl className="mb-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
+              {historyStats.map((s) => (
+                <div key={s.label}>
+                  <dt className="text-xs font-medium text-muted">{s.label}</dt>
+                  <dd className="tabular mt-0.5 font-display text-2xl font-extrabold tracking-[-0.03em]">
+                    {s.value}
+                  </dd>
+                  {"hint" in s && s.hint && (
+                    <dd className="truncate text-xs text-muted">{s.hint}</dd>
+                  )}
+                </div>
+              ))}
+            </dl>
+            <RatingChart points={history} teamName={team.name} />
+          </div>
         </section>
       )}
 

@@ -3,6 +3,7 @@ import { dataDir, listHistoryDates, readHistoryFile } from "@/store/fs";
 import { referenceDate, utcDay, type HistoryFile, type HistoryTeam } from "./history";
 import { upcomingForecasts, type MatchForecast } from "./forecasts";
 import { loadSnapshotFromDisk } from "./load";
+import { ratingHistory, type RatingPoint } from "./rating-history";
 import { leagueProjection, type LeagueProjection, type ProjectionRow } from "./projection";
 import { matchDetail, type MatchDetail } from "./match-detail";
 import { LEAGUES } from "@/config/leagues";
@@ -245,4 +246,19 @@ export async function getChampionsLeague(): Promise<ChampionsLeagueData> {
     fixtures,
     clubs: ranking.rows.filter((r) => ids.has(r.team.id)),
   };
+}
+
+export type { RatingPoint };
+
+export async function getRatingHistory(teamSlug: string): Promise<RatingPoint[]> {
+  const [snapshot, ranking] = await Promise.all([loadSnapshot(), loadRanking()]);
+  const team = ranking.rows.find((r) => r.team.slug === teamSlug);
+  return team
+    ? ratingHistory(
+        snapshot,
+        ranking,
+        team.team.id,
+        snapshot.meta.lastSuccessfulRunUtc ?? undefined,
+      )
+    : [];
 }

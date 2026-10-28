@@ -156,7 +156,7 @@ export default function MethodologyPage() {
         </p>
       </section>
 
-      <section id="forecasts" className="scroll-mt-32 space-y-4">
+      <section id="forecasts" className="scroll-mt-24 space-y-4">
         <h2 className="font-display text-3xl font-extrabold tracking-[-0.03em]">
           4. Match forecasts
         </h2>
@@ -183,7 +183,7 @@ export default function MethodologyPage() {
         </p>
       </section>
 
-      <section id="simulation" className="scroll-mt-32 space-y-4">
+      <section id="simulation" className="scroll-mt-24 space-y-4">
         <h2 className="font-display text-3xl font-extrabold tracking-[-0.03em]">
           5. Predicted final tables
         </h2>

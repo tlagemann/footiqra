@@ -44,6 +44,11 @@ export interface PowerRanking {
   forecastRecord: ForecastRecord | null;
   /** Rating difference (home minus away, home advantage included) before each rated match, by match id. */
   preMatchDiff: ReadonlyMap<number, number>;
+  /** Effective rating after every rated match per team id, oldest first (first entry: season start). */
+  ratingTimeline: ReadonlyMap<
+    number,
+    { matchId: number | null; utcDate: string; rating: number }[]
+  >;
 }
 
 const LEAGUE_CODES = new Set(LEAGUES.map((l) => l.providerCodes.footballData));
@@ -136,5 +141,28 @@ export function computePowerRanking(snapshot: Snapshot): PowerRanking {
     crossLeagueMatches: result.crossLeagueMatches,
     forecastRecord: evaluateForecasts(result.preMatch),
     preMatchDiff: new Map(result.preMatch.map((p) => [Number(p.matchId), p.ratingDiff])),
+    ratingTimeline: groupTimeline(result.timeline),
   };
+}
+
+function groupTimeline(
+  timeline: readonly {
+    teamId: string;
+    matchId: string | null;
+    kickoffUtc: string;
+    rating: number;
+  }[],
+): Map<number, { matchId: number | null; utcDate: string; rating: number }[]> {
+  const byTeam = new Map<number, { matchId: number | null; utcDate: string; rating: number }[]>();
+  for (const t of timeline) {
+    const id = Number(t.teamId);
+    const list = byTeam.get(id) ?? [];
+    list.push({
+      matchId: t.matchId === null ? null : Number(t.matchId),
+      utcDate: t.kickoffUtc,
+      rating: t.rating,
+    });
+    byTeam.set(id, list);
+  }
+  return byTeam;
 }
