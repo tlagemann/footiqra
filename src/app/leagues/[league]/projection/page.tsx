@@ -84,11 +84,12 @@ export default async function ProjectionPage({
             caption={`${league.name} predicted final table`}
           />
           <p className="mt-4 max-w-3xl text-sm text-muted">
-            Today: current table position and points. Final pts: expected points at the end of the
-            season. Title, top 4 and bottom 3: share of simulations in which the club finished
-            there. These are plain table positions; how many places lead to Europe or relegation
-            depends on the league&apos;s rules. The coloured strip shows how likely every final
-            position is.
+            Today: current table position and points. Change: places gained or lost from today to
+            the predicted final position (#), which is the order by expected points. Final pts:
+            expected points at the end of the season. Title, top 4 and bottom 3: share of
+            simulations in which the club finished there. These are plain table positions; how many
+            places lead to Europe or relegation depends on the league&apos;s rules. The coloured
+            strip shows how likely every final position is.
           </p>
         </section>
       ) : (

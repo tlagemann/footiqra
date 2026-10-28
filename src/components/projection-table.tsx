@@ -8,6 +8,29 @@ function ordinal(n: number): string {
   return `${n}${["th", "st", "nd", "rd"][n % 10] ?? "th"}`;
 }
 
+/** Places gained (green, up) or lost (red, down) between today and the predicted end. */
+function PositionChange({ from, to }: { from: number; to: number }) {
+  const diff = from - to;
+  if (diff === 0) {
+    return (
+      <span className="text-muted" title="No change expected">
+        =
+      </span>
+    );
+  }
+  const up = diff > 0;
+  return (
+    <span
+      className={`font-semibold whitespace-nowrap ${up ? "text-positive" : "text-negative"}`}
+      title={`${Math.abs(diff)} place${Math.abs(diff) === 1 ? "" : "s"} ${up ? "higher" : "lower"} than today`}
+    >
+      <span aria-hidden="true">{up ? "▲" : "▼"}</span>
+      <span className="sr-only">{up ? "up" : "down"} </span>
+      {Math.abs(diff)}
+    </span>
+  );
+}
+
 export function chance(p: number): string {
   if (p <= 0) return "·";
   if (p < 0.005) return "<1%";
@@ -48,6 +71,14 @@ export function ProjectionTable({ rows, caption }: { rows: ProjectionRow[]; capt
             <th
               scope="col"
               className="px-2 py-4 text-right font-medium sm:px-3"
+              title="Change from today's table position to the predicted final position"
+            >
+              <span className="sm:hidden">+/-</span>
+              <span className="hidden sm:inline">Change</span>
+            </th>
+            <th
+              scope="col"
+              className="px-2 py-4 text-right font-medium sm:px-3"
               title="Expected points at the end of the season"
             >
               <span className="sm:hidden">Pts</span>
@@ -60,7 +91,7 @@ export function ProjectionTable({ rows, caption }: { rows: ProjectionRow[]; capt
               Top 4
             </th>
             <th scope="col" className="py-4 pr-5 pl-2 text-right font-medium sm:pr-7 lg:pr-3">
-              <span className="sm:hidden">Btm 3</span>
+              <span className="whitespace-nowrap sm:hidden">Btm 3</span>
               <span className="hidden sm:inline">Bottom 3</span>
             </th>
             <th scope="col" className="hidden py-4 pr-7 pl-4 text-left font-medium lg:table-cell">
@@ -76,7 +107,7 @@ export function ProjectionTable({ rows, caption }: { rows: ProjectionRow[]; capt
               </td>
               <th
                 scope="row"
-                className="max-w-[10rem] py-3 pr-2 text-left font-normal sm:max-w-none"
+                className="max-w-[7.5rem] py-3 pr-2 text-left font-normal sm:max-w-none"
               >
                 <Link
                   href={`/teams/${r.team.slug}/`}
@@ -88,6 +119,9 @@ export function ProjectionTable({ rows, caption }: { rows: ProjectionRow[]; capt
               </th>
               <td className={`${num} hidden text-muted md:table-cell`}>
                 {ordinal(r.currentPosition)}, {r.points} pts
+              </td>
+              <td className={num}>
+                <PositionChange from={r.currentPosition} to={i + 1} />
               </td>
               <td className={`${num} font-display text-lg font-extrabold`}>
                 {Math.round(r.expectedPoints)}
