@@ -31,14 +31,11 @@ const nextConfig: NextConfig = {
 
   ...(buildTarget === "export" ? { output: "export" as const, images: { unoptimized: true } } : {}),
 
-  turbopack: {
-    rules: {
-      "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
-        as: "*.css",
-      },
-    },
-  },
+  // Bundler: builds run with Webpack (`next build --webpack`, see package.json).
+  // Verified on SiteGround 2026-10-28: Turbopack runs CSS/PostCSS loaders in a helper
+  // process that binds a local port, which SiteGround's build sandbox forbids
+  // ("binding to a port: Operation not permitted"). Webpack runs loaders in-process.
+  // Tailwind is wired through postcss.config.mjs.
 };
 
 export default nextConfig;
