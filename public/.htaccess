@@ -5,10 +5,19 @@
 ErrorDocument 404 /404.html
 
 <IfModule mod_headers.c>
-  # Pages, sitemap and robots.txt change with every data update: short browser cache.
-  <FilesMatch "\.(html|txt|xml)$">
+  # Pages change with every data update. "no-cache" makes browsers revalidate
+  # (cheap 304 responses) and keeps SiteGround's Dynamic Cache from storing stale
+  # copies (verified behaviour: SiteGround does not cache responses with no-cache).
+  <FilesMatch "\.(html|txt)$">
     Header unset Expires
-    Header set Cache-Control "public, max-age=300, must-revalidate"
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+
+  # Sitemap and robots.txt: short cache. Note: SiteGround's NGINX direct delivery may
+  # serve these files itself with its own expiry; search engines refetch them anyway.
+  <FilesMatch "\.xml$">
+    Header unset Expires
+    Header set Cache-Control "public, max-age=3600"
   </FilesMatch>
 
   # Build assets have content hashes in their names and never change.
