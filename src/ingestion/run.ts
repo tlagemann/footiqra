@@ -112,7 +112,7 @@ export async function runStandingsIngest(options: {
   now?: () => Date;
   log?: (line: string) => void;
 }): Promise<CompetitionResult[]> {
-  const competitions = options.competitions ?? LEAGUES.map((l) => l.providerCodes.footballData);
+  const competitions = options.competitions ?? STANDINGS_COMPETITIONS;
   const now = options.now ?? (() => new Date());
   const log = options.log ?? (() => {});
   const results: CompetitionResult[] = [];

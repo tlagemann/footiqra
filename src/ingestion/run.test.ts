@@ -202,3 +202,11 @@ describe("standings", () => {
     expect(await readStandingsFile(dir, "BL1", 2026)).toBeNull();
   });
 });
+
+describe("standings competitions", () => {
+  it("include the Champions League", async () => {
+    const { STANDINGS_COMPETITIONS } = await import("./run");
+    expect(STANDINGS_COMPETITIONS).toContain("CL");
+    expect(STANDINGS_COMPETITIONS).toContain("PL");
+  });
+});
