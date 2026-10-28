@@ -91,3 +91,11 @@ body {
     animation: none !important;
   }
 }
+
+/* Horizontal scrolling without a visible scrollbar (main navigation on phones). */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
