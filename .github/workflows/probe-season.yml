@@ -1,6 +1,7 @@
 # Manual check: can football-data.org deliver a past season with our token?
 # Runs the normal import for the chosen season into a throwaway data folder.
-# Nothing is committed or deployed; results appear as notices on the run.
+# Results appear as notices on the run. With "archive" set, the season is committed
+# to data/archive/ (not read by the site; used for model backtests). Nothing is deployed.
 name: Probe past season
 
 on:
@@ -10,9 +11,13 @@ on:
         description: "Season start year, e.g. 2025 for 2025/26"
         required: true
         default: "2025"
+      archive:
+        description: "Commit the season to data/archive/"
+        type: boolean
+        default: false
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   probe:
@@ -52,3 +57,22 @@ jobs:
               console.log(`::notice title=${f}::entries=${Array.isArray(m) ? m.length : "?"} finished=${fin} first=${dates[0] ?? ""} last=${dates.at(-1) ?? ""}`);
             }
           '
+      - name: Archive season
+        if: inputs.archive
+        run: |
+          season="${{ inputs.season }}"
+          mkdir -p /tmp/archive
+          cp -r data /tmp/archive/data
+          git checkout -- . && git clean -fdq
+          git pull -q --rebase
+          for f in /tmp/archive/data/matches/*/"$season".json; do
+            code=$(basename "$(dirname "$f")")
+            mkdir -p "data/archive/matches/$code"
+            cp "$f" "data/archive/matches/$code/$season.json"
+          done
+          cp /tmp/archive/data/teams.json "data/archive/teams-$season.json"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/archive
+          git commit -qm "data: archive season $season for backtests" || exit 0
+          for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 10; done
