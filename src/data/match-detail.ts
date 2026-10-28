@@ -1,10 +1,5 @@
 import { getLeagueBySlug, LEAGUES } from "@/config/leagues";
-import {
-  ELO_V1_OPTIONS,
-  matchProbabilities,
-  toPercentages,
-  type MatchProbabilities,
-} from "@/ranking";
+import { ELO_OPTIONS, matchProbabilities, toPercentages, type MatchProbabilities } from "@/ranking";
 import type { StoredMatch } from "@/store/types";
 import type { PowerRanking, PowerRankingRow } from "./power-ranking";
 import {
@@ -195,7 +190,7 @@ export function matchDetail(
   } else if (home.ranking && away.ranking) {
     const neutral = m.stage === "FINAL";
     const diff =
-      home.ranking.rating + (neutral ? 0 : ELO_V1_OPTIONS.homeAdvantage) - away.ranking.rating;
+      home.ranking.rating + (neutral ? 0 : ELO_OPTIONS.homeAdvantage) - away.ranking.rating;
     const probabilities = matchProbabilities(diff);
     forecast = { probabilities, percentages: toPercentages(probabilities), basis: "current" };
   }

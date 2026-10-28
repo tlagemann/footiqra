@@ -115,6 +115,6 @@ describe("computePowerRanking", () => {
   });
 
   it("reports the model id", () => {
-    expect(ranking.model).toBe("elo-v1");
+    expect(ranking.model).toBe("elo-v2");
   });
 });

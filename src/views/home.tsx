@@ -248,8 +248,8 @@ export async function HomeView({ locale }: { locale: Locale }) {
             <SectionHeading id="league-strength" title={t("League strength", "Ligastärke")} />
             <p className="-mt-2 mb-5 max-w-2xl text-muted">
               {locale === "de"
-                ? `Ratingpunkte, die jeder Verein einer Liga zusätzlich erhält. Der Wert startet bei den UEFA-Koeffizienten und verändert sich mit Spielen zwischen Vereinen verschiedener Ligen im Europapokal (bisher ${ranking.data.crossLeagueMatches} Spiele in dieser Saison).`
-                : `Rating points added to every team of a league. It starts from the UEFA coefficients and moves with results between clubs of different leagues in Europe (${ranking.data.crossLeagueMatches} matches so far this season).`}
+                ? `Ratingpunkte, die jeder Verein einer Liga zusätzlich erhält. Der Wert startete 2024/25 bei den UEFA-Koeffizienten und verändert sich seitdem mit Spielen zwischen Vereinen verschiedener Ligen im Europapokal (bisher ${ranking.data.crossLeagueMatches} Spiele in dieser Saison).`
+                : `Rating points added to every team of a league. It started from the UEFA coefficients in 2024/25 and has moved since with results between clubs of different leagues in Europe (${ranking.data.crossLeagueMatches} matches so far this season).`}
             </p>
             <LeagueStrength leagues={ranking.data.leagues} locale={locale} />
           </section>

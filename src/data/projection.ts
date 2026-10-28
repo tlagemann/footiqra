@@ -1,5 +1,5 @@
 import { getLeagueBySlug } from "@/config/leagues";
-import { ELO_V1_OPTIONS, marginShares, SIM_V1, simulateSeason } from "@/ranking";
+import { ELO_OPTIONS, marginShares, SIM_V1, simulateSeason } from "@/ranking";
 import type { PowerRanking } from "./power-ranking";
 import { crestPath, leagueTable, type Snapshot, type TeamRef } from "./repository";
 
@@ -69,8 +69,8 @@ export function leagueProjection(
     {
       runs,
       seed: SIM_V1.seed + leagueIndex,
-      homeAdvantage: ELO_V1_OPTIONS.homeAdvantage,
-      kFactor: ELO_V1_OPTIONS.kFactor,
+      homeAdvantage: ELO_OPTIONS.homeAdvantage,
+      kFactor: ELO_OPTIONS.kFactor,
       marginDistribution: marginShares(margins),
     },
   );

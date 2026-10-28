@@ -4,16 +4,16 @@ Stand: 28.10.2026 (nach dem SiteGround-Machbarkeitstest). Ergebnisse des Tests: 
 
 ## 1. Zusammenfassung
 
-| Bereich         | Entscheidung                                                                             |
-| --------------- | ---------------------------------------------------------------------------------------- |
-| Framework       | Next.js 16 (App Router), TypeScript strict, React 19, Build mit Webpack                  |
-| Ausgabe         | Rein statische Website (`output: "export"`), Ordner `out/`                               |
-| Hosting         | SiteGround (bestehender GrowBig-Tarif), nur fertige HTML/CSS/JS-Dateien                  |
-| Datenspeicher   | Versionierte JSON-Dateien im Repository (`data/`), keine Datenbank                       |
-| Datenquelle     | football-data.org, kostenloser Tarif (7 Ligen + Champions League, aktuelle Saison)       |
-| Automatisierung | GitHub Actions nach Zeitplan: Abruf, Commit, Build, Upload per SSH                       |
-| Ranking         | `elo-v1`: Elo plus Ligastärke aus UEFA-Koeffizienten, kalibriert durch Europapokalspiele |
-| Laufende Kosten | 0 € zusätzlich                                                                           |
+| Bereich         | Entscheidung                                                                                                               |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Framework       | Next.js 16 (App Router), TypeScript strict, React 19, Build mit Webpack                                                    |
+| Ausgabe         | Rein statische Website (`output: "export"`), Ordner `out/`                                                                 |
+| Hosting         | SiteGround (bestehender GrowBig-Tarif), nur fertige HTML/CSS/JS-Dateien                                                    |
+| Datenspeicher   | Versionierte JSON-Dateien im Repository (`data/`), keine Datenbank                                                         |
+| Datenquelle     | football-data.org, kostenloser Tarif (7 Ligen + Champions League, aktuelle Saison)                                         |
+| Automatisierung | GitHub Actions nach Zeitplan: Abruf, Commit, Build, Upload per SSH                                                         |
+| Ranking         | `elo-v2`: Elo plus Ligastärke aus UEFA-Koeffizienten, kalibriert durch Europapokalspiele, halber Übertrag zwischen Saisons |
+| Laufende Kosten | 0 € zusätzlich                                                                                                             |
 
 ## 2. Warum statisch statt Node.js-Server
 
@@ -86,13 +86,13 @@ API-Football bleibt Alternative (100 Anfragen/Tag kostenlos). Welche Saisons der
 
 ## 7. Ranking und Methodik (entschieden am 28.10.2026: Option 1)
 
-Modell `elo-v1` (`src/ranking/league-elo.ts`), öffentlich erklärt auf `/methodology/`:
+Modell `elo-v2` (seit 28.10.2026, vorher `elo-v1`; `src/ranking/league-elo.ts`), öffentlich erklärt auf `/methodology/`:
 
 - **Teamrating:** Elo, Start 1500, K-Faktor 20, Heimvorteil 65, Tordifferenz-Faktor.
-- **Ligastärke:** Jede Liga startet mit einem festen Wert aus den offiziellen UEFA-Länderkoeffizienten der Saison 2025/26 (`src/config/league-strength.ts`, gelesen am 28.10.2026): 2 Ratingpunkte je Koeffizientenpunkt Abstand zum Durchschnitt aller erfassten Ligen. Ergebnis: Premier League +57,9, Serie A +18,7, La Liga +12,9, Bundesliga +4,7, Ligue 1 -14,1, Primeira Liga -34,8, Eredivisie -45,3.
-- **Nachjustierung:** Jedes Europapokalspiel zwischen Teams zweier verschiedener Top-5-Ligen verschiebt beide Ligawerte (K 4, Nullsumme). Ligaspiele ändern die Ligastärke nie.
-- **Verwendete Spiele:** beendete Ligaspiele der aktuellen Saison plus Champions-League-Spiele zwischen Top-5-Teams. Nicht verwendet: Spiele gegen Klubs anderer Länder, Entscheidungen nach Verlängerung oder Elfmeterschießen.
-- **Saisonstart:** Ratings beginnen jede Saison neu. Mit Historie (Bezahlpaket) ließe sich ein Übertrag mit Rückführung zum Mittelwert ergänzen.
+- **Ligastärke:** Jede Liga startete zu Beginn von 2024/25 mit einem festen Wert aus den offiziellen UEFA-Länderkoeffizienten der Saison 2025/26 (`src/config/league-strength.ts`, gelesen am 28.10.2026): 2 Ratingpunkte je Koeffizientenpunkt Abstand zum Durchschnitt aller erfassten Ligen. Ergebnis: Premier League +57,9, Serie A +18,7, La Liga +12,9, Bundesliga +4,7, Ligue 1 -14,1, Primeira Liga -34,8, Eredivisie -45,3.
+- **Nachjustierung:** Jedes Europapokalspiel zwischen Teams zweier verschiedener Top-5-Ligen verschiebt beide Ligawerte (K 12, Nullsumme; bis elo-v1 K 4). Ligaspiele ändern die Ligastärke nie.
+- **Verwendete Spiele:** beendete Ligaspiele seit 2024/25 (Vorsaisons in `data/archive/`, per Workflow „Probe past season“ geladen) plus Champions-League-Spiele zwischen Top-5-Teams. Nicht verwendet: Spiele gegen Klubs anderer Länder, Entscheidungen nach Verlängerung oder Elfmeterschießen.
+- **Saisonstart:** Jeder Verein behält die Hälfte seines Abstands zu 1500 aus der Vorsaison; Aufsteiger starten bei 1450. Die Ligastärke läuft weiter. Gewählt per Rückrechnung (`npx tsx scripts/backtest.ts --soft`): Log Loss 2026/27 bis 28.10.2026 0,998 statt 1,051 mit Neustart (voller Übertrag 0,973, aber zu dominante Vorsaison). Die Form der letzten Spiele stärker zu gewichten verschlechterte die Prognosen. Nach jeder Saison: die abgelaufene Saison bleibt in `data/matches/`, die Rückrechnung mit mehr Saisons wiederholen.
 - Rankings werden nicht gespeichert, sondern beim Build deterministisch berechnet.
 
 Die UEFA-Koeffizienten werden einmal pro Saison aktualisiert (Datum in der Konfiguration mitpflegen).

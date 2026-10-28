@@ -2,7 +2,8 @@ import { expectedScore, goalDifferenceMultiplier, normaliseMatches } from "./elo
 import type { RankableMatch } from "./types";
 
 /**
- * Footiqra rating model "elo-v1": Elo with a league strength component.
+ * Footiqra rating model "elo-v2": Elo with a league strength component and
+ * partial carry-over between seasons (see computeMultiSeasonElo).
  *
  *   effective rating = team rating + league adjustment
  *
@@ -25,18 +26,37 @@ export interface LeagueEloOptions {
   homeAdvantage: number;
 }
 
-export const ELO_V1_OPTIONS: LeagueEloOptions = {
+/**
+ * Values chosen by backtest (scripts/backtest.ts) on 2024/25 to 2026/27: log loss of
+ * forecasts made before every match. leagueKFactor 12 beat 4 on European matches;
+ * kFactor and homeAdvantage were already close to the best values.
+ */
+export const ELO_OPTIONS: LeagueEloOptions = {
   baseRating: 1500,
   kFactor: 20,
-  leagueKFactor: 4,
+  leagueKFactor: 12,
   homeAdvantage: 65,
 };
 
-export const ELO_V1_MODEL_ID = "elo-v1";
+export const ELO_MODEL_ID = "elo-v2";
+
+/** Rating carried from one season into the next. */
+export interface SeasonCarryOver {
+  /** Share of a team's distance from the base rating that is kept (0 = full reset, 1 = no reset). */
+  share: number;
+  /** Rating points below base for clubs that were not in the same league last season (promoted). */
+  newcomerPenalty: number;
+}
+
+export const SEASON_CARRY_OVER: SeasonCarryOver = { share: 0.5, newcomerPenalty: 50 };
 
 export interface LeagueEloResult {
   /** Effective rating per team (team rating + league adjustment). */
   ratings: Map<string, number>;
+  /** Team rating without the league adjustment. */
+  teamRatings: Map<string, number>;
+  /** League adjustments before the first match of this run (season start). */
+  startLeagueAdjustments: Map<string, number>;
   matchesPlayed: Map<string, number>;
   /** Current league adjustment (starting offset + changes from European matches). */
   leagueAdjustments: Map<string, number>;
@@ -60,10 +80,17 @@ export function computeLeagueElo(
   teamLeague: ReadonlyMap<string, string>,
   leagueOffsets: Readonly<Record<string, number>>,
   options: Partial<LeagueEloOptions> = {},
+  /** Team ratings and league adjustments at the start (e.g. carried over from last season). */
+  start?: {
+    teamRatings: ReadonlyMap<string, number>;
+    leagueAdjustments: ReadonlyMap<string, number>;
+  },
 ): LeagueEloResult {
-  const opts = { ...ELO_V1_OPTIONS, ...options };
+  const opts = { ...ELO_OPTIONS, ...options };
   const teamRating = new Map<string, number>();
   const leagueAdj = new Map<string, number>(Object.entries(leagueOffsets));
+  for (const [league, adj] of start?.leagueAdjustments ?? []) leagueAdj.set(league, adj);
+  const startLeagueAdjustments = new Map(leagueAdj);
   const matchesPlayed = new Map<string, number>();
   let crossLeagueMatches = 0;
   const preMatch: LeagueEloResult["preMatch"] = [];
@@ -79,7 +106,9 @@ export function computeLeagueElo(
   const rating = (teamId: string) => teamRating.get(teamId) ?? opts.baseRating;
 
   // Every team with a known league appears in the result, even before its first match.
-  for (const teamId of teamLeague.keys()) teamRating.set(teamId, opts.baseRating);
+  for (const teamId of teamLeague.keys()) {
+    teamRating.set(teamId, start?.teamRatings.get(teamId) ?? opts.baseRating);
+  }
 
   for (const match of normaliseMatches(matches)) {
     const homeLeague = leagueOf(match.homeTeamId);
@@ -153,10 +182,57 @@ export function computeLeagueElo(
   }
   return {
     ratings,
+    teamRatings: teamRating,
+    startLeagueAdjustments,
     matchesPlayed,
     leagueAdjustments: leagueAdj,
     crossLeagueMatches,
     preMatch,
     timeline,
   };
+}
+
+export interface SeasonInput {
+  season: number;
+  matches: readonly RankableMatch[];
+  /** Team id -> league slug for this season. */
+  teamLeague: ReadonlyMap<string, string>;
+}
+
+/**
+ * Runs computeLeagueElo season by season, oldest first. At each new season a team
+ * keeps `share` of its distance from the base rating; clubs that were not in the
+ * same league the season before start `newcomerPenalty` points below base. League
+ * adjustments carry over unchanged. Returns the result of the latest season.
+ */
+export function computeMultiSeasonElo(
+  seasons: readonly SeasonInput[],
+  leagueOffsets: Readonly<Record<string, number>>,
+  options: Partial<LeagueEloOptions> = {},
+  carry: SeasonCarryOver = SEASON_CARRY_OVER,
+): LeagueEloResult {
+  if (seasons.length === 0) throw new Error("At least one season is required");
+  const opts = { ...ELO_OPTIONS, ...options };
+  const ordered = [...seasons].sort((a, b) => a.season - b.season);
+  let result: LeagueEloResult | null = null;
+  let previous: SeasonInput | null = null;
+  for (const season of ordered) {
+    let start;
+    if (result && previous) {
+      const teamRatings = new Map<string, number>();
+      const leaguesBefore = new Set(previous.teamLeague.values());
+      for (const [id, league] of season.teamLeague) {
+        const old = result.teamRatings.get(id);
+        if (old !== undefined && previous.teamLeague.get(id) === league) {
+          teamRatings.set(id, opts.baseRating + carry.share * (old - opts.baseRating));
+        } else if (leaguesBefore.has(league)) {
+          teamRatings.set(id, opts.baseRating - carry.newcomerPenalty);
+        }
+      }
+      start = { teamRatings, leagueAdjustments: result.leagueAdjustments };
+    }
+    result = computeLeagueElo(season.matches, season.teamLeague, leagueOffsets, opts, start);
+    previous = season;
+  }
+  return result!;
 }

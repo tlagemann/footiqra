@@ -20,6 +20,11 @@ export interface Snapshot {
   crestIds?: ReadonlySet<number>;
   /** Newest official league table per competition. */
   standings?: StandingsFile[];
+  /**
+   * Earlier seasons from data/archive (used only to carry ratings into the
+   * current season; never shown as matches).
+   */
+  archivedMatchFiles?: MatchFile[];
 }
 
 export type FormResult = "W" | "D" | "L";

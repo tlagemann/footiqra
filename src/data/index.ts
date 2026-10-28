@@ -1,3 +1,4 @@
+import { ELO_MODEL_ID } from "@/ranking";
 import "server-only";
 import { dataDir, listHistoryDates, readHistoryFile } from "@/store/fs";
 import { referenceDate, utcDay, type HistoryFile, type HistoryTeam } from "./history";
@@ -156,6 +157,8 @@ export function getWeekAgo(): Promise<HistoryReference | undefined> {
     const date = referenceDate(await listHistoryDates(dataDir()), utcDay(current), 7);
     if (!date) return undefined;
     const file = await readHistoryFile<HistoryFile>(dataDir(), date);
+    // Ranks from another rating model are not comparable.
+    if (file && file.model !== ELO_MODEL_ID) return undefined;
     return file ? { date, teams: new Map(file.teams.map((t) => [t.slug, t])) } : undefined;
   })();
   return referencePromise;

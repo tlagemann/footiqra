@@ -9,7 +9,7 @@ import { getLeagueBySlug, type LeagueSlug } from "@/config/leagues";
 import { fmtDecimal, fmtInt, fmtPercent, paths, tr, type Locale } from "@/i18n";
 import { pageMetadata } from "@/lib/seo";
 import { ogImage } from "@/og/images";
-import { ELO_V1_MODEL_ID, ELO_V1_OPTIONS, FORECAST_V1, SIM_V1 } from "@/ranking";
+import { ELO_MODEL_ID, ELO_OPTIONS, FORECAST_V1, SEASON_CARRY_OVER, SIM_V1 } from "@/ranking";
 
 export function methodologyMetadata(locale: Locale): Metadata {
   return pageMetadata({
@@ -30,7 +30,7 @@ export function methodologyMetadata(locale: Locale): Metadata {
 }
 
 // All numbers on this page come from the same constants the calculation uses.
-const opts = ELO_V1_OPTIONS;
+const opts = ELO_OPTIONS;
 const h2 = "font-display text-3xl font-extrabold tracking-[-0.03em]";
 
 export function MethodologyView({ locale }: { locale: Locale }) {
@@ -55,7 +55,7 @@ export function MethodologyView({ locale }: { locale: Locale }) {
     <article className="max-w-3xl space-y-12 text-lg leading-relaxed">
       <header className="space-y-5">
         <Eyebrow>
-          {t("Model", "Modell")} {ELO_V1_MODEL_ID}
+          {t("Model", "Modell")} {ELO_MODEL_ID}
         </Eyebrow>
         <h1 className="font-display text-5xl font-extrabold tracking-[-0.045em] sm:text-7xl">
           {t("Methodology", "Methodik")}
@@ -66,13 +66,13 @@ export function MethodologyView({ locale }: { locale: Locale }) {
               Das Footiqra Power-Ranking schätzt, wie stark jeder Verein der Top-Ligen Europas
               gerade ist, und zwar auf einer gemeinsamen Skala. Es basiert ausschließlich auf
               Spielergebnissen. Diese Seite dokumentiert genau, wie es berechnet wird (Modell{" "}
-              <code>{ELO_V1_MODEL_ID}</code>).
+              <code>{ELO_MODEL_ID}</code>).
             </>
           ) : (
             <>
               The Footiqra power ranking estimates how strong every team in Europe&apos;s top
               leagues is right now, on one common scale. It is based only on match results. This
-              page documents exactly how it is calculated (model <code>{ELO_V1_MODEL_ID}</code>).
+              page documents exactly how it is calculated (model <code>{ELO_MODEL_ID}</code>).
             </>
           )}
         </p>
@@ -88,8 +88,8 @@ export function MethodologyView({ locale }: { locale: Locale }) {
         </p>
         <ul className="space-y-2 rounded-3xl bg-surface p-6 text-base">
           <li>
-            {t("Starting rating", "Startwert")}: {opts.baseRating}{" "}
-            {t("(plus the league offset, see below)", "(plus Ligastärke, siehe unten)")}
+            {t("Base rating", "Grundwert")}: {opts.baseRating}{" "}
+            {t("(plus league strength, see below)", "(plus Ligastärke, siehe unten)")}
           </li>
           <li>
             {t("Update step (K-factor)", "Schrittweite (K-Faktor)")}: {opts.kFactor}{" "}
@@ -108,8 +108,29 @@ export function MethodologyView({ locale }: { locale: Locale }) {
         </ul>
       </section>
 
+      <section id="seasons" className="scroll-mt-24 space-y-4">
+        <h2 className={h2}>{t("2. New season", "2. Neue Saison")}</h2>
+        <p>
+          {de
+            ? `Zum Start einer neuen Saison wird nicht jeder Verein auf ${opts.baseRating} zurückgesetzt. Er behält die Hälfte seines Abstands zum Grundwert aus der Vorsaison: Ein Verein, der die Saison mit ${opts.baseRating + 200} beendet hat, startet mit ${opts.baseRating + 200 * SEASON_CARRY_OVER.share}. Aufsteiger und Vereine, die in der Vorsaison nicht in derselben Liga spielten, starten ${SEASON_CARRY_OVER.newcomerPenalty} Punkte unter dem Grundwert. Die Ligastärke läuft unverändert weiter.`
+            : `When a new season starts, clubs are not reset to ${opts.baseRating}. Each club keeps half of its distance from the base rating: a club that finished last season on ${opts.baseRating + 200} starts on ${opts.baseRating + 200 * SEASON_CARRY_OVER.share}. Promoted clubs and clubs that did not play in the same league last season start ${SEASON_CARRY_OVER.newcomerPenalty} points below the base rating. League strength carries on unchanged.`}
+        </p>
+        <p>
+          {t(
+            "So last season gives a sensible starting point, but the current season quickly takes over: every match moves the rating again, and older results fade. The data starts with the 2024/25 season, when every club started at the base rating.",
+            "So gibt die Vorsaison einen sinnvollen Ausgangspunkt, die laufende Saison übernimmt aber schnell: Jedes Spiel verschiebt das Rating erneut, ältere Ergebnisse verlieren an Gewicht. Die Daten beginnen mit der Saison 2024/25, in der alle Vereine beim Grundwert starteten.",
+          )}
+        </p>
+        <p>
+          {t(
+            "Why half? We replayed every match from 2024/25 to October 2026 and scored the forecast made before each one. Carrying ratings over predicted the results of 2026/27 clearly better than resetting every club each summer. Carrying them over in full predicted slightly better still, but let last season dominate the current ranking for too long; half is the compromise.",
+            "Warum die Hälfte? Wir haben jedes Spiel von 2024/25 bis Oktober 2026 nachgerechnet und die Prognose vor jedem Anpfiff bewertet. Mit übernommenen Ratings wurden die Ergebnisse von 2026/27 deutlich besser vorhergesagt als mit einem Neustart jeden Sommer. Eine volle Übernahme war noch etwas genauer, hätte das aktuelle Ranking aber zu lange von der Vorsaison bestimmen lassen; die Hälfte ist der Kompromiss.",
+          )}
+        </p>
+      </section>
+
       <section className="space-y-4">
-        <h2 className={h2}>{t("2. Comparing leagues", "2. Ligen vergleichen")}</h2>
+        <h2 className={h2}>{t("3. Comparing leagues", "3. Ligen vergleichen")}</h2>
         <p>
           {t(
             "Within a league, every team plays every other team, so ratings inside a league are well connected. Between leagues they are not: Bayern and Arsenal only meet in European competition. Domestic results alone cannot tell whether 80 points in one league are worth more than 80 points in another.",
@@ -138,7 +159,7 @@ export function MethodologyView({ locale }: { locale: Locale }) {
         <div className="overflow-x-auto rounded-3xl bg-surface p-3 sm:p-4">
           <table className="w-full text-base">
             <caption className="sr-only">
-              {t("Starting league strength", "Ligastärke zum Saisonstart")}
+              {t("Starting league strength (2024/25)", "Startwert der Ligastärke (2024/25)")}
             </caption>
             <thead className="text-left text-sm text-muted">
               <tr>
@@ -180,18 +201,18 @@ export function MethodologyView({ locale }: { locale: Locale }) {
         </p>
         <p>
           {de
-            ? `Die Startwerte sind nur eine Ausgangsannahme. Jedes Spiel zwischen Vereinen zweier verschiedener abgedeckter Ligen verschiebt auch die beiden Ligastärken, um ${opts.leagueKFactor} Punkte mal denselben Überraschungsfaktor wie bei den Vereinen. Ligaspiele verändern die Ligastärke nie, weil beide Teams sie teilen.`
-            : `The starting values are only a prior. Every match between clubs from two different leagues covered by Footiqra also moves the two league strengths, by ${opts.leagueKFactor} points times the same surprise factor used for teams. Domestic matches never change league strength, because both teams share it.`}
+            ? `Diese Startwerte galten zu Beginn der Saison 2024/25 und sind nur eine Ausgangsannahme. Jedes Spiel zwischen Vereinen zweier verschiedener abgedeckter Ligen verschiebt auch die beiden Ligastärken, um ${opts.leagueKFactor} Punkte mal denselben Überraschungsfaktor wie bei den Vereinen. Ligaspiele verändern die Ligastärke nie, weil beide Teams sie teilen.`
+            : `These starting values applied at the start of 2024/25 and are only a prior. Every match between clubs from two different leagues covered by Footiqra also moves the two league strengths, by ${opts.leagueKFactor} points times the same surprise factor used for teams. Domestic matches never change league strength, because both teams share it.`}
         </p>
       </section>
 
       <section className="space-y-4">
-        <h2 className={h2}>{t("3. Which matches count", "3. Welche Spiele zählen")}</h2>
+        <h2 className={h2}>{t("4. Which matches count", "4. Welche Spiele zählen")}</h2>
         <ul className="list-disc space-y-2 pl-6 marker:text-brand">
           <li>
             {t(
-              "All finished league matches of the current season",
-              "Alle beendeten Ligaspiele der laufenden Saison",
+              "All finished league matches since the 2024/25 season; earlier seasons only shape the starting ratings (see “New season”)",
+              "Alle beendeten Ligaspiele seit der Saison 2024/25; frühere Saisons bestimmen nur die Startwerte (siehe „Neue Saison“)",
             )}
           </li>
           <li>
@@ -216,7 +237,7 @@ export function MethodologyView({ locale }: { locale: Locale }) {
       </section>
 
       <section id="forecasts" className="scroll-mt-24 space-y-4">
-        <h2 className={h2}>{t("4. Match forecasts", "4. Spielprognosen")}</h2>
+        <h2 className={h2}>{t("5. Match forecasts", "5. Spielprognosen")}</h2>
         <p>
           {de ? (
             <>
@@ -258,7 +279,7 @@ export function MethodologyView({ locale }: { locale: Locale }) {
 
       <section id="simulation" className="scroll-mt-24 space-y-4">
         <h2 className={h2}>
-          {t("5. Predicted final tables", "5. Prognose der Abschlusstabellen")}
+          {t("6. Predicted final tables", "6. Prognose der Abschlusstabellen")}
         </h2>
         <p>
           {de ? (
@@ -287,18 +308,18 @@ export function MethodologyView({ locale }: { locale: Locale }) {
       </section>
 
       <section className="space-y-4">
-        <h2 className={h2}>{t("6. Limitations", "6. Grenzen")}</h2>
+        <h2 className={h2}>{t("7. Limitations", "7. Grenzen")}</h2>
         <ul className="list-disc space-y-2 pl-6 marker:text-brand">
           <li>
             {t(
-              "Ratings restart at the beginning of each season. Early in a season, after only a few matches, they are still close to the starting values and less reliable.",
-              "Die Ratings starten mit jeder Saison neu. Früh in der Saison, nach wenigen Spielen, liegen sie noch nah an den Startwerten und sind weniger verlässlich.",
+              "Early in a season, ratings still lean on last season. Summer transfers or a new coach only show up once the results change.",
+              "Früh in der Saison stützen sich die Ratings noch stark auf die Vorsaison. Transfers im Sommer oder ein neuer Trainer zeigen sich erst, wenn sich die Ergebnisse ändern.",
             )}
           </li>
           <li>
             {t(
-              "Only a small number of matches per season connect the leagues, so league strength moves slowly and relies on the UEFA starting values for a long time.",
-              "Nur wenige Spiele pro Saison verbinden die Ligen. Die Ligastärke bewegt sich daher langsam und stützt sich lange auf die UEFA-Startwerte.",
+              "Only a small number of matches per season connect the leagues, so league strength rests on comparatively few results.",
+              "Nur wenige Spiele pro Saison verbinden die Ligen. Die Ligastärke beruht daher auf vergleichsweise wenigen Ergebnissen.",
             )}
           </li>
           <li>

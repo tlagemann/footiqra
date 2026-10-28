@@ -15,12 +15,13 @@ export async function readCrestIds(rootDir: string): Promise<Set<number>> {
 
 /** Reads everything the site and the scripts need from the data store. */
 export async function loadSnapshotFromDisk(dataDir: string, rootDir: string): Promise<Snapshot> {
-  const [meta, teams, matchFiles, crestIds, standings] = await Promise.all([
+  const [meta, teams, matchFiles, crestIds, standings, archivedMatchFiles] = await Promise.all([
     readMeta(dataDir),
     readTeams(dataDir),
     readAllMatchFiles(dataDir),
     readCrestIds(rootDir),
     readLatestStandings(dataDir),
+    readAllMatchFiles(path.join(dataDir, "archive")),
   ]);
-  return { meta, teams, matchFiles, crestIds, standings };
+  return { meta, teams, matchFiles, crestIds, standings, archivedMatchFiles };
 }

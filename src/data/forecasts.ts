@@ -1,10 +1,5 @@
 import { LEAGUES } from "@/config/leagues";
-import {
-  ELO_V1_OPTIONS,
-  matchProbabilities,
-  toPercentages,
-  type MatchProbabilities,
-} from "@/ranking";
+import { ELO_OPTIONS, matchProbabilities, toPercentages, type MatchProbabilities } from "@/ranking";
 import type { PowerRanking } from "./power-ranking";
 import { crestPath, matchSlugs, type Snapshot } from "./repository";
 
@@ -54,7 +49,7 @@ export function upcomingForecasts(
       const away = rated.get(m.awayTeamId);
       if (!home || !away) continue;
       const neutral = m.stage === "FINAL";
-      const diff = home.rating + (neutral ? 0 : ELO_V1_OPTIONS.homeAdvantage) - away.rating;
+      const diff = home.rating + (neutral ? 0 : ELO_OPTIONS.homeAdvantage) - away.rating;
       const probabilities = matchProbabilities(diff);
       const team = (r: typeof home): ForecastTeam => ({
         slug: r.team.slug,

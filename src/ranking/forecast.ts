@@ -12,8 +12,9 @@ import { expectedScore } from "./elo";
  *    P(away) = 1 - E - P(draw) / 2.
  *
  * DRAW_MAX and DRAW_SHAPE were chosen by log loss on the 593 matches of the
- * 2026/27 season up to 28 Oct 2026 (log loss 1.050 vs 1.072 for always
- * predicting the average home/draw/away rates).
+ * 2026/27 season up to 28 Oct 2026 with model elo-v1. With elo-v2 (28 Oct 2026,
+ * 596 matches) the log loss is 0.998 vs 1.073 for always predicting the average
+ * home/draw/away rates.
  */
 export const FORECAST_V1 = {
   id: "forecast-v1",

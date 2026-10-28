@@ -1,19 +1,19 @@
 import { leagueStartingOffsets } from "@/config/league-strength";
 import { LEAGUES } from "@/config/leagues";
 import {
-  computeLeagueElo,
-  ELO_V1_MODEL_ID,
+  computeMultiSeasonElo,
+  ELO_MODEL_ID,
   evaluateForecasts,
   type ForecastRecord,
-  ELO_V1_OPTIONS,
+  ELO_OPTIONS,
   toRanking,
   type RankableMatch,
+  type SeasonInput,
 } from "@/ranking";
-import type { StoredMatch } from "@/store/types";
+import type { MatchFile, StoredMatch } from "@/store/types";
 import {
   allLeagueTeams,
   recentForm,
-  teamLeagueMap,
   type FormResult,
   type Snapshot,
   type TeamSummary,
@@ -30,6 +30,7 @@ export interface PowerRankingRow {
 
 export interface LeagueStrength {
   leagueSlug: string;
+  /** League strength at the start of the current season. */
   startingOffset: number;
   currentAdjustment: number;
 }
@@ -51,7 +52,9 @@ export interface PowerRanking {
   >;
 }
 
-const LEAGUE_CODES = new Set(LEAGUES.map((l) => l.providerCodes.footballData));
+const LEAGUE_BY_CODE = new Map<string, string>(
+  LEAGUES.map((l) => [l.providerCodes.footballData, l.slug]),
+);
 
 /** Finished, decided in regular time, with a score. Extra time / penalties are excluded for now. */
 function isRankable(m: StoredMatch): boolean {
@@ -75,39 +78,61 @@ function toRankable(m: StoredMatch): RankableMatch {
 }
 
 /**
- * Current-season power ranking across all covered leagues.
- *
- * Uses all league matches of the latest season plus European matches in which
- * BOTH teams belong to one of the covered leagues. Matches against clubs from other
- * countries are not used, because their league strength is unknown to the model.
+ * Rankable matches per season. A season holds the league matches of the covered
+ * leagues plus European matches in which BOTH teams play in a covered league that
+ * season. Matches against clubs from other countries are not used, because their
+ * league strength is unknown to the model.
+ */
+export function seasonInputs(files: readonly MatchFile[]): SeasonInput[] {
+  const bySeason = new Map<number, MatchFile[]>();
+  for (const f of files) bySeason.set(f.season, [...(bySeason.get(f.season) ?? []), f]);
+  const seasons: SeasonInput[] = [];
+  for (const [season, list] of bySeason) {
+    const teamLeague = new Map<string, string>();
+    for (const f of list) {
+      const league = LEAGUE_BY_CODE.get(f.competition);
+      if (!league) continue;
+      for (const m of f.matches) {
+        teamLeague.set(String(m.homeTeamId), league);
+        teamLeague.set(String(m.awayTeamId), league);
+      }
+    }
+    if (teamLeague.size === 0) continue;
+    const matches: RankableMatch[] = [];
+    for (const f of list) {
+      for (const m of f.matches) {
+        if (!isRankable(m)) continue;
+        if (!teamLeague.has(String(m.homeTeamId)) || !teamLeague.has(String(m.awayTeamId))) {
+          continue;
+        }
+        matches.push(toRankable(m));
+      }
+    }
+    seasons.push({ season, matches, teamLeague });
+  }
+  return seasons.sort((a, b) => a.season - b.season);
+}
+
+/**
+ * Current-season power ranking across all covered leagues. Earlier seasons (from
+ * data/archive and older files in data/matches) only provide the starting ratings.
  */
 export function computePowerRanking(snapshot: Snapshot): PowerRanking {
-  const leagueOfTeam = teamLeagueMap(snapshot);
-  const seasons = new Map<string, number>(); // league code -> latest season
-  for (const f of snapshot.matchFiles) {
-    if (LEAGUE_CODES.has(f.competition)) {
-      seasons.set(f.competition, Math.max(seasons.get(f.competition) ?? 0, f.season));
-    }
+  // Same competition and season in both places: the live file wins.
+  const files = new Map<string, MatchFile>();
+  for (const f of [...(snapshot.archivedMatchFiles ?? []), ...snapshot.matchFiles]) {
+    files.set(`${f.competition}/${f.season}`, f);
   }
-  const currentSeason = Math.max(0, ...seasons.values());
+  const seasons = seasonInputs([...files.values()]);
+  const currentSeason = seasons.at(-1);
+  const matches = currentSeason?.matches ?? [];
 
-  const matches: RankableMatch[] = [];
-  for (const file of snapshot.matchFiles) {
-    const isLeagueFile = LEAGUE_CODES.has(file.competition);
-    if (isLeagueFile && file.season !== seasons.get(file.competition)) continue;
-    if (!isLeagueFile && file.season !== currentSeason) continue;
-    for (const m of file.matches) {
-      if (!isRankable(m)) continue;
-      if (!leagueOfTeam.has(m.homeTeamId) || !leagueOfTeam.has(m.awayTeamId)) continue;
-      matches.push(toRankable(m));
-    }
-  }
-
-  const teamLeague = new Map(
-    [...leagueOfTeam].map(([id, league]) => [String(id), league.slug] as const),
-  );
   const offsets = leagueStartingOffsets();
-  const result = computeLeagueElo(matches, teamLeague, offsets, ELO_V1_OPTIONS);
+  const result = computeMultiSeasonElo(
+    seasons.length ? seasons : [{ season: 0, matches: [], teamLeague: new Map() }],
+    offsets,
+    ELO_OPTIONS,
+  );
 
   const bySummaryId = new Map<string, TeamSummary>();
   const summaries = allLeagueTeams(snapshot);
@@ -129,12 +154,12 @@ export function computePowerRanking(snapshot: Snapshot): PowerRanking {
 
   const leagues = LEAGUES.map((l) => ({
     leagueSlug: l.slug,
-    startingOffset: offsets[l.slug],
+    startingOffset: result.startLeagueAdjustments.get(l.slug) ?? offsets[l.slug],
     currentAdjustment: result.leagueAdjustments.get(l.slug) ?? offsets[l.slug],
   })).sort((a, b) => b.currentAdjustment - a.currentAdjustment);
 
   return {
-    model: ELO_V1_MODEL_ID,
+    model: ELO_MODEL_ID,
     rows,
     leagues,
     matchesUsed: matches.length,

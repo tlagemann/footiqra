@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { leagueStartingOffsets } from "@/config/league-strength";
-import { computeLeagueElo } from "./league-elo";
+import { computeLeagueElo, computeMultiSeasonElo } from "./league-elo";
 import type { RankableMatch } from "./types";
 
 // Synthetic fixtures: fictional teams "a1", "a2" in league A and "b1", "b2" in league B.
@@ -134,5 +134,46 @@ describe("rating timeline", () => {
     expect(a1[1]!.rating).toBeGreaterThan(1520); // won match 1
     expect(a1.at(-1)!.rating).toBeCloseTo(result.ratings.get("a1")!, 10);
     expect(result.timeline.some((t) => t.teamId === "b1")).toBe(false); // no match played
+  });
+});
+
+describe("computeMultiSeasonElo", () => {
+  const carry = { share: 0.5, newcomerPenalty: 50 };
+  const lastSeason = {
+    season: 2025,
+    teamLeague,
+    matches: [
+      match({ id: "1", homeGoals: 3, awayGoals: 0 }),
+      match({ id: "2", homeTeamId: "b1", awayTeamId: "b2", homeGoals: 0, awayGoals: 2 }),
+    ],
+  };
+
+  it("carries half of each team's distance from base into the next season", () => {
+    const before = computeLeagueElo(lastSeason.matches, teamLeague, offsets).teamRatings;
+    const next = { season: 2026, teamLeague, matches: [] };
+    const result = computeMultiSeasonElo([next, lastSeason], offsets, {}, carry);
+    for (const id of ["a1", "a2", "b1", "b2"]) {
+      expect(result.teamRatings.get(id)).toBeCloseTo(1500 + 0.5 * (before.get(id)! - 1500), 9);
+    }
+  });
+
+  it("starts promoted clubs below base and keeps league strength", () => {
+    const promoted = new Map([...teamLeague, ["a3", "A"]]);
+    promoted.delete("a2");
+    const result = computeMultiSeasonElo(
+      [lastSeason, { season: 2026, teamLeague: promoted, matches: [] }],
+      offsets,
+      {},
+      carry,
+    );
+    expect(result.teamRatings.get("a3")).toBe(1450);
+    expect(result.teamRatings.has("a2")).toBe(false);
+    expect(result.leagueAdjustments.get("A")).toBe(offsets.A);
+  });
+
+  it("equals a single computeLeagueElo run for one season", () => {
+    const single = computeLeagueElo(lastSeason.matches, teamLeague, offsets);
+    const multi = computeMultiSeasonElo([lastSeason], offsets, {}, carry);
+    expect(multi.ratings).toEqual(single.ratings);
   });
 });
