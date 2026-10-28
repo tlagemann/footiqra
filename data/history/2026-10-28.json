@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "date": "2026-10-28",
-  "dataUtc": "2026-10-28T19:15:14.612Z",
+  "dataUtc": "2026-10-28T20:06:36.332Z",
   "model": "elo-v1",
   "teams": [
     {
@@ -63,9 +63,9 @@
       "leagueSlug": "serie-a",
       "powerRank": 7,
       "rating": 1607.6,
-      "tablePosition": 1,
+      "tablePosition": 2,
       "strengthPosition": 1,
-      "gap": 0
+      "gap": -1
     },
     {
       "slug": "liverpool-fc",
@@ -77,22 +77,22 @@
       "gap": 0
     },
     {
-      "slug": "como-1907",
-      "leagueSlug": "serie-a",
-      "powerRank": 9,
-      "rating": 1595.2,
-      "tablePosition": 4,
-      "strengthPosition": 2,
-      "gap": -2
-    },
-    {
       "slug": "fc-internazionale-milano",
       "leagueSlug": "serie-a",
-      "powerRank": 10,
-      "rating": 1583.9,
-      "tablePosition": 2,
-      "strengthPosition": 3,
+      "powerRank": 9,
+      "rating": 1595.4,
+      "tablePosition": 1,
+      "strengthPosition": 2,
       "gap": 1
+    },
+    {
+      "slug": "como-1907",
+      "leagueSlug": "serie-a",
+      "powerRank": 10,
+      "rating": 1595.2,
+      "tablePosition": 4,
+      "strengthPosition": 3,
+      "gap": -1
     },
     {
       "slug": "paris-saint-germain-fc",
@@ -140,18 +140,9 @@
       "gap": 0
     },
     {
-      "slug": "ac-milan",
-      "leagueSlug": "serie-a",
-      "powerRank": 16,
-      "rating": 1574.3,
-      "tablePosition": 5,
-      "strengthPosition": 5,
-      "gap": 0
-    },
-    {
       "slug": "leeds-united-fc",
       "leagueSlug": "premier-league",
-      "powerRank": 17,
+      "powerRank": 16,
       "rating": 1570.2,
       "tablePosition": 7,
       "strengthPosition": 6,
@@ -160,7 +151,7 @@
     {
       "slug": "chelsea-fc",
       "leagueSlug": "premier-league",
-      "powerRank": 18,
+      "powerRank": 17,
       "rating": 1566.8,
       "tablePosition": 5,
       "strengthPosition": 7,
@@ -169,7 +160,7 @@
     {
       "slug": "borussia-dortmund",
       "leagueSlug": "bundesliga",
-      "powerRank": 19,
+      "powerRank": 18,
       "rating": 1560,
       "tablePosition": 2,
       "strengthPosition": 2,
@@ -178,7 +169,7 @@
     {
       "slug": "hull-city-afc",
       "leagueSlug": "premier-league",
-      "powerRank": 20,
+      "powerRank": 19,
       "rating": 1558.1,
       "tablePosition": 10,
       "strengthPosition": 8,
@@ -187,7 +178,7 @@
     {
       "slug": "aston-villa-fc",
       "leagueSlug": "premier-league",
-      "powerRank": 21,
+      "powerRank": 20,
       "rating": 1557.4,
       "tablePosition": 9,
       "strengthPosition": 9,
@@ -196,7 +187,7 @@
     {
       "slug": "afc-bournemouth",
       "leagueSlug": "premier-league",
-      "powerRank": 22,
+      "powerRank": 21,
       "rating": 1556.4,
       "tablePosition": 13,
       "strengthPosition": 10,
@@ -205,11 +196,20 @@
     {
       "slug": "newcastle-united-fc",
       "leagueSlug": "premier-league",
-      "powerRank": 23,
+      "powerRank": 22,
       "rating": 1553.7,
       "tablePosition": 8,
       "strengthPosition": 11,
       "gap": 3
+    },
+    {
+      "slug": "ac-milan",
+      "leagueSlug": "serie-a",
+      "powerRank": 23,
+      "rating": 1553.6,
+      "tablePosition": 5,
+      "strengthPosition": 5,
+      "gap": 0
     },
     {
       "slug": "tottenham-hotspur-fc",
@@ -401,9 +401,18 @@
       "gap": 0
     },
     {
+      "slug": "bologna-fc-1909",
+      "leagueSlug": "serie-a",
+      "powerRank": 45,
+      "rating": 1520.9,
+      "tablePosition": 11,
+      "strengthPosition": 8,
+      "gap": -3
+    },
+    {
       "slug": "elche-cf",
       "leagueSlug": "la-liga",
-      "powerRank": 45,
+      "powerRank": 46,
       "rating": 1518.7,
       "tablePosition": 15,
       "strengthPosition": 10,
@@ -412,7 +421,7 @@
     {
       "slug": "rc-deportivo-la-coruna",
       "leagueSlug": "la-liga",
-      "powerRank": 46,
+      "powerRank": 47,
       "rating": 1516.7,
       "tablePosition": 11,
       "strengthPosition": 11,
@@ -421,7 +430,7 @@
     {
       "slug": "deportivo-alaves",
       "leagueSlug": "la-liga",
-      "powerRank": 47,
+      "powerRank": 48,
       "rating": 1516,
       "tablePosition": 7,
       "strengthPosition": 12,
@@ -430,7 +439,7 @@
     {
       "slug": "olympique-lyonnais",
       "leagueSlug": "ligue-1",
-      "powerRank": 47,
+      "powerRank": 48,
       "rating": 1516,
       "tablePosition": 5,
       "strengthPosition": 2,
@@ -439,7 +448,7 @@
     {
       "slug": "as-monaco-fc",
       "leagueSlug": "ligue-1",
-      "powerRank": 49,
+      "powerRank": 50,
       "rating": 1515.3,
       "tablePosition": 4,
       "strengthPosition": 3,
@@ -448,7 +457,7 @@
     {
       "slug": "stade-rennais-fc-1901",
       "leagueSlug": "ligue-1",
-      "powerRank": 50,
+      "powerRank": 51,
       "rating": 1514.1,
       "tablePosition": 2,
       "strengthPosition": 4,
@@ -457,7 +466,7 @@
     {
       "slug": "fc-augsburg",
       "leagueSlug": "bundesliga",
-      "powerRank": 51,
+      "powerRank": 52,
       "rating": 1513.1,
       "tablePosition": 9,
       "strengthPosition": 6,
@@ -466,7 +475,7 @@
     {
       "slug": "rb-leipzig",
       "leagueSlug": "bundesliga",
-      "powerRank": 52,
+      "powerRank": 53,
       "rating": 1512.7,
       "tablePosition": 5,
       "strengthPosition": 7,
@@ -475,7 +484,7 @@
     {
       "slug": "crystal-palace-fc",
       "leagueSlug": "premier-league",
-      "powerRank": 53,
+      "powerRank": 54,
       "rating": 1512.2,
       "tablePosition": 17,
       "strengthPosition": 17,
@@ -484,16 +493,16 @@
     {
       "slug": "torino-fc",
       "leagueSlug": "serie-a",
-      "powerRank": 54,
+      "powerRank": 55,
       "rating": 1511.3,
       "tablePosition": 8,
-      "strengthPosition": 8,
-      "gap": 0
+      "strengthPosition": 9,
+      "gap": 1
     },
     {
       "slug": "paris-fc",
       "leagueSlug": "ligue-1",
-      "powerRank": 55,
+      "powerRank": 56,
       "rating": 1509.6,
       "tablePosition": 6,
       "strengthPosition": 5,
@@ -502,7 +511,7 @@
     {
       "slug": "coventry-city-fc",
       "leagueSlug": "premier-league",
-      "powerRank": 56,
+      "powerRank": 57,
       "rating": 1509.5,
       "tablePosition": 19,
       "strengthPosition": 18,
@@ -511,7 +520,7 @@
     {
       "slug": "levante-ud",
       "leagueSlug": "la-liga",
-      "powerRank": 57,
+      "powerRank": 58,
       "rating": 1508.6,
       "tablePosition": 14,
       "strengthPosition": 13,
@@ -520,7 +529,7 @@
     {
       "slug": "manchester-united-fc",
       "leagueSlug": "premier-league",
-      "powerRank": 58,
+      "powerRank": 59,
       "rating": 1507.7,
       "tablePosition": 16,
       "strengthPosition": 19,
@@ -529,7 +538,7 @@
     {
       "slug": "sunderland-afc",
       "leagueSlug": "premier-league",
-      "powerRank": 59,
+      "powerRank": 60,
       "rating": 1507.5,
       "tablePosition": 20,
       "strengthPosition": 20,
@@ -538,7 +547,7 @@
     {
       "slug": "fc-twente-65",
       "leagueSlug": "eredivisie",
-      "powerRank": 60,
+      "powerRank": 61,
       "rating": 1506.9,
       "tablePosition": 4,
       "strengthPosition": 4,
@@ -547,7 +556,7 @@
     {
       "slug": "1-fsv-mainz-05",
       "leagueSlug": "bundesliga",
-      "powerRank": 61,
+      "powerRank": 62,
       "rating": 1504.3,
       "tablePosition": 7,
       "strengthPosition": 8,
@@ -556,7 +565,7 @@
     {
       "slug": "olympique-de-marseille",
       "leagueSlug": "ligue-1",
-      "powerRank": 62,
+      "powerRank": 63,
       "rating": 1503.7,
       "tablePosition": 8,
       "strengthPosition": 6,
@@ -565,38 +574,29 @@
     {
       "slug": "ssc-napoli",
       "leagueSlug": "serie-a",
-      "powerRank": 63,
+      "powerRank": 64,
       "rating": 1503.4,
       "tablePosition": 10,
-      "strengthPosition": 9,
-      "gap": -1
+      "strengthPosition": 10,
+      "gap": 0
     },
     {
       "slug": "atalanta-bc",
       "leagueSlug": "serie-a",
-      "powerRank": 64,
+      "powerRank": 65,
       "rating": 1500.8,
-      "tablePosition": 11,
-      "strengthPosition": 10,
+      "tablePosition": 12,
+      "strengthPosition": 11,
       "gap": -1
     },
     {
       "slug": "lille-osc",
       "leagueSlug": "ligue-1",
-      "powerRank": 64,
+      "powerRank": 65,
       "rating": 1500.8,
       "tablePosition": 3,
       "strengthPosition": 7,
       "gap": 4
-    },
-    {
-      "slug": "bologna-fc-1909",
-      "leagueSlug": "serie-a",
-      "powerRank": 66,
-      "rating": 1500.2,
-      "tablePosition": 13,
-      "strengthPosition": 11,
-      "gap": -2
     },
     {
       "slug": "cd-santa-clara",
@@ -729,9 +729,9 @@
       "leagueSlug": "serie-a",
       "powerRank": 81,
       "rating": 1487.5,
-      "tablePosition": 12,
+      "tablePosition": 13,
       "strengthPosition": 14,
-      "gap": 2
+      "gap": 1
     },
     {
       "slug": "sc-paderborn-07",
@@ -954,18 +954,18 @@
       "leagueSlug": "serie-a",
       "powerRank": 106,
       "rating": 1454.7,
-      "tablePosition": 18,
+      "tablePosition": 19,
       "strengthPosition": 17,
-      "gap": -1
+      "gap": -2
     },
     {
       "slug": "parma-calcio-1913",
       "leagueSlug": "serie-a",
       "powerRank": 107,
-      "rating": 1454.1,
-      "tablePosition": 19,
+      "rating": 1452.1,
+      "tablePosition": 18,
       "strengthPosition": 18,
-      "gap": -1
+      "gap": 0
     },
     {
       "slug": "angers-sco",
@@ -995,22 +995,22 @@
       "gap": 0
     },
     {
+      "slug": "udinese-calcio",
+      "leagueSlug": "serie-a",
+      "powerRank": 111,
+      "rating": 1449.5,
+      "tablePosition": 17,
+      "strengthPosition": 19,
+      "gap": 2
+    },
+    {
       "slug": "borussia-monchengladbach",
       "leagueSlug": "bundesliga",
-      "powerRank": 111,
+      "powerRank": 112,
       "rating": 1448.8,
       "tablePosition": 18,
       "strengthPosition": 18,
       "gap": 0
-    },
-    {
-      "slug": "udinese-calcio",
-      "leagueSlug": "serie-a",
-      "powerRank": 112,
-      "rating": 1447.5,
-      "tablePosition": 17,
-      "strengthPosition": 19,
-      "gap": 2
     },
     {
       "slug": "sporting-clube-de-braga",
@@ -1049,18 +1049,9 @@
       "gap": -1
     },
     {
-      "slug": "venezia-fc",
-      "leagueSlug": "serie-a",
-      "powerRank": 117,
-      "rating": 1437.9,
-      "tablePosition": 20,
-      "strengthPosition": 20,
-      "gap": 0
-    },
-    {
       "slug": "sbv-excelsior",
       "leagueSlug": "eredivisie",
-      "powerRank": 118,
+      "powerRank": 117,
       "rating": 1432.7,
       "tablePosition": 13,
       "strengthPosition": 12,
@@ -1069,7 +1060,7 @@
     {
       "slug": "cf-estrela-da-amadora",
       "leagueSlug": "primeira-liga",
-      "powerRank": 119,
+      "powerRank": 118,
       "rating": 1432.5,
       "tablePosition": 12,
       "strengthPosition": 13,
@@ -1078,11 +1069,20 @@
     {
       "slug": "fc-utrecht",
       "leagueSlug": "eredivisie",
-      "powerRank": 120,
+      "powerRank": 119,
       "rating": 1432.1,
       "tablePosition": 11,
       "strengthPosition": 13,
       "gap": 2
+    },
+    {
+      "slug": "venezia-fc",
+      "leagueSlug": "serie-a",
+      "powerRank": 120,
+      "rating": 1426.3,
+      "tablePosition": 20,
+      "strengthPosition": 20,
+      "gap": 0
     },
     {
       "slug": "le-havre-ac",
