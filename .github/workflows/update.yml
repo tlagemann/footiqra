@@ -1,0 +1,111 @@
+# Scheduled data update and site build.
+#
+# 1. Fetch matches from football-data.org into /data (needs secret FOOTBALL_DATA_API_TOKEN)
+# 2. Commit changed data files (the repository is the data store and its history)
+# 3. Build the static site into ./out and keep it as a downloadable artifact
+# 4. Upload ./out to SiteGround via rsync over SSH, only if variable DEPLOY_ENABLED is "true"
+#
+# Required configuration (Settings > Secrets and variables > Actions), see docs/DEPLOYMENT-SITEGROUND.md.
+name: Update data and site
+
+on:
+  schedule:
+    - cron: "17 */3 * * *" # every 3 hours at minute 17 (UTC)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-data-and-site
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Fetch match data
+        id: ingest
+        env:
+          FOOTBALL_DATA_API_TOKEN: ${{ secrets.FOOTBALL_DATA_API_TOKEN }}
+        run: |
+          if [ -z "$FOOTBALL_DATA_API_TOKEN" ]; then
+            echo "::warning::Secret FOOTBALL_DATA_API_TOKEN is not set. Skipping data update."
+            echo "code=skipped" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          set +e
+          npm run ingest
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+
+      - name: Commit data changes
+        if: steps.ingest.outputs.code != 'skipped'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "No data changes."
+          else
+            git commit -m "data: update $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          fi
+
+      - name: Build static site
+        env:
+          NEXT_TELEMETRY_DISABLED: "1"
+          NEXT_PUBLIC_SITE_URL: ${{ vars.SITE_URL }}
+          NEXT_PUBLIC_ALLOW_INDEXING: ${{ vars.ALLOW_INDEXING }}
+        run: npm run build
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: out
+          retention-days: 7
+
+      - name: Deploy to SiteGround
+        if: vars.DEPLOY_ENABLED == 'true'
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          for v in SSH_PRIVATE_KEY SSH_KNOWN_HOSTS SSH_HOST SSH_PORT SSH_USER DEPLOY_PATH; do
+            if [ -z "${!v}" ]; then echo "::error::Secret $v is missing."; exit 1; fi
+          done
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          SSH="ssh -i $HOME/.ssh/deploy_key -p $SSH_PORT -o StrictHostKeyChecking=yes"
+
+          # Safety net: only deploy into a directory that was explicitly marked for Footiqra.
+          # Prevents wiping another website if DEPLOY_PATH is wrong.
+          $SSH "$SSH_USER@$SSH_HOST" "test -f '$DEPLOY_PATH/.footiqra-deploy-target'" \
+            || { echo "::error::Marker file .footiqra-deploy-target not found in DEPLOY_PATH."; exit 1; }
+
+          rsync -rlz --delete --checksum \
+            --filter='P .footiqra-deploy-target' \
+            --filter='P .htaccess' \
+            --filter='P .well-known/' \
+            -e "$SSH" out/ "$SSH_USER@$SSH_HOST:$DEPLOY_PATH/"
+
+      - name: Report data fetch failures
+        if: steps.ingest.outputs.code != 'skipped' && steps.ingest.outputs.code != '0'
+        run: |
+          echo "::error::Data fetch finished with exit code ${{ steps.ingest.outputs.code }} (see 'Fetch match data'). The site was built from the last good data."
+          exit 1

@@ -60,5 +60,6 @@ export const fdMatchListSchema = z.object({
   matches: z.array(fdMatchSchema),
 });
 
+export type FdTeamRef = z.infer<typeof fdTeamRefSchema>;
 export type FdMatch = z.infer<typeof fdMatchSchema>;
 export type FdMatchList = z.infer<typeof fdMatchListSchema>;

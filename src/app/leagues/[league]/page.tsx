@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DataNotice } from "@/components/data-notice";
 import { JsonLd } from "@/components/json-ld";
+import { LastUpdated } from "@/components/match-list";
 import { getLeagueBySlug, LEAGUES } from "@/config/leagues";
 import { getLeagueTeams } from "@/data";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
@@ -44,16 +46,28 @@ export default async function LeaguePage({ params }: PageProps<"/leagues/[league
       <h1 className="text-3xl font-semibold tracking-tight">{league.name}</h1>
       <section aria-labelledby="teams-heading">
         <h2 id="teams-heading" className="text-xl font-semibold">
-          Teams and ratings
+          Teams
         </h2>
         <div className="mt-4">
           {teams.status === "ok" ? (
-            <p>{/* Phase 2: league table */}</p>
+            <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+              {teams.data.map((team) => (
+                <li key={team.slug}>
+                  <Link
+                    href={`/teams/${team.slug}/`}
+                    className="block rounded-lg border border-line px-4 py-3 hover:border-accent"
+                  >
+                    {team.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           ) : (
             <DataNotice reason={teams.reason} />
           )}
         </div>
       </section>
+      {teams.status === "ok" && <LastUpdated utc={teams.lastUpdatedUtc} />}
     </div>
   );
 }

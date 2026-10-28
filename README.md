@@ -2,54 +2,49 @@
 
 Cross-league football power rankings for Europe's top five leagues: Premier League, La Liga, Serie A, Bundesliga and Ligue 1.
 
-**Projektstand: Phase 1 (technische Grundlage).** Es gibt noch keine Live-Datenanbindung. Seiten zeigen bewusst "Data not available yet" statt Beispielzahlen.
+**Projektstand:** Technische Grundlage und automatischer Datenabruf stehen. Teamseiten zeigen echte Ergebnisse, sobald der Datenabruf aktiviert ist. Das Power-Ranking wird erst nach der Methodik-Entscheidung veröffentlicht.
+
+## So funktioniert es
+
+```
+GitHub Actions (alle 3 h) → football-data.org → data/*.json (Commit) → statischer Build → SiteGround
+```
+
+Auf SiteGround läuft kein Node.js, nur fertige HTML-Dateien. Begründung und Details: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md). Einrichtung: [`docs/DEPLOYMENT-SITEGROUND.md`](docs/DEPLOYMENT-SITEGROUND.md).
 
 ## Stack
 
-Next.js 16 (App Router) · TypeScript strict · React 19 · Tailwind CSS 4 · PostgreSQL · zod · Vitest
-
-Details und Begründungen: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
-Bereitstellung: [`docs/DEPLOYMENT-SITEGROUND.md`](docs/DEPLOYMENT-SITEGROUND.md)
+Next.js 16 (statischer Export, Webpack) · TypeScript strict · React 19 · Tailwind CSS 4 · zod · Vitest · GitHub Actions
 
 ## Voraussetzungen
 
-- Node.js 22 oder neuer (`.nvmrc`)
-- npm 10 oder neuer
-
-## Installation
-
-```bash
-npm ci
-cp .env.example .env.local   # Werte nur lokal eintragen, nie committen
-npm run dev                  # http://localhost:3000
-```
-
-Für Phase 1 sind keine Umgebungsvariablen nötig.
+Node.js 22 oder neuer (`.nvmrc`), npm 10 oder neuer.
 
 ## Befehle
 
-| Befehl                 | Zweck                                                               |
-| ---------------------- | ------------------------------------------------------------------- |
-| `npm run dev`          | Entwicklungsserver                                                  |
-| `npm run build`        | Produktions-Build für den Server-Modus (SiteGround Node.js Project) |
-| `npm run build:static` | Statischer Export nach `out/` (Fallback für jeden Webspace)         |
-| `npm start`            | Startet den Produktions-Build                                       |
-| `npm run check`        | Typecheck, Lint, Formatprüfung und Tests in einem Schritt           |
-| `npm test`             | Unit-Tests (Vitest)                                                 |
-| `npm run format`       | Code formatieren (Prettier)                                         |
+| Befehl            | Zweck                                                                        |
+| ----------------- | ---------------------------------------------------------------------------- |
+| `npm ci`          | Abhängigkeiten installieren                                                  |
+| `npm run dev`     | Entwicklungsserver, http://localhost:3000                                    |
+| `npm run ingest`  | Daten von football-data.org nach `data/` (braucht `FOOTBALL_DATA_API_TOKEN`) |
+| `npm run build`   | Statische Website nach `out/`                                                |
+| `npm run preview` | `out/` lokal ausliefern                                                      |
+| `npm run check`   | Typecheck, Lint, Formatprüfung und Tests                                     |
+| `npm test`        | Unit-Tests                                                                   |
+| `npm run format`  | Code formatieren                                                             |
 
 ## Seitenstruktur
 
-| URL                                                             | Inhalt                                                    |
-| --------------------------------------------------------------- | --------------------------------------------------------- |
-| `/`                                                             | Ligaübergreifendes Power-Ranking                          |
-| `/leagues/`                                                     | Übersicht der fünf Ligen                                  |
-| `/leagues/{premier-league,la-liga,serie-a,bundesliga,ligue-1}/` | Liga-Seiten                                               |
-| `/teams/{slug}/`                                                | Teamprofile (entstehen, sobald Teamdaten importiert sind) |
-| `/methodology/`                                                 | Erklärung der Berechnung                                  |
-| `/sitemap.xml`, `/robots.txt`                                   | SEO (Indexierung bis zum Launch gesperrt)                 |
+| URL                                                             | Inhalt                                            |
+| --------------------------------------------------------------- | ------------------------------------------------- |
+| `/`                                                             | Ligaübergreifendes Power-Ranking (folgt)          |
+| `/leagues/`                                                     | Übersicht der fünf Ligen                          |
+| `/leagues/{premier-league,la-liga,serie-a,bundesliga,ligue-1}/` | Liga-Seiten mit Teams                             |
+| `/teams/{slug}/`                                                | Teamprofile mit Ergebnissen und kommenden Spielen |
+| `/methodology/`                                                 | Erklärung der Berechnung                          |
+| `/sitemap.xml`, `/robots.txt`                                   | SEO (Indexierung bis zum Launch gesperrt)         |
 
-Alle Seiten werden serverseitig vorgerendert, Inhalte sind ohne JavaScript im HTML enthalten. Jede Seite hat Canonical-URL, Open-Graph-Daten und auf Liga-Seiten BreadcrumbList-JSON-LD.
+Alle Inhalte stehen im ausgelieferten HTML, inklusive Canonical-URL, Open-Graph-Daten und BreadcrumbList-JSON-LD.
 
 ## Projektstruktur
 
@@ -59,18 +54,15 @@ src/components/   UI-Bausteine
 src/config/       Ligen-Registry, Site-Konfiguration
 src/data/         Lese-Schicht für Seiten
 src/ranking/      Ranking-Engine (rein funktional, getestet)
-src/ingestion/    Datenabruf: Rate Limit, Retries, Validierung, Provider-Mapping
-src/lib/          Env-Validierung, SEO-Helfer, Slugs
-db/migrations/    PostgreSQL-Schema
+src/ingestion/    Datenabruf: Rate Limit, Retries, Validierung, Client
+src/store/        JSON-Datenspeicher: Format und Merge-Regeln
+scripts/          npm run ingest
+data/             Datenbestand (vom Workflow gepflegt, nicht von Hand ändern)
 docs/             Architektur und Deployment
 ```
 
 ## Sicherheit
 
-- Geheimnisse nur in `.env.local` bzw. in den Umgebungsvariablen bei SiteGround.
-- `src/lib/env.ts` ist `server-only`: Ein versehentlicher Import im Browser-Code bricht den Build ab.
-- Variablen mit Präfix `NEXT_PUBLIC_` landen im Browser und dürfen nie Geheimnisse enthalten.
-
-## Nächster Schritt
-
-Machbarkeitstest auf SiteGround (siehe `docs/DEPLOYMENT-SITEGROUND.md`, Abschnitt A), danach Phase 2: Ingestion-Job für football-data.org und Anbindung der Datenbank.
+- Geheimnisse nur als GitHub-Secrets bzw. lokal in `.env.local`, nie im Repository.
+- Die Website selbst braucht keine Geheimnisse; sie liest nur `data/`.
+- Variablen mit Präfix `NEXT_PUBLIC_` landen im HTML und dürfen nie Geheimnisse enthalten.

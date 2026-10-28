@@ -1,10 +1,10 @@
-# Quality gate on every push and pull request. Free on GitHub (public and private repos
-# within the included Actions minutes). Does not deploy anything and needs no secrets.
+# Quality gate on every push and pull request. Needs no secrets and deploys nothing.
 name: CI
 
 on:
   push:
     branches: [main]
+    paths-ignore: ["data/**"]
   pull_request:
 
 permissions:
@@ -23,8 +23,5 @@ jobs:
       - run: npm ci
       - run: npm run check
       - run: npm run build
-        env:
-          NEXT_TELEMETRY_DISABLED: "1"
-      - run: npm run build:static
         env:
           NEXT_TELEMETRY_DISABLED: "1"

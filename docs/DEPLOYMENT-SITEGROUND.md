@@ -1,50 +1,65 @@
-# Bereitstellung auf SiteGround
+# Bereitstellung: GitHub Actions und SiteGround
 
-Status: **noch nicht durchgeführt.** Diese Anleitung beschreibt die geplanten Schritte. Nichts davon wurde bisher auf einem SiteGround-Konto ausgeführt.
+Status: Datenabruf und Build sind eingerichtet. **Der Upload zu SiteGround ist noch ausgeschaltet** (`DEPLOY_ENABLED` nicht gesetzt) und wurde noch nicht durchgeführt.
 
-## A. Machbarkeitstest (vor Phase 2, ca. 30 Minuten)
+## A. Datenabruf aktivieren (einmalig, ca. 5 Minuten)
 
-Ziel: die offenen Hosting-Fragen aus `ARCHITECTURE.md` (Abschnitt 2) praktisch klären.
+1. Kostenlos registrieren: https://www.football-data.org/client/register. Der Token kommt per E-Mail.
+2. GitHub: Repository **tlagemann/footiqra** > Settings > Secrets and variables > Actions > **New repository secret**
+   - Name: `FOOTBALL_DATA_API_TOKEN`
+   - Wert: der Token
+3. Actions > "Update data and site" > **Run workflow**.
+4. Ergebnis: Ein Commit "data: update ..." mit den Dateien in `data/`, und unter dem Lauf ein Artefakt **site** (die fertige Website als ZIP zum Ansehen).
 
-1. **Tarif prüfen:** SiteGround Client Area > Services. Tarif muss GrowBig, GoGeek oder Cloud sein.
-2. **Funktion prüfen:** Client Area > Websites > Node.js Projects. Ist der Menüpunkt sichtbar und "New Project" möglich?
-3. **Repo verbinden:** Footiqra als **privates** GitHub-Repository anlegen und pushen. Im Wizard "Import Git repository" wählen, die SiteGround GitHub App für genau dieses Repository autorisieren.
-4. **Build-Einstellungen** (Site Tools > Node.js > Deployment Options):
-   - Framework-Preset: Next.js (falls angeboten)
-   - Node-Version: 22 oder neuer
-   - Paketmanager: npm
-   - Build-Befehl: `npm run build`
-   - Umgebungsvariablen: `NEXT_PUBLIC_SITE_URL` (temporäre Domain), `NEXT_PUBLIC_ALLOW_INDEXING=false`, `NEXT_TELEMETRY_DISABLED=1`
-5. **Beobachten und notieren:**
-   - Läuft der Build durch? Falls er an Prozess- oder Thread-Grenzen scheitert, Fehlermeldung aus dem Build-Log sichern.
-   - Welcher Start-Befehl wird verwendet? (Erwartet: `npm start`, also `next start`)
-   - Antworten `/`, `/leagues/bundesliga/` mit 200 und `/leagues/xyz/` mit 404?
-   - Nach 30 bis 60 Minuten ohne Aufruf: erste Antwortzeit messen (Hinweis auf Schlafmodus).
-6. **PostgreSQL:** Site Tools > Site > PostgreSQL > Create Database, Benutzer anlegen und zuordnen. Version notieren. Host und Port für die lokale Verbindung notieren.
-7. **Cron:** Site Tools > Devs > Cron Jobs. Testweise einen Job anlegen, der `node --version` und `pwd` in eine Logdatei schreibt. Prüfen: Ist Node im PATH? In welchem Verzeichnis läuft der Job?
-8. **SSH:** Site Tools > Devs > SSH Keys Manager, Schlüssel anlegen, verbinden, prüfen ob `npm` und das Projektverzeichnis erreichbar sind.
+Danach läuft der Workflow automatisch alle 3 Stunden.
 
-Ergebnis zurückmelden, dann wird der Server- oder Export-Modus final festgelegt.
+## B. Upload zu SiteGround aktivieren (einmalig, ca. 15 Minuten)
 
-## B. Server-Modus (Ziel)
+Voraussetzung: Footiqra hat eine Website bei SiteGround (eigene Domain, Subdomain oder temporäre Domain).
 
-1. Repository wie oben verbinden, Auto-Deploy auf Branch `main`.
-2. Umgebungsvariablen laut `.env.example` setzen. Geheimnisse (`DATABASE_URL`, `FOOTBALL_DATA_API_TOKEN`, `REVALIDATE_SECRET`) ausschließlich dort eintragen, nie im Repository.
-3. Datenbank-Migration einmalig ausführen (per SSH): `psql "$DATABASE_URL" -f db/migrations/0001_initial_schema.sql` (Migrations-Skript folgt in Phase 2).
-4. Cron Job für die Aktualisierung (Phase 2), Beispiel: alle 2 Stunden `cd <projektpfad> && npm run ingest`.
-5. Eigene Domain zuweisen (Client Area > Node.js Projects > Domain), SSL aktivieren, erst dann `NEXT_PUBLIC_ALLOW_INDEXING=true`.
+1. **Zielordner markieren:** Im Site Tools File Manager der Footiqra-Website im Webverzeichnis (meist `public_html`) eine leere Datei `.footiqra-deploy-target` anlegen. Ohne diese Datei verweigert der Workflow den Upload. Das schützt die anderen Websites im Konto.
+2. **SSH-Schlüssel:** Site Tools > Devs > SSH Keys Manager > neuen Schlüssel erzeugen (ohne Passphrase, da der Workflow ihn automatisch nutzt). Den privaten Schlüssel anzeigen lassen.
+3. **Verbindungsdaten** stehen im SSH Keys Manager unter "SSH Credentials": Host, Benutzername, Port.
+4. **Hostschlüssel** auf dem Mac im Terminal ermitteln: `ssh-keyscan -p PORT HOST` (Ausgabe komplett kopieren).
+5. **GitHub Secrets** (wie in A.2) anlegen:
 
-## C. Export-Modus (Fallback)
+   | Secret            | Inhalt                                                                           |
+   | ----------------- | -------------------------------------------------------------------------------- |
+   | `SSH_PRIVATE_KEY` | privater Schlüssel aus Schritt 2 (komplett)                                      |
+   | `SSH_KNOWN_HOSTS` | Ausgabe aus Schritt 4                                                            |
+   | `SSH_HOST`        | Host aus Schritt 3                                                               |
+   | `SSH_PORT`        | Port aus Schritt 3                                                               |
+   | `SSH_USER`        | Benutzername aus Schritt 3                                                       |
+   | `DEPLOY_PATH`     | absoluter Pfad zum Webverzeichnis, z. B. `/home/customer/www/DOMAIN/public_html` |
 
-1. Lokal oder per SSH: `npm ci && npm run build:static`
-2. Inhalt von `out/` in das Webverzeichnis der Domain kopieren (`public_html/`).
-3. Optional `.htaccess` für saubere 404-Antworten: `ErrorDocument 404 /404.html`
-4. Aktualisierung: nach jedem Ingestion-Lauf neu bauen und kopieren (Automatisierung in Phase 2).
+6. **GitHub Variables** (Reiter "Variables"):
+
+   | Variable         | Wert                                                     |
+   | ---------------- | -------------------------------------------------------- |
+   | `SITE_URL`       | z. B. `https://footiqra.com` (ohne Schrägstrich am Ende) |
+   | `DEPLOY_ENABLED` | `true`                                                   |
+   | `ALLOW_INDEXING` | erst zum Launch `true`, vorher weglassen                 |
+
+7. Workflow manuell starten und die Seite im Browser prüfen.
+
+Der Upload nutzt `rsync --delete`: Dateien im Zielordner, die nicht mehr zur Website gehören, werden entfernt. Ausgenommen sind `.footiqra-deploy-target`, `.htaccess` und `.well-known/`.
+
+Bei der ersten Bereitstellung prüfen: Werden geänderte Seiten sofort ausgeliefert, oder hält SiteGrounds Dynamic Cache alte Versionen? Falls ja, Cache für diese Website ausschließen oder nach dem Upload leeren.
+
+## C. Lokal arbeiten
+
+```bash
+npm ci
+npm run dev                                   # Entwicklung, http://localhost:3000
+FOOTBALL_DATA_API_TOKEN=... npm run ingest    # Daten lokal abrufen (optional)
+npm run build && npm run preview              # statische Seite wie auf dem Server
+```
 
 ## D. Was nicht automatisch passiert
 
-- Es gibt kein automatisches Deployment aus der CI. GitHub Actions führt nur Prüfungen aus.
-- Ohne Freigabe wird nichts veröffentlicht, keine Domain registriert und kein kostenpflichtiger Tarif gebucht.
+- Ohne `DEPLOY_ENABLED=true` wird nichts hochgeladen.
+- Es wird keine Domain registriert und kein kostenpflichtiger Tarif gebucht.
+- Die Indexierung durch Suchmaschinen bleibt gesperrt, bis `ALLOW_INDEXING=true` gesetzt ist.
 
 ## E. Ergebnis des Machbarkeitstests (28.10.2026)
 
@@ -60,4 +75,4 @@ Durchgeführt mit ZIP-Upload als SiteGround Node.js-Projekt auf einer temporäre
 | Korrektur           | Build auf Webpack umgestellt (`next build --webpack`, Tailwind via PostCSS), lokal grün; auf SiteGround nicht mehr getestet                     |
 | Inodes              | Ein Node.js-Projekt belegte **29.012 Inodes** (`node_modules`). Konto: Limit 400.000, ohne Projekt 335.886 belegt (84 %), mit Projekt über 90 % |
 
-**Schlussfolgerung:** Ein Node.js-Projekt ist auf diesem Tarif technisch möglich, passt aber nicht in die Inode-Reserve, da sich 10 weitere Websites den Tarif teilen. Footiqra wird deshalb als statischer Export betrieben (ca. 100 bis 1.000 Dateien). Build und Datenabruf laufen außerhalb von SiteGround (GitHub Actions), hochgeladen werden nur die fertigen Dateien.
+**Schlussfolgerung:** Ein Node.js-Projekt ist auf diesem Tarif technisch möglich, passt aber nicht in die Inode-Reserve, da sich 10 weitere Websites den Tarif teilen. Footiqra wird deshalb als statische Website betrieben (ca. 100 bis 1.000 Dateien). Build und Datenabruf laufen außerhalb von SiteGround (GitHub Actions), hochgeladen werden nur die fertigen Dateien.
