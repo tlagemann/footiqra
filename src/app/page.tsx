@@ -4,6 +4,7 @@ import { DataNotice } from "@/components/data-notice";
 import { ForecastList } from "@/components/forecast-list";
 import { LeagueStrength } from "@/components/league-strength";
 import { PerformanceCards } from "@/components/performance";
+import { chance } from "@/components/projection-table";
 import { LastUpdated } from "@/components/match-list";
 import { RankingTable } from "@/components/ranking-table";
 import { ButtonLink, Crest, Eyebrow, SectionHeading } from "@/components/ui";
@@ -12,6 +13,7 @@ import { SITE } from "@/config/site";
 import {
   biggestMatches,
   getAllTableVsStrength,
+  getLeagueProjection,
   getPowerRanking,
   getUpcomingForecasts,
   getWeekAgo,
@@ -32,6 +34,13 @@ export default async function HomePage() {
   const weekAgo = await getWeekAgo();
   const bigGames = biggestMatches(nextWindow(await getUpcomingForecasts(), 7), 3).sort(
     (a, b) => Date.parse(a.utcDate) - Date.parse(b.utcDate),
+  );
+  const projections = (
+    await Promise.all(
+      LEAGUES.map(async (l) => ({ league: l, p: await getLeagueProjection(l.slug) })),
+    )
+  ).flatMap(({ league, p }) =>
+    p ? [{ league, favourite: p.rows.reduce((a, b) => (b.title > a.title ? b : a)) }] : [],
   );
   const hasPerformance = performance.over.length + performance.under.length > 0;
 
@@ -118,6 +127,54 @@ export default async function HomePage() {
                 }
               />
               <ForecastList forecasts={bigGames} grouped={false} />
+            </section>
+          )}
+
+          {projections.length > 0 && (
+            <section aria-labelledby="title-race">
+              <SectionHeading
+                id="title-race"
+                title="Who wins the league?"
+                aside={<span className="text-sm text-muted">10,000 simulated seasons</span>}
+              />
+              <p className="-mt-2 mb-5 max-w-2xl text-muted">
+                Title favourites from the simulated final tables. Click a league for the full
+                prediction with expected points and relegation risk.
+              </p>
+              <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                {projections.map(({ league, favourite }) => (
+                  <li key={league.slug}>
+                    <Link
+                      href={`/leagues/${league.slug}/projection/`}
+                      className="flex h-full flex-col justify-between gap-5 rounded-3xl bg-surface p-5 transition hover:bg-surface-strong"
+                    >
+                      <span className="text-sm font-semibold text-muted">{league.name}</span>
+                      <span className="flex items-center gap-3">
+                        <Crest src={favourite.team.crest} name={favourite.team.name} size={40} />
+                        <span className="min-w-0">
+                          <span className="block truncate font-display text-lg font-bold tracking-[-0.02em]">
+                            {favourite.team.name}
+                          </span>
+                          <span className="tabular block font-display text-2xl font-extrabold tracking-[-0.03em]">
+                            {chance(favourite.title)}
+                          </span>
+                        </span>
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+                <li>
+                  <Link
+                    href="/leagues/"
+                    className="flex h-full min-h-32 flex-col justify-between gap-5 rounded-3xl bg-foreground p-5 text-inverse transition hover:opacity-90"
+                  >
+                    <span className="text-sm font-semibold opacity-70">All leagues</span>
+                    <span className="font-display text-xl font-extrabold tracking-[-0.02em]">
+                      Tables, ranking and predictions
+                    </span>
+                  </Link>
+                </li>
+              </ul>
             </section>
           )}
 
