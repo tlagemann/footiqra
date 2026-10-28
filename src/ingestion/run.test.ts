@@ -2,11 +2,11 @@ import { mkdtemp, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { readMatchFile, readMeta, readTeams } from "@/store/fs";
+import { readMatchFile, readMeta, readStandingsFile, readTeams } from "@/store/fs";
 import { RateLimiter } from "./http";
 import { parseIngestEnv } from "./env";
 import { FootballDataClient } from "./providers/football-data/client";
-import { runIngest } from "./run";
+import { runIngest, runStandingsIngest } from "./run";
 
 // Synthetic API payloads in the documented v4 shape. Fictional teams, not real data.
 function apiMatch(id: number, home: number, away: number, lastUpdated = "2026-09-12T16:05:00Z") {
@@ -137,5 +137,68 @@ describe("parseIngestEnv", () => {
     const env = parseIngestEnv({ FOOTBALL_DATA_API_TOKEN: "abcdefghijkl" });
     expect(env.FOOTBALL_DATA_REQUESTS_PER_MINUTE).toBe(8);
     expect(env.FOOTIQRA_SEASON).toBeUndefined();
+  });
+});
+
+describe("standings", () => {
+  const standingRow = (position: number, id: number) => ({
+    position,
+    team: { id, name: `Example Team ${id}`, shortName: null, tla: null, crest: null },
+    playedGames: 9,
+    form: null,
+    won: 5,
+    draw: 2,
+    lost: 2,
+    points: 17,
+    goalsFor: 14,
+    goalsAgainst: 9,
+    goalDifference: 5,
+  });
+
+  it("fetches the overall table in position order", async () => {
+    const fetchImpl = vi.fn(async () =>
+      Response.json({
+        standings: [
+          { stage: "REGULAR_SEASON", type: "HOME", group: null, table: [standingRow(1, 11)] },
+          {
+            stage: "REGULAR_SEASON",
+            type: "TOTAL",
+            group: null,
+            table: [standingRow(2, 10), standingRow(1, 11)],
+          },
+        ],
+      }),
+    );
+    const client = new FootballDataClient({
+      token: "secret-token-123",
+      requestsPerMinute: 60,
+      fetchImpl,
+      limiter: noWaitLimiter,
+    });
+    const table = await client.getStandings("PL", 2026);
+    expect(table.map((r) => r.team.id)).toEqual([11, 10]);
+    const [url] = fetchImpl.mock.calls[0] as unknown as [string];
+    expect(url).toBe("https://api.football-data.org/v4/competitions/PL/standings?season=2026");
+  });
+
+  it("writes one file per league and keeps going after a failure", async () => {
+    const client = {
+      getStandings: vi.fn(async (code: string) => {
+        if (code === "BL1") throw new Error("boom");
+        return [standingRow(1, 10)];
+      }),
+    };
+    const results = await runStandingsIngest({
+      client,
+      dataDir: dir,
+      season: 2026,
+      competitions: ["PL", "BL1"],
+      now: () => new Date("2026-10-01T00:00:00Z"),
+    });
+    expect(results.map((r) => r.ok)).toEqual([true, false]);
+    const file = await readStandingsFile(dir, "PL", 2026);
+    expect(file?.fetchedUtc).toBe("2026-10-01T00:00:00.000Z");
+    expect(file?.rows[0]).toMatchObject({ position: 1, teamId: 10, points: 17 });
+    expect(await readStandingsFile(dir, "BL1", 2026)).toBeNull();
   });
 });

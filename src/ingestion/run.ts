@@ -4,10 +4,12 @@ import {
   readMeta,
   readTeams,
   writeMatchFile,
+  writeStandingsFile,
   writeMeta,
   writeTeams,
 } from "@/store/fs";
 import { emptyMatchFile, mergeMatches, toStoredMatch, upsertTeams } from "@/store/merge";
+import { STORE_SCHEMA_VERSION } from "@/store/types";
 import type { FootballDataClient } from "./providers/football-data/client";
 
 /**
@@ -90,4 +92,52 @@ export async function runIngest(options: {
   await writeMeta(dataDir, meta);
 
   return { season, requestsMade: client.requestsMade, results };
+}
+
+/**
+ * Fetches the official league tables of all covered leagues. Runs after
+ * runIngest; failures are reported per league and leave the previous table in place.
+ */
+export async function runStandingsIngest(options: {
+  client: Pick<FootballDataClient, "getStandings">;
+  dataDir: string;
+  season: number;
+  competitions?: readonly string[];
+  now?: () => Date;
+  log?: (line: string) => void;
+}): Promise<CompetitionResult[]> {
+  const competitions = options.competitions ?? LEAGUES.map((l) => l.providerCodes.footballData);
+  const now = options.now ?? (() => new Date());
+  const log = options.log ?? (() => {});
+  const results: CompetitionResult[] = [];
+  for (const code of competitions) {
+    try {
+      const table = await options.client.getStandings(code, options.season);
+      await writeStandingsFile(options.dataDir, {
+        schemaVersion: STORE_SCHEMA_VERSION,
+        competition: code,
+        season: options.season,
+        fetchedUtc: now().toISOString(),
+        rows: table.map((r) => ({
+          position: r.position,
+          teamId: r.team.id,
+          playedGames: r.playedGames,
+          won: r.won,
+          draw: r.draw,
+          lost: r.lost,
+          points: r.points,
+          goalsFor: r.goalsFor,
+          goalsAgainst: r.goalsAgainst,
+          goalDifference: r.goalDifference,
+        })),
+      });
+      results.push({ competition: code, ok: true });
+      log(`${code} ${options.season} table: ${table.length} teams`);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      results.push({ competition: code, ok: false, error: message });
+      log(`${code} ${options.season} table: FAILED (${message})`);
+    }
+  }
+  return results;
 }

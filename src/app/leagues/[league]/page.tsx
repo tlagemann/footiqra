@@ -5,9 +5,10 @@ import { DataNotice } from "@/components/data-notice";
 import { JsonLd } from "@/components/json-ld";
 import { LastUpdated } from "@/components/match-list";
 import { RankingTable } from "@/components/ranking-table";
+import { StandingsTable } from "@/components/standings-table";
 import { Crest, Eyebrow, SectionHeading } from "@/components/ui";
 import { getLeagueBySlug, LEAGUES } from "@/config/leagues";
-import { getLeagueTeams, getPowerRanking } from "@/data";
+import { getLeagueTable, getLeagueTeams, getPowerRanking } from "@/data";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 // Only registered leagues exist; anything else is a 404.
@@ -38,7 +39,14 @@ export default async function LeaguePage({ params }: PageProps<"/leagues/[league
   const league = getLeagueBySlug((await params).league);
   if (!league) notFound();
 
-  const [teams, ranking] = await Promise.all([getLeagueTeams(league.slug), getPowerRanking()]);
+  const [teams, ranking, table] = await Promise.all([
+    getLeagueTeams(league.slug),
+    getPowerRanking(),
+    getLeagueTable(league.slug),
+  ]);
+  const powerRanks = new Map(
+    ranking.status === "ok" ? ranking.data.rows.map((r) => [r.team.slug, r.rank]) : [],
+  );
   const rows =
     ranking.status === "ok"
       ? ranking.data.rows.filter((r) => r.team.leagueSlug === league.slug)
@@ -116,6 +124,35 @@ export default async function LeaguePage({ params }: PageProps<"/leagues/[league
           </ol>
         </section>
       )}
+
+      <section aria-labelledby="table-heading">
+        <SectionHeading
+          id="table-heading"
+          title="Table"
+          aside={
+            table && (
+              <span className="text-sm text-muted">
+                Season {table.season}/{String(table.season + 1).slice(2)}
+              </span>
+            )
+          }
+        />
+        {table ? (
+          <>
+            <StandingsTable
+              rows={table.rows}
+              caption={`${league.name} table`}
+              powerRanks={powerRanks}
+            />
+            <p className="mt-4 text-sm text-muted">
+              League standings from football-data.org. Power # is the club&apos;s position in the
+              Footiqra ranking across all {LEAGUES.length} leagues.
+            </p>
+          </>
+        ) : (
+          <DataNotice reason="The league table will appear after the next data update." />
+        )}
+      </section>
 
       <section aria-labelledby="teams-heading">
         <SectionHeading

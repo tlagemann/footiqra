@@ -3,6 +3,7 @@ import type { StoredMatch } from "@/store/types";
 import {
   allLeagueTeams,
   findTeamBySlug,
+  leagueTable,
   recentForm,
   teamMatches,
   teamsOfLeague,
@@ -154,5 +155,53 @@ describe("crests and form", () => {
     // Alpha: 50 (away loss 1:0 at Gamma), 100 (home win), 101 (away loss), 300 (home win) -> last 3
     expect(form.get(1)).toEqual(["W", "L", "W"]);
     expect(form.get(2)).toEqual(["L", "W"]);
+  });
+});
+
+describe("league table", () => {
+  const row = (position: number, teamId: number, points: number) => ({
+    position,
+    teamId,
+    playedGames: 2,
+    won: points === 3 ? 1 : 0,
+    draw: 0,
+    lost: points === 3 ? 1 : 2,
+    points,
+    goalsFor: 1,
+    goalsAgainst: 1,
+    goalDifference: 0,
+  });
+  const withTable: Snapshot = {
+    ...snapshot,
+    crestIds: new Set([2]),
+    standings: [
+      {
+        schemaVersion: 1,
+        competition: "PL",
+        season: 2026,
+        fetchedUtc: "2026-10-01T00:00:00.000Z",
+        rows: [row(1, 2, 3), row(2, 1, 3), row(3, 77, 0)],
+      },
+    ],
+  };
+
+  it("keeps the provider order and resolves teams, crests and league-only form", () => {
+    const table = leagueTable(withTable, "premier-league");
+    expect(table?.season).toBe(2026);
+    expect(table?.rows.map((r) => r.position)).toEqual([1, 2, 3]);
+    expect(table?.rows[0]?.team).toEqual({
+      slug: "beta-united",
+      name: "Beta United",
+      crest: "/crests/2.png",
+    });
+    // Alpha's CL win (match 300) and last season's match are not part of the league form.
+    expect(table?.rows[1]?.form).toEqual(["W", "L"]);
+    expect(table?.rows[2]?.team.slug).toBeNull();
+  });
+
+  it("returns undefined without a stored table", () => {
+    expect(leagueTable(withTable, "bundesliga")).toBeUndefined();
+    expect(leagueTable(snapshot, "premier-league")).toBeUndefined();
+    expect(leagueTable(withTable, "unknown")).toBeUndefined();
   });
 });

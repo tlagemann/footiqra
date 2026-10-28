@@ -1,15 +1,18 @@
 import "server-only";
 import { readdir } from "node:fs/promises";
 import path from "node:path";
-import { dataDir, readAllMatchFiles, readMeta, readTeams } from "@/store/fs";
+import { dataDir, readAllMatchFiles, readLatestStandings, readMeta, readTeams } from "@/store/fs";
 import { computePowerRanking, type PowerRanking, type PowerRankingRow } from "./power-ranking";
 import {
   allLeagueTeams,
   findTeamBySlug,
+  leagueTable,
   teamMatches,
   teamsOfLeague,
+  type LeagueTable,
   type MatchView,
   type Snapshot,
+  type TableRow,
   type TeamSummary,
 } from "./repository";
 
@@ -24,7 +27,7 @@ import {
 export type DataResult<T> =
   { status: "ok"; data: T; lastUpdatedUtc: string } | { status: "unavailable"; reason: string };
 
-export type { MatchView, TeamSummary, PowerRanking, PowerRankingRow };
+export type { LeagueTable, MatchView, TableRow, TeamSummary, PowerRanking, PowerRankingRow };
 
 const NO_DATA = "No match data has been imported yet.";
 
@@ -44,13 +47,14 @@ async function readCrestIds(): Promise<Set<number>> {
 function loadSnapshot(): Promise<Snapshot> {
   snapshotPromise ??= (async () => {
     const dir = dataDir();
-    const [meta, teams, matchFiles, crestIds] = await Promise.all([
+    const [meta, teams, matchFiles, crestIds, standings] = await Promise.all([
       readMeta(dir),
       readTeams(dir),
       readAllMatchFiles(dir),
       readCrestIds(),
+      readLatestStandings(dir),
     ]);
-    return { meta, teams, matchFiles, crestIds };
+    return { meta, teams, matchFiles, crestIds, standings };
   })();
   return snapshotPromise;
 }
@@ -111,4 +115,9 @@ export async function getAllTeamSlugs(): Promise<string[]> {
 
 export async function getLastUpdated(): Promise<string | null> {
   return (await loadSnapshot()).meta.lastSuccessfulRunUtc;
+}
+
+/** Official league table, if one has been fetched. */
+export async function getLeagueTable(leagueSlug: string): Promise<LeagueTable | undefined> {
+  return leagueTable(await loadSnapshot(), leagueSlug);
 }

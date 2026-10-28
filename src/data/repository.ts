@@ -1,5 +1,12 @@
 import { LEAGUES, type LeagueDefinition } from "@/config/leagues";
-import type { MatchFile, StoredMatch, StoredTeam, StoreMeta, TeamRegistry } from "@/store/types";
+import type {
+  MatchFile,
+  StandingsFile,
+  StoredMatch,
+  StoredTeam,
+  StoreMeta,
+  TeamRegistry,
+} from "@/store/types";
 
 /**
  * Pure query logic over the stored data (no file system access), so it can be
@@ -11,6 +18,8 @@ export interface Snapshot {
   matchFiles: MatchFile[];
   /** Team ids with a self-hosted crest in public/crests (see ingestion/crests.ts). */
   crestIds?: ReadonlySet<number>;
+  /** Newest official league table per competition. */
+  standings?: StandingsFile[];
 }
 
 export type FormResult = "W" | "D" | "L";
@@ -185,4 +194,65 @@ export function recentForm(snapshot: Snapshot, length = 5): Map<number, FormResu
     push(m.awayTeamId, a > h ? "W" : a < h ? "L" : "D");
   }
   return form;
+}
+
+export interface TableRow {
+  position: number;
+  team: TeamRef;
+  playedGames: number;
+  won: number;
+  draw: number;
+  lost: number;
+  goalsFor: number;
+  goalsAgainst: number;
+  goalDifference: number;
+  points: number;
+  /** Last league results, newest last. */
+  form: FormResult[];
+}
+
+export interface LeagueTable {
+  season: number;
+  fetchedUtc: string;
+  rows: TableRow[];
+}
+
+/** Official table of a league (provider order), or undefined if none is stored. */
+export function leagueTable(snapshot: Snapshot, leagueSlug: string): LeagueTable | undefined {
+  const league = LEAGUES.find((l) => l.slug === leagueSlug);
+  if (!league) return undefined;
+  const code = league.providerCodes.footballData;
+  const file = snapshot.standings?.find((s) => s.competition === code);
+  if (!file || file.rows.length === 0) return undefined;
+  // Form from this league and season only, like a printed table.
+  const form = recentForm({
+    ...snapshot,
+    matchFiles: snapshot.matchFiles.filter(
+      (f) => f.competition === code && f.season === file.season,
+    ),
+  });
+  return {
+    season: file.season,
+    fetchedUtc: file.fetchedUtc,
+    rows: file.rows.map((r) => {
+      const t = snapshot.teams.teams[String(r.teamId)];
+      return {
+        position: r.position,
+        team: {
+          slug: t?.slug ?? null,
+          name: t?.shortName || t?.name || "Unknown team",
+          crest: crestPath(snapshot, r.teamId),
+        },
+        playedGames: r.playedGames,
+        won: r.won,
+        draw: r.draw,
+        lost: r.lost,
+        goalsFor: r.goalsFor,
+        goalsAgainst: r.goalsAgainst,
+        goalDifference: r.goalDifference,
+        points: r.points,
+        form: form.get(r.teamId) ?? [],
+      };
+    }),
+  };
 }

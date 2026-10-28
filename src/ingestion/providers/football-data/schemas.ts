@@ -63,3 +63,30 @@ export const fdMatchListSchema = z.object({
 export type FdTeamRef = z.infer<typeof fdTeamRefSchema>;
 export type FdMatch = z.infer<typeof fdMatchSchema>;
 export type FdMatchList = z.infer<typeof fdMatchListSchema>;
+
+/** One row of a league table. Reference: https://docs.football-data.org/general/v4/competition.html */
+export const fdStandingRowSchema = z.object({
+  position: z.number().int().positive(),
+  team: fdTeamRefSchema,
+  playedGames: z.number().int().nonnegative(),
+  won: z.number().int().nonnegative(),
+  draw: z.number().int().nonnegative(),
+  lost: z.number().int().nonnegative(),
+  points: z.number().int(),
+  goalsFor: z.number().int().nonnegative(),
+  goalsAgainst: z.number().int().nonnegative(),
+  goalDifference: z.number().int(),
+});
+
+export const fdStandingsSchema = z.object({
+  standings: z.array(
+    z.object({
+      stage: z.string(),
+      type: z.string(),
+      group: z.string().nullable().optional(),
+      table: z.array(fdStandingRowSchema),
+    }),
+  ),
+});
+
+export type FdStandingRow = z.infer<typeof fdStandingRowSchema>;

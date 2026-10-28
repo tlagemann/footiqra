@@ -1,5 +1,5 @@
 import { fetchWithRetry, RateLimiter, type FetchLike, type RetryOptions } from "@/ingestion/http";
-import { fdMatchListSchema, type FdMatch } from "./schemas";
+import { fdMatchListSchema, fdStandingsSchema, type FdMatch, type FdStandingRow } from "./schemas";
 
 export const FOOTBALL_DATA_BASE_URL = "https://api.football-data.org/v4";
 
@@ -50,5 +50,20 @@ export class FootballDataClient {
       throw new Error(`Unexpected response shape for ${code} ${season} (${where})`);
     }
     return parsed.data.matches;
+  }
+
+  /**
+   * Official league table (overall, not home/away) of one competition and season.
+   * Uses the provider's order, so league-specific tie-breakers and point
+   * deductions are respected.
+   */
+  async getStandings(code: string, season: number): Promise<FdStandingRow[]> {
+    if (!/^[A-Z0-9]{2,5}$/.test(code)) throw new Error(`Invalid competition code: ${code}`);
+    const raw = await this.getJson(`/competitions/${code}/standings?season=${season}`);
+    const parsed = fdStandingsSchema.safeParse(raw);
+    if (!parsed.success) throw new Error(`Unexpected standings shape for ${code} ${season}`);
+    const total = parsed.data.standings.find((s) => s.type === "TOTAL");
+    if (!total) throw new Error(`No overall table for ${code} ${season}`);
+    return [...total.table].sort((a, b) => a.position - b.position);
   }
 }

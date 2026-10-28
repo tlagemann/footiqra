@@ -7,7 +7,7 @@
  */
 import { parseIngestEnv } from "@/ingestion/env";
 import { FootballDataClient } from "@/ingestion/providers/football-data/client";
-import { runIngest } from "@/ingestion/run";
+import { runIngest, runStandingsIngest } from "@/ingestion/run";
 import { dataDir } from "@/store/fs";
 import { currentSeasonStartYear } from "@/store/merge";
 
@@ -28,9 +28,15 @@ async function main(): Promise<number> {
 
   console.info(`Ingesting season ${season} into ${dataDir()}`);
   const result = await runIngest({ client, dataDir: dataDir(), season, log: console.info });
-  const failed = result.results.filter((r) => !r.ok);
+  const tables = await runStandingsIngest({
+    client,
+    dataDir: dataDir(),
+    season,
+    log: console.info,
+  });
+  const failed = [...result.results, ...tables].filter((r) => !r.ok);
   console.info(
-    `Done: ${result.requestsMade} API requests, ${failed.length} failed competition(s).`,
+    `Done: ${client.requestsMade} API requests, ${failed.length} failed competition(s).`,
   );
   return failed.length > 0 ? 2 : 0;
 }

@@ -8,6 +8,7 @@
  *   data/meta.json                       run timestamps per competition
  *   data/teams.json                      team registry with stable URL slugs
  *   data/matches/{CODE}/{season}.json    matches per competition and season
+ *   data/standings/{CODE}/{season}.json  official league table per competition and season
  */
 
 export const STORE_SCHEMA_VERSION = 1;
@@ -64,4 +65,26 @@ export interface StoreMeta {
   provider: "football-data";
   lastSuccessfulRunUtc: string | null;
   competitions: Record<string, CompetitionRunInfo>;
+}
+
+export interface StoredStandingRow {
+  position: number;
+  teamId: number;
+  playedGames: number;
+  won: number;
+  draw: number;
+  lost: number;
+  points: number;
+  goalsFor: number;
+  goalsAgainst: number;
+  goalDifference: number;
+}
+
+export interface StandingsFile {
+  schemaVersion: number;
+  competition: string;
+  season: number;
+  /** When the table was fetched from the provider. */
+  fetchedUtc: string;
+  rows: StoredStandingRow[];
 }
