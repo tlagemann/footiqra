@@ -24,8 +24,15 @@ function TeamName({ team, align }: { team: MatchForecast["home"]; align: "left" 
 }
 
 /** Three-part bar: home win, draw, away win. */
-export function ProbabilityBar({ forecast }: { forecast: MatchForecast }) {
-  const p = forecast.percentages;
+export function ProbabilityBar({
+  percentages: p,
+  labels = { home: "home", draw: "draw", away: "away" },
+  large = false,
+}: {
+  percentages: MatchForecast["percentages"];
+  labels?: { home: string; draw: string; away: string };
+  large?: boolean;
+}) {
   const favourite =
     p.home >= p.away ? (p.home >= p.draw ? "home" : "draw") : p.away >= p.draw ? "away" : "draw";
   const seg = (key: "home" | "draw" | "away", color: string) => (
@@ -36,20 +43,25 @@ export function ProbabilityBar({ forecast }: { forecast: MatchForecast }) {
   );
   return (
     <div>
-      <div aria-hidden="true" className="flex h-2 gap-0.5 overflow-hidden rounded-full">
+      <div
+        aria-hidden="true"
+        className={`flex gap-0.5 overflow-hidden rounded-full ${large ? "h-3" : "h-2"}`}
+      >
         {seg("home", "bg-foreground")}
         {seg("draw", "bg-neutral")}
         {seg("away", "bg-brand")}
       </div>
-      <div className="tabular mt-1.5 flex justify-between text-xs font-semibold">
+      <div
+        className={`tabular mt-1.5 flex justify-between gap-3 font-semibold ${large ? "text-base" : "text-xs"}`}
+      >
         <span>
-          {p.home}% <span className="font-medium text-muted">home</span>
+          {p.home}% <span className="font-medium text-muted">{labels.home}</span>
         </span>
-        <span>
-          {p.draw}% <span className="font-medium text-muted">draw</span>
+        <span className="text-center">
+          {p.draw}% <span className="font-medium text-muted">{labels.draw}</span>
         </span>
-        <span>
-          {p.away}% <span className="font-medium text-muted">away</span>
+        <span className="text-right">
+          {p.away}% <span className="font-medium text-muted">{labels.away}</span>
         </span>
       </div>
     </div>
@@ -64,6 +76,14 @@ function ForecastItem({ forecast }: { forecast: MatchForecast }) {
         <LocalTime utc={forecast.utcDate} />
         <span aria-hidden="true">·</span>
         <span>{COMPETITION_LABEL[forecast.competition] ?? forecast.competition}</span>
+        {forecast.slug && (
+          <Link
+            href={`/matches/${forecast.slug}/`}
+            className="ml-auto font-semibold text-foreground hover:underline hover:underline-offset-4"
+          >
+            Preview
+          </Link>
+        )}
       </p>
       <div className="grid gap-3 md:grid-cols-[1fr_minmax(14rem,18rem)_1fr] md:items-center md:gap-5">
         <div className="flex items-center justify-between gap-3 md:contents">
@@ -76,7 +96,7 @@ function ForecastItem({ forecast }: { forecast: MatchForecast }) {
           </div>
         </div>
         <div className="md:order-2">
-          <ProbabilityBar forecast={forecast} />
+          <ProbabilityBar percentages={forecast.percentages} />
         </div>
       </div>
       <p className="sr-only">

@@ -61,13 +61,27 @@ export function MatchList({ matches, caption }: { matches: MatchView[]; caption:
                 <TeamCell team={m.home} align="right" />
               </td>
               <td className="w-20 py-3.5 text-center sm:w-24">
-                {m.homeGoals !== null && m.awayGoals !== null ? (
-                  <span className="tabular inline-block rounded-xl bg-background px-3 py-1 font-display text-lg font-bold">
-                    {m.homeGoals}:{m.awayGoals}
-                  </span>
-                ) : (
-                  <span className="text-sm font-medium text-muted">vs</span>
-                )}
+                {(() => {
+                  const label =
+                    m.homeGoals !== null && m.awayGoals !== null ? (
+                      <span className="tabular inline-block rounded-xl bg-background px-3 py-1 font-display text-lg font-bold">
+                        {m.homeGoals}:{m.awayGoals}
+                      </span>
+                    ) : (
+                      <span className="text-sm font-medium text-muted">vs</span>
+                    );
+                  return m.slug ? (
+                    <Link
+                      href={`/matches/${m.slug}/`}
+                      className="inline-block rounded-xl transition hover:ring-2 hover:ring-line"
+                      aria-label={`${m.home.name} vs ${m.away.name}: match page`}
+                    >
+                      {label}
+                    </Link>
+                  ) : (
+                    label
+                  );
+                })()}
               </td>
               <td className="py-3.5 pr-5 sm:pr-7">
                 <TeamCell team={m.away} align="left" />

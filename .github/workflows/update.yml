@@ -83,7 +83,7 @@ jobs:
         with:
           name: site
           path: out
-          retention-days: 7
+          retention-days: 3
 
       - name: Deploy to SiteGround
         if: vars.DEPLOY_ENABLED == 'true'

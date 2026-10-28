@@ -3,12 +3,14 @@ import { dataDir, listHistoryDates, readHistoryFile } from "@/store/fs";
 import { referenceDate, utcDay, type HistoryFile, type HistoryTeam } from "./history";
 import { upcomingForecasts, type MatchForecast } from "./forecasts";
 import { loadSnapshotFromDisk } from "./load";
+import { matchDetail, type MatchDetail } from "./match-detail";
 import { LEAGUES } from "@/config/leagues";
 import { computePowerRanking, type PowerRanking, type PowerRankingRow } from "./power-ranking";
 import {
   allLeagueTeams,
   findTeamBySlug,
   leagueTable,
+  matchSlugs,
   teamMatches,
   teamsOfLeague,
   type LeagueTable,
@@ -174,3 +176,16 @@ export async function getForecastRecord() {
 }
 
 export { biggestMatches, nextWindow } from "./forecasts";
+
+export type { MatchDetail };
+
+/** Slugs of all match pages. */
+export async function getAllMatchSlugs(): Promise<string[]> {
+  return [...matchSlugs(await loadSnapshot()).values()];
+}
+
+export async function getMatch(slug: string): Promise<MatchDetail | undefined> {
+  const [snapshot, ranking] = await Promise.all([loadSnapshot(), loadRanking()]);
+  const asOf = new Date(snapshot.meta.lastSuccessfulRunUtc ?? Date.now());
+  return matchDetail(snapshot, ranking, slug, asOf);
+}

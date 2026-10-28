@@ -42,6 +42,8 @@ export interface PowerRanking {
   crossLeagueMatches: number;
   /** How well forecasts made before each rated match matched the results. */
   forecastRecord: ForecastRecord | null;
+  /** Rating difference (home minus away, home advantage included) before each rated match, by match id. */
+  preMatchDiff: ReadonlyMap<number, number>;
 }
 
 const LEAGUE_CODES = new Set(LEAGUES.map((l) => l.providerCodes.footballData));
@@ -133,5 +135,6 @@ export function computePowerRanking(snapshot: Snapshot): PowerRanking {
     matchesUsed: matches.length,
     crossLeagueMatches: result.crossLeagueMatches,
     forecastRecord: evaluateForecasts(result.preMatch),
+    preMatchDiff: new Map(result.preMatch.map((p) => [Number(p.matchId), p.ratingDiff])),
   };
 }

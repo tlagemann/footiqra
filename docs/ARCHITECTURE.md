@@ -43,7 +43,7 @@ GitHub Actions (alle 3 Stunden, manuell auslösbar)
   ├─ npm run snapshot      (Tagesstand: Power-Rang, Rating, Tabelle vs. Stärke → data/history/{Datum}.json)
   ├─ git commit data/      (nur bei Änderungen; Historie = Git-Historie)
   ├─ npm run build         (liest data/, erzeugt out/)
-  ├─ Artefakt "site"       (zum Herunterladen und Prüfen, 7 Tage)
+  ├─ Artefakt "site"       (zum Herunterladen und Prüfen, 3 Tage)
   └─ rsync out/ → SiteGround   (nur wenn DEPLOY_ENABLED=true)
 ```
 
@@ -96,6 +96,13 @@ Modell `elo-v1` (`src/ranking/league-elo.ts`), öffentlich erklärt auf `/method
 - Rankings werden nicht gespeichert, sondern beim Build deterministisch berechnet.
 
 Die UEFA-Koeffizienten werden einmal pro Saison aktualisiert (Datum in der Konfiguration mitpflegen).
+
+### Prognosen und Spielseiten
+
+- Modell `forecast-v1` (src/ranking/forecast.ts): Sieg/Remis/Niederlage aus der Rating-Differenz inkl. Heimvorteil. Remis-Kurve `0,25 × (1 − |2E − 1|²)`, per Log-Loss auf 593 Saisonspielen gewählt (1,050 gegenüber 1,072 für die reine Häufigkeitsbasis).
+- Für gespielte Partien wird die Prognose mit den Ratings vor Anpfiff nachgerechnet (`preMatch` aus computeLeagueElo). Daraus stammt auch die Trefferquote auf /predictions/.
+- Spielseiten `/matches/{heim}-vs-{gast}-{saison}/` (ohne Datum, damit Verlegungen die URL nicht ändern) entstehen nur für Anstöße von 30 Tagen vor bis 14 Tage nach dem Datenstand. Weiter entfernte Seiten wären nahezu inhaltsgleich, außerdem bleibt der Build klein (rund 360 Seiten, 125 MB statt 2.400 Seiten, 600 MB).
+- Aufstellungen sind im kostenlosen Tarif von football-data.org nicht enthalten (erst ab „Deep Data“, 29 €/Monat, und dann nur offizielle Aufstellungen).
 
 ## 8. Kosten
 

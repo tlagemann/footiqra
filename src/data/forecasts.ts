@@ -6,7 +6,7 @@ import {
   type MatchProbabilities,
 } from "@/ranking";
 import type { PowerRanking } from "./power-ranking";
-import { crestPath, type Snapshot } from "./repository";
+import { crestPath, matchSlugs, type Snapshot } from "./repository";
 
 export interface ForecastTeam {
   slug: string;
@@ -26,6 +26,8 @@ export interface MatchForecast {
   probabilities: MatchProbabilities;
   /** Whole percentages adding up to 100, for display. */
   percentages: MatchProbabilities;
+  /** Match page slug, if the match has a page. */
+  slug: string | null;
 }
 
 const leagueByCode = new Map(LEAGUES.map((l) => [l.providerCodes.footballData, l.slug]));
@@ -43,6 +45,7 @@ export function upcomingForecasts(
   const rated = new Map(ranking.rows.map((r) => [r.team.id, r]));
   const from = asOf.getTime();
   const forecasts: MatchForecast[] = [];
+  const slugs = matchSlugs(snapshot);
 
   for (const file of snapshot.matchFiles) {
     for (const m of file.matches) {
@@ -68,6 +71,7 @@ export function upcomingForecasts(
         away: team(away),
         probabilities,
         percentages: toPercentages(probabilities),
+        slug: slugs.get(m.id) ?? null,
       });
     }
   }

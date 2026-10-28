@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { LEAGUES } from "@/config/leagues";
 import { getSiteUrl } from "@/config/site";
-import { getAllTeamSlugs } from "@/data";
+import { getAllMatchSlugs, getAllTeamSlugs } from "@/data";
 
 export const dynamic = "force-static";
 
@@ -15,6 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/table-vs-strength/",
     "/methodology/",
     ...(await getAllTeamSlugs()).map((slug) => `/teams/${slug}/`),
+    ...(await getAllMatchSlugs()).map((slug) => `/matches/${slug}/`),
   ];
   return paths.map((path) => ({ url: `${base}${path}` }));
 }

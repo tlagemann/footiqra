@@ -49,6 +49,8 @@ export interface MatchView {
   away: TeamRef;
   homeGoals: number | null;
   awayGoals: number | null;
+  /** Match page slug, or null if the match has no page. */
+  slug: string | null;
 }
 
 const leagueByCode = new Map(LEAGUES.map((l) => [l.providerCodes.footballData, l]));
@@ -135,7 +137,71 @@ function toView(snapshot: Snapshot, competition: string, m: StoredMatch): MatchV
     away: ref(m.awayTeamId),
     homeGoals: m.homeGoals,
     awayGoals: m.awayGoals,
+    slug: matchSlugs(snapshot).get(m.id) ?? null,
   };
+}
+
+const slugCache = new WeakMap<Snapshot, Map<number, string>>();
+
+/**
+ * Match pages exist for kick-offs from 30 days before to 14 days after the
+ * data timestamp. Far-future pages would be near-duplicates of each other,
+ * and interest in a match fades within weeks after it was played.
+ */
+export const MATCH_PAGE_WINDOW = { pastDays: 30, futureDays: 14 } as const;
+
+/**
+ * Stable page slugs for matches that get a page: every match of the current
+ * league seasons, and Champions League matches between two clubs of covered
+ * leagues. The slug has no date, so a rescheduled match keeps its URL:
+ *   {home}-vs-{away}-{2026-27}[-champions-league]
+ * In the rare case of a repeat pairing, later matches get their id appended.
+ */
+export function matchSlugs(snapshot: Snapshot): Map<number, string> {
+  const cached = slugCache.get(snapshot);
+  if (cached) return cached;
+  const leagues = teamLeagueMap(snapshot);
+  const latestLeague = new Set(latestLeagueFiles(snapshot).map((x) => x.file));
+  const currentSeason = Math.max(0, ...[...latestLeague].map((f) => f.season));
+  const candidates: { id: number; base: string; utcDate: string }[] = [];
+  for (const file of snapshot.matchFiles) {
+    const isLeague = latestLeague.has(file);
+    const isEuropean = !leagueByCode.has(file.competition) && file.season === currentSeason;
+    if (!isLeague && !isEuropean) continue;
+    for (const m of file.matches) {
+      const home = snapshot.teams.teams[String(m.homeTeamId)];
+      const away = snapshot.teams.teams[String(m.awayTeamId)];
+      if (!home || !away) continue;
+      if (!leagues.has(m.homeTeamId) || !leagues.has(m.awayTeamId)) continue;
+      const season = `${file.season}-${String(file.season + 1).slice(2)}`;
+      const suffix = isLeague
+        ? ""
+        : `-${file.competition === "CL" ? "champions-league" : file.competition.toLowerCase()}`;
+      candidates.push({
+        id: m.id,
+        base: `${home.slug}-vs-${away.slug}-${season}${suffix}`,
+        utcDate: m.utcDate,
+      });
+    }
+  }
+  candidates.sort((a, b) => a.id - b.id);
+  const asOf = Date.parse(snapshot.meta.lastSuccessfulRunUtc ?? "");
+  const day = 24 * 3600 * 1000;
+  const used = new Set<string>();
+  const slugs = new Map<number, string>();
+  for (const c of candidates) {
+    // Collisions are resolved over all matches, so a slug never changes with the window.
+    const slug = used.has(c.base) ? `${c.base}-${c.id}` : c.base;
+    used.add(slug);
+    const kickoff = Date.parse(c.utcDate);
+    const inWindow =
+      Number.isFinite(asOf) &&
+      kickoff >= asOf - MATCH_PAGE_WINDOW.pastDays * day &&
+      kickoff <= asOf + MATCH_PAGE_WINDOW.futureDays * day;
+    if (inWindow) slugs.set(c.id, slug);
+  }
+  slugCache.set(snapshot, slugs);
+  return slugs;
 }
 
 /** Finished matches (newest first) and upcoming matches (soonest first) of a team, across all stored competitions. */
