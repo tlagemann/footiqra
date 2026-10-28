@@ -109,10 +109,18 @@ export function MatchList({
   );
 }
 
-export function LastUpdated({ utc, locale = "en" }: { utc: string; locale?: Locale }) {
+export function LastUpdated({
+  utc,
+  locale = "en",
+  className = "mt-3 text-xs",
+}: {
+  utc: string;
+  locale?: Locale;
+  className?: string;
+}) {
   return (
-    <p className="mt-3 text-xs text-muted">
-      {tr(locale, "Updated", "Aktualisiert")}{" "}
+    <p className={`${className} text-muted`}>
+      {tr(locale, "Last updated", "Zuletzt aktualisiert")}{" "}
       <time dateTime={utc}>
         {fmtDate(locale, utc, { dateStyle: "medium", timeStyle: "short" })} UTC
       </time>{" "}

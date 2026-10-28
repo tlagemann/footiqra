@@ -128,6 +128,11 @@ export async function HomeView({ locale }: { locale: Locale }) {
                 </span>
               }
             />
+            <LastUpdated
+              utc={ranking.lastUpdatedUtc}
+              locale={locale}
+              className="-mt-2 mb-5 text-sm"
+            />
             <RankingTable
               rows={ranking.data.rows}
               caption={t(
@@ -136,7 +141,6 @@ export async function HomeView({ locale }: { locale: Locale }) {
               )}
               locale={locale}
             />
-            <LastUpdated utc={ranking.lastUpdatedUtc} locale={locale} />
           </section>
 
           {bigGames.length > 0 && (
