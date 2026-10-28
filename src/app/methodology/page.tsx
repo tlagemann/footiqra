@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Eyebrow } from "@/components/ui";
 import {
   leagueStartingOffsets,
   RATING_POINTS_PER_COEFFICIENT_POINT,
@@ -35,18 +36,21 @@ export default function MethodologyPage() {
     .sort((a, b) => b.coefficient - a.coefficient);
 
   return (
-    <article className="max-w-2xl space-y-8 leading-relaxed">
-      <header className="space-y-3">
-        <h1 className="text-3xl font-semibold tracking-tight">Methodology</h1>
-        <p className="text-muted">
+    <article className="max-w-3xl space-y-12 text-lg leading-relaxed">
+      <header className="space-y-5">
+        <Eyebrow>Model {ELO_V1_MODEL_ID}</Eyebrow>
+        <h1 className="font-display text-5xl font-extrabold tracking-[-0.045em] sm:text-7xl">
+          Methodology
+        </h1>
+        <p className="text-xl text-muted">
           The Footiqra power ranking estimates how strong every team in Europe&apos;s top leagues is
           right now, on one common scale. It is based only on match results. This page documents
           exactly how it is calculated (model <code>{ELO_V1_MODEL_ID}</code>).
         </p>
       </header>
 
-      <section className="space-y-3">
-        <h2 className="text-xl font-semibold">1. Team ratings</h2>
+      <section className="space-y-4">
+        <h2 className="font-display text-3xl font-extrabold tracking-[-0.03em]">1. Team ratings</h2>
         <p>
           Every team has a rating. Before each match the model estimates each side&apos;s chance
           from the rating difference, using the standard Elo formula: a 100-point advantage
@@ -54,7 +58,7 @@ export default function MethodologyPage() {
           the result: the more surprising the result, the bigger the change. Whatever one team
           gains, the other loses.
         </p>
-        <ul className="list-disc space-y-1 pl-5 text-sm">
+        <ul className="space-y-2 rounded-3xl bg-surface p-6 text-base">
           <li>Starting rating: {opts.baseRating} (plus the league offset, see below)</li>
           <li>Update step (K-factor): {opts.kFactor} rating points</li>
           <li>Home advantage: {opts.homeAdvantage} rating points</li>
@@ -65,8 +69,10 @@ export default function MethodologyPage() {
         </ul>
       </section>
 
-      <section className="space-y-3">
-        <h2 className="text-xl font-semibold">2. Comparing leagues</h2>
+      <section className="space-y-4">
+        <h2 className="font-display text-3xl font-extrabold tracking-[-0.03em]">
+          2. Comparing leagues
+        </h2>
         <p>
           Within a league, every team plays every other team, so ratings inside a league are well
           connected. Between leagues they are not: Bayern and Arsenal only meet in European
@@ -80,38 +86,40 @@ export default function MethodologyPage() {
           rating points above or below average for every coefficient point it is above or below the
           average of all covered leagues.
         </p>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
+        <div className="overflow-x-auto rounded-3xl bg-surface p-3 sm:p-4">
+          <table className="w-full text-base">
             <caption className="sr-only">Starting league strength</caption>
-            <thead className="text-left text-xs text-muted">
+            <thead className="text-left text-sm text-muted">
               <tr>
-                <th scope="col" className="py-2 font-medium">
+                <th scope="col" className="px-3 py-3 font-medium">
                   League
                 </th>
-                <th scope="col" className="py-2 text-right font-medium">
+                <th scope="col" className="px-3 py-3 text-right font-medium">
                   UEFA coefficient
                 </th>
-                <th scope="col" className="py-2 text-right font-medium">
+                <th scope="col" className="px-3 py-3 text-right font-medium">
                   Starting strength
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-line">
+            <tbody>
               {rows.map((r) => (
-                <tr key={r.slug}>
-                  <th scope="row" className="py-2 text-left font-normal">
+                <tr key={r.slug} className="border-t border-line">
+                  <th scope="row" className="px-3 py-3 text-left font-semibold">
                     {r.name}
                   </th>
-                  <td className="py-2 text-right font-mono tabular-nums">
+                  <td className="tabular px-3 py-3 text-right font-display font-bold">
                     {r.coefficient.toFixed(3)}
                   </td>
-                  <td className="py-2 text-right font-mono tabular-nums">{signed(r.offset)}</td>
+                  <td className="tabular px-3 py-3 text-right font-display font-bold">
+                    {signed(r.offset)}
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-        <p className="text-xs text-muted">
+        <p className="text-sm text-muted">
           Source:{" "}
           <a href={UEFA_COEFFICIENTS.sourceUrl} className="underline underline-offset-4">
             UEFA association club coefficients
@@ -126,9 +134,11 @@ export default function MethodologyPage() {
         </p>
       </section>
 
-      <section className="space-y-3">
-        <h2 className="text-xl font-semibold">3. Which matches count</h2>
-        <ul className="list-disc space-y-1 pl-5">
+      <section className="space-y-4">
+        <h2 className="font-display text-3xl font-extrabold tracking-[-0.03em]">
+          3. Which matches count
+        </h2>
+        <ul className="list-disc space-y-2 pl-6 marker:text-brand">
           <li>All finished league matches of the current season</li>
           <li>
             Champions League matches in which both clubs play in one of the covered leagues. Matches
@@ -146,9 +156,9 @@ export default function MethodologyPage() {
         </p>
       </section>
 
-      <section className="space-y-3">
-        <h2 className="text-xl font-semibold">4. Limitations</h2>
-        <ul className="list-disc space-y-1 pl-5">
+      <section className="space-y-4">
+        <h2 className="font-display text-3xl font-extrabold tracking-[-0.03em]">4. Limitations</h2>
+        <ul className="list-disc space-y-2 pl-6 marker:text-brand">
           <li>
             Ratings restart at the beginning of each season. Early in a season, after only a few
             matches, they are still close to the starting values and less reliable.

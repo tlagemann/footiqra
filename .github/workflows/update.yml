@@ -1,6 +1,7 @@
 # Scheduled data update and site build.
 #
 # 1. Fetch matches from football-data.org into /data (needs secret FOOTBALL_DATA_API_TOKEN)
+#    and download missing club crests into public/crests (self-hosted, no third-party requests)
 # 2. Commit changed data files (the repository is the data store and its history)
 # 3. Build the static site into ./out and keep it as a downloadable artifact
 # 4. Upload ./out to SiteGround via rsync over SSH, only if variable DEPLOY_ENABLED is "true"
@@ -48,12 +49,17 @@ jobs:
           npm run ingest
           echo "code=$?" >> "$GITHUB_OUTPUT"
 
+      - name: Download missing club crests
+        if: steps.ingest.outputs.code != 'skipped'
+        continue-on-error: true
+        run: npm run crests
+
       - name: Commit data changes
         if: steps.ingest.outputs.code != 'skipped'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data
+          git add data public/crests
           if git diff --cached --quiet; then
             echo "No data changes."
           else

@@ -1,23 +1,41 @@
 @import "tailwindcss";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/inter-tight";
 
-/* Design tokens. Light by default, dark via system preference. */
+/*
+ * Footiqra design tokens.
+ * Monochrome base (black on white), light grey surfaces, one signature green.
+ * Fonts are self-hosted (no requests to third-party font services).
+ */
 :root {
-  --background: #fbfbf9;
-  --foreground: #16181d;
-  --muted: #5d6370;
-  --surface: #f1f2ee;
-  --line: #dcdfd8;
-  --accent: #1f7a4d;
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --muted: #6b7079;
+  --surface: #f2f4f7;
+  --surface-strong: #e7ebf0;
+  --line: #e4e7ec;
+  --brand: #12c27a;
+  --brand-ink: #0a7a4b;
+  --positive: #12a868;
+  --negative: #e5484d;
+  --neutral: #a1a7b0;
+  --inverse: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #101216;
-    --foreground: #eceee9;
-    --muted: #9aa0ab;
-    --surface: #181b21;
-    --line: #2a2e36;
-    --accent: #4cc38a;
+    --background: #000000;
+    --foreground: #f5f6f7;
+    --muted: #9aa0a8;
+    --surface: #111214;
+    --surface-strong: #1a1c1f;
+    --line: #24272b;
+    --brand: #22d68a;
+    --brand-ink: #4ae3a2;
+    --positive: #2ccf86;
+    --negative: #ff6369;
+    --neutral: #5f656d;
+    --inverse: #000000;
   }
 }
 
@@ -26,14 +44,50 @@
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
   --color-line: var(--line);
-  --color-accent: var(--accent);
-  --font-sans:
-    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --color-brand: var(--brand);
+  --color-brand-ink: var(--brand-ink);
+  --color-positive: var(--positive);
+  --color-negative: var(--negative);
+  --color-neutral: var(--neutral);
+  --color-inverse: var(--inverse);
+  /* Accent = foreground: buttons and highlights are black (white in dark mode). */
+  --color-accent: var(--foreground);
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display:
+    "Inter Tight Variable", "Inter Variable", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+  font-feature-settings:
+    "cv11" 1,
+    "ss01" 1;
+}
+
+/* Tabular figures for all numbers in data views. */
+.tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
 }

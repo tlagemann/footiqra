@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LEAGUES } from "@/config/leagues";
 import type { MatchView } from "@/data";
+import { Crest } from "./ui";
 
 const COMPETITION_LABEL: Record<string, string> = {
   ...Object.fromEntries(LEAGUES.map((l) => [l.providerCodes.footballData, l.name])),
@@ -10,73 +11,79 @@ const COMPETITION_LABEL: Record<string, string> = {
 const dateFormat = new Intl.DateTimeFormat("en-GB", {
   day: "numeric",
   month: "short",
-  year: "numeric",
   timeZone: "UTC",
 });
 
-function TeamName({ team }: { team: MatchView["home"] }) {
+function TeamCell({ team, align }: { team: MatchView["home"]; align: "left" | "right" }) {
+  const content = (
+    <span
+      className={`flex items-center gap-2.5 font-semibold ${align === "right" ? "flex-row-reverse text-right" : ""}`}
+    >
+      <Crest src={team.crest} name={team.name} size={24} />
+      <span className="truncate">{team.name}</span>
+    </span>
+  );
   return team.slug ? (
-    <Link href={`/teams/${team.slug}/`} className="hover:text-accent">
-      {team.name}
+    <Link href={`/teams/${team.slug}/`} className="block hover:underline hover:underline-offset-4">
+      {content}
     </Link>
   ) : (
-    <span>{team.name}</span>
+    content
   );
 }
 
 /** Results or fixtures as a semantic table (readable without JavaScript, indexable). */
 export function MatchList({ matches, caption }: { matches: MatchView[]; caption: string }) {
   return (
-    <table className="w-full text-sm">
-      <caption className="sr-only">{caption}</caption>
-      <thead className="text-left text-xs text-muted">
-        <tr>
-          <th scope="col" className="py-2 font-medium">
-            Date
-          </th>
-          <th scope="col" className="py-2 font-medium">
-            Competition
-          </th>
-          <th scope="col" className="py-2 text-right font-medium">
-            Home
-          </th>
-          <th scope="col" className="py-2 text-center font-medium">
-            Score
-          </th>
-          <th scope="col" className="py-2 font-medium">
-            Away
-          </th>
-        </tr>
-      </thead>
-      <tbody className="divide-y divide-line">
-        {matches.map((m) => (
-          <tr key={m.id}>
-            <td className="py-2 whitespace-nowrap text-muted">
-              <time dateTime={m.utcDate}>{dateFormat.format(new Date(m.utcDate))}</time>
-            </td>
-            <td className="py-2 text-muted">{COMPETITION_LABEL[m.competition] ?? m.competition}</td>
-            <td className="py-2 text-right">
-              <TeamName team={m.home} />
-            </td>
-            <td className="py-2 text-center font-mono tabular-nums">
-              {m.homeGoals !== null && m.awayGoals !== null
-                ? `${m.homeGoals}:${m.awayGoals}`
-                : "vs"}
-            </td>
-            <td className="py-2">
-              <TeamName team={m.away} />
-            </td>
+    <div className="overflow-hidden rounded-3xl bg-surface">
+      <table className="w-full table-fixed text-[15px]">
+        <caption className="sr-only">{caption}</caption>
+        <thead className="sr-only">
+          <tr>
+            <th scope="col">Date and competition</th>
+            <th scope="col">Home</th>
+            <th scope="col">Score</th>
+            <th scope="col">Away</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {matches.map((m, i) => (
+            <tr key={m.id} className={i > 0 ? "border-t border-line/80" : ""}>
+              <td className="w-24 py-3.5 pl-5 align-middle sm:w-40 sm:pl-7">
+                <time dateTime={m.utcDate} className="tabular block text-sm font-semibold">
+                  {dateFormat.format(new Date(m.utcDate))}
+                </time>
+                <span className="block truncate text-xs text-muted">
+                  {COMPETITION_LABEL[m.competition] ?? m.competition}
+                </span>
+              </td>
+              <td className="py-3.5">
+                <TeamCell team={m.home} align="right" />
+              </td>
+              <td className="w-20 py-3.5 text-center sm:w-24">
+                {m.homeGoals !== null && m.awayGoals !== null ? (
+                  <span className="tabular inline-block rounded-xl bg-background px-3 py-1 font-display text-lg font-bold">
+                    {m.homeGoals}:{m.awayGoals}
+                  </span>
+                ) : (
+                  <span className="text-sm font-medium text-muted">vs</span>
+                )}
+              </td>
+              <td className="py-3.5 pr-5 sm:pr-7">
+                <TeamCell team={m.away} align="left" />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
 export function LastUpdated({ utc }: { utc: string }) {
   return (
-    <p className="text-xs text-muted">
-      Data last updated{" "}
+    <p className="mt-3 text-xs text-muted">
+      Updated{" "}
       <time dateTime={utc}>
         {new Intl.DateTimeFormat("en-GB", {
           dateStyle: "medium",
@@ -84,8 +91,8 @@ export function LastUpdated({ utc }: { utc: string }) {
           timeZone: "UTC",
         }).format(new Date(utc))}{" "}
         UTC
-      </time>
-      . Source: football-data.org
+      </time>{" "}
+      · Data: football-data.org
     </p>
   );
 }

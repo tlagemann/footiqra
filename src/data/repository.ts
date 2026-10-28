@@ -9,14 +9,26 @@ export interface Snapshot {
   meta: StoreMeta;
   teams: TeamRegistry;
   matchFiles: MatchFile[];
+  /** Team ids with a self-hosted crest in public/crests (see ingestion/crests.ts). */
+  crestIds?: ReadonlySet<number>;
 }
 
+export type FormResult = "W" | "D" | "L";
+
 export interface TeamSummary {
+  id: number;
   slug: string;
   name: string;
   shortName: string | null;
+  /** Local crest path (e.g. /crests/5.png) or null if not available. */
   crest: string | null;
   leagueSlug: string;
+}
+
+export interface TeamRef {
+  slug: string | null;
+  name: string;
+  crest: string | null;
 }
 
 export interface MatchView {
@@ -24,8 +36,8 @@ export interface MatchView {
   utcDate: string;
   status: string;
   competition: string;
-  home: { slug: string | null; name: string };
-  away: { slug: string | null; name: string };
+  home: TeamRef;
+  away: TeamRef;
   homeGoals: number | null;
   awayGoals: number | null;
 }
@@ -60,12 +72,17 @@ export function teamLeagueMap(snapshot: Snapshot): Map<number, LeagueDefinition>
   return map;
 }
 
-function summary(team: StoredTeam, league: LeagueDefinition): TeamSummary {
+export function crestPath(snapshot: Snapshot, teamId: number): string | null {
+  return snapshot.crestIds?.has(teamId) ? `/crests/${teamId}.png` : null;
+}
+
+function summary(snapshot: Snapshot, team: StoredTeam, league: LeagueDefinition): TeamSummary {
   return {
+    id: team.id,
     slug: team.slug,
     name: team.name,
     shortName: team.shortName,
-    crest: team.crest,
+    crest: crestPath(snapshot, team.id),
     leagueSlug: league.slug,
   };
 }
@@ -78,7 +95,7 @@ export function allLeagueTeams(snapshot: Snapshot): TeamSummary[] {
   const result: TeamSummary[] = [];
   for (const [id, league] of leagues) {
     const team = snapshot.teams.teams[String(id)];
-    if (team) result.push(summary(team, league));
+    if (team) result.push(summary(snapshot, team, league));
   }
   return result.sort(byName);
 }
@@ -94,7 +111,11 @@ export function findTeamBySlug(snapshot: Snapshot, slug: string): TeamSummary | 
 function toView(snapshot: Snapshot, competition: string, m: StoredMatch): MatchView {
   const ref = (id: number) => {
     const t = snapshot.teams.teams[String(id)];
-    return { slug: t?.slug ?? null, name: t?.shortName || t?.name || "Unknown team" };
+    return {
+      slug: t?.slug ?? null,
+      name: t?.shortName || t?.name || "Unknown team",
+      crest: crestPath(snapshot, id),
+    };
   };
   return {
     id: m.id,
@@ -136,4 +157,32 @@ export function teamMatches(
     .sort((a, b) => Date.parse(a.utcDate) - Date.parse(b.utcDate) || a.id - b.id)
     .slice(0, limits.fixtures);
   return { results, fixtures };
+}
+
+/**
+ * Last results of every team (newest last), from finished matches in all stored
+ * competitions of the current season files. Used for the form column.
+ */
+export function recentForm(snapshot: Snapshot, length = 5): Map<number, FormResult[]> {
+  const matches: StoredMatch[] = [];
+  for (const file of snapshot.matchFiles) {
+    for (const m of file.matches) {
+      if (m.status === "FINISHED" && m.homeGoals !== null && m.awayGoals !== null) matches.push(m);
+    }
+  }
+  matches.sort((a, b) => Date.parse(a.utcDate) - Date.parse(b.utcDate) || a.id - b.id);
+  const form = new Map<number, FormResult[]>();
+  const push = (teamId: number, r: FormResult) => {
+    const list = form.get(teamId) ?? [];
+    list.push(r);
+    if (list.length > length) list.shift();
+    form.set(teamId, list);
+  };
+  for (const m of matches) {
+    const h = m.homeGoals!;
+    const a = m.awayGoals!;
+    push(m.homeTeamId, h > a ? "W" : h < a ? "L" : "D");
+    push(m.awayTeamId, a > h ? "W" : a < h ? "L" : "D");
+  }
+  return form;
 }

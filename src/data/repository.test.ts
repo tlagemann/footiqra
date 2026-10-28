@@ -3,6 +3,7 @@ import type { StoredMatch } from "@/store/types";
 import {
   allLeagueTeams,
   findTeamBySlug,
+  recentForm,
   teamMatches,
   teamsOfLeague,
   type Snapshot,
@@ -132,6 +133,26 @@ describe("repository", () => {
       [50, "PL"], // previous season is part of the history too
     ]);
     expect(fixtures.map((m) => m.id)).toEqual([102]);
-    expect(results[0].away).toEqual({ slug: "outsider-cl-only", name: "Outsider CL Only" });
+    expect(results[0].away).toEqual({
+      slug: "outsider-cl-only",
+      name: "Outsider CL Only",
+      crest: null,
+    });
+  });
+});
+
+describe("crests and form", () => {
+  it("uses local crest paths only for downloaded crests", () => {
+    const withCrests = { ...snapshot, crestIds: new Set([1]) };
+    const teams = allLeagueTeams(withCrests);
+    expect(teams.find((t) => t.slug === "alpha-fc")?.crest).toBe("/crests/1.png");
+    expect(teams.find((t) => t.slug === "beta-united")?.crest).toBeNull();
+  });
+
+  it("returns the last results per team, oldest first", () => {
+    const form = recentForm(snapshot, 3);
+    // Alpha: 50 (away loss 1:0 at Gamma), 100 (home win), 101 (away loss), 300 (home win) -> last 3
+    expect(form.get(1)).toEqual(["W", "L", "W"]);
+    expect(form.get(2)).toEqual(["L", "W"]);
   });
 });

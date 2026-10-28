@@ -10,11 +10,8 @@ export function DataNotice({
   reason: string;
 }) {
   return (
-    <div
-      role="status"
-      className="rounded-lg border border-dashed border-line bg-surface px-5 py-6 text-sm text-muted"
-    >
-      <p className="font-medium text-foreground">{title}</p>
+    <div role="status" className="rounded-3xl bg-surface px-6 py-8 text-sm text-muted sm:px-8">
+      <p className="font-display text-lg font-bold text-foreground">{title}</p>
       <p className="mt-1">{reason}</p>
     </div>
   );

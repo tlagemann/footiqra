@@ -7,7 +7,7 @@ ErrorDocument 404 /404.html
 <IfModule mod_headers.c>
   # Pages change with every data update. "no-cache" makes browsers revalidate
   # (cheap 304 responses) and keeps SiteGround's Dynamic Cache from storing stale
-  # copies (verified behaviour: SiteGround does not cache responses with no-cache).
+  # copies (SiteGround skips responses with no-cache; check x-proxy-cache header).
   <FilesMatch "\.(html|txt)$">
     Header unset Expires
     Header set Cache-Control "no-cache"
@@ -24,6 +24,12 @@ ErrorDocument 404 /404.html
   <If "%{REQUEST_URI} =~ m#^/_next/static/#">
     Header unset Expires
     Header set Cache-Control "public, max-age=31536000, immutable"
+  </If>
+
+  # Crests are images only.
+  <If "%{REQUEST_URI} =~ m#^/crests/#">
+    Header set Cache-Control "public, max-age=604800"
+    Header set Content-Security-Policy "default-src 'none'"
   </If>
 
   Header always set X-Content-Type-Options "nosniff"

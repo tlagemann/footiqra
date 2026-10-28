@@ -8,13 +8,22 @@ import {
   type RankableMatch,
 } from "@/ranking";
 import type { StoredMatch } from "@/store/types";
-import { allLeagueTeams, teamLeagueMap, type Snapshot, type TeamSummary } from "./repository";
+import {
+  allLeagueTeams,
+  recentForm,
+  teamLeagueMap,
+  type FormResult,
+  type Snapshot,
+  type TeamSummary,
+} from "./repository";
 
 export interface PowerRankingRow {
   rank: number;
   rating: number;
   matchesPlayed: number;
   team: TeamSummary;
+  /** Last five results across all competitions, oldest first. */
+  form: FormResult[];
 }
 
 export interface LeagueStrength {
@@ -96,6 +105,7 @@ export function computePowerRanking(snapshot: Snapshot): PowerRanking {
     if (summary) bySummaryId.set(id, summary);
   }
 
+  const form = recentForm(snapshot, 5);
   const rows = toRanking(result.ratings, result.matchesPlayed)
     .filter((entry) => bySummaryId.has(entry.teamId))
     .map((entry) => ({
@@ -103,6 +113,7 @@ export function computePowerRanking(snapshot: Snapshot): PowerRanking {
       rating: entry.rating,
       matchesPlayed: entry.matchesPlayed,
       team: bySummaryId.get(entry.teamId)!,
+      form: form.get(Number(entry.teamId)) ?? [],
     }));
 
   const leagues = LEAGUES.map((l) => ({

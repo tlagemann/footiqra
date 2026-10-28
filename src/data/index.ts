@@ -1,4 +1,6 @@
 import "server-only";
+import { readdir } from "node:fs/promises";
+import path from "node:path";
 import { dataDir, readAllMatchFiles, readMeta, readTeams } from "@/store/fs";
 import { computePowerRanking, type PowerRanking, type PowerRankingRow } from "./power-ranking";
 import {
@@ -28,16 +30,27 @@ const NO_DATA = "No match data has been imported yet.";
 
 let snapshotPromise: Promise<Snapshot> | undefined;
 
+/** Team ids that have a downloaded crest in public/crests. */
+async function readCrestIds(): Promise<Set<number>> {
+  try {
+    const files = await readdir(path.join(process.cwd(), "public", "crests"));
+    return new Set(files.filter((f) => /^\d+\.png$/.test(f)).map((f) => Number(f.slice(0, -4))));
+  } catch {
+    return new Set();
+  }
+}
+
 /** Loads all data once per build. */
 function loadSnapshot(): Promise<Snapshot> {
   snapshotPromise ??= (async () => {
     const dir = dataDir();
-    const [meta, teams, matchFiles] = await Promise.all([
+    const [meta, teams, matchFiles, crestIds] = await Promise.all([
       readMeta(dir),
       readTeams(dir),
       readAllMatchFiles(dir),
+      readCrestIds(),
     ]);
-    return { meta, teams, matchFiles };
+    return { meta, teams, matchFiles, crestIds };
   })();
   return snapshotPromise;
 }

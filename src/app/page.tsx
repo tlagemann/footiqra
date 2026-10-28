@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { DataNotice } from "@/components/data-notice";
+import { LeagueStrength } from "@/components/league-strength";
 import { LastUpdated } from "@/components/match-list";
 import { RankingTable } from "@/components/ranking-table";
-import { getLeagueBySlug } from "@/config/leagues";
+import { ButtonLink, Crest, Eyebrow, SectionHeading } from "@/components/ui";
+import { getLeagueBySlug, LEAGUES } from "@/config/leagues";
 import { SITE } from "@/config/site";
 import { getPowerRanking } from "@/data";
 import { pageMetadata } from "@/lib/seo";
@@ -13,37 +15,74 @@ export const metadata: Metadata = {
   title: { absolute: `${SITE.name}: ${SITE.tagline}` },
 };
 
-function signed(n: number): string {
-  const r = Math.round(n);
-  return r > 0 ? `+${r}` : String(r);
-}
-
 export default async function HomePage() {
   const ranking = await getPowerRanking();
+  const top = ranking.status === "ok" ? ranking.data.rows.slice(0, 3) : [];
 
   return (
-    <div className="space-y-10">
-      <section>
-        <p className="text-sm font-medium uppercase tracking-wide text-accent">
-          Cross-league power ranking
-        </p>
-        <h1 className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">
-          Europe&apos;s top leagues, one ranking
-        </h1>
-        <p className="mt-3 max-w-2xl text-muted">{SITE.description}</p>
+    <div className="space-y-20 sm:space-y-28">
+      <section className="grid items-center gap-10 lg:grid-cols-[1.15fr_1fr]">
+        <div>
+          <Eyebrow>Cross-league power ranking</Eyebrow>
+          <h1 className="mt-5 font-display text-[2.9rem] leading-[0.98] font-extrabold tracking-[-0.045em] sm:text-7xl">
+            Every top club. One ranking.
+          </h1>
+          <p className="mt-6 max-w-xl text-lg text-muted">
+            {SITE.description} Updated several times a day from real match results.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <ButtonLink href="#ranking-section">See the ranking</ButtonLink>
+            <ButtonLink href="/methodology/" variant="secondary">
+              How it works
+            </ButtonLink>
+          </div>
+        </div>
+
+        {top.length > 0 && (
+          <div className="rounded-[2rem] bg-surface p-3 sm:p-4">
+            <p className="px-3 pt-2 pb-3 text-sm font-semibold text-muted">Top 3 right now</p>
+            <ol className="space-y-2">
+              {top.map((row) => (
+                <li key={row.team.slug}>
+                  <Link
+                    href={`/teams/${row.team.slug}/`}
+                    className="flex items-center gap-4 rounded-3xl bg-background px-4 py-4 transition hover:shadow-sm sm:px-5"
+                  >
+                    <span className="tabular w-6 font-display text-2xl font-extrabold text-muted">
+                      {row.rank}
+                    </span>
+                    <Crest src={row.team.crest} name={row.team.name} size={44} />
+                    <span className="min-w-0 flex-1">
+                      <span className="block truncate font-display text-lg font-bold tracking-[-0.02em]">
+                        {row.team.shortName || row.team.name}
+                      </span>
+                      <span className="block text-sm text-muted">
+                        {getLeagueBySlug(row.team.leagueSlug)?.name}
+                      </span>
+                    </span>
+                    <span className="tabular font-display text-2xl font-extrabold tracking-[-0.03em]">
+                      {Math.round(row.rating)}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ol>
+          </div>
+        )}
       </section>
 
       {ranking.status === "ok" ? (
         <>
-          <section aria-labelledby="ranking-heading" className="space-y-3">
-            <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <h2 id="ranking-heading" className="text-xl font-semibold">
-                Power Ranking
-              </h2>
-              <Link href="/methodology/" className="text-sm text-muted hover:text-accent">
-                How it works
-              </Link>
-            </div>
+          <section aria-labelledby="ranking" id="ranking-section" className="scroll-mt-24">
+            <SectionHeading
+              id="ranking"
+              title="Power Ranking"
+              aside={
+                <span className="text-sm text-muted">
+                  {ranking.data.rows.length} teams · {LEAGUES.length} leagues
+                </span>
+              }
+            />
             <RankingTable
               rows={ranking.data.rows}
               caption="Footiqra power ranking of all teams in the covered leagues"
@@ -51,37 +90,14 @@ export default async function HomePage() {
             <LastUpdated utc={ranking.lastUpdatedUtc} />
           </section>
 
-          <section aria-labelledby="leagues-heading" className="space-y-3">
-            <h2 id="leagues-heading" className="text-xl font-semibold">
-              League strength
-            </h2>
-            <p className="max-w-2xl text-sm text-muted">
-              Rating points added to every team of a league. Starts from the UEFA coefficients and
-              moves with results between clubs of different leagues in Europe (
+          <section aria-labelledby="league-strength">
+            <SectionHeading id="league-strength" title="League strength" />
+            <p className="-mt-2 mb-5 max-w-2xl text-muted">
+              Rating points added to every team of a league. It starts from the UEFA coefficients
+              and moves with results between clubs of different leagues in Europe (
               {ranking.data.crossLeagueMatches} matches so far this season).
             </p>
-            <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              {ranking.data.leagues.map((l) => {
-                const league = getLeagueBySlug(l.leagueSlug);
-                return (
-                  <li key={l.leagueSlug}>
-                    <Link
-                      href={`/leagues/${l.leagueSlug}/`}
-                      className="block rounded-lg border border-line px-4 py-3 hover:border-accent"
-                    >
-                      <span className="block font-medium">{league?.name}</span>
-                      <span className="font-mono text-sm tabular-nums">
-                        {signed(l.currentAdjustment)}
-                      </span>
-                      <span className="text-xs text-muted">
-                        {" "}
-                        (start {signed(l.startingOffset)})
-                      </span>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+            <LeagueStrength leagues={ranking.data.leagues} />
           </section>
         </>
       ) : (

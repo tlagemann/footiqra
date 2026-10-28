@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { DataNotice } from "@/components/data-notice";
 import { JsonLd } from "@/components/json-ld";
 import { LastUpdated, MatchList } from "@/components/match-list";
+import { Crest, FormGuide, SectionHeading } from "@/components/ui";
 import { getLeagueBySlug } from "@/config/leagues";
 import { getAllTeamSlugs, getTeam, getTeamRanking } from "@/data";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
@@ -61,7 +62,7 @@ export default async function TeamPage({ params }: PageProps<"/teams/[slug]">) {
   const ranking = await getTeamRanking(team.slug);
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-14">
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
@@ -69,62 +70,85 @@ export default async function TeamPage({ params }: PageProps<"/teams/[slug]">) {
           { name: team.name, path: `/teams/${team.slug}/` },
         ])}
       />
-      <header className="space-y-1">
-        {league && (
-          <Link href={`/leagues/${league.slug}/`} className="text-sm text-muted hover:text-accent">
-            {league.name}
-          </Link>
-        )}
-        <h1 className="text-3xl font-semibold tracking-tight">{team.name}</h1>
+      <header className="flex flex-col gap-6 sm:flex-row sm:items-center">
+        <span className="flex h-28 w-28 shrink-0 items-center justify-center rounded-[2rem] bg-surface">
+          <Crest src={team.crest} name={team.name} size={72} />
+        </span>
+        <div className="min-w-0">
+          {league && (
+            <Link
+              href={`/leagues/${league.slug}/`}
+              className="text-sm font-semibold text-brand-ink hover:underline hover:underline-offset-4"
+            >
+              {league.name}
+            </Link>
+          )}
+          <h1 className="mt-1 font-display text-4xl font-extrabold tracking-[-0.045em] sm:text-6xl">
+            {team.name}
+          </h1>
+        </div>
       </header>
 
       {ranking && (
-        <section aria-label="Power rating" className="flex flex-wrap gap-3">
-          <div className="rounded-lg border border-line px-5 py-3">
-            <p className="text-xs text-muted">Power rank</p>
-            <p className="font-mono text-2xl tabular-nums">#{ranking.rank}</p>
-          </div>
-          <div className="rounded-lg border border-line px-5 py-3">
-            <p className="text-xs text-muted">Rating</p>
-            <p className="font-mono text-2xl tabular-nums">{Math.round(ranking.rating)}</p>
-          </div>
-          <div className="rounded-lg border border-line px-5 py-3">
-            <p className="text-xs text-muted">Matches rated</p>
-            <p className="font-mono text-2xl tabular-nums">{ranking.matchesPlayed}</p>
-          </div>
-          <Link href="/methodology/" className="self-end text-sm text-muted hover:text-accent">
-            How the rating works
-          </Link>
+        <section aria-labelledby="rating-heading">
+          <h2 id="rating-heading" className="sr-only">
+            Power rating
+          </h2>
+          <dl className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+            <div className="rounded-3xl bg-foreground px-6 py-5 text-inverse">
+              <dt className="text-xs font-medium opacity-70">Power rank</dt>
+              <dd className="tabular mt-1 font-display text-4xl font-extrabold tracking-[-0.04em]">
+                #{ranking.rank}
+              </dd>
+            </div>
+            <div className="rounded-3xl bg-surface px-6 py-5">
+              <dt className="text-xs font-medium text-muted">Rating</dt>
+              <dd className="tabular mt-1 font-display text-4xl font-extrabold tracking-[-0.04em]">
+                {Math.round(ranking.rating)}
+              </dd>
+            </div>
+            <div className="rounded-3xl bg-surface px-6 py-5">
+              <dt className="text-xs font-medium text-muted">Form (last 5)</dt>
+              <dd className="mt-3">
+                <FormGuide form={ranking.form} />
+              </dd>
+            </div>
+            <div className="rounded-3xl bg-surface px-6 py-5">
+              <dt className="text-xs font-medium text-muted">Matches rated</dt>
+              <dd className="tabular mt-1 font-display text-4xl font-extrabold tracking-[-0.04em]">
+                {ranking.matchesPlayed}
+              </dd>
+            </div>
+          </dl>
+          <p className="mt-3 text-sm text-muted">
+            <Link
+              href="/methodology/"
+              className="underline underline-offset-4 hover:text-foreground"
+            >
+              How the rating works
+            </Link>
+          </p>
         </section>
       )}
 
       <section aria-labelledby="results-heading">
-        <h2 id="results-heading" className="text-xl font-semibold">
-          Latest results
-        </h2>
-        <div className="mt-3">
-          {results.length > 0 ? (
-            <MatchList matches={results} caption={`Latest results of ${team.name}`} />
-          ) : (
-            <p className="text-sm text-muted">No finished matches stored yet.</p>
-          )}
-        </div>
+        <SectionHeading id="results-heading" title="Latest results" />
+        {results.length > 0 ? (
+          <MatchList matches={results} caption={`Latest results of ${team.name}`} />
+        ) : (
+          <DataNotice title="No results yet" reason="No finished matches stored yet." />
+        )}
       </section>
 
       <section aria-labelledby="fixtures-heading">
-        <h2 id="fixtures-heading" className="text-xl font-semibold">
-          Upcoming fixtures
-        </h2>
-        <div className="mt-3">
-          {fixtures.length > 0 ? (
-            <MatchList matches={fixtures} caption={`Upcoming fixtures of ${team.name}`} />
-          ) : (
-            <p className="text-sm text-muted">No scheduled matches stored.</p>
-          )}
-        </div>
+        <SectionHeading id="fixtures-heading" title="Upcoming fixtures" />
+        {fixtures.length > 0 ? (
+          <MatchList matches={fixtures} caption={`Upcoming fixtures of ${team.name}`} />
+        ) : (
+          <DataNotice title="No fixtures" reason="No scheduled matches stored." />
+        )}
+        <LastUpdated utc={result.lastUpdatedUtc} />
       </section>
-
-      <LastUpdated utc={result.lastUpdatedUtc} />
     </div>
   );
 }
