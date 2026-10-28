@@ -2,7 +2,7 @@
 
 Cross-league football power rankings for Europe's top five leagues: Premier League, La Liga, Serie A, Bundesliga and Ligue 1.
 
-**Projektstand:** Technische Grundlage und automatischer Datenabruf stehen. Teamseiten zeigen echte Ergebnisse, sobald der Datenabruf aktiviert ist. Das Power-Ranking wird erst nach der Methodik-Entscheidung veröffentlicht.
+**Projektstand:** Datenabruf, Power-Ranking (Modell `elo-v1`), Liga- und Teamseiten laufen mit echten Daten. Der Upload zu SiteGround ist vorbereitet, aber noch nicht aktiviert.
 
 ## So funktioniert es
 
@@ -37,7 +37,7 @@ Node.js 22 oder neuer (`.nvmrc`), npm 10 oder neuer.
 
 | URL                                                             | Inhalt                                            |
 | --------------------------------------------------------------- | ------------------------------------------------- |
-| `/`                                                             | Ligaübergreifendes Power-Ranking (folgt)          |
+| `/`                                                             | Ligaübergreifendes Power-Ranking und Ligastärke   |
 | `/leagues/`                                                     | Übersicht der fünf Ligen                          |
 | `/leagues/{premier-league,la-liga,serie-a,bundesliga,ligue-1}/` | Liga-Seiten mit Teams                             |
 | `/teams/{slug}/`                                                | Teamprofile mit Ergebnissen und kommenden Spielen |

@@ -1,5 +1,6 @@
 import "server-only";
 import { dataDir, readAllMatchFiles, readMeta, readTeams } from "@/store/fs";
+import { computePowerRanking, type PowerRanking, type PowerRankingRow } from "./power-ranking";
 import {
   allLeagueTeams,
   findTeamBySlug,
@@ -21,7 +22,7 @@ import {
 export type DataResult<T> =
   { status: "ok"; data: T; lastUpdatedUtc: string } | { status: "unavailable"; reason: string };
 
-export type { MatchView, TeamSummary };
+export type { MatchView, TeamSummary, PowerRanking, PowerRankingRow };
 
 const NO_DATA = "No match data has been imported yet.";
 
@@ -48,11 +49,25 @@ function ok<T>(snapshot: Snapshot, data: T): DataResult<T> {
     : { status: "unavailable", reason: NO_DATA };
 }
 
-export async function getPowerRanking(): Promise<DataResult<never[]>> {
-  return {
-    status: "unavailable",
-    reason: "The power ranking will be published once the rating methodology has been finalised.",
-  };
+let rankingPromise: Promise<PowerRanking> | undefined;
+
+async function loadRanking(): Promise<PowerRanking> {
+  rankingPromise ??= loadSnapshot().then(computePowerRanking);
+  return rankingPromise;
+}
+
+export async function getPowerRanking(): Promise<DataResult<PowerRanking>> {
+  const snapshot = await loadSnapshot();
+  const ranking = await loadRanking();
+  return ranking.matchesUsed > 0
+    ? ok(snapshot, ranking)
+    : { status: "unavailable", reason: NO_DATA };
+}
+
+/** Rank and rating of one team, if it is ranked. */
+export async function getTeamRanking(slug: string): Promise<PowerRankingRow | undefined> {
+  const ranking = await loadRanking();
+  return ranking.matchesUsed > 0 ? ranking.rows.find((r) => r.team.slug === slug) : undefined;
 }
 
 export async function getLeagueTeams(leagueSlug: string): Promise<DataResult<TeamSummary[]>> {

@@ -5,7 +5,7 @@ import { DataNotice } from "@/components/data-notice";
 import { JsonLd } from "@/components/json-ld";
 import { LastUpdated, MatchList } from "@/components/match-list";
 import { getLeagueBySlug } from "@/config/leagues";
-import { getAllTeamSlugs, getTeam } from "@/data";
+import { getAllTeamSlugs, getTeam, getTeamRanking } from "@/data";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 /**
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: PageProps<"/teams/[slug]">): 
   const { team } = result.data;
   const league = getLeagueBySlug(team.leagueSlug);
   return pageMetadata({
-    title: `${team.name}: results, fixtures and form`,
+    title: `${team.name}: power rating, results and fixtures`,
     description: `${team.name} (${league?.name ?? "Europe"}): latest results, upcoming fixtures and team strength on Footiqra.`,
     path: `/teams/${team.slug}/`,
   });
@@ -58,6 +58,7 @@ export default async function TeamPage({ params }: PageProps<"/teams/[slug]">) {
   if (result.status !== "ok") notFound();
   const { team, results, fixtures } = result.data;
   const league = getLeagueBySlug(team.leagueSlug);
+  const ranking = await getTeamRanking(team.slug);
 
   return (
     <div className="space-y-8">
@@ -76,6 +77,26 @@ export default async function TeamPage({ params }: PageProps<"/teams/[slug]">) {
         )}
         <h1 className="text-3xl font-semibold tracking-tight">{team.name}</h1>
       </header>
+
+      {ranking && (
+        <section aria-label="Power rating" className="flex flex-wrap gap-3">
+          <div className="rounded-lg border border-line px-5 py-3">
+            <p className="text-xs text-muted">Power rank</p>
+            <p className="font-mono text-2xl tabular-nums">#{ranking.rank}</p>
+          </div>
+          <div className="rounded-lg border border-line px-5 py-3">
+            <p className="text-xs text-muted">Rating</p>
+            <p className="font-mono text-2xl tabular-nums">{Math.round(ranking.rating)}</p>
+          </div>
+          <div className="rounded-lg border border-line px-5 py-3">
+            <p className="text-xs text-muted">Matches rated</p>
+            <p className="font-mono text-2xl tabular-nums">{ranking.matchesPlayed}</p>
+          </div>
+          <Link href="/methodology/" className="self-end text-sm text-muted hover:text-accent">
+            How the rating works
+          </Link>
+        </section>
+      )}
 
       <section aria-labelledby="results-heading">
         <h2 id="results-heading" className="text-xl font-semibold">

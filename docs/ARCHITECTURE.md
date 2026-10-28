@@ -4,16 +4,16 @@ Stand: 28.10.2026 (nach dem SiteGround-Machbarkeitstest). Ergebnisse des Tests: 
 
 ## 1. Zusammenfassung
 
-| Bereich         | Entscheidung                                                                                 |
-| --------------- | -------------------------------------------------------------------------------------------- |
-| Framework       | Next.js 16 (App Router), TypeScript strict, React 19, Build mit Webpack                      |
-| Ausgabe         | Rein statische Website (`output: "export"`), Ordner `out/`                                   |
-| Hosting         | SiteGround (bestehender GrowBig-Tarif), nur fertige HTML/CSS/JS-Dateien                      |
-| Datenspeicher   | Versionierte JSON-Dateien im Repository (`data/`), keine Datenbank                           |
-| Datenquelle     | football-data.org, kostenloser Tarif (5 Ligen + Champions League, aktuelle Saison)           |
-| Automatisierung | GitHub Actions nach Zeitplan: Abruf, Commit, Build, Upload per SSH                           |
-| Ranking         | Reines TypeScript-Modul `src/ranking/`, Basismodell `elo-v0`, Veröffentlichung nach Methodik |
-| Laufende Kosten | 0 € zusätzlich                                                                               |
+| Bereich         | Entscheidung                                                                             |
+| --------------- | ---------------------------------------------------------------------------------------- |
+| Framework       | Next.js 16 (App Router), TypeScript strict, React 19, Build mit Webpack                  |
+| Ausgabe         | Rein statische Website (`output: "export"`), Ordner `out/`                               |
+| Hosting         | SiteGround (bestehender GrowBig-Tarif), nur fertige HTML/CSS/JS-Dateien                  |
+| Datenspeicher   | Versionierte JSON-Dateien im Repository (`data/`), keine Datenbank                       |
+| Datenquelle     | football-data.org, kostenloser Tarif (5 Ligen + Champions League, aktuelle Saison)       |
+| Automatisierung | GitHub Actions nach Zeitplan: Abruf, Commit, Build, Upload per SSH                       |
+| Ranking         | `elo-v1`: Elo plus Ligastärke aus UEFA-Koeffizienten, kalibriert durch Europapokalspiele |
+| Laufende Kosten | 0 € zusätzlich                                                                           |
 
 ## 2. Warum statisch statt Node.js-Server
 
@@ -81,15 +81,18 @@ Erweiterungen bei Bedarf: Livescores 12 €/Monat, 10 Saisons Historie 29 €/Mo
 
 API-Football bleibt Alternative (100 Anfragen/Tag kostenlos). Welche Saisons der Gratistarif freigibt, ist unbestätigt.
 
-## 7. Ranking und Methodik
+## 7. Ranking und Methodik (entschieden am 28.10.2026: Option 1)
 
-`src/ranking/` enthält ein getestetes Basismodell (Elo mit Heimvorteil und Tordifferenz-Faktor). Die Startseite zeigt das Ranking erst, wenn die Methodik entschieden ist.
+Modell `elo-v1` (`src/ranking/league-elo.ts`), öffentlich erklärt auf `/methodology/`:
 
-**Offener methodischer Kernpunkt:** Aus Ligaspielen allein lassen sich Ligen nicht vergleichen. Verbindungen entstehen nur über europäische Wettbewerbe. Die Champions League wird deshalb bereits mit abgerufen. Optionen:
+- **Teamrating:** Elo, Start 1500, K-Faktor 20, Heimvorteil 65, Tordifferenz-Faktor.
+- **Ligastärke:** Jede Liga startet mit einem festen Wert aus den offiziellen UEFA-Länderkoeffizienten (`src/config/league-strength.ts`, Abruf 28.10.2026): 2 Ratingpunkte je Koeffizientenpunkt Abstand zum Durchschnitt der fünf Ligen. Ergebnis: Premier League +41,9, Serie A +2,7, La Liga -3,1, Bundesliga -11,4, Ligue 1 -30,2.
+- **Nachjustierung:** Jedes Europapokalspiel zwischen Teams zweier verschiedener Top-5-Ligen verschiebt beide Ligawerte (K 4, Nullsumme). Ligaspiele ändern die Ligastärke nie.
+- **Verwendete Spiele:** beendete Ligaspiele der aktuellen Saison plus Champions-League-Spiele zwischen Top-5-Teams. Nicht verwendet: Spiele gegen Klubs anderer Länder, Entscheidungen nach Verlängerung oder Elfmeterschießen.
+- **Saisonstart:** Ratings beginnen jede Saison neu. Mit Historie (Bezahlpaket) ließe sich ein Übertrag mit Rückführung zum Mittelwert ergänzen.
+- Rankings werden nicht gespeichert, sondern beim Build deterministisch berechnet.
 
-1. Kalibrierung über Champions-League-Spiele (kostenlos, wenige Spiele pro Saison)
-2. Weitere europäische Wettbewerbe über einen Bezahltarif
-3. Expliziter, dokumentierter Liga-Stärkefaktor
+Die UEFA-Koeffizienten werden einmal pro Saison aktualisiert (Datum in der Konfiguration mitpflegen).
 
 ## 8. Kosten
 
@@ -114,10 +117,8 @@ API-Football bleibt Alternative (100 Anfragen/Tag kostenlos). Welche Saisons der
 
 | #   | Punkt                                                                                                          | Wer                |
 | --- | -------------------------------------------------------------------------------------------------------------- | ------------------ |
-| 1   | football-data.org-Token als GitHub-Secret hinterlegen                                                          | Tim                |
-| 2   | Domain für Footiqra festlegen und als Website bei SiteGround anlegen                                           | Tim                |
-| 3   | SSH-Zugang und Deploy-Secrets einrichten (Anleitung in DEPLOYMENT)                                             | Tim, dann Test     |
-| 4   | Prüfen, ob SiteGrounds Dynamic Cache statische HTML-Dateien zwischenspeichert (sonst Cache nach Upload leeren) | beim ersten Upload |
-| 5   | Ranking-Methodik, insbesondere ligaübergreifende Kalibrierung                                                  | Tim (inhaltlich)   |
-| 6   | Historie vor dem Start nötig? (dann 29 €/Monat)                                                                | Tim                |
-| 7   | Inode-Reserve des Kontos (84 %) und Tarifverlängerung am 29.11.2026                                            | Tim                |
+| 1   | Domain für Footiqra festlegen und als Website bei SiteGround anlegen                                           | Tim                |
+| 2   | SSH-Zugang und Deploy-Secrets einrichten (Anleitung in DEPLOYMENT)                                             | Tim, dann Test     |
+| 3   | Prüfen, ob SiteGrounds Dynamic Cache statische HTML-Dateien zwischenspeichert (sonst Cache nach Upload leeren) | beim ersten Upload |
+| 4   | Historie vor dem Start nötig? (dann 29 €/Monat)                                                                | Tim                |
+| 5   | Inode-Reserve des Kontos (84 %) und Tarifverlängerung am 29.11.2026                                            | Tim                |
