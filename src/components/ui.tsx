@@ -1,3 +1,4 @@
+import type { Locale } from "@/i18n";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import type { FormResult } from "@/data/repository";
@@ -113,15 +114,28 @@ const FORM_STYLE: Record<FormResult, string> = {
   D: "bg-neutral text-white",
   L: "bg-negative text-white",
 };
-const FORM_LABEL: Record<FormResult, string> = { W: "win", D: "draw", L: "loss" };
+const FORM_LABEL: Record<Locale, Record<FormResult, string>> = {
+  en: { W: "win", D: "draw", L: "loss" },
+  de: { W: "Sieg", D: "Unentschieden", L: "Niederlage" },
+};
+/** Letters shown in the squares: W/D/L in English, S/U/N in German. */
+export const FORM_LETTER: Record<Locale, Record<FormResult, string>> = {
+  en: { W: "W", D: "D", L: "L" },
+  de: { W: "S", D: "U", L: "N" },
+};
 
 /** Last results as small coloured squares, oldest first. */
-export function FormGuide({ form }: { form: FormResult[] }) {
+export function FormGuide({ form, locale = "en" }: { form: FormResult[]; locale?: Locale }) {
   if (form.length === 0) return <span className="text-muted">·</span>;
+  const labels = form.map((f) => FORM_LABEL[locale][f]).join(", ");
   return (
     <span
       className="inline-flex gap-1"
-      aria-label={`Last ${form.length} results: ${form.map((f) => FORM_LABEL[f]).join(", ")}`}
+      aria-label={
+        locale === "de"
+          ? `Letzte ${form.length} Ergebnisse: ${labels}`
+          : `Last ${form.length} results: ${labels}`
+      }
     >
       {form.map((r, i) => (
         <span
@@ -129,7 +143,7 @@ export function FormGuide({ form }: { form: FormResult[] }) {
           aria-hidden="true"
           className={`inline-flex h-5 w-5 items-center justify-center rounded-md text-[10px] font-bold ${FORM_STYLE[r]}`}
         >
-          {r}
+          {FORM_LETTER[locale][r]}
         </span>
       ))}
     </span>

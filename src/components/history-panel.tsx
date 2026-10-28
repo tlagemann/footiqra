@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import type { RankPoint, RatingPoint } from "@/data";
+import { fmtDecimal, INTL_LOCALE, tr, type Locale } from "@/i18n";
 
 const M = { top: 20, right: 52, bottom: 30, left: 44 };
 const DAY = 86400000;
@@ -17,12 +18,14 @@ const COMPETITION: Record<string, string> = {
   CL: "Champions League",
 };
 
-const dateLabel = (iso: string) =>
-  new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short", timeZone: "UTC" }).format(
-    new Date(iso),
-  );
-const monthFormat = new Intl.DateTimeFormat("en-GB", { month: "short", timeZone: "UTC" });
-const signedRating = (n: number) => `${n > 0 ? "+" : n < 0 ? "−" : "±"}${Math.abs(n).toFixed(1)}`;
+const dateLabelFor = (locale: Locale) => (iso: string) =>
+  new Intl.DateTimeFormat(INTL_LOCALE[locale], {
+    day: "numeric",
+    month: "short",
+    timeZone: "UTC",
+  }).format(new Date(iso));
+const signedRatingFor = (locale: Locale) => (n: number) =>
+  `${n > 0 ? "+" : n < 0 ? "−" : "±"}${fmtDecimal(locale, Math.abs(n), 1)}`;
 
 function niceStep(range: number, targetTicks = 4): number {
   const raw = range / targetTicks;
@@ -45,7 +48,9 @@ function LineChart({
   endLabel,
   ariaLabel,
   tooltip,
+  locale,
 }: {
+  locale: Locale;
   points: ChartPoint[];
   /** Smaller values at the top (rankings). */
   invert: boolean;
@@ -156,7 +161,10 @@ function LineChart({
           .filter((_, i) => i % tickEvery === 0)
           .map((t) => (
             <text key={t} x={x(t)} y={H - 8} textAnchor="middle" fontSize="12" fill="var(--muted)">
-              {monthFormat.format(new Date(t))}
+              {new Intl.DateTimeFormat(INTL_LOCALE[locale], {
+                month: "short",
+                timeZone: "UTC",
+              }).format(new Date(t))}
             </text>
           ))}
         {reference && (
@@ -237,8 +245,9 @@ function LineChart({
   );
 }
 
-function matchText(m: NonNullable<RatingPoint["match"]>): string {
-  return `${m.home ? "vs" : "at"} ${m.opponent} ${m.goalsFor}:${m.goalsAgainst}`;
+function matchText(m: NonNullable<RatingPoint["match"]>, locale: Locale): string {
+  const where = locale === "de" ? (m.home ? "gegen" : "bei") : m.home ? "vs" : "at";
+  return `${where} ${m.opponent} ${m.goalsFor}:${m.goalsAgainst}`;
 }
 
 function RankChange({ change }: { change: number }) {
@@ -259,11 +268,16 @@ export function HistoryPanel({
   teamName,
   ranks,
   ratings,
+  locale = "en",
 }: {
   teamName: string;
   ranks: RankPoint[];
   ratings: RatingPoint[];
+  locale?: Locale;
 }) {
+  const t = (en: string, de: string) => tr(locale, en, de);
+  const dateLabel = dateLabelFor(locale);
+  const signedRating = signedRatingFor(locale);
   const hasRanks = ranks.length >= 2;
   const [mode, setMode] = useState<"rank" | "rating">(hasRanks ? "rank" : "rating");
   if (ratings.length < 2 && !hasRanks) return null;
@@ -273,11 +287,11 @@ export function HistoryPanel({
         const best = Math.min(...ranks.map((r) => r.rank));
         const total = ranks[0]!.rank - ranks.at(-1)!.rank;
         return [
-          { label: "First week", value: `#${ranks[0]!.rank}` },
-          { label: "Now", value: `#${ranks.at(-1)!.rank}` },
-          { label: "Best", value: `#${best}` },
+          { label: t("First week", "Erste Woche"), value: `#${ranks[0]!.rank}` },
+          { label: t("Now", "Aktuell"), value: `#${ranks.at(-1)!.rank}` },
+          { label: t("Best", "Bester Platz"), value: `#${best}` },
           {
-            label: "Change",
+            label: t("Change", "Veränderung"),
             value: total === 0 ? "=" : `${total > 0 ? "▲" : "▼"}${Math.abs(total)}`,
             tone: total > 0 ? "text-positive" : total < 0 ? "text-negative" : "",
           },
@@ -290,13 +304,16 @@ export function HistoryPanel({
           const values = ratings.map((p) => p.rating);
           const best = ratings.reduce((a, b) => (b.change > a.change ? b : a));
           return [
-            { label: "Season start", value: String(Math.round(values[0]!)) },
-            { label: "Now", value: String(Math.round(values.at(-1)!)) },
-            { label: "Season high", value: String(Math.round(Math.max(...values))) },
+            { label: t("Season start", "Saisonstart"), value: String(Math.round(values[0]!)) },
+            { label: t("Now", "Aktuell"), value: String(Math.round(values.at(-1)!)) },
             {
-              label: "Biggest gain",
-              value: best.change > 0 ? `+${best.change.toFixed(1)}` : "·",
-              hint: best.match ? matchText(best.match) : undefined,
+              label: t("Season high", "Saisonhoch"),
+              value: String(Math.round(Math.max(...values))),
+            },
+            {
+              label: t("Biggest gain", "Größter Sprung"),
+              value: best.change > 0 ? `+${fmtDecimal(locale, best.change, 1)}` : "·",
+              hint: best.match ? matchText(best.match, locale) : undefined,
             },
           ];
         })()
@@ -339,7 +356,7 @@ export function HistoryPanel({
         {hasRanks && ratings.length >= 2 && (
           <div
             role="group"
-            aria-label="Chart view"
+            aria-label={t("Chart view", "Diagrammansicht")}
             className="flex rounded-full bg-background p-1 text-sm font-semibold"
           >
             {(["rank", "rating"] as const).map((m) => (
@@ -352,7 +369,7 @@ export function HistoryPanel({
                   mode === m ? "bg-foreground text-inverse" : "text-muted hover:text-foreground"
                 }`}
               >
-                {m === "rank" ? "Rank" : "Rating"}
+                {m === "rank" ? t("Rank", "Platz") : "Rating"}
               </button>
             ))}
           </div>
@@ -362,17 +379,24 @@ export function HistoryPanel({
       {mode === "rank" && hasRanks ? (
         <LineChart
           key="rank"
+          locale={locale}
           points={rankPoints}
           invert
           formatY={(v) => `#${v}`}
           endLabel={`#${ranks.at(-1)!.rank}`}
-          ariaLabel={`${teamName} power ranking position by week: from ${ranks[0]!.rank} to ${ranks.at(-1)!.rank}`}
+          ariaLabel={
+            locale === "de"
+              ? `${teamName}: Platz im Power-Ranking nach Wochen, von ${ranks[0]!.rank} auf ${ranks.at(-1)!.rank}`
+              : `${teamName} power ranking position by week: from ${ranks[0]!.rank} to ${ranks.at(-1)!.rank}`
+          }
           tooltip={(i) => {
             const p = ranks[i]!;
             return (
               <>
                 <p className="text-xs font-medium text-muted">
-                  {p.kind === "today" ? "Today" : `Week to ${dateLabel(p.utcDate)}`}
+                  {p.kind === "today"
+                    ? t("Today", "Heute")
+                    : `${t("Week to", "Woche bis")} ${dateLabel(p.utcDate)}`}
                 </p>
                 <p className="mt-1">
                   <span className="font-display text-lg font-extrabold">#{p.rank}</span>{" "}
@@ -386,12 +410,17 @@ export function HistoryPanel({
       ) : (
         <LineChart
           key="rating"
+          locale={locale}
           points={ratingPoints}
           invert={false}
           formatY={(v) => String(v)}
-          reference={{ value: ratings[0]!.rating, label: "start" }}
+          reference={{ value: ratings[0]!.rating, label: t("start", "Start") }}
           endLabel={String(Math.round(ratings.at(-1)!.rating))}
-          ariaLabel={`${teamName} rating this season: from ${Math.round(ratings[0]!.rating)} to ${Math.round(ratings.at(-1)!.rating)}`}
+          ariaLabel={
+            locale === "de"
+              ? `${teamName}: Rating in dieser Saison, von ${Math.round(ratings[0]!.rating)} auf ${Math.round(ratings.at(-1)!.rating)}`
+              : `${teamName} rating this season: from ${Math.round(ratings[0]!.rating)} to ${Math.round(ratings.at(-1)!.rating)}`
+          }
           tooltip={(i) => {
             const p = ratings[i]!;
             return (
@@ -402,10 +431,10 @@ export function HistoryPanel({
                 </p>
                 <p className="mt-1 font-semibold">
                   {p.kind === "today"
-                    ? "Today (league strength changed)"
+                    ? t("Today (league strength changed)", "Heute (Ligastärke verändert)")
                     : p.match
-                      ? matchText(p.match)
-                      : "Season start"}
+                      ? matchText(p.match, locale)
+                      : t("Season start", "Saisonstart")}
                 </p>
                 <p className="tabular mt-1">
                   Rating <span className="font-display font-extrabold">{Math.round(p.rating)}</span>
@@ -430,23 +459,25 @@ export function HistoryPanel({
       )}
 
       <details className="mt-3 text-sm">
-        <summary className="cursor-pointer text-muted hover:text-foreground">Show as table</summary>
+        <summary className="cursor-pointer text-muted hover:text-foreground">
+          {t("Show as table", "Als Tabelle anzeigen")}
+        </summary>
         <div className="mt-3 grid gap-6 lg:grid-cols-2">
           {hasRanks && (
             <table className="w-full text-left">
               <caption className="mb-2 text-left text-xs font-semibold text-muted uppercase">
-                Power ranking by week
+                {t("Power ranking by week", "Power-Ranking nach Wochen")}
               </caption>
               <thead className="text-xs text-muted uppercase">
                 <tr>
                   <th scope="col" className="py-2 pr-3 font-medium">
-                    Week to
+                    {t("Week to", "Woche bis")}
                   </th>
                   <th scope="col" className="py-2 pr-3 text-right font-medium">
-                    Rank
+                    {t("Rank", "Platz")}
                   </th>
                   <th scope="col" className="py-2 text-right font-medium">
-                    Change
+                    {t("Change", "Veränderung")}
                   </th>
                 </tr>
               </thead>
@@ -454,7 +485,7 @@ export function HistoryPanel({
                 {ranks.map((p, i) => (
                   <tr key={i} className="border-t border-line/80">
                     <td className="tabular py-2 pr-3">
-                      {p.kind === "today" ? "Today" : dateLabel(p.utcDate)}
+                      {p.kind === "today" ? t("Today", "Heute") : dateLabel(p.utcDate)}
                     </td>
                     <td className="tabular py-2 pr-3 text-right font-semibold">#{p.rank}</td>
                     <td className="tabular py-2 text-right">
@@ -468,21 +499,21 @@ export function HistoryPanel({
           {ratings.length >= 2 && (
             <table className="w-full text-left">
               <caption className="mb-2 text-left text-xs font-semibold text-muted uppercase">
-                Rating after each match
+                {t("Rating after each match", "Rating nach jedem Spiel")}
               </caption>
               <thead className="text-xs text-muted uppercase">
                 <tr>
                   <th scope="col" className="py-2 pr-3 font-medium">
-                    Date
+                    {t("Date", "Datum")}
                   </th>
                   <th scope="col" className="py-2 pr-3 font-medium">
-                    Match
+                    {t("Match", "Spiel")}
                   </th>
                   <th scope="col" className="py-2 pr-3 text-right font-medium">
                     Rating
                   </th>
                   <th scope="col" className="py-2 text-right font-medium">
-                    Change
+                    {t("Change", "Veränderung")}
                   </th>
                 </tr>
               </thead>
@@ -492,10 +523,10 @@ export function HistoryPanel({
                     <td className="tabular py-2 pr-3 whitespace-nowrap">{dateLabel(p.utcDate)}</td>
                     <td className="py-2 pr-3">
                       {p.kind === "today"
-                        ? "Today (league strength changed)"
+                        ? t("Today (league strength changed)", "Heute (Ligastärke verändert)")
                         : p.match
-                          ? matchText(p.match)
-                          : "Season start"}
+                          ? matchText(p.match, locale)
+                          : t("Season start", "Saisonstart")}
                     </td>
                     <td className="tabular py-2 pr-3 text-right font-semibold">
                       {Math.round(p.rating)}

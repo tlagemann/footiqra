@@ -1,13 +1,8 @@
 import Link from "next/link";
 import { getLeagueBySlug } from "@/config/leagues";
 import { MIN_HIGHLIGHT_GAP, type HistoryReference, type PerformanceGap } from "@/data";
+import { fmtDate, ordinal, paths, tr, type Locale } from "@/i18n";
 import { Crest } from "./ui";
-
-function ordinal(n: number): string {
-  const v = n % 100;
-  if (v >= 11 && v <= 13) return `${n}th`;
-  return `${n}${["th", "st", "nd", "rd"][n % 10] ?? "th"}`;
-}
 
 function signed(n: number): string {
   return n > 0 ? `+${n}` : String(n);
@@ -31,17 +26,20 @@ function GapRow({
   gap,
   showLeague,
   previous,
+  locale,
 }: {
   gap: PerformanceGap;
   showLeague: boolean;
   previous?: HistoryReference;
+  locale: Locale;
 }) {
+  const t = (en: string, de: string) => tr(locale, en, de);
   const positive = gap.gap > 0;
   const delta = change(gap, previous);
   return (
     <li>
       <Link
-        href={`/teams/${gap.team.slug}/`}
+        href={paths(locale).team(gap.team.slug)}
         className="flex items-center gap-3 rounded-2xl bg-background px-4 py-3 transition hover:shadow-sm"
       >
         <Crest src={gap.team.crest} name={gap.team.name} size={36} />
@@ -52,21 +50,27 @@ function GapRow({
             </span>
             {delta === "new" && (
               <span className="shrink-0 rounded-full bg-brand/15 px-2 py-0.5 text-[11px] font-bold tracking-wide text-brand-ink uppercase">
-                New
+                {t("New", "Neu")}
               </span>
             )}
           </span>
           <span className="block truncate text-sm text-muted">
-            {ordinal(gap.tablePosition)} in table · {ordinal(gap.strengthPosition)} by strength
+            {locale === "de"
+              ? `${ordinal(locale, gap.tablePosition)} Tabelle · ${ordinal(locale, gap.strengthPosition)} nach Stärke`
+              : `${ordinal(locale, gap.tablePosition)} in table · ${ordinal(locale, gap.strengthPosition)} by strength`}
             {showLeague && ` · ${getLeagueBySlug(gap.leagueSlug)?.name ?? ""}`}
-            {typeof delta === "number" && ` · was ${signed(delta)}`}
+            {typeof delta === "number" && ` · ${t("was", "vorher")} ${signed(delta)}`}
           </span>
         </span>
         <span
           className={`tabular shrink-0 rounded-full px-3 py-1 font-display text-sm font-extrabold ${
             positive ? "bg-positive/12 text-positive" : "bg-negative/12 text-negative"
           }`}
-          title={`${Math.abs(gap.gap)} places ${positive ? "higher" : "lower"} in the table than by strength`}
+          title={
+            locale === "de"
+              ? `${Math.abs(gap.gap)} Plätze ${positive ? "besser" : "schlechter"} in der Tabelle als nach Stärke`
+              : `${Math.abs(gap.gap)} places ${positive ? "higher" : "lower"} in the table than by strength`
+          }
         >
           {signed(gap.gap)}
         </span>
@@ -82,6 +86,7 @@ function Column({
   showLeague,
   empty,
   previous,
+  locale,
 }: {
   title: string;
   subtitle: string;
@@ -89,6 +94,7 @@ function Column({
   showLeague: boolean;
   empty: string;
   previous?: HistoryReference;
+  locale: Locale;
 }) {
   return (
     <div className="min-w-0 rounded-3xl bg-surface p-3 sm:p-4">
@@ -99,7 +105,13 @@ function Column({
       {gaps.length > 0 ? (
         <ol className="space-y-2">
           {gaps.map((g) => (
-            <GapRow key={g.team.slug} gap={g} showLeague={showLeague} previous={previous} />
+            <GapRow
+              key={g.team.slug}
+              gap={g}
+              showLeague={showLeague}
+              previous={previous}
+              locale={locale}
+            />
           ))}
         </ol>
       ) : (
@@ -115,43 +127,58 @@ export function PerformanceCards({
   under,
   showLeague = false,
   previous,
+  locale = "en",
 }: {
   over: PerformanceGap[];
   under: PerformanceGap[];
   showLeague?: boolean;
   /** Reference day for "New" and "was" hints; omitted until a week of history exists. */
   previous?: HistoryReference;
+  locale?: Locale;
 }) {
+  const t = (en: string, de: string) => tr(locale, en, de);
   const dateLabel = previous
-    ? new Date(`${previous.date}T00:00:00Z`).toLocaleDateString("en-GB", {
-        day: "numeric",
-        month: "short",
-        timeZone: "UTC",
-      })
+    ? fmtDate(locale, `${previous.date}T00:00:00Z`, { day: "numeric", month: "short" })
     : null;
   return (
     <div>
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
         <Column
-          title="Overperformers"
-          subtitle="Higher in the table than their rating suggests"
+          title={t("Overperformers", "Überflieger")}
+          subtitle={t(
+            "Higher in the table than their rating suggests",
+            "Höher in der Tabelle, als ihr Rating erwarten lässt",
+          )}
           gaps={over}
           showLeague={showLeague}
-          empty="No club is clearly above its strength right now."
+          empty={t(
+            "No club is clearly above its strength right now.",
+            "Aktuell steht kein Verein deutlich über seiner Stärke.",
+          )}
+          locale={locale}
           previous={previous}
         />
         <Column
-          title="Underperformers"
-          subtitle="Lower in the table than their rating suggests"
+          title={t("Underperformers", "Unter Wert")}
+          subtitle={t(
+            "Lower in the table than their rating suggests",
+            "Tiefer in der Tabelle, als ihr Rating erwarten lässt",
+          )}
           gaps={under}
           showLeague={showLeague}
-          empty="No club is clearly below its strength right now."
+          empty={t(
+            "No club is clearly below its strength right now.",
+            "Aktuell steht kein Verein deutlich unter seiner Stärke.",
+          )}
+          locale={locale}
           previous={previous}
         />
       </div>
       {dateLabel && (
         <p className="mt-3 text-sm text-muted">
-          &ldquo;New&rdquo; and &ldquo;was&rdquo; compare with {dateLabel}.
+          {locale === "de"
+            ? `„Neu“ und „vorher“ beziehen sich auf den ${dateLabel}.`
+            : `“New” and “was” compare with ${dateLabel}.`}
         </p>
       )}
     </div>

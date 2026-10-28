@@ -1,3 +1,4 @@
+import { paths, tr, type Locale } from "@/i18n";
 import Link from "next/link";
 import { getLeagueBySlug } from "@/config/leagues";
 import type { PowerRanking } from "@/data";
@@ -8,7 +9,13 @@ function signed(n: number): string {
 }
 
 /** League strength as diverging horizontal bars around zero. */
-export function LeagueStrength({ leagues }: { leagues: PowerRanking["leagues"] }) {
+export function LeagueStrength({
+  leagues,
+  locale = "en",
+}: {
+  leagues: PowerRanking["leagues"];
+  locale?: Locale;
+}) {
   const maxAbs = Math.max(1, ...leagues.map((l) => Math.abs(l.currentAdjustment)));
   return (
     <ul className="space-y-1 rounded-3xl bg-surface p-3 sm:p-4">
@@ -20,7 +27,7 @@ export function LeagueStrength({ leagues }: { leagues: PowerRanking["leagues"] }
         return (
           <li key={l.leagueSlug}>
             <Link
-              href={`/leagues/${l.leagueSlug}/`}
+              href={paths(locale).league(l.leagueSlug)}
               className="grid grid-cols-[7.5rem_1fr_3.5rem] items-center gap-3 rounded-2xl px-3 py-3 transition hover:bg-surface-strong sm:grid-cols-[10rem_1fr_7rem]"
             >
               <span className="truncate font-semibold">{league?.name}</span>
@@ -43,7 +50,7 @@ export function LeagueStrength({ leagues }: { leagues: PowerRanking["leagues"] }
                   className={`tabular ml-2 hidden text-xs font-semibold sm:inline ${
                     change > 0.5 ? "text-positive" : change < -0.5 ? "text-negative" : "text-muted"
                   }`}
-                  title="Change since season start"
+                  title={tr(locale, "Change since season start", "Veränderung seit Saisonbeginn")}
                 >
                   {signed(change)}
                 </span>

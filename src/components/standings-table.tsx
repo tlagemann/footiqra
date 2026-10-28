@@ -1,3 +1,4 @@
+import { paths, tr, type Locale } from "@/i18n";
 import Link from "next/link";
 import type { TableRow } from "@/data";
 import { Crest, FormGuide } from "./ui";
@@ -15,13 +16,16 @@ export function StandingsTable({
   caption,
   powerRanks,
   zone,
+  locale = "en",
 }: {
   rows: TableRow[];
   caption: string;
   powerRanks: ReadonlyMap<string, number>;
   /** Optional marker per position, drawn as a coloured bar next to the rank. */
   zone?: (position: number) => "direct" | "playoff" | null;
+  locale?: Locale;
 }) {
+  const t = (en: string, de: string) => tr(locale, en, de);
   const num = "tabular px-2 py-3 text-right sm:px-3";
   return (
     <div className="overflow-x-auto rounded-3xl bg-surface">
@@ -33,34 +37,34 @@ export function StandingsTable({
               #
             </th>
             <th scope="col" className="py-4 text-left font-medium">
-              Team
+              {t("Team", "Verein")}
             </th>
             <th scope="col" className="px-2 py-4 text-right font-medium sm:px-3">
-              <abbr title="Played" className="no-underline">
-                P
+              <abbr title={t("Played", "Spiele")} className="no-underline">
+                {t("P", "Sp.")}
               </abbr>
             </th>
             <th scope="col" className="hidden px-3 py-4 text-right font-medium sm:table-cell">
-              <abbr title="Won" className="no-underline">
-                W
+              <abbr title={t("Won", "Siege")} className="no-underline">
+                {t("W", "S")}
               </abbr>
             </th>
             <th scope="col" className="hidden px-3 py-4 text-right font-medium sm:table-cell">
-              <abbr title="Drawn" className="no-underline">
-                D
+              <abbr title={t("Drawn", "Unentschieden")} className="no-underline">
+                {t("D", "U")}
               </abbr>
             </th>
             <th scope="col" className="hidden px-3 py-4 text-right font-medium sm:table-cell">
-              <abbr title="Lost" className="no-underline">
-                L
+              <abbr title={t("Lost", "Niederlagen")} className="no-underline">
+                {t("L", "N")}
               </abbr>
             </th>
             <th scope="col" className="hidden px-3 py-4 text-right font-medium md:table-cell">
-              Goals
+              {t("Goals", "Tore")}
             </th>
             <th scope="col" className="px-2 py-4 text-right font-medium sm:px-3">
-              <abbr title="Goal difference" className="no-underline">
-                GD
+              <abbr title={t("Goal difference", "Tordifferenz")} className="no-underline">
+                {t("GD", "Diff.")}
               </abbr>
             </th>
             <th scope="col" className="hidden py-4 pl-4 text-left font-medium lg:table-cell">
@@ -69,12 +73,15 @@ export function StandingsTable({
             <th
               scope="col"
               className="hidden px-3 py-4 text-right font-medium md:table-cell"
-              title="Position in the Footiqra power ranking across all leagues"
+              title={t(
+                "Position in the Footiqra power ranking across all leagues",
+                "Platz im Footiqra Power-Ranking über alle Ligen",
+              )}
             >
               Power #
             </th>
             <th scope="col" className="py-4 pr-5 pl-2 text-right font-medium sm:pr-7">
-              Pts
+              {t("Pts", "Pkt.")}
             </th>
           </tr>
         </thead>
@@ -109,7 +116,7 @@ export function StandingsTable({
                 >
                   {row.team.slug ? (
                     <Link
-                      href={`/teams/${row.team.slug}/`}
+                      href={paths(locale).team(row.team.slug)}
                       className="flex items-center gap-3 font-semibold hover:underline hover:underline-offset-4"
                     >
                       {name}
@@ -127,7 +134,7 @@ export function StandingsTable({
                 </td>
                 <td className={num}>{signed(row.goalDifference)}</td>
                 <td className="hidden py-3 pl-4 lg:table-cell">
-                  <FormGuide form={row.form} />
+                  <FormGuide form={row.form} locale={locale} />
                 </td>
                 <td className={`${num} hidden text-muted md:table-cell`}>
                   {powerRank ? `#${powerRank}` : "·"}

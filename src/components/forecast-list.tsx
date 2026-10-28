@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LEAGUES } from "@/config/leagues";
 import type { MatchForecast } from "@/data";
+import { fmtPercent, INTL_LOCALE, paths, tr, type Locale } from "@/i18n";
 import { LocalTime } from "./local-time";
 import { Crest } from "./ui";
 
@@ -9,10 +10,18 @@ const COMPETITION_LABEL: Record<string, string> = {
   CL: "Champions League",
 };
 
-function TeamName({ team, align }: { team: MatchForecast["home"]; align: "left" | "right" }) {
+function TeamName({
+  team,
+  align,
+  locale,
+}: {
+  team: MatchForecast["home"];
+  align: "left" | "right";
+  locale: Locale;
+}) {
   return (
     <Link
-      href={`/teams/${team.slug}/`}
+      href={paths(locale).team(team.slug)}
       className={`flex min-w-0 items-center gap-2.5 font-display font-bold tracking-[-0.01em] hover:underline hover:underline-offset-4 ${
         align === "right" ? "flex-row-reverse text-right" : ""
       }`}
@@ -26,13 +35,20 @@ function TeamName({ team, align }: { team: MatchForecast["home"]; align: "left" 
 /** Three-part bar: home win, draw, away win. */
 export function ProbabilityBar({
   percentages: p,
-  labels = { home: "home", draw: "draw", away: "away" },
+  labels,
   large = false,
+  locale = "en",
 }: {
   percentages: MatchForecast["percentages"];
   labels?: { home: string; draw: string; away: string };
+  locale?: Locale;
   large?: boolean;
 }) {
+  const l = labels ?? {
+    home: tr(locale, "home", "Heim"),
+    draw: tr(locale, "draw", "Remis"),
+    away: tr(locale, "away", "Gast"),
+  };
   const favourite =
     p.home >= p.away ? (p.home >= p.draw ? "home" : "draw") : p.away >= p.draw ? "away" : "draw";
   const seg = (key: "home" | "draw" | "away", color: string) => (
@@ -55,53 +71,54 @@ export function ProbabilityBar({
         className={`tabular mt-1.5 flex justify-between gap-3 font-semibold ${large ? "text-base" : "text-xs"}`}
       >
         <span>
-          {p.home}% <span className="font-medium text-muted">{labels.home}</span>
+          {fmtPercent(locale, p.home)} <span className="font-medium text-muted">{l.home}</span>
         </span>
         <span className="text-center">
-          {p.draw}% <span className="font-medium text-muted">{labels.draw}</span>
+          {fmtPercent(locale, p.draw)} <span className="font-medium text-muted">{l.draw}</span>
         </span>
         <span className="text-right">
-          {p.away}% <span className="font-medium text-muted">{labels.away}</span>
+          {fmtPercent(locale, p.away)} <span className="font-medium text-muted">{l.away}</span>
         </span>
       </div>
     </div>
   );
 }
 
-function ForecastItem({ forecast }: { forecast: MatchForecast }) {
+function ForecastItem({ forecast, locale }: { forecast: MatchForecast; locale: Locale }) {
   const p = forecast.percentages;
   return (
     <li className="rounded-2xl bg-background px-4 py-4 sm:px-5">
       <p className="mb-3 flex flex-wrap gap-x-2 text-xs font-medium text-muted">
-        <LocalTime utc={forecast.utcDate} />
+        <LocalTime utc={forecast.utcDate} locale={locale} />
         <span aria-hidden="true">·</span>
         <span>{COMPETITION_LABEL[forecast.competition] ?? forecast.competition}</span>
         {forecast.slug && (
           <Link
-            href={`/matches/${forecast.slug}/`}
+            href={paths(locale).match(forecast.slug)}
             className="ml-auto font-semibold text-foreground hover:underline hover:underline-offset-4"
           >
-            Preview
+            {tr(locale, "Preview", "Vorschau")}
           </Link>
         )}
       </p>
       <div className="grid gap-3 md:grid-cols-[1fr_minmax(14rem,18rem)_1fr] md:items-center md:gap-5">
         <div className="flex items-center justify-between gap-3 md:contents">
           <div className="min-w-0 md:order-1 md:justify-self-end">
-            <TeamName team={forecast.home} align="left" />
+            <TeamName team={forecast.home} align="left" locale={locale} />
           </div>
           <span className="text-xs font-medium text-muted md:hidden">vs</span>
           <div className="min-w-0 md:order-3">
-            <TeamName team={forecast.away} align="left" />
+            <TeamName team={forecast.away} align="left" locale={locale} />
           </div>
         </div>
         <div className="md:order-2">
-          <ProbabilityBar percentages={forecast.percentages} />
+          <ProbabilityBar percentages={forecast.percentages} locale={locale} />
         </div>
       </div>
       <p className="sr-only">
-        Forecast: {forecast.home.name} win {p.home}%, draw {p.draw}%, {forecast.away.name} win{" "}
-        {p.away}%.
+        {locale === "de"
+          ? `Prognose: Sieg ${forecast.home.name} ${fmtPercent(locale, p.home)}, Unentschieden ${fmtPercent(locale, p.draw)}, Sieg ${forecast.away.name} ${fmtPercent(locale, p.away)}.`
+          : `Forecast: ${forecast.home.name} win ${p.home}%, draw ${p.draw}%, ${forecast.away.name} win ${p.away}%.`}
       </p>
     </li>
   );
@@ -111,15 +128,17 @@ function ForecastItem({ forecast }: { forecast: MatchForecast }) {
 export function ForecastList({
   forecasts,
   grouped = true,
+  locale = "en",
 }: {
   forecasts: readonly MatchForecast[];
   grouped?: boolean;
+  locale?: Locale;
 }) {
   if (!grouped) {
     return (
       <ol className="space-y-2 rounded-3xl bg-surface p-3 sm:p-4">
         {forecasts.map((f) => (
-          <ForecastItem key={f.id} forecast={f} />
+          <ForecastItem key={f.id} forecast={f} locale={locale} />
         ))}
       </ol>
     );
@@ -129,7 +148,7 @@ export function ForecastList({
     const day = f.utcDate.slice(0, 10);
     days.set(day, [...(days.get(day) ?? []), f]);
   }
-  const dayLabel = new Intl.DateTimeFormat("en-GB", {
+  const dayLabel = new Intl.DateTimeFormat(INTL_LOCALE[locale], {
     weekday: "long",
     day: "numeric",
     month: "long",
@@ -144,7 +163,7 @@ export function ForecastList({
           </h3>
           <ol className="space-y-2 rounded-3xl bg-surface p-3 sm:p-4">
             {list.map((f) => (
-              <ForecastItem key={f.id} forecast={f} />
+              <ForecastItem key={f.id} forecast={f} locale={locale} />
             ))}
           </ol>
         </section>

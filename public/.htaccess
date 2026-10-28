@@ -2,7 +2,11 @@
 # Deployed with the site (public/ is copied into out/).
 
 # Our own 404 page instead of the host's default page
-ErrorDocument 404 /404.html
+ErrorDocument 404 /page-not-found/
+
+# Legal pages moved to the German section when the site became bilingual.
+RedirectMatch 301 ^/impressum/?$ /de/impressum/
+RedirectMatch 301 ^/datenschutz/?$ /de/datenschutz/
 
 <IfModule mod_headers.c>
   # Pages change with every data update. "no-cache" makes browsers revalidate
@@ -36,10 +40,3 @@ ErrorDocument 404 /404.html
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
 
-# Social preview images are generated without a file extension.
-<FilesMatch "^(opengraph-image|twitter-image)$">
-  ForceType image/png
-  <IfModule mod_headers.c>
-    Header set Cache-Control "public, max-age=3600"
-  </IfModule>
-</FilesMatch>

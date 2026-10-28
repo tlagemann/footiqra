@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { LEAGUES } from "@/config/leagues";
+import { counterpart, country, paths, tr, type Locale } from "@/i18n";
 
 interface NavLink {
   href: string;
@@ -19,57 +20,106 @@ interface NavItem {
   groups?: { title: string; links: NavLink[] }[];
 }
 
-const NAV: NavItem[] = [
-  { label: "Ranking", href: "/", match: (p) => p === "/" },
-  {
-    label: "Predictions",
-    href: "/predictions/",
-    match: (p) =>
-      p.startsWith("/predictions") || p.startsWith("/matches") || p.endsWith("/projection/"),
-    groups: [
-      {
-        title: "Matches",
-        links: [
-          { href: "/predictions/", label: "Next 7 days", hint: "Win, draw and loss chances" },
-        ],
-      },
-      {
-        title: "Predicted final tables",
-        links: LEAGUES.map((l) => ({ href: `/leagues/${l.slug}/projection/`, label: l.name })),
-      },
-    ],
-  },
-  {
-    label: "Leagues",
-    href: "/leagues/",
-    match: (p) =>
-      (p.startsWith("/leagues") && !p.endsWith("/projection/")) ||
-      p.startsWith("/champions-league"),
-    groups: [
-      {
-        title: "Leagues",
-        links: LEAGUES.map((l) => ({
-          href: `/leagues/${l.slug}/`,
-          label: l.name,
-          hint: l.country,
-        })),
-      },
-      {
-        title: "Europe",
-        links: [
-          { href: "/champions-league/", label: "Champions League" },
-          { href: "/leagues/", label: "All leagues", hint: "Overview and league strength" },
-        ],
-      },
-    ],
-  },
-  {
-    label: "Table vs. strength",
-    href: "/table-vs-strength/",
-    match: (p) => p.startsWith("/table-vs-strength"),
-  },
-  { label: "Methodology", href: "/methodology/", match: (p) => p.startsWith("/methodology") },
-];
+function buildNav(locale: Locale): NavItem[] {
+  const p = paths(locale);
+  const t = (en: string, de: string) => tr(locale, en, de);
+  const leaguesPrefix = p.leagues;
+  const isProjection = (path: string) =>
+    path.endsWith(`/${locale === "de" ? "prognose" : "projection"}/`);
+  return [
+    {
+      label: "Ranking",
+      href: p.home,
+      match: (path) => path === p.home || path === p.home.slice(0, -1),
+    },
+    {
+      label: t("Predictions", "Prognosen"),
+      href: p.predictions,
+      match: (path) =>
+        path.startsWith(p.predictions) ||
+        path.startsWith(p.match("").slice(0, -1)) ||
+        isProjection(path),
+      groups: [
+        {
+          title: t("Matches", "Spiele"),
+          links: [
+            {
+              href: p.predictions,
+              label: t("Next 7 days", "Nächste 7 Tage"),
+              hint: t("Win, draw and loss chances", "Sieg-, Remis- und Niederlagenchancen"),
+            },
+          ],
+        },
+        {
+          title: t("Predicted final tables", "Prognose Abschlusstabellen"),
+          links: LEAGUES.map((l) => ({ href: p.projection(l.slug), label: l.name })),
+        },
+      ],
+    },
+    {
+      label: t("Leagues", "Ligen"),
+      href: p.leagues,
+      match: (path) =>
+        (path.startsWith(leaguesPrefix) && !isProjection(path)) ||
+        path.startsWith(p.championsLeague),
+      groups: [
+        {
+          title: t("Leagues", "Ligen"),
+          links: LEAGUES.map((l) => ({
+            href: p.league(l.slug),
+            label: l.name,
+            hint: country(locale, l.country),
+          })),
+        },
+        {
+          title: t("Europe", "Europa"),
+          links: [
+            { href: p.championsLeague, label: "Champions League" },
+            {
+              href: p.leagues,
+              label: t("All leagues", "Alle Ligen"),
+              hint: t("Overview and league strength", "Übersicht und Ligastärke"),
+            },
+          ],
+        },
+      ],
+    },
+    {
+      label: t("Table vs. strength", "Tabelle vs. Stärke"),
+      href: p.tableVsStrength,
+      match: (path) => path.startsWith(p.tableVsStrength),
+    },
+    {
+      label: t("Methodology", "Methodik"),
+      href: p.methodology,
+      match: (path) => path.startsWith(p.methodology),
+    },
+  ];
+}
+
+/** Link to the same page in the other language. */
+function LanguageSwitch({
+  locale,
+  pathname,
+  className = "",
+}: {
+  locale: Locale;
+  pathname: string;
+  className?: string;
+}) {
+  const other: Locale = locale === "de" ? "en" : "de";
+  return (
+    <a
+      href={counterpart(pathname, other)}
+      hrefLang={other}
+      lang={other}
+      className={className}
+      aria-label={other === "de" ? "Deutsche Version" : "English version"}
+    >
+      {other.toUpperCase()}
+    </a>
+  );
+}
 
 function Chevron({ open }: { open: boolean }) {
   return (
@@ -104,8 +154,9 @@ function pillClass(active: boolean): string {
  * hover or keyboard. Phones: a menu button opens a full-width panel.
  * All links are always in the HTML (hidden with CSS), so crawlers see them.
  */
-export function MainNav() {
+export function MainNav({ locale }: { locale: Locale }) {
   const pathname = usePathname() ?? "/";
+  const NAV = buildNav(locale);
   const [open, setOpen] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
@@ -148,86 +199,98 @@ export function MainNav() {
   return (
     <div ref={rootRef}>
       {/* Desktop */}
-      <nav aria-label="Main" className="hidden lg:block">
-        <ul className="flex items-center gap-1 rounded-full bg-surface p-1 text-sm font-semibold">
-          {NAV.map((item) => {
-            const active = item.match(pathname);
-            if (!item.groups) {
+      <div className="hidden items-center gap-2 lg:flex">
+        <nav aria-label={tr(locale, "Main", "Hauptnavigation")}>
+          <ul className="flex items-center gap-1 rounded-full bg-surface p-1 text-sm font-semibold">
+            {NAV.map((item) => {
+              const active = item.match(pathname);
+              if (!item.groups) {
+                return (
+                  <li key={item.label}>
+                    <Link
+                      href={item.href}
+                      aria-current={active ? "page" : undefined}
+                      className={pillClass(active)}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                );
+              }
+              const isOpen = open === item.label;
+              const panelId = `nav-${item.label.toLowerCase()}`;
               return (
-                <li key={item.label}>
-                  <Link
-                    href={item.href}
-                    aria-current={active ? "page" : undefined}
+                <li
+                  key={item.label}
+                  className="relative"
+                  onMouseEnter={() => hoverOpen(item.label)}
+                  onMouseLeave={hoverClose}
+                >
+                  <button
+                    type="button"
+                    aria-expanded={isOpen}
+                    aria-controls={panelId}
+                    onClick={() => setOpen(isOpen ? null : item.label)}
                     className={pillClass(active)}
                   >
                     {item.label}
-                  </Link>
+                    <Chevron open={isOpen} />
+                  </button>
+                  <div
+                    id={panelId}
+                    className={`absolute top-full right-0 z-30 pt-2 ${isOpen ? "block" : "hidden"}`}
+                  >
+                    <div className="grid w-[30rem] grid-cols-2 gap-6 rounded-3xl border border-line/70 bg-background p-5 shadow-xl shadow-black/5">
+                      {item.groups.map((group) => (
+                        <div key={group.title}>
+                          <p className="mb-2 px-3 text-xs font-semibold tracking-wide text-muted uppercase">
+                            {group.title}
+                          </p>
+                          <ul className="space-y-0.5">
+                            {group.links.map((link) => (
+                              <li key={link.href}>
+                                <Link
+                                  href={link.href}
+                                  aria-current={pathname === link.href ? "page" : undefined}
+                                  className={`block rounded-2xl px-3 py-2 transition hover:bg-surface ${
+                                    pathname === link.href ? "bg-surface" : ""
+                                  }`}
+                                >
+                                  <span className="block font-semibold text-foreground">
+                                    {link.label}
+                                  </span>
+                                  {link.hint && (
+                                    <span className="block text-xs font-medium text-muted">
+                                      {link.hint}
+                                    </span>
+                                  )}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </li>
               );
-            }
-            const isOpen = open === item.label;
-            const panelId = `nav-${item.label.toLowerCase()}`;
-            return (
-              <li
-                key={item.label}
-                className="relative"
-                onMouseEnter={() => hoverOpen(item.label)}
-                onMouseLeave={hoverClose}
-              >
-                <button
-                  type="button"
-                  aria-expanded={isOpen}
-                  aria-controls={panelId}
-                  onClick={() => setOpen(isOpen ? null : item.label)}
-                  className={pillClass(active)}
-                >
-                  {item.label}
-                  <Chevron open={isOpen} />
-                </button>
-                <div
-                  id={panelId}
-                  className={`absolute top-full right-0 z-30 pt-2 ${isOpen ? "block" : "hidden"}`}
-                >
-                  <div className="grid w-[30rem] grid-cols-2 gap-6 rounded-3xl border border-line/70 bg-background p-5 shadow-xl shadow-black/5">
-                    {item.groups.map((group) => (
-                      <div key={group.title}>
-                        <p className="mb-2 px-3 text-xs font-semibold tracking-wide text-muted uppercase">
-                          {group.title}
-                        </p>
-                        <ul className="space-y-0.5">
-                          {group.links.map((link) => (
-                            <li key={link.href}>
-                              <Link
-                                href={link.href}
-                                aria-current={pathname === link.href ? "page" : undefined}
-                                className={`block rounded-2xl px-3 py-2 transition hover:bg-surface ${
-                                  pathname === link.href ? "bg-surface" : ""
-                                }`}
-                              >
-                                <span className="block font-semibold text-foreground">
-                                  {link.label}
-                                </span>
-                                {link.hint && (
-                                  <span className="block text-xs font-medium text-muted">
-                                    {link.hint}
-                                  </span>
-                                )}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
+            })}
+          </ul>
+        </nav>
+        <LanguageSwitch
+          locale={locale}
+          pathname={pathname}
+          className="rounded-full bg-surface px-3.5 py-2 text-sm font-semibold text-muted transition hover:bg-foreground hover:text-inverse"
+        />
+      </div>
 
       {/* Phones and tablets */}
-      <div className="lg:hidden">
+      <div className="flex items-center gap-2 lg:hidden">
+        <LanguageSwitch
+          locale={locale}
+          pathname={pathname}
+          className="rounded-full bg-surface px-3.5 py-2 text-sm font-semibold text-muted"
+        />
         <button
           type="button"
           aria-expanded={mobileOpen}
@@ -252,11 +315,11 @@ export function MainNav() {
               />
             )}
           </svg>
-          Menu
+          {tr(locale, "Menu", "Menü")}
         </button>
         <nav
           id="mobile-nav"
-          aria-label="Main"
+          aria-label={tr(locale, "Main", "Hauptnavigation")}
           className={`absolute inset-x-0 top-full max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-b border-line/70 bg-background px-4 pt-2 pb-6 shadow-xl shadow-black/5 sm:px-6 ${
             mobileOpen ? "block" : "hidden"
           }`}

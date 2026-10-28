@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LEAGUES } from "@/config/leagues";
 import type { MatchView } from "@/data";
+import { fmtDate, paths, tr, type Locale } from "@/i18n";
 import { Crest } from "./ui";
 
 const COMPETITION_LABEL: Record<string, string> = {
@@ -8,13 +9,15 @@ const COMPETITION_LABEL: Record<string, string> = {
   CL: "Champions League",
 };
 
-const dateFormat = new Intl.DateTimeFormat("en-GB", {
-  day: "numeric",
-  month: "short",
-  timeZone: "UTC",
-});
-
-function TeamCell({ team, align }: { team: MatchView["home"]; align: "left" | "right" }) {
+function TeamCell({
+  team,
+  align,
+  locale,
+}: {
+  team: MatchView["home"];
+  align: "left" | "right";
+  locale: Locale;
+}) {
   const content = (
     <span
       className={`flex items-center gap-2.5 font-semibold ${align === "right" ? "flex-row-reverse text-right" : ""}`}
@@ -24,7 +27,10 @@ function TeamCell({ team, align }: { team: MatchView["home"]; align: "left" | "r
     </span>
   );
   return team.slug ? (
-    <Link href={`/teams/${team.slug}/`} className="block hover:underline hover:underline-offset-4">
+    <Link
+      href={paths(locale).team(team.slug)}
+      className="block hover:underline hover:underline-offset-4"
+    >
       {content}
     </Link>
   ) : (
@@ -33,17 +39,26 @@ function TeamCell({ team, align }: { team: MatchView["home"]; align: "left" | "r
 }
 
 /** Results or fixtures as a semantic table (readable without JavaScript, indexable). */
-export function MatchList({ matches, caption }: { matches: MatchView[]; caption: string }) {
+export function MatchList({
+  matches,
+  caption,
+  locale = "en",
+}: {
+  matches: MatchView[];
+  caption: string;
+  locale?: Locale;
+}) {
+  const t = (en: string, de: string) => tr(locale, en, de);
   return (
     <div className="overflow-hidden rounded-3xl bg-surface">
       <table className="w-full table-fixed text-[15px]">
         <caption className="sr-only">{caption}</caption>
         <thead className="sr-only">
           <tr>
-            <th scope="col">Date and competition</th>
-            <th scope="col">Home</th>
-            <th scope="col">Score</th>
-            <th scope="col">Away</th>
+            <th scope="col">{t("Date and competition", "Datum und Wettbewerb")}</th>
+            <th scope="col">{t("Home", "Heim")}</th>
+            <th scope="col">{t("Score", "Ergebnis")}</th>
+            <th scope="col">{t("Away", "Gast")}</th>
           </tr>
         </thead>
         <tbody>
@@ -51,14 +66,14 @@ export function MatchList({ matches, caption }: { matches: MatchView[]; caption:
             <tr key={m.id} className={i > 0 ? "border-t border-line/80" : ""}>
               <td className="w-24 py-3.5 pl-5 align-middle sm:w-40 sm:pl-7">
                 <time dateTime={m.utcDate} className="tabular block text-sm font-semibold">
-                  {dateFormat.format(new Date(m.utcDate))}
+                  {fmtDate(locale, m.utcDate, { day: "numeric", month: "short" })}
                 </time>
                 <span className="block truncate text-xs text-muted">
                   {COMPETITION_LABEL[m.competition] ?? m.competition}
                 </span>
               </td>
               <td className="py-3.5">
-                <TeamCell team={m.home} align="right" />
+                <TeamCell team={m.home} align="right" locale={locale} />
               </td>
               <td className="w-20 py-3.5 text-center sm:w-24">
                 {(() => {
@@ -72,9 +87,9 @@ export function MatchList({ matches, caption }: { matches: MatchView[]; caption:
                     );
                   return m.slug ? (
                     <Link
-                      href={`/matches/${m.slug}/`}
+                      href={paths(locale).match(m.slug)}
                       className="inline-block rounded-xl transition hover:ring-2 hover:ring-line"
-                      aria-label={`${m.home.name} vs ${m.away.name}: match page`}
+                      aria-label={`${m.home.name} vs ${m.away.name}: ${t("match page", "Spielseite")}`}
                     >
                       {label}
                     </Link>
@@ -84,7 +99,7 @@ export function MatchList({ matches, caption }: { matches: MatchView[]; caption:
                 })()}
               </td>
               <td className="py-3.5 pr-5 sm:pr-7">
-                <TeamCell team={m.away} align="left" />
+                <TeamCell team={m.away} align="left" locale={locale} />
               </td>
             </tr>
           ))}
@@ -94,19 +109,14 @@ export function MatchList({ matches, caption }: { matches: MatchView[]; caption:
   );
 }
 
-export function LastUpdated({ utc }: { utc: string }) {
+export function LastUpdated({ utc, locale = "en" }: { utc: string; locale?: Locale }) {
   return (
     <p className="mt-3 text-xs text-muted">
-      Updated{" "}
+      {tr(locale, "Updated", "Aktualisiert")}{" "}
       <time dateTime={utc}>
-        {new Intl.DateTimeFormat("en-GB", {
-          dateStyle: "medium",
-          timeStyle: "short",
-          timeZone: "UTC",
-        }).format(new Date(utc))}{" "}
-        UTC
+        {fmtDate(locale, utc, { dateStyle: "medium", timeStyle: "short" })} UTC
       </time>{" "}
-      · Data: football-data.org
+      · {tr(locale, "Data", "Daten")}: football-data.org
     </p>
   );
 }

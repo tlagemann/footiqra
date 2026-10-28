@@ -1,3 +1,4 @@
+import { country, listJoin, type Locale } from "@/i18n";
 /**
  * Static registry of supported competitions.
  *
@@ -78,9 +79,11 @@ export const LEAGUES: readonly LeagueDefinition[] = [
 ] as const;
 
 /** "England, Spain, Italy, Germany, France, Portugal and the Netherlands" */
-export function leagueCountryList(): string {
-  const names = LEAGUES.map((l) => (l.country === "Netherlands" ? "the Netherlands" : l.country));
-  return `${names.slice(0, -1).join(", ")} and ${names.at(-1)}`;
+export function leagueCountryList(locale: Locale = "en"): string {
+  const names = LEAGUES.map((l) =>
+    locale === "en" && l.country === "Netherlands" ? "the Netherlands" : country(locale, l.country),
+  );
+  return listJoin(locale, names);
 }
 
 export function getLeagueBySlug(slug: string): LeagueDefinition | undefined {

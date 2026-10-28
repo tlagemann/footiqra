@@ -1,56 +1,68 @@
 import Link from "next/link";
 import type { ProjectionRow } from "@/data";
+import { fmtChance, ordinal, paths, tr, type Locale } from "@/i18n";
 import { Crest } from "./ui";
 
-function ordinal(n: number): string {
-  const v = n % 100;
-  if (v >= 11 && v <= 13) return `${n}th`;
-  return `${n}${["th", "st", "nd", "rd"][n % 10] ?? "th"}`;
-}
-
 /** Places gained (green, up) or lost (red, down) between today and the predicted end. */
-function PositionChange({ from, to }: { from: number; to: number }) {
+function PositionChange({ from, to, locale }: { from: number; to: number; locale: Locale }) {
   const diff = from - to;
   if (diff === 0) {
     return (
-      <span className="text-muted" title="No change expected">
+      <span
+        className="text-muted"
+        title={tr(locale, "No change expected", "Keine Veränderung erwartet")}
+      >
         =
       </span>
     );
   }
   const up = diff > 0;
+  const n = Math.abs(diff);
+  const title =
+    locale === "de"
+      ? `${n} ${n === 1 ? "Platz" : "Plätze"} ${up ? "besser" : "schlechter"} als heute`
+      : `${n} place${n === 1 ? "" : "s"} ${up ? "higher" : "lower"} than today`;
   return (
     <span
       className={`font-semibold whitespace-nowrap ${up ? "text-positive" : "text-negative"}`}
-      title={`${Math.abs(diff)} place${Math.abs(diff) === 1 ? "" : "s"} ${up ? "higher" : "lower"} than today`}
+      title={title}
     >
       <span aria-hidden="true">{up ? "▲" : "▼"}</span>
-      <span className="sr-only">{up ? "up" : "down"} </span>
-      {Math.abs(diff)}
+      <span className="sr-only">
+        {up ? tr(locale, "up", "hoch") : tr(locale, "down", "runter")}{" "}
+      </span>
+      {n}
     </span>
   );
 }
 
-export function chance(p: number): string {
-  if (p <= 0) return "·";
-  if (p < 0.005) return "<1%";
-  if (p > 0.995 && p < 1) return ">99%";
-  return `${Math.round(p * 100)}%`;
+/** Chance as text: "·", "<1%", "36%", ">99%" (German: "36 %"). */
+export function chance(p: number, locale: Locale = "en"): string {
+  return fmtChance(locale, p);
 }
 
 /** One cell of the position strip: full colour from a 35% chance upwards. */
-function Heat({ p }: { p: number }) {
+function Heat({ p, locale }: { p: number; locale: Locale }) {
   return (
     <span
       className={`block h-5 w-full rounded-[3px] ${p > 0 ? "bg-brand" : "bg-line"}`}
       style={{ opacity: p > 0 ? 0.1 + 0.9 * Math.min(1, p / 0.35) : 0.5 }}
-      title={chance(p)}
+      title={chance(p, locale)}
     />
   );
 }
 
 /** Simulated final table with key probabilities and the full position spread. */
-export function ProjectionTable({ rows, caption }: { rows: ProjectionRow[]; caption: string }) {
+export function ProjectionTable({
+  rows,
+  caption,
+  locale = "en",
+}: {
+  rows: ProjectionRow[];
+  caption: string;
+  locale?: Locale;
+}) {
+  const t = (en: string, de: string) => tr(locale, en, de);
   const n = rows.length;
   const num = "tabular px-2 py-3 text-right sm:px-3";
   return (
@@ -63,39 +75,45 @@ export function ProjectionTable({ rows, caption }: { rows: ProjectionRow[]; capt
               #
             </th>
             <th scope="col" className="py-4 text-left font-medium">
-              Team
+              {t("Team", "Verein")}
             </th>
             <th scope="col" className="hidden px-3 py-4 text-right font-medium md:table-cell">
-              Today
+              {t("Today", "Heute")}
             </th>
             <th
               scope="col"
               className="px-2 py-4 text-right font-medium sm:px-3"
-              title="Change from today's table position to the predicted final position"
+              title={t(
+                "Change from today's table position to the predicted final position",
+                "Veränderung vom heutigen Tabellenplatz zum prognostizierten Endplatz",
+              )}
             >
               <span className="sm:hidden">+/-</span>
-              <span className="hidden sm:inline">Change</span>
+              <span className="hidden sm:inline">{t("Change", "Trend")}</span>
             </th>
             <th
               scope="col"
               className="px-2 py-4 text-right font-medium sm:px-3"
-              title="Expected points at the end of the season"
+              title={t(
+                "Expected points at the end of the season",
+                "Erwartete Punkte am Saisonende",
+              )}
             >
-              <span className="sm:hidden">Pts</span>
-              <span className="hidden sm:inline">Final pts</span>
+              <span className="sm:hidden">{t("Pts", "Pkt.")}</span>
+              <span className="hidden sm:inline">{t("Final pts", "Pkt. Ende")}</span>
             </th>
             <th scope="col" className="px-2 py-4 text-right font-medium sm:px-3">
-              Title
+              {t("Title", "Meister")}
             </th>
             <th scope="col" className="hidden px-3 py-4 text-right font-medium sm:table-cell">
               Top 4
             </th>
             <th scope="col" className="py-4 pr-5 pl-2 text-right font-medium sm:pr-7 lg:pr-3">
-              <span className="whitespace-nowrap sm:hidden">Btm 3</span>
-              <span className="hidden sm:inline">Bottom 3</span>
+              <span className="whitespace-nowrap sm:hidden">{t("Btm 3", "Ltz. 3")}</span>
+              <span className="hidden sm:inline">{t("Bottom 3", "Letzte 3")}</span>
             </th>
             <th scope="col" className="hidden py-4 pr-7 pl-4 text-left font-medium lg:table-cell">
-              Final position 1 to {n}
+              {t(`Final position 1 to ${n}`, `Endplatz 1 bis ${n}`)}
             </th>
           </tr>
         </thead>
@@ -110,7 +128,7 @@ export function ProjectionTable({ rows, caption }: { rows: ProjectionRow[]; capt
                 className="max-w-[7.5rem] py-3 pr-2 text-left font-normal sm:max-w-none"
               >
                 <Link
-                  href={`/teams/${r.team.slug}/`}
+                  href={paths(locale).team(r.team.slug)}
                   className="flex items-center gap-3 font-semibold hover:underline hover:underline-offset-4"
                 >
                   <Crest src={r.team.crest} name={r.team.name} size={24} />
@@ -118,31 +136,31 @@ export function ProjectionTable({ rows, caption }: { rows: ProjectionRow[]; capt
                 </Link>
               </th>
               <td className={`${num} hidden text-muted md:table-cell`}>
-                {ordinal(r.currentPosition)}, {r.points} pts
+                {ordinal(locale, r.currentPosition)}, {r.points} {t("pts", "Pkt.")}
               </td>
               <td className={num}>
-                <PositionChange from={r.currentPosition} to={i + 1} />
+                <PositionChange from={r.currentPosition} to={i + 1} locale={locale} />
               </td>
               <td className={`${num} font-display text-lg font-extrabold`}>
                 {Math.round(r.expectedPoints)}
               </td>
-              <td className={`${num} font-semibold`}>{chance(r.title)}</td>
-              <td className={`${num} hidden sm:table-cell`}>{chance(r.top4)}</td>
+              <td className={`${num} font-semibold`}>{chance(r.title, locale)}</td>
+              <td className={`${num} hidden sm:table-cell`}>{chance(r.top4, locale)}</td>
               <td
                 className={`tabular py-3 pr-5 pl-2 text-right sm:pr-7 lg:pr-3 ${r.bottom3 >= 0.25 ? "font-semibold text-negative" : ""}`}
               >
-                {chance(r.bottom3)}
+                {chance(r.bottom3, locale)}
               </td>
               <td className="hidden py-3 pr-7 pl-4 lg:table-cell">
                 <span
                   className="grid gap-0.5"
                   style={{ gridTemplateColumns: `repeat(${n}, minmax(0, 0.75rem))` }}
-                  aria-label={`Most likely final position: ${
+                  aria-label={`${t("Most likely final position", "Wahrscheinlichster Endplatz")}: ${
                     r.positionProbabilities.indexOf(Math.max(...r.positionProbabilities)) + 1
                   }`}
                 >
                   {r.positionProbabilities.map((p, pos) => (
-                    <Heat key={pos} p={p} />
+                    <Heat key={pos} p={p} locale={locale} />
                   ))}
                 </span>
               </td>

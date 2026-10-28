@@ -6,6 +6,16 @@ export const SITE = {
   locale: "en",
 } as const;
 
+/** Tagline and description per language. */
+export const SITE_TEXT = {
+  en: { tagline: SITE.tagline, description: SITE.description },
+  de: {
+    tagline: "Power-Ranking der Top-Fußballligen Europas",
+    description:
+      "Datenbasiertes Power-Ranking, das jeden Verein aus Premier League, La Liga, Serie A, Bundesliga, Ligue 1, Primeira Liga und Eredivisie auf einer gemeinsamen Skala vergleicht.",
+  },
+} as const;
+
 /**
  * Public base URL used for canonical links, sitemap and robots.txt.
  * Not a secret, so it may be read anywhere (also at build time).

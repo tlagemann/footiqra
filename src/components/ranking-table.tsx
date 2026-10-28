@@ -1,3 +1,4 @@
+import { paths, tr, type Locale } from "@/i18n";
 import Link from "next/link";
 import { getLeagueBySlug } from "@/config/leagues";
 import type { PowerRankingRow } from "@/data";
@@ -12,12 +13,16 @@ export function RankingTable({
   caption,
   showLeague = true,
   rankLabel = "#",
+  locale = "en",
 }: {
   rows: PowerRankingRow[];
   caption: string;
   showLeague?: boolean;
   rankLabel?: string;
+  locale?: Locale;
 }) {
+  const t = (en: string, de: string) => tr(locale, en, de);
+  const p = paths(locale);
   const ratings = rows.map((r) => r.rating);
   const min = Math.min(...ratings);
   const max = Math.max(...ratings);
@@ -36,11 +41,11 @@ export function RankingTable({
               {rankLabel}
             </th>
             <th scope="col" className="py-4 font-medium">
-              Team
+              {t("Team", "Verein")}
             </th>
             {showLeague && (
               <th scope="col" className="hidden py-4 font-medium md:table-cell">
-                League
+                {t("League", "Liga")}
               </th>
             )}
             <th scope="col" className="hidden py-4 font-medium lg:table-cell">
@@ -62,7 +67,7 @@ export function RankingTable({
               </td>
               <th scope="row" className="py-3 pr-3 text-left font-normal">
                 <Link
-                  href={`/teams/${row.team.slug}/`}
+                  href={p.team(row.team.slug)}
                   className="flex items-center gap-3 font-semibold hover:underline hover:underline-offset-4"
                 >
                   <Crest src={row.team.crest} name={row.team.name} size={28} />
@@ -71,13 +76,13 @@ export function RankingTable({
               </th>
               {showLeague && (
                 <td className="hidden py-3 text-muted md:table-cell">
-                  <Link href={`/leagues/${row.team.leagueSlug}/`} className="hover:text-foreground">
+                  <Link href={p.league(row.team.leagueSlug)} className="hover:text-foreground">
                     {getLeagueBySlug(row.team.leagueSlug)?.name}
                   </Link>
                 </td>
               )}
               <td className="hidden py-3 lg:table-cell">
-                <FormGuide form={row.form} />
+                <FormGuide form={row.form} locale={locale} />
               </td>
               <td className="py-3 pr-5 sm:pr-7">
                 <div className="flex items-center justify-end gap-3">

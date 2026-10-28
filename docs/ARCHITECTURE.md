@@ -108,6 +108,14 @@ Die UEFA-Koeffizienten werden einmal pro Saison aktualisiert (Datum in der Konfi
 - Nationale Pokale, Europa League und Conference League sind im kostenlosen Tarif nicht enthalten.
 - Aufstellungen sind im kostenlosen Tarif von football-data.org nicht enthalten (erst ab „Deep Data“, 29 €/Monat, und dann nur offizielle Aufstellungen).
 
+### Zweisprachigkeit (Englisch und Deutsch)
+
+- Englisch liegt an der Wurzel, Deutsch unter `/de/` mit übersetzten Pfaden (`/de/ligen/…/prognose/`, `/de/vereine/…`, `/de/spiele/…`, `/de/prognosen/`, `/de/tabelle-vs-staerke/`, `/de/methodik/`, `/de/impressum/`, `/de/datenschutz/`). Slugs von Ligen, Vereinen und Spielen sind in beiden Sprachen gleich. Pfade und Zuordnung: `src/i18n/index.ts` (`paths`, `counterpart`).
+- Zwei Root-Layouts (`src/app/(en)/layout.tsx`, `src/app/(de)/de/layout.tsx`) setzen jeweils das richtige `<html lang>`. Die Seitenlogik liegt sprachunabhängig in `src/views/`, die Routen sind dünne Hüllen.
+- Jede Seite trägt Canonical und hreflang (en, de, x-default = Englisch); die Sitemap führt beide Sprachfassungen mit denselben Alternates. Keine automatische Umleitung nach Browsersprache, stattdessen ein Sprachumschalter im Header.
+- Vorschaubilder sind englisch und liegen unter festen Adressen `/og/…png`, die beide Sprachen nutzen.
+- Fehlerseite des Servers: `/page-not-found/` (zweisprachig, noindex).
+
 ## 8. Kosten
 
 | Posten                          | Kosten                                                  |
