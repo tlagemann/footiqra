@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { DataNotice } from "@/components/data-notice";
+import { ForecastList } from "@/components/forecast-list";
 import { LeagueStrength } from "@/components/league-strength";
 import { PerformanceCards } from "@/components/performance";
 import { LastUpdated } from "@/components/match-list";
@@ -8,7 +9,15 @@ import { RankingTable } from "@/components/ranking-table";
 import { ButtonLink, Crest, Eyebrow, SectionHeading } from "@/components/ui";
 import { getLeagueBySlug, LEAGUES } from "@/config/leagues";
 import { SITE } from "@/config/site";
-import { getAllTableVsStrength, getPowerRanking, getWeekAgo, topAcrossLeagues } from "@/data";
+import {
+  biggestMatches,
+  getAllTableVsStrength,
+  getPowerRanking,
+  getUpcomingForecasts,
+  getWeekAgo,
+  nextWindow,
+  topAcrossLeagues,
+} from "@/data";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -21,6 +30,9 @@ export default async function HomePage() {
   const top = ranking.status === "ok" ? ranking.data.rows.slice(0, 3) : [];
   const performance = topAcrossLeagues(await getAllTableVsStrength(10), 3);
   const weekAgo = await getWeekAgo();
+  const bigGames = biggestMatches(nextWindow(await getUpcomingForecasts(), 7), 3).sort(
+    (a, b) => Date.parse(a.utcDate) - Date.parse(b.utcDate),
+  );
   const hasPerformance = performance.over.length + performance.under.length > 0;
 
   return (
@@ -93,6 +105,21 @@ export default async function HomePage() {
             />
             <LastUpdated utc={ranking.lastUpdatedUtc} />
           </section>
+
+          {bigGames.length > 0 && (
+            <section aria-labelledby="big-games">
+              <SectionHeading
+                id="big-games"
+                title="Biggest games this week"
+                aside={
+                  <Link href="/predictions/" className="text-sm text-muted hover:text-foreground">
+                    All predictions
+                  </Link>
+                }
+              />
+              <ForecastList forecasts={bigGames} grouped={false} />
+            </section>
+          )}
 
           {hasPerformance && (
             <section aria-labelledby="table-vs-strength">

@@ -3,6 +3,8 @@ import { LEAGUES } from "@/config/leagues";
 import {
   computeLeagueElo,
   ELO_V1_MODEL_ID,
+  evaluateForecasts,
+  type ForecastRecord,
   ELO_V1_OPTIONS,
   toRanking,
   type RankableMatch,
@@ -38,6 +40,8 @@ export interface PowerRanking {
   leagues: LeagueStrength[];
   matchesUsed: number;
   crossLeagueMatches: number;
+  /** How well forecasts made before each rated match matched the results. */
+  forecastRecord: ForecastRecord | null;
 }
 
 const LEAGUE_CODES = new Set(LEAGUES.map((l) => l.providerCodes.footballData));
@@ -128,5 +132,6 @@ export function computePowerRanking(snapshot: Snapshot): PowerRanking {
     leagues,
     matchesUsed: matches.length,
     crossLeagueMatches: result.crossLeagueMatches,
+    forecastRecord: evaluateForecasts(result.preMatch),
   };
 }

@@ -3,10 +3,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DataNotice } from "@/components/data-notice";
 import { JsonLd } from "@/components/json-ld";
+import { ForecastList } from "@/components/forecast-list";
 import { LastUpdated, MatchList } from "@/components/match-list";
 import { Crest, FormGuide, SectionHeading } from "@/components/ui";
 import { getLeagueBySlug } from "@/config/leagues";
-import { getAllTeamSlugs, getTeam, getTeamRanking } from "@/data";
+import { getAllTeamSlugs, getTeam, getTeamRanking, getUpcomingForecasts } from "@/data";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 /**
@@ -60,6 +61,11 @@ export default async function TeamPage({ params }: PageProps<"/teams/[slug]">) {
   const { team, results, fixtures } = result.data;
   const league = getLeagueBySlug(team.leagueSlug);
   const ranking = await getTeamRanking(team.slug);
+  const forecasts = (await getUpcomingForecasts())
+    .filter((f) => f.home.slug === team.slug || f.away.slug === team.slug)
+    .slice(0, 3);
+  const forecastIds = new Set(forecasts.map((f) => f.id));
+  const otherFixtures = fixtures.filter((f) => !forecastIds.has(f.id));
 
   return (
     <div className="space-y-14">
@@ -140,15 +146,35 @@ export default async function TeamPage({ params }: PageProps<"/teams/[slug]">) {
         )}
       </section>
 
-      <section aria-labelledby="fixtures-heading">
-        <SectionHeading id="fixtures-heading" title="Upcoming fixtures" />
-        {fixtures.length > 0 ? (
-          <MatchList matches={fixtures} caption={`Upcoming fixtures of ${team.name}`} />
-        ) : (
-          <DataNotice title="No fixtures" reason="No scheduled matches stored." />
-        )}
-        <LastUpdated utc={result.lastUpdatedUtc} />
-      </section>
+      {forecasts.length > 0 && (
+        <section aria-labelledby="forecasts-heading">
+          <SectionHeading
+            id="forecasts-heading"
+            title="Next matches"
+            aside={
+              <Link href="/predictions/" className="text-sm text-muted hover:text-foreground">
+                All predictions
+              </Link>
+            }
+          />
+          <ForecastList forecasts={forecasts} grouped={false} />
+        </section>
+      )}
+
+      {(otherFixtures.length > 0 || forecasts.length === 0) && (
+        <section aria-labelledby="fixtures-heading">
+          <SectionHeading
+            id="fixtures-heading"
+            title={forecasts.length > 0 ? "More fixtures" : "Upcoming fixtures"}
+          />
+          {otherFixtures.length > 0 ? (
+            <MatchList matches={otherFixtures} caption={`Upcoming fixtures of ${team.name}`} />
+          ) : (
+            <DataNotice title="No fixtures" reason="No scheduled matches stored." />
+          )}
+        </section>
+      )}
+      <LastUpdated utc={result.lastUpdatedUtc} />
     </div>
   );
 }

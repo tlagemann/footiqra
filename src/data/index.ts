@@ -1,6 +1,7 @@
 import "server-only";
 import { dataDir, listHistoryDates, readHistoryFile } from "@/store/fs";
 import { referenceDate, utcDay, type HistoryFile, type HistoryTeam } from "./history";
+import { upcomingForecasts, type MatchForecast } from "./forecasts";
 import { loadSnapshotFromDisk } from "./load";
 import { LEAGUES } from "@/config/leagues";
 import { computePowerRanking, type PowerRanking, type PowerRankingRow } from "./power-ranking";
@@ -152,3 +153,24 @@ export function getWeekAgo(): Promise<HistoryReference | undefined> {
   })();
   return referencePromise;
 }
+
+export type { MatchForecast };
+
+let forecastsPromise: Promise<MatchForecast[]> | undefined;
+
+/** All upcoming forecasts after the current data timestamp (reproducible builds). */
+export function getUpcomingForecasts(): Promise<MatchForecast[]> {
+  forecastsPromise ??= (async () => {
+    const [snapshot, ranking] = await Promise.all([loadSnapshot(), loadRanking()]);
+    const asOf = snapshot.meta.lastSuccessfulRunUtc;
+    if (!asOf || ranking.matchesUsed === 0) return [];
+    return upcomingForecasts(snapshot, ranking, new Date(asOf));
+  })();
+  return forecastsPromise;
+}
+
+export async function getForecastRecord() {
+  return (await loadRanking()).forecastRecord;
+}
+
+export { biggestMatches, nextWindow } from "./forecasts";

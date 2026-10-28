@@ -6,7 +6,7 @@ import {
   UEFA_COEFFICIENTS,
 } from "@/config/league-strength";
 import { getLeagueBySlug, type LeagueSlug } from "@/config/leagues";
-import { ELO_V1_MODEL_ID, ELO_V1_OPTIONS } from "@/ranking";
+import { ELO_V1_MODEL_ID, ELO_V1_OPTIONS, FORECAST_V1 } from "@/ranking";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -156,8 +156,35 @@ export default function MethodologyPage() {
         </p>
       </section>
 
+      <section id="forecasts" className="scroll-mt-24 space-y-4">
+        <h2 className="font-display text-3xl font-extrabold tracking-[-0.03em]">
+          4. Match forecasts
+        </h2>
+        <p>
+          Forecasts use the same ratings (model <code>{FORECAST_V1.id}</code>). From the rating
+          difference d between home and away side, home advantage included, the Elo formula gives
+          the home side an expected score E = 1 / (1 + 10<sup>-d/400</sup>). A draw counts as half a
+          win in E, so the three probabilities are:
+        </p>
+        <ul className="space-y-2 rounded-3xl bg-surface p-6 text-base">
+          <li>
+            Draw: {FORECAST_V1.drawMax * 100}% × (1 − |2E − 1|<sup>{FORECAST_V1.drawShape}</sup>),
+            highest for evenly matched sides
+          </li>
+          <li>Home win: E − draw / 2</li>
+          <li>Away win: 1 − E − draw / 2</li>
+          <li>No outcome is shown below {FORECAST_V1.floor * 100}%</li>
+        </ul>
+        <p>
+          The two draw parameters were fitted to this season&apos;s league and Champions League
+          results, using the ratings each club had before kick-off. On those matches the forecasts
+          score clearly better than always predicting the average share of home wins, draws and away
+          wins. The forecasts are estimates for information, not betting advice.
+        </p>
+      </section>
+
       <section className="space-y-4">
-        <h2 className="font-display text-3xl font-extrabold tracking-[-0.03em]">4. Limitations</h2>
+        <h2 className="font-display text-3xl font-extrabold tracking-[-0.03em]">5. Limitations</h2>
         <ul className="list-disc space-y-2 pl-6 marker:text-brand">
           <li>
             Ratings restart at the beginning of each season. Early in a season, after only a few

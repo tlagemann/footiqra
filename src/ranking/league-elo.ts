@@ -41,6 +41,12 @@ export interface LeagueEloResult {
   /** Current league adjustment (starting offset + changes from European matches). */
   leagueAdjustments: Map<string, number>;
   crossLeagueMatches: number;
+  /**
+   * Situation before each match, in chronological order: effective rating
+   * difference (home minus away, home advantage included). Used to evaluate
+   * forecasts against the results that followed.
+   */
+  preMatch: { matchId: string; ratingDiff: number; homeGoals: number; awayGoals: number }[];
 }
 
 export function computeLeagueElo(
@@ -54,6 +60,7 @@ export function computeLeagueElo(
   const leagueAdj = new Map<string, number>(Object.entries(leagueOffsets));
   const matchesPlayed = new Map<string, number>();
   let crossLeagueMatches = 0;
+  const preMatch: LeagueEloResult["preMatch"] = [];
 
   const leagueOf = (teamId: string): string => {
     const league = teamLeague.get(teamId);
@@ -73,10 +80,15 @@ export function computeLeagueElo(
     const away = rating(match.awayTeamId);
     const advantage = match.neutralVenue ? 0 : opts.homeAdvantage;
 
-    const expectedHome = expectedScore(
-      home + leagueAdj.get(homeLeague)! + advantage,
-      away + leagueAdj.get(awayLeague)!,
-    );
+    const ratingDiff =
+      home + leagueAdj.get(homeLeague)! + advantage - (away + leagueAdj.get(awayLeague)!);
+    preMatch.push({
+      matchId: match.id,
+      ratingDiff,
+      homeGoals: match.homeGoals,
+      awayGoals: match.awayGoals,
+    });
+    const expectedHome = expectedScore(ratingDiff, 0);
     const actualHome =
       match.homeGoals > match.awayGoals ? 1 : match.homeGoals < match.awayGoals ? 0 : 0.5;
     const surprise = actualHome - expectedHome;
@@ -102,5 +114,11 @@ export function computeLeagueElo(
   for (const [teamId, r] of teamRating) {
     ratings.set(teamId, r + leagueAdj.get(leagueOf(teamId))!);
   }
-  return { ratings, matchesPlayed, leagueAdjustments: leagueAdj, crossLeagueMatches };
+  return {
+    ratings,
+    matchesPlayed,
+    leagueAdjustments: leagueAdj,
+    crossLeagueMatches,
+    preMatch,
+  };
 }

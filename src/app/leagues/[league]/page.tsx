@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { DataNotice } from "@/components/data-notice";
 import { JsonLd } from "@/components/json-ld";
 import { LastUpdated } from "@/components/match-list";
+import { ForecastList } from "@/components/forecast-list";
 import { PerformanceCards } from "@/components/performance";
 import { RankingTable } from "@/components/ranking-table";
 import { StandingsTable } from "@/components/standings-table";
@@ -14,7 +15,9 @@ import {
   getLeagueTeams,
   getPowerRanking,
   getTableVsStrength,
+  getUpcomingForecasts,
   getWeekAgo,
+  nextWindow,
 } from "@/data";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
@@ -51,7 +54,15 @@ export default async function LeaguePage({ params }: PageProps<"/leagues/[league
     getPowerRanking(),
     getLeagueTable(league.slug),
   ]);
-  const [performance, weekAgo] = await Promise.all([getTableVsStrength(league.slug), getWeekAgo()]);
+  const [performance, weekAgo, allForecasts] = await Promise.all([
+    getTableVsStrength(league.slug),
+    getWeekAgo(),
+    getUpcomingForecasts(),
+  ]);
+  const forecasts = nextWindow(
+    allForecasts.filter((f) => f.leagueSlug === league.slug),
+    6,
+  );
   const powerRanks = new Map(
     ranking.status === "ok" ? ranking.data.rows.map((r) => [r.team.slug, r.rank]) : [],
   );
@@ -130,6 +141,21 @@ export default async function LeaguePage({ params }: PageProps<"/leagues/[league
               </li>
             ))}
           </ol>
+        </section>
+      )}
+
+      {forecasts.length > 0 && (
+        <section aria-labelledby="forecasts-heading">
+          <SectionHeading
+            id="forecasts-heading"
+            title="Next matches"
+            aside={
+              <Link href="/predictions/" className="text-sm text-muted hover:text-foreground">
+                All predictions
+              </Link>
+            }
+          />
+          <ForecastList forecasts={forecasts} grouped={false} />
         </section>
       )}
 

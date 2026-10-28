@@ -3,8 +3,8 @@ import { Logo } from "./logo";
 
 const NAV = [
   { href: "/", label: "Ranking" },
+  { href: "/predictions/", label: "Predictions" },
   { href: "/leagues/", label: "Leagues" },
-  { href: "/methodology/", label: "Methodology" },
 ];
 
 export function SiteHeader() {
@@ -48,6 +48,11 @@ export function SiteFooter() {
           <li>
             <Link href="/leagues/" className="text-muted hover:text-foreground">
               Leagues
+            </Link>
+          </li>
+          <li>
+            <Link href="/predictions/" className="text-muted hover:text-foreground">
+              Predictions
             </Link>
           </li>
           <li>
