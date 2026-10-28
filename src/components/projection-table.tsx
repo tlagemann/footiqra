@@ -2,6 +2,12 @@ import Link from "next/link";
 import type { ProjectionRow } from "@/data";
 import { Crest } from "./ui";
 
+function ordinal(n: number): string {
+  const v = n % 100;
+  if (v >= 11 && v <= 13) return `${n}th`;
+  return `${n}${["th", "st", "nd", "rd"][n % 10] ?? "th"}`;
+}
+
 export function chance(p: number): string {
   if (p <= 0) return "·";
   if (p < 0.005) return "<1%";
@@ -37,14 +43,15 @@ export function ProjectionTable({ rows, caption }: { rows: ProjectionRow[]; capt
               Team
             </th>
             <th scope="col" className="hidden px-3 py-4 text-right font-medium md:table-cell">
-              Now
+              Today
             </th>
             <th
               scope="col"
               className="px-2 py-4 text-right font-medium sm:px-3"
-              title="Expected final points"
+              title="Expected points at the end of the season"
             >
-              Pts
+              <span className="sm:hidden">Pts</span>
+              <span className="hidden sm:inline">Final pts</span>
             </th>
             <th scope="col" className="px-2 py-4 text-right font-medium sm:px-3">
               Title
@@ -80,7 +87,7 @@ export function ProjectionTable({ rows, caption }: { rows: ProjectionRow[]; capt
                 </Link>
               </th>
               <td className={`${num} hidden text-muted md:table-cell`}>
-                {r.currentPosition}. · {r.points}
+                {ordinal(r.currentPosition)}, {r.points} pts
               </td>
               <td className={`${num} font-display text-lg font-extrabold`}>
                 {Math.round(r.expectedPoints)}
