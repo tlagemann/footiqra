@@ -55,10 +55,10 @@ function toRankable(m: StoredMatch): RankableMatch {
 }
 
 /**
- * Current-season power ranking across the five leagues.
+ * Current-season power ranking across all covered leagues.
  *
  * Uses all league matches of the latest season plus European matches in which
- * BOTH teams belong to one of the five leagues. Matches against clubs from other
+ * BOTH teams belong to one of the covered leagues. Matches against clubs from other
  * countries are not used, because their league strength is unknown to the model.
  */
 export function computePowerRanking(snapshot: Snapshot): PowerRanking {

@@ -39,9 +39,9 @@ export default function MethodologyPage() {
       <header className="space-y-3">
         <h1 className="text-3xl font-semibold tracking-tight">Methodology</h1>
         <p className="text-muted">
-          The Footiqra power ranking estimates how strong every team in Europe&apos;s top five
-          leagues is right now, on one common scale. It is based only on match results. This page
-          documents exactly how it is calculated (model <code>{ELO_V1_MODEL_ID}</code>).
+          The Footiqra power ranking estimates how strong every team in Europe&apos;s top leagues is
+          right now, on one common scale. It is based only on match results. This page documents
+          exactly how it is calculated (model <code>{ELO_V1_MODEL_ID}</code>).
         </p>
       </header>
 
@@ -78,7 +78,7 @@ export default function MethodologyPage() {
           rating. It starts from the official UEFA association coefficients, which summarise five
           seasons of European results: each league starts {RATING_POINTS_PER_COEFFICIENT_POINT}{" "}
           rating points above or below average for every coefficient point it is above or below the
-          five-league average.
+          average of all covered leagues.
         </p>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
@@ -116,13 +116,13 @@ export default function MethodologyPage() {
           <a href={UEFA_COEFFICIENTS.sourceUrl} className="underline underline-offset-4">
             UEFA association club coefficients
           </a>
-          , retrieved {UEFA_COEFFICIENTS.retrieved}.
+          , season {UEFA_COEFFICIENTS.season} (read {UEFA_COEFFICIENTS.retrieved}).
         </p>
         <p>
           The starting values are only a prior. Every match between clubs from two different leagues
-          of the five also moves the two league strengths, by {opts.leagueKFactor} points times the
-          same surprise factor used for teams. Domestic matches never change league strength,
-          because both teams share it.
+          covered by Footiqra also moves the two league strengths, by {opts.leagueKFactor} points
+          times the same surprise factor used for teams. Domestic matches never change league
+          strength, because both teams share it.
         </p>
       </section>
 
@@ -131,7 +131,7 @@ export default function MethodologyPage() {
         <ul className="list-disc space-y-1 pl-5">
           <li>All finished league matches of the current season</li>
           <li>
-            Champions League matches in which both clubs play in one of the five leagues. Matches
+            Champions League matches in which both clubs play in one of the covered leagues. Matches
             against clubs from other countries are not used, because their league strength is not
             modelled
           </li>

@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
-import { LEAGUES } from "@/config/leagues";
+import { leagueCountryList, LEAGUES } from "@/config/leagues";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Leagues: Premier League, La Liga, Serie A, Bundesliga, Ligue 1",
-  description:
-    "Overview of the five major European football leagues covered by the Footiqra power ranking.",
+  title: "Leagues covered: Premier League, La Liga, Serie A, Bundesliga, Ligue 1 and more",
+  description: "Overview of the European football leagues covered by the Footiqra power ranking.",
   path: "/leagues/",
 });
 
@@ -22,7 +21,7 @@ export default function LeaguesPage() {
       />
       <h1 className="text-3xl font-semibold tracking-tight">Leagues</h1>
       <p className="max-w-2xl text-muted">
-        Footiqra covers the top divisions of England, Spain, Italy, Germany and France.
+        Footiqra covers the top divisions of {leagueCountryList()}.
       </p>
       <ul className="divide-y divide-line rounded-lg border border-line">
         {LEAGUES.map((league) => (

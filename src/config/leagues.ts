@@ -4,7 +4,14 @@
  * Adding a league later = adding one entry here (plus a provider code).
  * Contains only stable reference facts, no statistics.
  */
-export type LeagueSlug = "premier-league" | "la-liga" | "serie-a" | "bundesliga" | "ligue-1";
+export type LeagueSlug =
+  | "premier-league"
+  | "la-liga"
+  | "serie-a"
+  | "bundesliga"
+  | "ligue-1"
+  | "primeira-liga"
+  | "eredivisie";
 
 export interface LeagueDefinition {
   slug: LeagueSlug;
@@ -54,7 +61,27 @@ export const LEAGUES: readonly LeagueDefinition[] = [
     countryCode: "FR",
     providerCodes: { footballData: "FL1" },
   },
+  {
+    slug: "primeira-liga",
+    name: "Primeira Liga",
+    country: "Portugal",
+    countryCode: "PT",
+    providerCodes: { footballData: "PPL" },
+  },
+  {
+    slug: "eredivisie",
+    name: "Eredivisie",
+    country: "Netherlands",
+    countryCode: "NL",
+    providerCodes: { footballData: "DED" },
+  },
 ] as const;
+
+/** "England, Spain, Italy, Germany, France, Portugal and the Netherlands" */
+export function leagueCountryList(): string {
+  const names = LEAGUES.map((l) => (l.country === "Netherlands" ? "the Netherlands" : l.country));
+  return `${names.slice(0, -1).join(", ")} and ${names.at(-1)}`;
+}
 
 export function getLeagueBySlug(slug: string): LeagueDefinition | undefined {
   return LEAGUES.find((league) => league.slug === slug);

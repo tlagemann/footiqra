@@ -9,7 +9,7 @@ import { getLeagueTeams, getPowerRanking } from "@/data";
 import { RankingTable } from "@/components/ranking-table";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
-// Only the five registered leagues exist; anything else is a 404.
+// Only registered leagues exist; anything else is a 404.
 export const dynamicParams = false;
 
 export function generateStaticParams() {

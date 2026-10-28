@@ -10,7 +10,7 @@ Stand: 28.10.2026 (nach dem SiteGround-Machbarkeitstest). Ergebnisse des Tests: 
 | Ausgabe         | Rein statische Website (`output: "export"`), Ordner `out/`                               |
 | Hosting         | SiteGround (bestehender GrowBig-Tarif), nur fertige HTML/CSS/JS-Dateien                  |
 | Datenspeicher   | Versionierte JSON-Dateien im Repository (`data/`), keine Datenbank                       |
-| Datenquelle     | football-data.org, kostenloser Tarif (5 Ligen + Champions League, aktuelle Saison)       |
+| Datenquelle     | football-data.org, kostenloser Tarif (7 Ligen + Champions League, aktuelle Saison)       |
 | Automatisierung | GitHub Actions nach Zeitplan: Abruf, Commit, Build, Upload per SSH                       |
 | Ranking         | `elo-v1`: Elo plus Ligastärke aus UEFA-Koeffizienten, kalibriert durch Europapokalspiele |
 | Laufende Kosten | 0 € zusätzlich                                                                           |
@@ -75,7 +75,7 @@ Datenmenge: rund 1.800 Ligaspiele pro Saison, etwa 1 MB JSON. Wird das zu groß 
 
 ## 6. Datenquelle
 
-football-data.org, kostenloser Tarif (Stand Oktober 2026): 12 Wettbewerbe inklusive der fünf Ligen und der Champions League, 10 Anfragen pro Minute, Ergebnisse verzögert, keine Spielstatistiken, nur aktuelle Saison. Ein Lauf braucht 6 Anfragen (5 Ligen + Champions League).
+football-data.org, kostenloser Tarif (Stand Oktober 2026): 12 Wettbewerbe inklusive der fünf Ligen und der Champions League, 10 Anfragen pro Minute, Ergebnisse verzögert, keine Spielstatistiken, nur aktuelle Saison. Ein Lauf braucht 8 Anfragen (7 Ligen + Champions League). Erfasst sind seit 28.10.2026 zusätzlich Primeira Liga und Eredivisie; weitere Ligen (z. B. Belgien, Türkei) bräuchten einen Bezahltarif oder zweiten Anbieter.
 
 Erweiterungen bei Bedarf: Livescores 12 €/Monat, 10 Saisons Historie 29 €/Monat, Statistik-Add-on 15 €/Monat (jeweils zzgl. MwSt.). Der Anbieter ist in `src/ingestion/providers/` gekapselt.
 
@@ -86,7 +86,7 @@ API-Football bleibt Alternative (100 Anfragen/Tag kostenlos). Welche Saisons der
 Modell `elo-v1` (`src/ranking/league-elo.ts`), öffentlich erklärt auf `/methodology/`:
 
 - **Teamrating:** Elo, Start 1500, K-Faktor 20, Heimvorteil 65, Tordifferenz-Faktor.
-- **Ligastärke:** Jede Liga startet mit einem festen Wert aus den offiziellen UEFA-Länderkoeffizienten (`src/config/league-strength.ts`, Abruf 28.10.2026): 2 Ratingpunkte je Koeffizientenpunkt Abstand zum Durchschnitt der fünf Ligen. Ergebnis: Premier League +41,9, Serie A +2,7, La Liga -3,1, Bundesliga -11,4, Ligue 1 -30,2.
+- **Ligastärke:** Jede Liga startet mit einem festen Wert aus den offiziellen UEFA-Länderkoeffizienten der Saison 2025/26 (`src/config/league-strength.ts`, gelesen am 28.10.2026): 2 Ratingpunkte je Koeffizientenpunkt Abstand zum Durchschnitt aller erfassten Ligen. Ergebnis: Premier League +57,9, Serie A +18,7, La Liga +12,9, Bundesliga +4,7, Ligue 1 -14,1, Primeira Liga -34,8, Eredivisie -45,3.
 - **Nachjustierung:** Jedes Europapokalspiel zwischen Teams zweier verschiedener Top-5-Ligen verschiebt beide Ligawerte (K 4, Nullsumme). Ligaspiele ändern die Ligastärke nie.
 - **Verwendete Spiele:** beendete Ligaspiele der aktuellen Saison plus Champions-League-Spiele zwischen Top-5-Teams. Nicht verwendet: Spiele gegen Klubs anderer Länder, Entscheidungen nach Verlängerung oder Elfmeterschießen.
 - **Saisonstart:** Ratings beginnen jede Saison neu. Mit Historie (Bezahlpaket) ließe sich ein Übertrag mit Rückführung zum Mittelwert ergänzen.

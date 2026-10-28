@@ -11,7 +11,7 @@ import { emptyMatchFile, mergeMatches, toStoredMatch, upsertTeams } from "@/stor
 import type { FootballDataClient } from "./providers/football-data/client";
 
 /**
- * Competitions fetched on every run: the five leagues plus the Champions League.
+ * Competitions fetched on every run: all covered leagues plus the Champions League.
  * The Champions League is the only cross-league competition in the free tier and
  * is the basis for comparing leagues with each other (see docs/ARCHITECTURE.md).
  */

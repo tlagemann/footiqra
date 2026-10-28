@@ -72,7 +72,7 @@ function summary(team: StoredTeam, league: LeagueDefinition): TeamSummary {
 
 const byName = (a: TeamSummary, b: TeamSummary) => a.name.localeCompare(b.name, "en");
 
-/** All teams of the five leagues. Teams that only appear in the Champions League are excluded. */
+/** All teams of the covered leagues. Teams that only appear in the Champions League are excluded. */
 export function allLeagueTeams(snapshot: Snapshot): TeamSummary[] {
   const leagues = teamLeagueMap(snapshot);
   const result: TeamSummary[] = [];

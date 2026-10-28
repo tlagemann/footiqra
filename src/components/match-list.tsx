@@ -1,12 +1,9 @@
 import Link from "next/link";
+import { LEAGUES } from "@/config/leagues";
 import type { MatchView } from "@/data";
 
 const COMPETITION_LABEL: Record<string, string> = {
-  PL: "Premier League",
-  PD: "La Liga",
-  SA: "Serie A",
-  BL1: "Bundesliga",
-  FL1: "Ligue 1",
+  ...Object.fromEntries(LEAGUES.map((l) => [l.providerCodes.footballData, l.name])),
   CL: "Champions League",
 };
 

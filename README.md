@@ -1,6 +1,6 @@
 # Footiqra
 
-Cross-league football power rankings for Europe's top five leagues: Premier League, La Liga, Serie A, Bundesliga and Ligue 1.
+Cross-league football power rankings for Europe's top leagues: Premier League, La Liga, Serie A, Bundesliga, Ligue 1, Primeira Liga and Eredivisie.
 
 **Projektstand:** Datenabruf, Power-Ranking (Modell `elo-v1`), Liga- und Teamseiten laufen mit echten Daten. Der Upload zu SiteGround ist vorbereitet, aber noch nicht aktiviert.
 
@@ -35,14 +35,14 @@ Node.js 22 oder neuer (`.nvmrc`), npm 10 oder neuer.
 
 ## Seitenstruktur
 
-| URL                                                             | Inhalt                                            |
-| --------------------------------------------------------------- | ------------------------------------------------- |
-| `/`                                                             | Ligaübergreifendes Power-Ranking und Ligastärke   |
-| `/leagues/`                                                     | Übersicht der fünf Ligen                          |
-| `/leagues/{premier-league,la-liga,serie-a,bundesliga,ligue-1}/` | Liga-Seiten mit Teams                             |
-| `/teams/{slug}/`                                                | Teamprofile mit Ergebnissen und kommenden Spielen |
-| `/methodology/`                                                 | Erklärung der Berechnung                          |
-| `/sitemap.xml`, `/robots.txt`                                   | SEO (Indexierung bis zum Launch gesperrt)         |
+| URL                                                       | Inhalt                                            |
+| --------------------------------------------------------- | ------------------------------------------------- |
+| `/`                                                       | Ligaübergreifendes Power-Ranking und Ligastärke   |
+| `/leagues/`                                               | Übersicht der sieben Ligen                        |
+| `/leagues/{slug}/` (z. B. `premier-league`, `eredivisie`) | Liga-Seiten mit Teams                             |
+| `/teams/{slug}/`                                          | Teamprofile mit Ergebnissen und kommenden Spielen |
+| `/methodology/`                                           | Erklärung der Berechnung                          |
+| `/sitemap.xml`, `/robots.txt`                             | SEO (Indexierung bis zum Launch gesperrt)         |
 
 Alle Inhalte stehen im ausgelieferten HTML, inklusive Canonical-URL, Open-Graph-Daten und BreadcrumbList-JSON-LD.
 

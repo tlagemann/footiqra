@@ -28,7 +28,7 @@ export default async function HomePage() {
           Cross-league power ranking
         </p>
         <h1 className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">
-          Europe&apos;s top five leagues, one ranking
+          Europe&apos;s top leagues, one ranking
         </h1>
         <p className="mt-3 max-w-2xl text-muted">{SITE.description}</p>
       </section>
@@ -46,7 +46,7 @@ export default async function HomePage() {
             </div>
             <RankingTable
               rows={ranking.data.rows}
-              caption="Footiqra power ranking of all teams in the five leagues"
+              caption="Footiqra power ranking of all teams in the covered leagues"
             />
             <LastUpdated utc={ranking.lastUpdatedUtc} />
           </section>
@@ -60,7 +60,7 @@ export default async function HomePage() {
               moves with results between clubs of different leagues in Europe (
               {ranking.data.crossLeagueMatches} matches so far this season).
             </p>
-            <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+            <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {ranking.data.leagues.map((l) => {
                 const league = getLeagueBySlug(l.leagueSlug);
                 return (

@@ -1,8 +1,8 @@
 export const SITE = {
   name: "Footiqra",
-  tagline: "Power rankings across Europe's top five football leagues",
+  tagline: "Power rankings across Europe's top football leagues",
   description:
-    "Data-driven power rankings comparing every club in the Premier League, La Liga, Serie A, Bundesliga and Ligue 1.",
+    "Data-driven power rankings comparing every club in the Premier League, La Liga, Serie A, Bundesliga, Ligue 1, Primeira Liga and Eredivisie on one scale.",
   locale: "en",
 } as const;
 

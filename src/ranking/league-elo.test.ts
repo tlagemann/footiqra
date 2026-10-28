@@ -100,6 +100,8 @@ describe("leagueStartingOffsets", () => {
         "la-liga": 100,
         bundesliga: 90,
         "ligue-1": 90,
+        "primeira-liga": 100,
+        eredivisie: 100,
       },
       2,
     );
