@@ -29,7 +29,10 @@ export function RankingTable({
         <caption className="sr-only">{caption}</caption>
         <thead className="text-left text-xs font-medium uppercase tracking-wide text-muted">
           <tr>
-            <th scope="col" className="w-12 py-4 pl-5 font-medium sm:w-16 sm:pl-7">
+            <th
+              scope="col"
+              className={`${rankLabel.length > 2 ? "w-24 sm:w-28" : "w-12 sm:w-16"} py-4 pl-5 font-medium sm:pl-7`}
+            >
               {rankLabel}
             </th>
             <th scope="col" className="py-4 font-medium">
