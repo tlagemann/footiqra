@@ -1,0 +1,54 @@
+# Manual check: can football-data.org deliver a past season with our token?
+# Runs the normal import for the chosen season into a throwaway data folder.
+# Nothing is committed or deployed; results appear as notices on the run.
+name: Probe past season
+
+on:
+  workflow_dispatch:
+    inputs:
+      season:
+        description: "Season start year, e.g. 2025 for 2025/26"
+        required: true
+        default: "2025"
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Import season into empty data folder
+        env:
+          FOOTBALL_DATA_API_TOKEN: ${{ secrets.FOOTBALL_DATA_API_TOKEN }}
+          FOOTIQRA_SEASON: ${{ inputs.season }}
+        run: |
+          rm -rf data && mkdir data
+          set +e
+          npm run ingest 2>&1 | tee ingest.log
+          code=${PIPESTATUS[0]}
+          echo "::notice title=Exit code::$code"
+          grep -iE "error|fail|forbidden|403|429|restricted|permission" ingest.log | head -20 | while read -r line; do
+            echo "::notice title=Log::$line"
+          done
+          exit 0
+      - name: Summarise
+        run: |
+          node -e '
+            const fs = require("fs"), path = require("path");
+            const walk = d => fs.existsSync(d) ? fs.readdirSync(d, {withFileTypes:true}).flatMap(e => e.isDirectory() ? walk(path.join(d,e.name)) : [path.join(d,e.name)]) : [];
+            for (const f of walk("data").filter(f => f.endsWith(".json"))) {
+              const j = JSON.parse(fs.readFileSync(f, "utf8"));
+              const m = Array.isArray(j) ? j : (j.matches ?? j.rows ?? j.table ?? null);
+              const fin = Array.isArray(m) ? m.filter(x => x.status === "FINISHED").length : "";
+              const dates = Array.isArray(m) ? m.map(x => x.utcDate).filter(Boolean).sort() : [];
+              console.log(`::notice title=${f}::entries=${Array.isArray(m) ? m.length : "?"} finished=${fin} first=${dates[0] ?? ""} last=${dates.at(-1) ?? ""}`);
+            }
+          '
