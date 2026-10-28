@@ -1177,7 +1177,7 @@
       "awayGoals": 3,
       "duration": "REGULAR",
       "winner": "AWAY_TEAM",
-      "lastUpdated": "2026-10-28T18:57:55.000Z"
+      "lastUpdated": "2026-10-28T19:13:55.000Z"
     },
     {
       "id": 558550,
@@ -1188,10 +1188,10 @@
       "homeTeamId": 454,
       "awayTeamId": 108,
       "homeGoals": 0,
-      "awayGoals": 0,
+      "awayGoals": 1,
       "duration": "REGULAR",
-      "winner": "DRAW",
-      "lastUpdated": "2026-10-28T18:57:55.000Z"
+      "winner": "AWAY_TEAM",
+      "lastUpdated": "2026-10-28T19:13:55.000Z"
     },
     {
       "id": 558553,
@@ -1205,7 +1205,7 @@
       "awayGoals": 0,
       "duration": "REGULAR",
       "winner": "DRAW",
-      "lastUpdated": "2026-10-28T18:57:23.000Z"
+      "lastUpdated": "2026-10-28T19:14:27.000Z"
     },
     {
       "id": 558552,
