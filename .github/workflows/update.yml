@@ -69,7 +69,12 @@ jobs:
             echo "No data changes."
           else
             git commit -m "data: update $(date -u +%Y-%m-%dT%H:%MZ)"
-            git push
+            # main may have moved while this run was fetching data; retry on top of it.
+            for i in 1 2 3; do
+              git pull --rebase -q && git push -q && exit 0
+              sleep 15
+            done
+            exit 1
           fi
 
       - name: Build static site
