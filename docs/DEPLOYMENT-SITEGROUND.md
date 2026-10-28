@@ -46,6 +46,13 @@ Der Upload nutzt `rsync --delete`: Dateien im Zielordner, die nicht mehr zur Web
 
 Erster Upload am 28.10.2026 auf `timl92.sg-host.com` (Host `ssh.timl92.sg-host.com`, Port 18765, Pfad `/home/customer/www/timl92.sg-host.com/public_html`). Befund: SiteGrounds Dynamic Cache speichert die HTML-Seiten (`x-proxy-cache: HIT`). Damit Aktualisierungen sofort sichtbar werden, ist der Dynamic Cache für diese Website abzuschalten (Site Tools > Geschwindigkeit > Caching). `public/.htaccess` setzt eigene 404-Seite und kurze Browser-Cache-Zeiten für HTML, Sitemap und robots.txt (SiteGround-Standard waren 180 Tage).
 
+### Umzug auf footiqra.com
+
+1. In SiteGround footiqra.com mit der bestehenden Website verbinden (DNS-Eintrag auf denselben Server, Webverzeichnis bleibt `/home/customer/www/timl92.sg-host.com/public_html`) und ein SSL-Zertifikat für footiqra.com und www.footiqra.com ausstellen.
+2. GitHub Variable `SITE_URL` auf `https://footiqra.com` setzen, `ALLOW_INDEXING` auf `true`.
+3. Workflow starten. `scripts/htaccess.ts` hängt beim Build eine 301-Weiterleitung an `.htaccess` an: http, www und die temporäre sg-host-Adresse führen dann auf `https://footiqra.com`. Die Regel entsteht nur, wenn `SITE_URL` eine https-Adresse ist; `/.well-known/` bleibt für die Zertifikatsprüfung erreichbar.
+4. Danach footiqra.com in der Google Search Console anlegen und `https://footiqra.com/sitemap.xml` einreichen.
+
 ## C. Lokal arbeiten
 
 ```bash
