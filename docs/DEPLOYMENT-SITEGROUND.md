@@ -45,3 +45,19 @@ Ergebnis zurückmelden, dann wird der Server- oder Export-Modus final festgelegt
 
 - Es gibt kein automatisches Deployment aus der CI. GitHub Actions führt nur Prüfungen aus.
 - Ohne Freigabe wird nichts veröffentlicht, keine Domain registriert und kein kostenpflichtiger Tarif gebucht.
+
+## E. Ergebnis des Machbarkeitstests (28.10.2026)
+
+Durchgeführt mit ZIP-Upload als SiteGround Node.js-Projekt auf einer temporären Domain. Das Testprojekt wurde danach gelöscht.
+
+| Punkt               | Ergebnis                                                                                                                                        |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Tarif               | GrowBig (nicht GoGeek), bis zu 5 Node.js-Projekte, läuft bis 29.11.2026                                                                         |
+| Laufzeit            | Node v22.23.4, npm 10.9.9, Framework-Preset Next.js wird erkannt                                                                                |
+| `npm install`       | erfolgreich (394 Pakete)                                                                                                                        |
+| Build mit Turbopack | **scheitert**: Build-Umgebung verbietet das Öffnen von Ports ("binding to a port: Operation not permitted")                                     |
+| Build-Befehl        | nur Skriptnamen erlaubt (`run build`), keine Zusatzparameter                                                                                    |
+| Korrektur           | Build auf Webpack umgestellt (`next build --webpack`, Tailwind via PostCSS), lokal grün; auf SiteGround nicht mehr getestet                     |
+| Inodes              | Ein Node.js-Projekt belegte **29.012 Inodes** (`node_modules`). Konto: Limit 400.000, ohne Projekt 335.886 belegt (84 %), mit Projekt über 90 % |
+
+**Schlussfolgerung:** Ein Node.js-Projekt ist auf diesem Tarif technisch möglich, passt aber nicht in die Inode-Reserve, da sich 10 weitere Websites den Tarif teilen. Footiqra wird deshalb als statischer Export betrieben (ca. 100 bis 1.000 Dateien). Build und Datenabruf laufen außerhalb von SiteGround (GitHub Actions), hochgeladen werden nur die fertigen Dateien.
