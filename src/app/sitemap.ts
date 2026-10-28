@@ -17,6 +17,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/table-vs-strength/",
     "/methodology/",
     "/impressum/",
+    "/datenschutz/",
     ...(await getAllTeamSlugs()).map((slug) => `/teams/${slug}/`),
     ...(await getAllMatchSlugs()).map((slug) => `/matches/${slug}/`),
   ];

@@ -58,6 +58,11 @@ export function SiteFooter() {
               Impressum
             </Link>
           </li>
+          <li>
+            <Link href="/datenschutz/" className="text-muted hover:text-foreground">
+              Datenschutz
+            </Link>
+          </li>
         </ul>
       </div>
     </footer>

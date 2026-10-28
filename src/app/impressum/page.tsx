@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Eyebrow } from "@/components/ui";
 import { pageMetadata } from "@/lib/seo";
 
@@ -131,6 +132,13 @@ export default function ImpressumPage() {
           beachtet und Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine
           Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei
           Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
+        </p>
+        <p>
+          Informationen zum Datenschutz finden Sie in der{" "}
+          <Link href="/datenschutz/" className="underline underline-offset-4">
+            Datenschutzerklärung
+          </Link>
+          .
         </p>
       </section>
     </article>
