@@ -109,6 +109,11 @@ interface Params {
   carryLeague: boolean;
   /** Form: forecast uses rating + form * (rating change over the team's last 5 matches). */
   form: number;
+  /** Seasons before this one are ignored (ratings start at the base rating). */
+  firstSeason?: number;
+  /** Early-season boost: K is multiplied by 1 + boost, fading to 1 over the first boostGames matches. */
+  boost?: number;
+  boostGames?: number;
 }
 
 interface Score {
@@ -124,6 +129,7 @@ function run(p: Params, games: Game[], leagueBySeason: Map<number, Map<number, s
   const team = new Map<number, number>();
   const league = new Map<string, number>(Object.entries(offsets));
   const history = new Map<number, number[]>(); // effective team rating after each match
+  const played = new Map<number, number>(); // matches this season
   let current = 0;
 
   const score = {
@@ -149,9 +155,11 @@ function run(p: Params, games: Game[], leagueBySeason: Map<number, Map<number, s
     }
     if (!p.carryLeague) for (const [l, v] of Object.entries(offsets)) league.set(l, v);
     history.clear();
+    played.clear();
   };
 
   for (const g of games) {
+    if (p.firstSeason && g.season < p.firstSeason) continue;
     if (g.season !== current) {
       current = g.season;
       startSeason(current);
@@ -191,7 +199,11 @@ function run(p: Params, games: Game[], leagueBySeason: Map<number, Map<number, s
     const baseDiff = rh + league.get(g.hl)! + p.home - (ra + league.get(g.al)!);
     const surprise = (g.hg > g.ag ? 1 : g.hg < g.ag ? 0 : 0.5) - expectedScore(baseDiff, 0);
     const mult = goalDifferenceMultiplier(g.hg - g.ag);
-    const delta = p.k * mult * surprise;
+    const fade = (id: number) => Math.max(0, 1 - (played.get(id) ?? 0) / (p.boostGames ?? 1));
+    const boost = 1 + (p.boost ?? 0) * ((fade(g.home) + fade(g.away)) / 2);
+    played.set(g.home, (played.get(g.home) ?? 0) + 1);
+    played.set(g.away, (played.get(g.away) ?? 0) + 1);
+    const delta = p.k * boost * mult * surprise;
     team.set(g.home, rh + delta);
     team.set(g.away, ra - delta);
     if (g.hl !== g.al) {
@@ -253,6 +265,62 @@ for (const leagueK of [12, 16, 24])
       leagueK,
       regress,
     });
+
+if (process.argv.includes("--soft")) {
+  const names = JSON.parse(readFileSync("data/teams.json", "utf8")).teams as Record<
+    string,
+    { name: string }
+  >;
+  const watch = [
+    "FC Bayern München",
+    "Paris Saint-Germain FC",
+    "FC Barcelona",
+    "Arsenal FC",
+    "Real Madrid CF",
+    "Sporting Clube de Portugal",
+    "PSV",
+  ];
+  const v2: Params = { ...best, leagueK: 12 };
+  const soft: Params[] = [
+    live,
+    { ...v2, name: "v2 full carry (2 seasons)" },
+    { ...v2, name: "1 season, r=0", firstSeason: 2025 },
+  ];
+  for (const regress of [0.33, 0.5, 0.67, 0.8]) {
+    soft.push({ ...v2, name: `2 seasons r=${regress}`, regress });
+    soft.push({ ...v2, name: `1 season  r=${regress}`, regress, firstSeason: 2025 });
+    for (const boost of [1, 2])
+      soft.push({
+        ...v2,
+        name: `1 season  r=${regress} boost ${boost}`,
+        regress,
+        firstSeason: 2025,
+        boost,
+        boostGames: 10,
+      });
+  }
+  console.info(
+    [
+      "variant".padEnd(32),
+      "2026/27",
+      "2025/26",
+      ...watch.map((w) => w.split(" ").slice(0, 2).join(" ").slice(0, 10)),
+    ].join(" | "),
+  );
+  for (const p of soft) {
+    const s = run(p, games, leagueBySeason);
+    const order = [...s.final].sort((a, b) => b[1] - a[1]).map(([id]) => names[id]?.name);
+    console.info(
+      [
+        p.name.padEnd(32),
+        fmt(s.s2026),
+        s.s2025.n ? fmt(s.s2025) : "-",
+        ...watch.map((w) => String(order.indexOf(w) + 1).padStart(10)),
+      ].join(" | "),
+    );
+  }
+  process.exit(0);
+}
 
 const rows = variants.map((v) => ({ v, s: run(v, games, leagueBySeason) }));
 const total = (s: ReturnType<typeof run>) =>
