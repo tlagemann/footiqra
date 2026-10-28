@@ -1,0 +1,22 @@
+# Footiqra: Apache settings for the static site on SiteGround.
+# Deployed with the site (public/ is copied into out/).
+
+# Our own 404 page instead of the host's default page
+ErrorDocument 404 /404.html
+
+<IfModule mod_headers.c>
+  # Pages, sitemap and robots.txt change with every data update: short browser cache.
+  <FilesMatch "\.(html|txt|xml)$">
+    Header unset Expires
+    Header set Cache-Control "public, max-age=300, must-revalidate"
+  </FilesMatch>
+
+  # Build assets have content hashes in their names and never change.
+  <If "%{REQUEST_URI} =~ m#^/_next/static/#">
+    Header unset Expires
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </If>
+
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

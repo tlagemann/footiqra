@@ -44,7 +44,7 @@ Voraussetzung: Footiqra hat eine Website bei SiteGround (eigene Domain, Subdomai
 
 Der Upload nutzt `rsync --delete`: Dateien im Zielordner, die nicht mehr zur Website gehören, werden entfernt. Ausgenommen sind `.footiqra-deploy-target`, `.htaccess` und `.well-known/`.
 
-Bei der ersten Bereitstellung prüfen: Werden geänderte Seiten sofort ausgeliefert, oder hält SiteGrounds Dynamic Cache alte Versionen? Falls ja, Cache für diese Website ausschließen oder nach dem Upload leeren.
+Erster Upload am 28.10.2026 auf `timl92.sg-host.com` (Host `ssh.timl92.sg-host.com`, Port 18765, Pfad `/home/customer/www/timl92.sg-host.com/public_html`). Befund: SiteGrounds Dynamic Cache speichert die HTML-Seiten (`x-proxy-cache: HIT`). Damit Aktualisierungen sofort sichtbar werden, ist der Dynamic Cache für diese Website abzuschalten (Site Tools > Geschwindigkeit > Caching). `public/.htaccess` setzt eigene 404-Seite und kurze Browser-Cache-Zeiten für HTML, Sitemap und robots.txt (SiteGround-Standard waren 180 Tage).
 
 ## C. Lokal arbeiten
 
