@@ -1173,11 +1173,11 @@
       "stage": "REGULAR_SEASON",
       "homeTeamId": 98,
       "awayTeamId": 103,
-      "homeGoals": 1,
+      "homeGoals": 2,
       "awayGoals": 1,
       "duration": "REGULAR",
-      "winner": "DRAW",
-      "lastUpdated": "2026-10-28T17:54:59.000Z"
+      "winner": "HOME_TEAM",
+      "lastUpdated": "2026-10-28T18:06:43.000Z"
     },
     {
       "id": 558550,
@@ -1187,11 +1187,11 @@
       "stage": "REGULAR_SEASON",
       "homeTeamId": 454,
       "awayTeamId": 108,
-      "homeGoals": 0,
+      "homeGoals": 1,
       "awayGoals": 0,
       "duration": "REGULAR",
-      "winner": "DRAW",
-      "lastUpdated": "2026-10-28T17:54:59.000Z"
+      "winner": "HOME_TEAM",
+      "lastUpdated": "2026-10-28T18:06:43.000Z"
     },
     {
       "id": 558553,
@@ -1205,7 +1205,7 @@
       "awayGoals": 0,
       "duration": "REGULAR",
       "winner": "DRAW",
-      "lastUpdated": "2026-10-28T17:55:31.000Z"
+      "lastUpdated": "2026-10-28T18:06:43.000Z"
     },
     {
       "id": 558552,
