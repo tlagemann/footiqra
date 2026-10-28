@@ -1,0 +1,59 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { DataNotice } from "@/components/data-notice";
+import { JsonLd } from "@/components/json-ld";
+import { getLeagueBySlug, LEAGUES } from "@/config/leagues";
+import { getLeagueTeams } from "@/data";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
+
+// Only the five registered leagues exist; anything else is a 404.
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return LEAGUES.map((league) => ({ league: league.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps<"/leagues/[league]">): Promise<Metadata> {
+  const league = getLeagueBySlug((await params).league);
+  if (!league) return {};
+  return pageMetadata({
+    title: `${league.name} power ranking, table and form`,
+    description: `${league.name} (${league.country}): team strength, standings and form in the Footiqra power ranking.`,
+    path: `/leagues/${league.slug}/`,
+  });
+}
+
+export default async function LeaguePage({ params }: PageProps<"/leagues/[league]">) {
+  const league = getLeagueBySlug((await params).league);
+  if (!league) notFound();
+
+  const teams = await getLeagueTeams(league.slug);
+
+  return (
+    <div className="space-y-6">
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Leagues", path: "/leagues/" },
+          { name: league.name, path: `/leagues/${league.slug}/` },
+        ])}
+      />
+      <p className="text-sm text-muted">{league.country}</p>
+      <h1 className="text-3xl font-semibold tracking-tight">{league.name}</h1>
+      <section aria-labelledby="teams-heading">
+        <h2 id="teams-heading" className="text-xl font-semibold">
+          Teams and ratings
+        </h2>
+        <div className="mt-4">
+          {teams.status === "ok" ? (
+            <p>{/* Phase 2: league table */}</p>
+          ) : (
+            <DataNotice reason={teams.reason} />
+          )}
+        </div>
+      </section>
+    </div>
+  );
+}

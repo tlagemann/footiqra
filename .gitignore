@@ -1,0 +1,46 @@
+# --- Secrets and local configuration (never commit) ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+id_rsa*
+id_ed25519*
+.npmrc
+# local database dumps and API response captures
+*.sql.gz
+*.dump
+/tmp-data/
+/api-captures/
+
+# --- Dependencies ---
+/node_modules
+/.pnp
+.pnp.*
+
+# --- Build output ---
+/.next/
+/out/
+/build
+*.tsbuildinfo
+next-env.d.ts
+
+# --- Testing ---
+/coverage
+
+# --- Logs ---
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# --- Platforms ---
+.vercel
