@@ -53,6 +53,11 @@ export function SiteFooter() {
             </Link>
           </li>
           <li className="text-muted">Data: football-data.org</li>
+          <li>
+            <Link href="/impressum/" className="text-muted hover:text-foreground">
+              Impressum
+            </Link>
+          </li>
         </ul>
       </div>
     </footer>
