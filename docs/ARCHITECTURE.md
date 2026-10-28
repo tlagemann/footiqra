@@ -144,3 +144,7 @@ Die UEFA-Koeffizienten werden einmal pro Saison aktualisiert (Datum in der Konfi
 | 3   | Prüfen, ob SiteGrounds Dynamic Cache statische HTML-Dateien zwischenspeichert (sonst Cache nach Upload leeren) | beim ersten Upload |
 | 4   | Historie vor dem Start nötig? (dann 29 €/Monat)                                                                | Tim                |
 | 5   | Inode-Reserve des Kontos (84 %) und Tarifverlängerung am 29.11.2026                                            | Tim                |
+
+## Google Analytics (seit 28.10.2026)
+
+GA4-Property `G-5ZXN3X6QF1` (`src/config/analytics.ts`). `src/components/consent.tsx` zeigt ein eigenes Einwilligungsbanner (Akzeptieren und Ablehnen gleichwertig); gtag.js lädt erst nach „Akzeptieren“. Die Wahl liegt in `localStorage` (`footiqra-consent-v1`), Widerruf über „Cookie-Einstellungen“ im Footer, dabei werden die `_ga`-Cookies gelöscht. Konfiguration: Google Signals und Anzeigenpersonalisierung aus, Cookie-Laufzeit 13 Monate. Die Datenschutzerklärung (Abschnitt 4) setzt in der GA-Verwaltung voraus: Datenaufbewahrung 14 Monate, Bedingungen zur Datenverarbeitung akzeptiert.

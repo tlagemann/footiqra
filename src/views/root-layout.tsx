@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
+import { ConsentManager } from "@/components/consent";
 import { SiteFooter, SiteHeader } from "@/components/site-header";
 import { getSiteUrl, SITE, SITE_TEXT } from "@/config/site";
 import { HTML_LANG, type Locale } from "@/i18n";
@@ -34,6 +35,7 @@ export function RootShell({ locale, children }: { locale: Locale; children: Reac
           {children}
         </main>
         <SiteFooter locale={locale} />
+        <ConsentManager locale={locale} />
       </body>
     </html>
   );

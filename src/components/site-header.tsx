@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { paths, tr, type Locale } from "@/i18n";
+import { ConsentSettingsLink } from "./consent";
 import { Logo } from "./logo";
 import { MainNav } from "./main-nav";
 
@@ -53,6 +54,9 @@ export function SiteFooter({ locale }: { locale: Locale }) {
               </Link>
             </li>
           ))}
+          <li>
+            <ConsentSettingsLink locale={locale} />
+          </li>
         </ul>
       </div>
     </footer>

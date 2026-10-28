@@ -11,8 +11,8 @@ export function privacyMetadata(locale: Locale): Metadata {
     title: locale === "de" ? "Datenschutzerklärung" : "Privacy policy",
     description:
       locale === "de"
-        ? "Datenschutzerklärung von Footiqra: keine Cookies, kein Tracking, Hosting bei SiteGround."
-        : "Footiqra privacy policy: no cookies, no tracking, hosting at SiteGround.",
+        ? "Datenschutzerklärung von Footiqra: Hosting bei SiteGround, Google Analytics nur mit Einwilligung."
+        : "Footiqra privacy policy: hosting at SiteGround, Google Analytics only with consent.",
     paths: { en: paths("en").privacy, de: paths("de").privacy },
     image: ogImage.privacy,
   });
@@ -26,7 +26,7 @@ const h2 = "font-display text-2xl font-extrabold tracking-[-0.02em] text-foregro
 const h3 = "font-display text-lg font-bold text-foreground";
 const a = "underline underline-offset-4";
 
-/** German privacy policy. Written for what Footiqra actually does: a static site without cookies or tracking. */
+/** German privacy policy. Written for what Footiqra actually does: a static site; Google Analytics only after consent. */
 function DatenschutzDe() {
   return (
     <article className="max-w-3xl space-y-10 text-base leading-relaxed">
@@ -36,9 +36,9 @@ function DatenschutzDe() {
           Datenschutz
         </h1>
         <p className="mt-5 text-lg text-muted">
-          Kurz gesagt: Footiqra setzt keine Cookies, nutzt keine Analyse- oder Werbedienste und lädt
-          keine Inhalte von fremden Servern. Beim Aufruf der Seiten fallen nur die technisch nötigen
-          Server-Logdaten beim Hoster an.
+          Kurz gesagt: Beim Aufruf der Seiten fallen die technisch nötigen Server-Logdaten beim
+          Hoster an. Google Analytics nutzen wir nur, wenn Sie im Banner ausdrücklich zustimmen.
+          Werbedienste setzen wir nicht ein.
         </p>
       </header>
 
@@ -101,12 +101,20 @@ function DatenschutzDe() {
       </section>
 
       <section className="space-y-3">
-        <h2 className={h2}>3. Keine Cookies, kein Tracking, keine externen Inhalte</h2>
+        <h2 className={h2}>3. Einwilligung, Cookies und eigene Inhalte</h2>
         <p>
-          Footiqra setzt keine Cookies und speichert keine Daten in Ihrem Browser. Es werden keine
-          Analyse-, Tracking- oder Werbedienste eingesetzt. Schriftarten und Vereinswappen liegen
-          auf unserem eigenen Server; beim Aufruf der Seiten werden keine Inhalte von Servern
-          Dritter geladen. Ein Cookie-Banner ist deshalb nicht erforderlich.
+          Schriftarten und Vereinswappen liegen auf unserem eigenen Server. Ohne Ihre Einwilligung
+          werden beim Aufruf der Seiten keine Inhalte von Servern Dritter geladen und keine Cookies
+          gesetzt.
+        </p>
+        <p>
+          Ihre Entscheidung im Einwilligungsbanner („Akzeptieren“ oder „Ablehnen“) speichern wir im
+          lokalen Speicher Ihres Browsers (localStorage, Eintrag „footiqra-consent-v1“), damit das
+          Banner nicht bei jedem Seitenaufruf erneut erscheint. Dieser Eintrag enthält nur Ihre
+          Entscheidung und wird nicht an uns übertragen. Das Speichern ist für die Verwaltung Ihrer
+          Einwilligung unbedingt erforderlich (§ 25 Abs. 2 Nr. 2 TDDDG); Rechtsgrundlage ist Art. 6
+          Abs. 1 lit. c DSGVO in Verbindung mit Art. 7 Abs. 1 DSGVO. Sie können den Eintrag
+          jederzeit über die Einstellungen Ihres Browsers löschen.
         </p>
         <p>
           Die Fußballdaten (Ergebnisse, Spielpläne, Tabellen) beziehen wir über eine Schnittstelle
@@ -116,7 +124,56 @@ function DatenschutzDe() {
       </section>
 
       <section className="space-y-3">
-        <h2 className={h2}>4. Kontakt per E-Mail oder Telefon</h2>
+        <h2 className={h2}>4. Google Analytics</h2>
+        <p>
+          Wenn Sie im Banner einwilligen, nutzen wir Google Analytics 4, einen Webanalysedienst der
+          Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland („Google“). Google
+          Analytics hilft uns zu verstehen, wie die Website genutzt wird, etwa welche Seiten
+          aufgerufen werden, wie lange Besuche dauern und über welche Wege Besucher zu uns kommen.
+          Damit verbessern wir Inhalte und Bedienung.
+        </p>
+        <p>
+          Dazu lädt Ihr Browser ein Skript von Google und setzt Cookies („_ga“ und
+          „_ga_5ZXN3X6QF1“), die Ihr Gerät mit einer zufälligen Kennung wiedererkennen. Wir haben
+          die Laufzeit dieser Cookies auf 13 Monate begrenzt. Verarbeitet werden insbesondere
+          aufgerufene Seiten, Datum und Uhrzeit, Verweildauer, die zuvor besuchte Seite, ungefährer
+          Standort (Land, Region, Stadt, aus der IP-Adresse abgeleitet), Gerätetyp, Betriebssystem,
+          Browser und Bildschirmgröße. Google Analytics 4 speichert nach Angaben von Google keine
+          IP-Adressen von Nutzern in der EU. Google Signals und die Personalisierung von Werbung
+          haben wir deaktiviert; die Daten nutzen wir nicht für Werbung und führen sie nicht mit
+          anderen Daten zusammen.
+        </p>
+        <p>
+          Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1
+          TDDDG. Ohne Ihre Einwilligung wird Google Analytics nicht geladen. Sie können Ihre
+          Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, indem Sie unten auf jeder
+          Seite „Cookie-Einstellungen“ öffnen und „Ablehnen“ wählen. Dabei werden auch die
+          Google-Analytics-Cookies gelöscht. Die Rechtmäßigkeit der bis zum Widerruf erfolgten
+          Verarbeitung bleibt unberührt.
+        </p>
+        <p>
+          Mit Google haben wir einen Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO
+          abgeschlossen. Es ist nicht auszuschließen, dass Daten an die Google LLC in den USA
+          übermittelt werden. Google LLC ist unter dem EU-US Data Privacy Framework zertifiziert;
+          für die USA besteht damit ein Angemessenheitsbeschluss der EU-Kommission (Art. 45 DSGVO).
+          Ergänzend gelten die EU-Standardvertragsklauseln. Die in Google Analytics gespeicherten
+          Ereignisdaten werden nach 14 Monaten automatisch gelöscht.
+        </p>
+        <p>
+          Weitere Informationen:{" "}
+          <a href="https://policies.google.com/privacy" className={a}>
+            Datenschutzerklärung von Google
+          </a>
+          ,{" "}
+          <a href="https://support.google.com/analytics/answer/6004245" className={a}>
+            Datenschutz in Google Analytics
+          </a>
+          .
+        </p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className={h2}>5. Kontakt per E-Mail oder Telefon</h2>
         <p>
           Wenn Sie uns per E-Mail oder Telefon kontaktieren, verarbeiten wir Ihre Angaben (etwa
           Name, E-Mail-Adresse oder Telefonnummer und den Inhalt Ihrer Nachricht), um Ihre Anfrage
@@ -129,7 +186,7 @@ function DatenschutzDe() {
       </section>
 
       <section className="space-y-3">
-        <h2 className={h2}>5. Externe Links</h2>
+        <h2 className={h2}>6. Externe Links</h2>
         <p>
           Unsere Seiten enthalten Links zu anderen Websites, etwa zu football-data.org oder UEFA.
           Erst wenn Sie einen solchen Link anklicken, werden Daten an den jeweiligen Anbieter
@@ -138,7 +195,7 @@ function DatenschutzDe() {
       </section>
 
       <section className="space-y-3">
-        <h2 className={h2}>6. SSL- bzw. TLS-Verschlüsselung</h2>
+        <h2 className={h2}>7. SSL- bzw. TLS-Verschlüsselung</h2>
         <p>
           Diese Seite nutzt aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung. Eine
           verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers mit
@@ -147,7 +204,7 @@ function DatenschutzDe() {
       </section>
 
       <section className="space-y-3">
-        <h2 className={h2}>7. Ihre Rechte</h2>
+        <h2 className={h2}>8. Ihre Rechte</h2>
         <p>Sie haben im Rahmen der gesetzlichen Bestimmungen jederzeit das Recht auf</p>
         <ul className="list-disc space-y-1 pl-6">
           <li>Auskunft über Ihre gespeicherten personenbezogenen Daten (Art. 15 DSGVO)</li>
@@ -156,6 +213,12 @@ function DatenschutzDe() {
           <li>Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
           <li>Datenübertragbarkeit (Art. 20 DSGVO)</li>
         </ul>
+        <h3 className={h3}>Widerruf Ihrer Einwilligung</h3>
+        <p>
+          Eine erteilte Einwilligung können Sie jederzeit mit Wirkung für die Zukunft widerrufen,
+          für Google Analytics über „Cookie-Einstellungen“ unten auf jeder Seite (Art. 7 Abs. 3
+          DSGVO).
+        </p>
         <h3 className={h3}>Widerspruchsrecht nach Art. 21 DSGVO</h3>
         <p>
           Wenn die Datenverarbeitung auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO erfolgt, haben Sie
@@ -179,7 +242,7 @@ function DatenschutzDe() {
       </section>
 
       <section className="space-y-3">
-        <h2 className={h2}>8. Änderungen</h2>
+        <h2 className={h2}>9. Änderungen</h2>
         <p>
           Wir passen diese Datenschutzerklärung an, wenn sich die Website oder die Rechtslage
           ändert. Es gilt die jeweils hier veröffentlichte Fassung.
@@ -206,9 +269,9 @@ function PrivacyEn() {
           Privacy policy
         </h1>
         <p className="mt-5 text-lg text-muted">
-          In short: Footiqra sets no cookies, uses no analytics or advertising services and loads no
-          content from third-party servers. Visiting the pages only creates the technically
-          necessary server log data at the host.
+          In short: visiting the pages creates the technically necessary server log data at the
+          host. We only use Google Analytics if you explicitly agree in the banner. We use no
+          advertising services.
         </p>
         <p className="mt-3 text-sm text-muted">
           Translation for information. The legally binding version is the German{" "}
@@ -276,12 +339,19 @@ function PrivacyEn() {
       </section>
 
       <section className="space-y-3">
-        <h2 className={h2}>3. No cookies, no tracking, no third-party content</h2>
+        <h2 className={h2}>3. Consent, cookies and self-hosted content</h2>
         <p>
-          Footiqra sets no cookies and stores no data in your browser. No analytics, tracking or
-          advertising services are used. Fonts and club crests are hosted on our own server; no
-          content is loaded from third-party servers when you visit the pages. A cookie banner is
-          therefore not required.
+          Fonts and club crests are hosted on our own server. Without your consent, no content is
+          loaded from third-party servers and no cookies are set when you visit the pages.
+        </p>
+        <p>
+          Your choice in the consent banner (&ldquo;Accept&rdquo; or &ldquo;Decline&rdquo;) is
+          stored in your browser&apos;s local storage (localStorage, entry
+          &ldquo;footiqra-consent-v1&rdquo;) so the banner does not appear on every page. The entry
+          only contains your choice and is not sent to us. Storing it is strictly necessary to
+          manage your consent (Section 25 (2) no. 2 TDDDG); the legal basis is Art. 6 (1) (c) GDPR
+          in conjunction with Art. 7 (1) GDPR. You can delete the entry at any time in your browser
+          settings.
         </p>
         <p>
           We obtain the football data (results, fixtures, tables) through an interface of
@@ -291,7 +361,53 @@ function PrivacyEn() {
       </section>
 
       <section className="space-y-3">
-        <h2 className={h2}>4. Contact by email or phone</h2>
+        <h2 className={h2}>4. Google Analytics</h2>
+        <p>
+          If you consent in the banner, we use Google Analytics 4, a web analytics service of Google
+          Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland (&ldquo;Google&rdquo;).
+          Google Analytics helps us understand how the website is used, for example which pages are
+          visited, how long visits last and how visitors find us. We use this to improve content and
+          usability.
+        </p>
+        <p>
+          For this, your browser loads a script from Google and sets cookies (&ldquo;_ga&rdquo; and
+          &ldquo;_ga_5ZXN3X6QF1&rdquo;) that recognise your device by a random identifier. We have
+          limited the lifetime of these cookies to 13 months. Processed data includes in particular
+          pages visited, date and time, time on page, the previously visited page, approximate
+          location (country, region, city, derived from the IP address), device type, operating
+          system, browser and screen size. According to Google, Google Analytics 4 does not store IP
+          addresses of users in the EU. We have disabled Google signals and ad personalisation; we
+          do not use the data for advertising and do not combine it with other data.
+        </p>
+        <p>
+          The legal basis is your consent under Art. 6 (1) (a) GDPR and Section 25 (1) TDDDG.
+          Without your consent, Google Analytics is not loaded. You can withdraw your consent at any
+          time with effect for the future by opening &ldquo;Cookie settings&rdquo; at the bottom of
+          any page and choosing &ldquo;Decline&rdquo;. This also deletes the Google Analytics
+          cookies. Withdrawal does not affect the lawfulness of processing before it.
+        </p>
+        <p>
+          We have concluded a data processing agreement with Google under Art. 28 GDPR. Data may be
+          transferred to Google LLC in the USA. Google LLC is certified under the EU-US Data Privacy
+          Framework, for which an adequacy decision of the European Commission exists (Art. 45
+          GDPR). The EU standard contractual clauses apply in addition. Event data stored in Google
+          Analytics is deleted automatically after 14 months.
+        </p>
+        <p>
+          More information:{" "}
+          <a href="https://policies.google.com/privacy" className={a}>
+            Google privacy policy
+          </a>
+          ,{" "}
+          <a href="https://support.google.com/analytics/answer/6004245" className={a}>
+            Safeguarding your data in Google Analytics
+          </a>
+          .
+        </p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className={h2}>5. Contact by email or phone</h2>
         <p>
           If you contact us by email or phone, we process your details (such as name, email address
           or phone number and the content of your message) to handle your request. The legal basis
@@ -303,7 +419,7 @@ function PrivacyEn() {
       </section>
 
       <section className="space-y-3">
-        <h2 className={h2}>5. External links</h2>
+        <h2 className={h2}>6. External links</h2>
         <p>
           Our pages contain links to other websites, for example football-data.org or UEFA. Data is
           only transmitted to the respective provider once you click such a link. Their privacy
@@ -312,7 +428,7 @@ function PrivacyEn() {
       </section>
 
       <section className="space-y-3">
-        <h2 className={h2}>6. SSL / TLS encryption</h2>
+        <h2 className={h2}>7. SSL / TLS encryption</h2>
         <p>
           For security reasons this site uses SSL / TLS encryption. You can recognise an encrypted
           connection by the browser address bar starting with &ldquo;https://&rdquo;.
@@ -320,7 +436,7 @@ function PrivacyEn() {
       </section>
 
       <section className="space-y-3">
-        <h2 className={h2}>7. Your rights</h2>
+        <h2 className={h2}>8. Your rights</h2>
         <p>Within the statutory provisions you have the right at any time to</p>
         <ul className="list-disc space-y-1 pl-6">
           <li>access to your stored personal data (Art. 15 GDPR)</li>
@@ -329,6 +445,12 @@ function PrivacyEn() {
           <li>restriction of processing (Art. 18 GDPR)</li>
           <li>data portability (Art. 20 GDPR)</li>
         </ul>
+        <h3 className={h3}>Withdrawing consent</h3>
+        <p>
+          You can withdraw any consent you have given at any time with effect for the future; for
+          Google Analytics via &ldquo;Cookie settings&rdquo; at the bottom of every page (Art. 7 (3)
+          GDPR).
+        </p>
         <h3 className={h3}>Right to object under Art. 21 GDPR</h3>
         <p>
           Where processing is based on Art. 6 (1) (f) GDPR, you have the right to object at any
@@ -350,7 +472,7 @@ function PrivacyEn() {
       </section>
 
       <section className="space-y-3">
-        <h2 className={h2}>8. Changes</h2>
+        <h2 className={h2}>9. Changes</h2>
         <p>
           We update this privacy policy when the website or the legal situation changes. The version
           published here applies.
