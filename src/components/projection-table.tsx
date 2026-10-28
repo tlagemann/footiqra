@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ProjectionRow } from "@/data";
 import { fmtChance, ordinal, paths, tr, type Locale } from "@/i18n";
-import { Crest } from "./ui";
+import { Crest, HeaderHint } from "./ui";
 
 /** Places gained (green, up) or lost (red, down) between today and the predicted end. */
 function PositionChange({ from, to, locale }: { from: number; to: number; locale: Locale }) {
@@ -66,54 +66,112 @@ export function ProjectionTable({
   const n = rows.length;
   const num = "tabular px-2 py-3 text-right sm:px-3";
   return (
-    <div className="overflow-x-auto rounded-3xl bg-surface">
+    <div className="relative overflow-x-auto rounded-3xl bg-surface">
       <table className="w-full text-[15px]">
         <caption className="sr-only">{caption}</caption>
         <thead className="text-xs font-medium uppercase tracking-wide text-muted">
           <tr>
             <th scope="col" className="w-10 py-4 pl-5 text-left font-medium sm:w-14 sm:pl-7">
-              #
+              <HeaderHint
+                label="#"
+                hint={t(
+                  "Predicted final position, ordered by expected points.",
+                  "Prognostizierter Endplatz, sortiert nach erwarteten Punkten.",
+                )}
+              />
             </th>
             <th scope="col" className="py-4 text-left font-medium">
-              {t("Team", "Verein")}
+              <HeaderHint
+                label={t("Team", "Verein")}
+                hint={t(
+                  "Click a club for its profile with results and fixtures.",
+                  "Ein Klick auf den Verein öffnet das Profil mit Ergebnissen und Spielplan.",
+                )}
+              />
             </th>
             <th scope="col" className="hidden px-3 py-4 text-right font-medium md:table-cell">
-              {t("Today", "Heute")}
-            </th>
-            <th
-              scope="col"
-              className="px-2 py-4 text-right font-medium sm:px-3"
-              title={t(
-                "Change from today's table position to the predicted final position",
-                "Veränderung vom heutigen Tabellenplatz zum prognostizierten Endplatz",
-              )}
-            >
-              <span className="sm:hidden">+/-</span>
-              <span className="hidden sm:inline">{t("Change", "Trend")}</span>
-            </th>
-            <th
-              scope="col"
-              className="px-2 py-4 text-right font-medium sm:px-3"
-              title={t(
-                "Expected points at the end of the season",
-                "Erwartete Punkte am Saisonende",
-              )}
-            >
-              <span className="sm:hidden">{t("Pts", "Pkt.")}</span>
-              <span className="hidden sm:inline">{t("Final pts", "Pkt. Ende")}</span>
+              <HeaderHint
+                label={t("Today", "Heute")}
+                hint={t(
+                  "Current table position and points.",
+                  "Aktueller Tabellenplatz und aktuelle Punkte.",
+                )}
+              />
             </th>
             <th scope="col" className="px-2 py-4 text-right font-medium sm:px-3">
-              {t("Title", "Meister")}
+              <HeaderHint
+                align="right"
+                label={
+                  <>
+                    <span className="sm:hidden">+/-</span>
+                    <span className="hidden sm:inline">{t("Change", "Trend")}</span>
+                  </>
+                }
+                hint={t(
+                  "Places gained or lost from today's table position to the predicted final position.",
+                  "Plätze, die der Verein vom heutigen Tabellenplatz bis zum prognostizierten Endplatz gewinnt oder verliert.",
+                )}
+              />
+            </th>
+            <th scope="col" className="px-2 py-4 text-right font-medium sm:px-3">
+              <HeaderHint
+                align="right"
+                label={
+                  <>
+                    <span className="sm:hidden">{t("Pts", "Pkt.")}</span>
+                    <span className="hidden sm:inline">{t("Final pts", "Pkt. Ende")}</span>
+                  </>
+                }
+                hint={t(
+                  "Expected points at the end of the season, averaged over all simulations.",
+                  "Erwartete Punkte am Saisonende, gemittelt über alle Simulationen.",
+                )}
+              />
+            </th>
+            <th scope="col" className="px-2 py-4 text-right font-medium sm:px-3">
+              <HeaderHint
+                align="right"
+                label={t("Title", "Meister")}
+                hint={t(
+                  "Share of simulations in which the club finishes first.",
+                  "Anteil der Simulationen, in denen der Verein Erster wird.",
+                )}
+              />
             </th>
             <th scope="col" className="hidden px-3 py-4 text-right font-medium sm:table-cell">
-              Top 4
+              <HeaderHint
+                align="right"
+                label="Top 4"
+                hint={t(
+                  "Share of simulations in which the club finishes in the top four.",
+                  "Anteil der Simulationen, in denen der Verein unter den ersten vier landet.",
+                )}
+              />
             </th>
             <th scope="col" className="py-4 pr-5 pl-2 text-right font-medium sm:pr-7 lg:pr-3">
-              <span className="whitespace-nowrap sm:hidden">{t("Btm 3", "Ltz. 3")}</span>
-              <span className="hidden sm:inline">{t("Bottom 3", "Letzte 3")}</span>
+              <HeaderHint
+                align="right"
+                label={
+                  <>
+                    <span className="whitespace-nowrap sm:hidden">{t("Btm 3", "Ltz. 3")}</span>
+                    <span className="hidden sm:inline">{t("Bottom 3", "Letzte 3")}</span>
+                  </>
+                }
+                hint={t(
+                  "Share of simulations in which the club finishes in the bottom three. How many places mean relegation depends on the league.",
+                  "Anteil der Simulationen, in denen der Verein unter den letzten drei landet. Wie viele Plätze den Abstieg bedeuten, hängt von der Liga ab.",
+                )}
+              />
             </th>
             <th scope="col" className="hidden py-4 pr-7 pl-4 text-left font-medium lg:table-cell">
-              {t(`Final position 1 to ${n}`, `Endplatz 1 bis ${n}`)}
+              <HeaderHint
+                align="right"
+                label={t(`Final position 1 to ${n}`, `Endplatz 1 bis ${n}`)}
+                hint={t(
+                  "Each box is one final position, 1 on the left. The darker the box, the more likely that position.",
+                  "Jedes Kästchen ist ein Endplatz, links Platz 1. Je dunkler das Kästchen, desto wahrscheinlicher der Platz.",
+                )}
+              />
             </th>
           </tr>
         </thead>

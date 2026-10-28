@@ -153,3 +153,34 @@ export function FormGuide({ form, locale = "en" }: { form: FormResult[]; locale?
 export function Card({ children, className = "" }: { children: ReactNode; className?: string }) {
   return <div className={`rounded-3xl bg-surface p-5 sm:p-7 ${className}`}>{children}</div>;
 }
+
+/**
+ * Column header with a short explanation. Pure CSS (hover, keyboard focus and tap on touch
+ * devices), so the table stays a server component. The text is also exposed to screen readers.
+ */
+export function HeaderHint({
+  label,
+  hint,
+  align = "left",
+}: {
+  label: ReactNode;
+  hint: string;
+  align?: "left" | "right";
+}) {
+  return (
+    <span className="group inline-block sm:relative">
+      <span
+        tabIndex={0}
+        className="cursor-help rounded-sm border-b border-dotted border-muted/70 outline-offset-4 focus-visible:outline-2 focus-visible:outline-foreground"
+      >
+        {label}
+      </span>
+      <span
+        role="tooltip"
+        className={`pointer-events-none invisible absolute top-[3.25rem] right-3 left-3 z-20 rounded-2xl bg-foreground px-4 py-3 text-left text-xs font-normal normal-case tracking-normal text-background opacity-0 shadow-lg transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 sm:top-full sm:mt-2 sm:w-64 ${align === "right" ? "sm:right-0 sm:left-auto" : "sm:right-auto sm:left-0"}`}
+      >
+        {hint}
+      </span>
+    </span>
+  );
+}

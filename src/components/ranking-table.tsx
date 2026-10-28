@@ -2,38 +2,7 @@ import { paths, tr, type Locale } from "@/i18n";
 import Link from "next/link";
 import { getLeagueBySlug } from "@/config/leagues";
 import type { PowerRankingRow } from "@/data";
-import { Crest, FormGuide } from "./ui";
-
-/**
- * Column header with a short explanation. Pure CSS (hover, keyboard focus and tap on touch
- * devices), so the table stays a server component. The text is also exposed to screen readers.
- */
-function HeaderHint({
-  label,
-  hint,
-  align = "left",
-}: {
-  label: string;
-  hint: string;
-  align?: "left" | "right";
-}) {
-  return (
-    <span className="group relative inline-block">
-      <span
-        tabIndex={0}
-        className="cursor-help rounded-sm border-b border-dotted border-muted/70 outline-offset-4 focus-visible:outline-2 focus-visible:outline-foreground"
-      >
-        {label}
-      </span>
-      <span
-        role="tooltip"
-        className={`pointer-events-none invisible absolute top-full z-20 mt-2 w-64 max-w-[calc(100vw-3rem)] rounded-2xl bg-foreground px-4 py-3 text-left text-xs font-normal normal-case tracking-normal text-background opacity-0 shadow-lg transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 ${align === "right" ? "right-0" : "left-0"}`}
-      >
-        {hint}
-      </span>
-    </span>
-  );
-}
+import { Crest, FormGuide, HeaderHint } from "./ui";
 
 /**
  * Power ranking as a semantic table, server-rendered so every row is in the HTML.
@@ -60,7 +29,7 @@ export function RankingTable({
   const width = (rating: number) => (max === min ? 100 : 12 + ((rating - min) / (max - min)) * 88);
 
   return (
-    <div className="overflow-hidden rounded-3xl bg-surface">
+    <div className="relative overflow-hidden rounded-3xl bg-surface">
       <table className="w-full text-[15px]">
         <caption className="sr-only">{caption}</caption>
         <thead className="text-left text-xs font-medium uppercase tracking-wide text-muted">
