@@ -51,6 +51,11 @@ export function SiteFooter() {
             </Link>
           </li>
           <li>
+            <Link href="/table-vs-strength/" className="text-muted hover:text-foreground">
+              Table vs. strength
+            </Link>
+          </li>
+          <li>
             <Link href="/methodology/" className="text-muted hover:text-foreground">
               Methodology
             </Link>

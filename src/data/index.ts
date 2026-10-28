@@ -2,6 +2,7 @@ import "server-only";
 import { readdir } from "node:fs/promises";
 import path from "node:path";
 import { dataDir, readAllMatchFiles, readLatestStandings, readMeta, readTeams } from "@/store/fs";
+import { LEAGUES } from "@/config/leagues";
 import { computePowerRanking, type PowerRanking, type PowerRankingRow } from "./power-ranking";
 import {
   allLeagueTeams,
@@ -15,6 +16,7 @@ import {
   type TableRow,
   type TeamSummary,
 } from "./repository";
+import { highlights, tableVsStrength, type PerformanceGap } from "./table-vs-strength";
 
 /**
  * Read layer used by pages. Pages never call the football API; they read the
@@ -27,6 +29,8 @@ import {
 export type DataResult<T> =
   { status: "ok"; data: T; lastUpdatedUtc: string } | { status: "unavailable"; reason: string };
 
+export type { PerformanceGap };
+export { MIN_HIGHLIGHT_GAP, topAcrossLeagues } from "./table-vs-strength";
 export type { LeagueTable, MatchView, TableRow, TeamSummary, PowerRanking, PowerRankingRow };
 
 const NO_DATA = "No match data has been imported yet.";
@@ -120,4 +124,30 @@ export async function getLastUpdated(): Promise<string | null> {
 /** Official league table, if one has been fetched. */
 export async function getLeagueTable(leagueSlug: string): Promise<LeagueTable | undefined> {
   return leagueTable(await loadSnapshot(), leagueSlug);
+}
+
+export interface LeaguePerformance {
+  leagueSlug: string;
+  gaps: PerformanceGap[];
+  over: PerformanceGap[];
+  under: PerformanceGap[];
+}
+
+/** Table vs. strength for one league, if both a table and ratings exist. */
+export async function getTableVsStrength(
+  leagueSlug: string,
+  limit = 3,
+): Promise<LeaguePerformance | undefined> {
+  const [snapshot, ranking] = await Promise.all([loadSnapshot(), loadRanking()]);
+  const table = leagueTable(snapshot, leagueSlug);
+  if (!table || ranking.matchesUsed === 0) return undefined;
+  const gaps = tableVsStrength(leagueSlug, table, ranking.rows);
+  if (gaps.length === 0) return undefined;
+  return { leagueSlug, gaps, ...highlights(gaps, limit) };
+}
+
+/** Table vs. strength for all covered leagues that have data. */
+export async function getAllTableVsStrength(limit = 3): Promise<LeaguePerformance[]> {
+  const all = await Promise.all(LEAGUES.map((l) => getTableVsStrength(l.slug, limit)));
+  return all.filter((x): x is LeaguePerformance => x !== undefined);
 }

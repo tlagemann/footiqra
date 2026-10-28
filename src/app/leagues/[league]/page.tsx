@@ -4,11 +4,12 @@ import { notFound } from "next/navigation";
 import { DataNotice } from "@/components/data-notice";
 import { JsonLd } from "@/components/json-ld";
 import { LastUpdated } from "@/components/match-list";
+import { PerformanceCards } from "@/components/performance";
 import { RankingTable } from "@/components/ranking-table";
 import { StandingsTable } from "@/components/standings-table";
 import { Crest, Eyebrow, SectionHeading } from "@/components/ui";
 import { getLeagueBySlug, LEAGUES } from "@/config/leagues";
-import { getLeagueTable, getLeagueTeams, getPowerRanking } from "@/data";
+import { getLeagueTable, getLeagueTeams, getPowerRanking, getTableVsStrength } from "@/data";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 // Only registered leagues exist; anything else is a 404.
@@ -44,6 +45,7 @@ export default async function LeaguePage({ params }: PageProps<"/leagues/[league
     getPowerRanking(),
     getLeagueTable(league.slug),
   ]);
+  const performance = await getTableVsStrength(league.slug);
   const powerRanks = new Map(
     ranking.status === "ok" ? ranking.data.rows.map((r) => [r.team.slug, r.rank]) : [],
   );
@@ -153,6 +155,21 @@ export default async function LeaguePage({ params }: PageProps<"/leagues/[league
           <DataNotice reason="The league table will appear after the next data update." />
         )}
       </section>
+
+      {performance && (
+        <section aria-labelledby="performance-heading">
+          <SectionHeading
+            id="performance-heading"
+            title="Table vs. strength"
+            aside={
+              <Link href="/table-vs-strength/" className="text-sm text-muted hover:text-foreground">
+                All leagues
+              </Link>
+            }
+          />
+          <PerformanceCards over={performance.over} under={performance.under} />
+        </section>
+      )}
 
       <section aria-labelledby="teams-heading">
         <SectionHeading

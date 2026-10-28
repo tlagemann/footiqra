@@ -11,6 +11,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/",
     "/leagues/",
     ...LEAGUES.map((league) => `/leagues/${league.slug}/`),
+    "/table-vs-strength/",
     "/methodology/",
     ...(await getAllTeamSlugs()).map((slug) => `/teams/${slug}/`),
   ];

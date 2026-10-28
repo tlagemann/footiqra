@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { DataNotice } from "@/components/data-notice";
 import { LeagueStrength } from "@/components/league-strength";
+import { PerformanceCards } from "@/components/performance";
 import { LastUpdated } from "@/components/match-list";
 import { RankingTable } from "@/components/ranking-table";
 import { ButtonLink, Crest, Eyebrow, SectionHeading } from "@/components/ui";
 import { getLeagueBySlug, LEAGUES } from "@/config/leagues";
 import { SITE } from "@/config/site";
-import { getPowerRanking } from "@/data";
+import { getAllTableVsStrength, getPowerRanking, topAcrossLeagues } from "@/data";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -18,6 +19,8 @@ export const metadata: Metadata = {
 export default async function HomePage() {
   const ranking = await getPowerRanking();
   const top = ranking.status === "ok" ? ranking.data.rows.slice(0, 3) : [];
+  const performance = topAcrossLeagues(await getAllTableVsStrength(10), 3);
+  const hasPerformance = performance.over.length + performance.under.length > 0;
 
   return (
     <div className="space-y-20 sm:space-y-28">
@@ -89,6 +92,27 @@ export default async function HomePage() {
             />
             <LastUpdated utc={ranking.lastUpdatedUtc} />
           </section>
+
+          {hasPerformance && (
+            <section aria-labelledby="table-vs-strength">
+              <SectionHeading
+                id="table-vs-strength"
+                title="Table vs. strength"
+                aside={
+                  <Link
+                    href="/table-vs-strength/"
+                    className="text-sm text-muted hover:text-foreground"
+                  >
+                    All leagues
+                  </Link>
+                }
+              />
+              <p className="-mt-2 mb-5 max-w-2xl text-muted">
+                Clubs whose league position differs most from their power rating.
+              </p>
+              <PerformanceCards over={performance.over} under={performance.under} showLeague />
+            </section>
+          )}
 
           <section aria-labelledby="league-strength">
             <SectionHeading id="league-strength" title="League strength" />
