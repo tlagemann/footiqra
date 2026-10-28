@@ -75,8 +75,9 @@ jobs:
       - name: Build static site
         env:
           NEXT_TELEMETRY_DISABLED: "1"
-          NEXT_PUBLIC_SITE_URL: ${{ vars.SITE_URL }}
-          NEXT_PUBLIC_ALLOW_INDEXING: ${{ vars.ALLOW_INDEXING }}
+          # Live domain since 28.10.2026. The SITE_URL_OVERRIDE variable overrides it (e.g. for a test host).
+          NEXT_PUBLIC_SITE_URL: ${{ vars.SITE_URL_OVERRIDE || 'https://footiqra.com' }}
+          NEXT_PUBLIC_ALLOW_INDEXING: ${{ vars.SITE_URL_OVERRIDE && 'false' || 'true' }}
         run: npm run build
 
       - uses: actions/upload-artifact@v4

@@ -48,8 +48,8 @@ Erster Upload am 28.10.2026 auf `timl92.sg-host.com` (Host `ssh.timl92.sg-host.c
 
 ### Umzug auf footiqra.com
 
-1. In SiteGround footiqra.com mit der bestehenden Website verbinden (DNS-Eintrag auf denselben Server, Webverzeichnis bleibt `/home/customer/www/timl92.sg-host.com/public_html`) und ein SSL-Zertifikat für footiqra.com und www.footiqra.com ausstellen.
-2. GitHub Variable `SITE_URL` auf `https://footiqra.com` setzen, `ALLOW_INDEXING` auf `true`.
+1. Erledigt am 28.10.2026: footiqra.com ist in Site Tools als geparkte Domain der Website timl92.sg-host.com angelegt (Webverzeichnis und SSH-Zugang bleiben gleich), Let's Encrypt-Zertifikat für footiqra.com und www ist aktiv und verlängert sich automatisch.
+2. Domain und Indexierung stehen seit dem Launch fest im Workflow (`https://footiqra.com`, Indexierung an). Die alten Variablen `SITE_URL` und `ALLOW_INDEXING` werden nicht mehr gelesen. Wer eine Testadresse bauen will, setzt die Variable `SITE_URL_OVERRIDE`; dann ist die Indexierung automatisch aus.
 3. Workflow starten. `scripts/htaccess.ts` hängt beim Build eine 301-Weiterleitung an `.htaccess` an: http, www und die temporäre sg-host-Adresse führen dann auf `https://footiqra.com`. Die Regel entsteht nur, wenn `SITE_URL` eine https-Adresse ist; `/.well-known/` bleibt für die Zertifikatsprüfung erreichbar.
 4. Danach footiqra.com in der Google Search Console anlegen und `https://footiqra.com/sitemap.xml` einreichen.
 
