@@ -286,11 +286,19 @@ export interface LeagueTable {
 /** Official table of a league (provider order), or undefined if none is stored. */
 export function leagueTable(snapshot: Snapshot, leagueSlug: string): LeagueTable | undefined {
   const league = LEAGUES.find((l) => l.slug === leagueSlug);
-  if (!league) return undefined;
-  const code = league.providerCodes.footballData;
+  return league ? competitionTable(snapshot, league.providerCodes.footballData) : undefined;
+}
+
+/**
+ * Official table of any stored competition. Team slugs are only set for clubs
+ * that have a team page (clubs of the covered leagues), so tables of European
+ * competitions never link to missing pages.
+ */
+export function competitionTable(snapshot: Snapshot, code: string): LeagueTable | undefined {
   const file = snapshot.standings?.find((s) => s.competition === code);
   if (!file || file.rows.length === 0) return undefined;
-  // Form from this league and season only, like a printed table.
+  const withPage = teamLeagueMap(snapshot);
+  // Form from this competition and season only, like a printed table.
   const form = recentForm({
     ...snapshot,
     matchFiles: snapshot.matchFiles.filter(
@@ -305,7 +313,7 @@ export function leagueTable(snapshot: Snapshot, leagueSlug: string): LeagueTable
       return {
         position: r.position,
         team: {
-          slug: t?.slug ?? null,
+          slug: t && withPage.has(r.teamId) ? t.slug : null,
           name: t?.shortName || t?.name || "Unknown team",
           crest: crestPath(snapshot, r.teamId),
         },
@@ -321,4 +329,9 @@ export function leagueTable(snapshot: Snapshot, leagueSlug: string): LeagueTable
       };
     }),
   };
+}
+
+/** All matches of one stored competition file as views. */
+export function competitionMatches(snapshot: Snapshot, file: MatchFile): MatchView[] {
+  return file.matches.map((m) => toView(snapshot, file.competition, m));
 }

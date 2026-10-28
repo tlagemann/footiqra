@@ -90,6 +90,26 @@ export default async function LeaguesPage() {
           );
         })}
       </ul>
+      <section aria-labelledby="europe">
+        <h2 id="europe" className="mb-4 font-display text-3xl font-extrabold tracking-[-0.035em]">
+          European competition
+        </h2>
+        <Link
+          href="/champions-league/"
+          className="flex flex-col justify-between gap-6 rounded-3xl bg-foreground p-6 text-inverse transition hover:opacity-90 sm:flex-row sm:items-end"
+        >
+          <div>
+            <p className="text-sm font-medium opacity-70">Europe</p>
+            <p className="mt-1 font-display text-3xl font-extrabold tracking-[-0.03em]">
+              Champions League
+            </p>
+          </div>
+          <p className="max-w-sm text-sm opacity-70">
+            League phase table, forecasts for matches between covered clubs and the strongest teams
+            in the competition.
+          </p>
+        </Link>
+      </section>
     </div>
   );
 }

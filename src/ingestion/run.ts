@@ -94,6 +94,12 @@ export async function runIngest(options: {
   return { season, requestsMade: client.requestsMade, results };
 }
 
+/** League tables plus the Champions League league phase table. */
+export const STANDINGS_COMPETITIONS: readonly string[] = [
+  ...LEAGUES.map((l) => l.providerCodes.footballData),
+  "CL",
+];
+
 /**
  * Fetches the official league tables of all covered leagues. Runs after
  * runIngest; failures are reported per league and leave the previous table in place.

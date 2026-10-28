@@ -37,6 +37,11 @@ export function SiteFooter() {
             </Link>
           </li>
           <li>
+            <Link href="/champions-league/" className="text-muted hover:text-foreground">
+              Champions League
+            </Link>
+          </li>
+          <li>
             <Link href="/predictions/" className="text-muted hover:text-foreground">
               Predictions
             </Link>

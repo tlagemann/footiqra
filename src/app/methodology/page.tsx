@@ -6,7 +6,7 @@ import {
   UEFA_COEFFICIENTS,
 } from "@/config/league-strength";
 import { getLeagueBySlug, type LeagueSlug } from "@/config/leagues";
-import { ELO_V1_MODEL_ID, ELO_V1_OPTIONS, FORECAST_V1 } from "@/ranking";
+import { ELO_V1_MODEL_ID, ELO_V1_OPTIONS, FORECAST_V1, SIM_V1 } from "@/ranking";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -183,8 +183,28 @@ export default function MethodologyPage() {
         </p>
       </section>
 
+      <section id="simulation" className="scroll-mt-32 space-y-4">
+        <h2 className="font-display text-3xl font-extrabold tracking-[-0.03em]">
+          5. Predicted final tables
+        </h2>
+        <p>
+          The predicted tables (model <code>{SIM_V1.id}</code>) play the rest of each league season{" "}
+          {SIM_V1.runs.toLocaleString("en-GB")} times. Every simulation starts from the official
+          table and decides each remaining match at random with the forecast probabilities above.
+          Winning margins follow the margins seen in that league this season.
+        </p>
+        <p>
+          After each simulated match the two ratings are updated exactly like after a real result. A
+          club that starts a simulated run well therefore also gets stronger in that run, which
+          keeps the uncertainty about true team strength in the results. Ties on points are split by
+          goal difference, then at random; head-to-head and other league specific tie-breakers are
+          not modelled. The simulation uses a fixed random seed, so the same data always gives the
+          same table.
+        </p>
+      </section>
+
       <section className="space-y-4">
-        <h2 className="font-display text-3xl font-extrabold tracking-[-0.03em]">5. Limitations</h2>
+        <h2 className="font-display text-3xl font-extrabold tracking-[-0.03em]">6. Limitations</h2>
         <ul className="list-disc space-y-2 pl-6 marker:text-brand">
           <li>
             Ratings restart at the beginning of each season. Early in a season, after only a few

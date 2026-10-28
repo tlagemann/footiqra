@@ -3,12 +3,15 @@ import { dataDir, listHistoryDates, readHistoryFile } from "@/store/fs";
 import { referenceDate, utcDay, type HistoryFile, type HistoryTeam } from "./history";
 import { upcomingForecasts, type MatchForecast } from "./forecasts";
 import { loadSnapshotFromDisk } from "./load";
+import { leagueProjection, type LeagueProjection, type ProjectionRow } from "./projection";
 import { matchDetail, type MatchDetail } from "./match-detail";
 import { LEAGUES } from "@/config/leagues";
 import { computePowerRanking, type PowerRanking, type PowerRankingRow } from "./power-ranking";
 import {
   allLeagueTeams,
   findTeamBySlug,
+  competitionMatches,
+  competitionTable,
   leagueTable,
   matchSlugs,
   teamMatches,
@@ -188,4 +191,58 @@ export async function getMatch(slug: string): Promise<MatchDetail | undefined> {
   const [snapshot, ranking] = await Promise.all([loadSnapshot(), loadRanking()]);
   const asOf = new Date(snapshot.meta.lastSuccessfulRunUtc ?? Date.now());
   return matchDetail(snapshot, ranking, slug, asOf);
+}
+
+export type { LeagueProjection, ProjectionRow };
+
+const projectionCache = new Map<string, Promise<LeagueProjection | undefined>>();
+
+/** Simulated final table of a league, computed once per build. */
+export function getLeagueProjection(leagueSlug: string): Promise<LeagueProjection | undefined> {
+  let cached = projectionCache.get(leagueSlug);
+  if (!cached) {
+    cached = Promise.all([loadSnapshot(), loadRanking()]).then(([snapshot, ranking]) =>
+      leagueProjection(snapshot, ranking, leagueSlug),
+    );
+    projectionCache.set(leagueSlug, cached);
+  }
+  return cached;
+}
+
+export interface ChampionsLeagueData {
+  season: number | null;
+  table: LeagueTable | undefined;
+  results: MatchView[];
+  fixtures: MatchView[];
+  /** Covered clubs that play in the competition, in power ranking order. */
+  clubs: PowerRankingRow[];
+}
+
+/** Champions League overview: table, latest results, next matches. */
+export async function getChampionsLeague(): Promise<ChampionsLeagueData> {
+  const [snapshot, ranking] = await Promise.all([loadSnapshot(), loadRanking()]);
+  const files = snapshot.matchFiles.filter((f) => f.competition === "CL");
+  const file = files.reduce<(typeof files)[number] | undefined>(
+    (a, f) => (!a || f.season > a.season ? f : a),
+    undefined,
+  );
+  if (!file) return { season: null, table: undefined, results: [], fixtures: [], clubs: [] };
+  const views = competitionMatches(snapshot, file);
+  const asOf = Date.parse(snapshot.meta.lastSuccessfulRunUtc ?? "") || Date.now();
+  const results = views
+    .filter((m) => m.status === "FINISHED" && m.homeGoals !== null)
+    .sort((a, b) => Date.parse(b.utcDate) - Date.parse(a.utcDate) || b.id - a.id);
+  const fixtures = views
+    .filter(
+      (m) => (m.status === "SCHEDULED" || m.status === "TIMED") && Date.parse(m.utcDate) >= asOf,
+    )
+    .sort((a, b) => Date.parse(a.utcDate) - Date.parse(b.utcDate) || a.id - b.id);
+  const ids = new Set(file.matches.flatMap((m) => [m.homeTeamId, m.awayTeamId]));
+  return {
+    season: file.season,
+    table: competitionTable(snapshot, "CL"),
+    results,
+    fixtures,
+    clubs: ranking.rows.filter((r) => ids.has(r.team.id)),
+  };
 }

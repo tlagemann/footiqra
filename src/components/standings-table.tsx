@@ -14,10 +14,13 @@ export function StandingsTable({
   rows,
   caption,
   powerRanks,
+  zone,
 }: {
   rows: TableRow[];
   caption: string;
   powerRanks: ReadonlyMap<string, number>;
+  /** Optional marker per position, drawn as a coloured bar next to the rank. */
+  zone?: (position: number) => "direct" | "playoff" | null;
 }) {
   const num = "tabular px-2 py-3 text-right sm:px-3";
   return (
@@ -89,7 +92,15 @@ export function StandingsTable({
                 key={`${row.position}-${row.team.name}`}
                 className="border-t border-line/80 transition hover:bg-surface-strong/60"
               >
-                <td className="tabular py-3 pl-5 font-display font-bold text-muted sm:pl-7">
+                <td className="tabular relative py-3 pl-5 font-display font-bold text-muted sm:pl-7">
+                  {zone && zone(row.position) && (
+                    <span
+                      aria-hidden="true"
+                      className={`absolute top-2.5 bottom-2.5 left-2 w-1 rounded-full sm:left-3 ${
+                        zone(row.position) === "direct" ? "bg-brand" : "bg-neutral"
+                      }`}
+                    />
+                  )}
                   {row.position}
                 </td>
                 <th

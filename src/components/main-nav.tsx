@@ -10,7 +10,11 @@ export const NAV = [
     label: "Predictions",
     match: (p: string) => p.startsWith("/predictions") || p.startsWith("/matches"),
   },
-  { href: "/leagues/", label: "Leagues", match: (p: string) => p.startsWith("/leagues") },
+  {
+    href: "/leagues/",
+    label: "Leagues",
+    match: (p: string) => p.startsWith("/leagues") || p.startsWith("/champions-league"),
+  },
   {
     href: "/table-vs-strength/",
     label: "Table vs. strength",

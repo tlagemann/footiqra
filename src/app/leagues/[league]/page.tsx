@@ -6,11 +6,13 @@ import { JsonLd } from "@/components/json-ld";
 import { LastUpdated } from "@/components/match-list";
 import { ForecastList } from "@/components/forecast-list";
 import { PerformanceCards } from "@/components/performance";
+import { chance } from "@/components/projection-table";
 import { RankingTable } from "@/components/ranking-table";
 import { StandingsTable } from "@/components/standings-table";
 import { Crest, Eyebrow, SectionHeading } from "@/components/ui";
 import { getLeagueBySlug, LEAGUES } from "@/config/leagues";
 import {
+  getLeagueProjection,
   getLeagueTable,
   getLeagueTeams,
   getPowerRanking,
@@ -54,11 +56,14 @@ export default async function LeaguePage({ params }: PageProps<"/leagues/[league
     getPowerRanking(),
     getLeagueTable(league.slug),
   ]);
-  const [performance, weekAgo, allForecasts] = await Promise.all([
+  const [performance, weekAgo, allForecasts, projection] = await Promise.all([
     getTableVsStrength(league.slug),
     getWeekAgo(),
     getUpcomingForecasts(),
+    getLeagueProjection(league.slug),
   ]);
+  const titleRace = projection?.rows.slice(0, 3) ?? [];
+  const dropZone = [...(projection?.rows ?? [])].sort((a, b) => b.bottom3 - a.bottom3).slice(0, 3);
   const forecasts = nextWindow(
     allForecasts.filter((f) => f.leagueSlug === league.slug),
     6,
@@ -141,6 +146,61 @@ export default async function LeaguePage({ params }: PageProps<"/leagues/[league
               </li>
             ))}
           </ol>
+        </section>
+      )}
+
+      {projection && (
+        <section aria-labelledby="projection-teaser">
+          <SectionHeading
+            id="projection-teaser"
+            title="Predicted final table"
+            aside={
+              <Link
+                href={`/leagues/${league.slug}/projection/`}
+                className="text-sm text-muted hover:text-foreground"
+              >
+                Full simulation
+              </Link>
+            }
+          />
+          <div className="grid gap-3 md:grid-cols-2">
+            {[
+              {
+                title: "Title race",
+                rows: titleRace,
+                value: (r: (typeof titleRace)[number]) => r.title,
+              },
+              {
+                title: "Bottom 3 risk",
+                rows: dropZone,
+                value: (r: (typeof titleRace)[number]) => r.bottom3,
+              },
+            ].map((card) => (
+              <div key={card.title} className="min-w-0 rounded-3xl bg-surface p-3 sm:p-4">
+                <h3 className="px-2 pt-2 pb-3 font-display text-xl font-extrabold tracking-[-0.02em]">
+                  {card.title}
+                </h3>
+                <ol className="space-y-2">
+                  {card.rows.map((r) => (
+                    <li key={r.team.slug}>
+                      <Link
+                        href={`/teams/${r.team.slug}/`}
+                        className="flex items-center gap-3 rounded-2xl bg-background px-4 py-3 transition hover:shadow-sm"
+                      >
+                        <Crest src={r.team.crest} name={r.team.name} size={32} />
+                        <span className="min-w-0 flex-1 truncate font-display font-bold">
+                          {r.team.name}
+                        </span>
+                        <span className="tabular font-display text-lg font-extrabold">
+                          {chance(card.value(r))}
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            ))}
+          </div>
         </section>
       )}
 

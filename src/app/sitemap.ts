@@ -10,7 +10,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const paths = [
     "/",
     "/leagues/",
+    "/champions-league/",
     ...LEAGUES.map((league) => `/leagues/${league.slug}/`),
+    ...LEAGUES.map((league) => `/leagues/${league.slug}/projection/`),
     "/predictions/",
     "/table-vs-strength/",
     "/methodology/",

@@ -102,6 +102,9 @@ Die UEFA-Koeffizienten werden einmal pro Saison aktualisiert (Datum in der Konfi
 - Modell `forecast-v1` (src/ranking/forecast.ts): Sieg/Remis/Niederlage aus der Rating-Differenz inkl. Heimvorteil. Remis-Kurve `0,25 × (1 − |2E − 1|²)`, per Log-Loss auf 593 Saisonspielen gewählt (1,050 gegenüber 1,072 für die reine Häufigkeitsbasis).
 - Für gespielte Partien wird die Prognose mit den Ratings vor Anpfiff nachgerechnet (`preMatch` aus computeLeagueElo). Daraus stammt auch die Trefferquote auf /predictions/.
 - Spielseiten `/matches/{heim}-vs-{gast}-{saison}/` (ohne Datum, damit Verlegungen die URL nicht ändern) entstehen nur für Anstöße von 30 Tagen vor bis 14 Tage nach dem Datenstand. Weiter entfernte Seiten wären nahezu inhaltsgleich, außerdem bleibt der Build klein (rund 360 Seiten, 125 MB statt 2.400 Seiten, 600 MB).
+- Tabellenprognose `sim-v1` (src/ranking/simulate.ts): Restsaison je Liga 10.000-mal simuliert, ausgehend von der offiziellen Tabelle, mit Elo-Update nach jedem simulierten Spiel, Siegmargen aus der laufenden Saison, fester Zufalls-Seed. Seite `/leagues/{liga}/projection/`. Spalten „Top 4“ und „Bottom 3“ sind reine Tabellenplätze, keine Europapokal- oder Abstiegsregeln.
+- Champions League: `/champions-league/` mit Tabelle der Ligaphase (Standings-Abruf „CL“), Prognosen für Spiele zwischen bewerteten Clubs, Ergebnissen. Tabellenzeilen verlinken nur Clubs mit Teamseite.
+- Nationale Pokale, Europa League und Conference League sind im kostenlosen Tarif nicht enthalten.
 - Aufstellungen sind im kostenlosen Tarif von football-data.org nicht enthalten (erst ab „Deep Data“, 29 €/Monat, und dann nur offizielle Aufstellungen).
 
 ## 8. Kosten
