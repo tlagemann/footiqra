@@ -40,6 +40,7 @@ GitHub Actions (alle 3 Stunden, manuell auslösbar)
   │    → data/standings/{Liga}/{Saison}.json       (offizielle Tabelle, Gesamtwertung)
   │
   ├─ npm run crests        (fehlende Vereinswappen → public/crests/{id}.png)
+  ├─ npm run snapshot      (Tagesstand: Power-Rang, Rating, Tabelle vs. Stärke → data/history/{Datum}.json)
   ├─ git commit data/      (nur bei Änderungen; Historie = Git-Historie)
   ├─ npm run build         (liest data/, erzeugt out/)
   ├─ Artefakt "site"       (zum Herunterladen und Prüfen, 7 Tage)

@@ -8,7 +8,7 @@ import { RankingTable } from "@/components/ranking-table";
 import { ButtonLink, Crest, Eyebrow, SectionHeading } from "@/components/ui";
 import { getLeagueBySlug, LEAGUES } from "@/config/leagues";
 import { SITE } from "@/config/site";
-import { getAllTableVsStrength, getPowerRanking, topAcrossLeagues } from "@/data";
+import { getAllTableVsStrength, getPowerRanking, getWeekAgo, topAcrossLeagues } from "@/data";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -20,6 +20,7 @@ export default async function HomePage() {
   const ranking = await getPowerRanking();
   const top = ranking.status === "ok" ? ranking.data.rows.slice(0, 3) : [];
   const performance = topAcrossLeagues(await getAllTableVsStrength(10), 3);
+  const weekAgo = await getWeekAgo();
   const hasPerformance = performance.over.length + performance.under.length > 0;
 
   return (
@@ -110,7 +111,12 @@ export default async function HomePage() {
               <p className="-mt-2 mb-5 max-w-2xl text-muted">
                 Clubs whose league position differs most from their power rating.
               </p>
-              <PerformanceCards over={performance.over} under={performance.under} showLeague />
+              <PerformanceCards
+                over={performance.over}
+                under={performance.under}
+                showLeague
+                previous={weekAgo}
+              />
             </section>
           )}
 

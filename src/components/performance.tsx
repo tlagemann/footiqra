@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getLeagueBySlug } from "@/config/leagues";
-import type { PerformanceGap } from "@/data";
+import { MIN_HIGHLIGHT_GAP, type HistoryReference, type PerformanceGap } from "@/data";
 import { Crest } from "./ui";
 
 function ordinal(n: number): string {
@@ -9,8 +9,35 @@ function ordinal(n: number): string {
   return `${n}${["th", "st", "nd", "rd"][n % 10] ?? "th"}`;
 }
 
-function GapRow({ gap, showLeague }: { gap: PerformanceGap; showLeague: boolean }) {
+function signed(n: number): string {
+  return n > 0 ? `+${n}` : String(n);
+}
+
+/** How the club's gap compares with the reference day, if known. */
+function change(gap: PerformanceGap, previous?: HistoryReference): "new" | number | null {
+  const prev = previous?.teams.get(gap.team.slug);
+  if (!prev) return null;
+  if (
+    prev.gap === null ||
+    Math.abs(prev.gap) < MIN_HIGHLIGHT_GAP ||
+    Math.sign(prev.gap) !== Math.sign(gap.gap)
+  ) {
+    return "new";
+  }
+  return prev.gap === gap.gap ? null : prev.gap;
+}
+
+function GapRow({
+  gap,
+  showLeague,
+  previous,
+}: {
+  gap: PerformanceGap;
+  showLeague: boolean;
+  previous?: HistoryReference;
+}) {
   const positive = gap.gap > 0;
+  const delta = change(gap, previous);
   return (
     <li>
       <Link
@@ -19,12 +46,20 @@ function GapRow({ gap, showLeague }: { gap: PerformanceGap; showLeague: boolean 
       >
         <Crest src={gap.team.crest} name={gap.team.name} size={36} />
         <span className="min-w-0 flex-1">
-          <span className="block truncate font-display font-bold tracking-[-0.01em]">
-            {gap.team.name}
+          <span className="flex items-center gap-2">
+            <span className="truncate font-display font-bold tracking-[-0.01em]">
+              {gap.team.name}
+            </span>
+            {delta === "new" && (
+              <span className="shrink-0 rounded-full bg-brand/15 px-2 py-0.5 text-[11px] font-bold tracking-wide text-brand-ink uppercase">
+                New
+              </span>
+            )}
           </span>
           <span className="block truncate text-sm text-muted">
             {ordinal(gap.tablePosition)} in table · {ordinal(gap.strengthPosition)} by strength
             {showLeague && ` · ${getLeagueBySlug(gap.leagueSlug)?.name ?? ""}`}
+            {typeof delta === "number" && ` · was ${signed(delta)}`}
           </span>
         </span>
         <span
@@ -33,7 +68,7 @@ function GapRow({ gap, showLeague }: { gap: PerformanceGap; showLeague: boolean 
           }`}
           title={`${Math.abs(gap.gap)} places ${positive ? "higher" : "lower"} in the table than by strength`}
         >
-          {positive ? `+${gap.gap}` : gap.gap}
+          {signed(gap.gap)}
         </span>
       </Link>
     </li>
@@ -46,12 +81,14 @@ function Column({
   gaps,
   showLeague,
   empty,
+  previous,
 }: {
   title: string;
   subtitle: string;
   gaps: PerformanceGap[];
   showLeague: boolean;
   empty: string;
+  previous?: HistoryReference;
 }) {
   return (
     <div className="min-w-0 rounded-3xl bg-surface p-3 sm:p-4">
@@ -62,7 +99,7 @@ function Column({
       {gaps.length > 0 ? (
         <ol className="space-y-2">
           {gaps.map((g) => (
-            <GapRow key={g.team.slug} gap={g} showLeague={showLeague} />
+            <GapRow key={g.team.slug} gap={g} showLeague={showLeague} previous={previous} />
           ))}
         </ol>
       ) : (
@@ -77,27 +114,46 @@ export function PerformanceCards({
   over,
   under,
   showLeague = false,
+  previous,
 }: {
   over: PerformanceGap[];
   under: PerformanceGap[];
   showLeague?: boolean;
+  /** Reference day for "New" and "was" hints; omitted until a week of history exists. */
+  previous?: HistoryReference;
 }) {
+  const dateLabel = previous
+    ? new Date(`${previous.date}T00:00:00Z`).toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "short",
+        timeZone: "UTC",
+      })
+    : null;
   return (
-    <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-      <Column
-        title="Overperformers"
-        subtitle="Higher in the table than their rating suggests"
-        gaps={over}
-        showLeague={showLeague}
-        empty="No club is clearly above its strength right now."
-      />
-      <Column
-        title="Underperformers"
-        subtitle="Lower in the table than their rating suggests"
-        gaps={under}
-        showLeague={showLeague}
-        empty="No club is clearly below its strength right now."
-      />
+    <div>
+      <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+        <Column
+          title="Overperformers"
+          subtitle="Higher in the table than their rating suggests"
+          gaps={over}
+          showLeague={showLeague}
+          empty="No club is clearly above its strength right now."
+          previous={previous}
+        />
+        <Column
+          title="Underperformers"
+          subtitle="Lower in the table than their rating suggests"
+          gaps={under}
+          showLeague={showLeague}
+          empty="No club is clearly below its strength right now."
+          previous={previous}
+        />
+      </div>
+      {dateLabel && (
+        <p className="mt-3 text-sm text-muted">
+          &ldquo;New&rdquo; and &ldquo;was&rdquo; compare with {dateLabel}.
+        </p>
+      )}
     </div>
   );
 }

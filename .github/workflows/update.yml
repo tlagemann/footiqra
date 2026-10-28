@@ -54,6 +54,11 @@ jobs:
         continue-on-error: true
         run: npm run crests
 
+      - name: Record ranking history
+        if: steps.ingest.outputs.code != 'skipped'
+        continue-on-error: true
+        run: npm run snapshot
+
       - name: Commit data changes
         if: steps.ingest.outputs.code != 'skipped'
         run: |

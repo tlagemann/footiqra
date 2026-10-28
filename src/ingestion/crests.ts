@@ -25,7 +25,7 @@ export function crestSourceUrl(crest: string | null): URL | null {
   try {
     const url = new URL(crest);
     if (url.protocol !== "https:" || url.host !== ALLOWED_HOST) return null;
-    if (!/^\/\d+\.png$/.test(url.pathname)) return null;
+    if (!/^\/[a-z0-9][a-z0-9_-]{0,63}\.png$/i.test(url.pathname)) return null;
     return url;
   } catch {
     return null;

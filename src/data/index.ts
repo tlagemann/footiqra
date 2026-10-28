@@ -1,7 +1,7 @@
 import "server-only";
-import { readdir } from "node:fs/promises";
-import path from "node:path";
-import { dataDir, readAllMatchFiles, readLatestStandings, readMeta, readTeams } from "@/store/fs";
+import { dataDir, listHistoryDates, readHistoryFile } from "@/store/fs";
+import { referenceDate, utcDay, type HistoryFile, type HistoryTeam } from "./history";
+import { loadSnapshotFromDisk } from "./load";
 import { LEAGUES } from "@/config/leagues";
 import { computePowerRanking, type PowerRanking, type PowerRankingRow } from "./power-ranking";
 import {
@@ -29,7 +29,7 @@ import { highlights, tableVsStrength, type PerformanceGap } from "./table-vs-str
 export type DataResult<T> =
   { status: "ok"; data: T; lastUpdatedUtc: string } | { status: "unavailable"; reason: string };
 
-export type { PerformanceGap };
+export type { HistoryTeam, PerformanceGap };
 export { MIN_HIGHLIGHT_GAP, topAcrossLeagues } from "./table-vs-strength";
 export type { LeagueTable, MatchView, TableRow, TeamSummary, PowerRanking, PowerRankingRow };
 
@@ -37,29 +37,9 @@ const NO_DATA = "No match data has been imported yet.";
 
 let snapshotPromise: Promise<Snapshot> | undefined;
 
-/** Team ids that have a downloaded crest in public/crests. */
-async function readCrestIds(): Promise<Set<number>> {
-  try {
-    const files = await readdir(path.join(process.cwd(), "public", "crests"));
-    return new Set(files.filter((f) => /^\d+\.png$/.test(f)).map((f) => Number(f.slice(0, -4))));
-  } catch {
-    return new Set();
-  }
-}
-
 /** Loads all data once per build. */
 function loadSnapshot(): Promise<Snapshot> {
-  snapshotPromise ??= (async () => {
-    const dir = dataDir();
-    const [meta, teams, matchFiles, crestIds, standings] = await Promise.all([
-      readMeta(dir),
-      readTeams(dir),
-      readAllMatchFiles(dir),
-      readCrestIds(),
-      readLatestStandings(dir),
-    ]);
-    return { meta, teams, matchFiles, crestIds, standings };
-  })();
+  snapshotPromise ??= loadSnapshotFromDisk(dataDir(), process.cwd());
   return snapshotPromise;
 }
 
@@ -150,4 +130,25 @@ export async function getTableVsStrength(
 export async function getAllTableVsStrength(limit = 3): Promise<LeaguePerformance[]> {
   const all = await Promise.all(LEAGUES.map((l) => getTableVsStrength(l.slug, limit)));
   return all.filter((x): x is LeaguePerformance => x !== undefined);
+}
+
+/** Ranking history from about a week before the current data, if recorded. */
+export interface HistoryReference {
+  date: string;
+  teams: ReadonlyMap<string, HistoryTeam>;
+}
+
+let referencePromise: Promise<HistoryReference | undefined> | undefined;
+
+export function getWeekAgo(): Promise<HistoryReference | undefined> {
+  referencePromise ??= (async () => {
+    const snapshot = await loadSnapshot();
+    const current = snapshot.meta.lastSuccessfulRunUtc;
+    if (!current) return undefined;
+    const date = referenceDate(await listHistoryDates(dataDir()), utcDay(current), 7);
+    if (!date) return undefined;
+    const file = await readHistoryFile<HistoryFile>(dataDir(), date);
+    return file ? { date, teams: new Map(file.teams.map((t) => [t.slug, t])) } : undefined;
+  })();
+  return referencePromise;
 }

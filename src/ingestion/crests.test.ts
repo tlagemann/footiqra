@@ -39,6 +39,11 @@ describe("crestSourceUrl", () => {
     expect(crestSourceUrl("https://crests.football-data.org/5.png")?.toString()).toBe(
       "https://crests.football-data.org/5.png",
     );
+    expect(crestSourceUrl("https://crests.football-data.org/bournemouth.png")?.pathname).toBe(
+      "/bournemouth.png",
+    );
+    expect(crestSourceUrl("https://crests.football-data.org/../x.png")?.pathname).toBe("/x.png");
+    expect(crestSourceUrl("https://crests.football-data.org/a/b.png")).toBeNull();
     expect(crestSourceUrl("http://crests.football-data.org/5.png")).toBeNull();
     expect(crestSourceUrl("https://evil.example/5.png")).toBeNull();
     expect(crestSourceUrl("https://crests.football-data.org/5.svg")).toBeNull();

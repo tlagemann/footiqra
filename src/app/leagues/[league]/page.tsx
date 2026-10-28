@@ -9,7 +9,13 @@ import { RankingTable } from "@/components/ranking-table";
 import { StandingsTable } from "@/components/standings-table";
 import { Crest, Eyebrow, SectionHeading } from "@/components/ui";
 import { getLeagueBySlug, LEAGUES } from "@/config/leagues";
-import { getLeagueTable, getLeagueTeams, getPowerRanking, getTableVsStrength } from "@/data";
+import {
+  getLeagueTable,
+  getLeagueTeams,
+  getPowerRanking,
+  getTableVsStrength,
+  getWeekAgo,
+} from "@/data";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 // Only registered leagues exist; anything else is a 404.
@@ -45,7 +51,7 @@ export default async function LeaguePage({ params }: PageProps<"/leagues/[league
     getPowerRanking(),
     getLeagueTable(league.slug),
   ]);
-  const performance = await getTableVsStrength(league.slug);
+  const [performance, weekAgo] = await Promise.all([getTableVsStrength(league.slug), getWeekAgo()]);
   const powerRanks = new Map(
     ranking.status === "ok" ? ranking.data.rows.map((r) => [r.team.slug, r.rank]) : [],
   );
@@ -167,7 +173,7 @@ export default async function LeaguePage({ params }: PageProps<"/leagues/[league
               </Link>
             }
           />
-          <PerformanceCards over={performance.over} under={performance.under} />
+          <PerformanceCards over={performance.over} under={performance.under} previous={weekAgo} />
         </section>
       )}
 

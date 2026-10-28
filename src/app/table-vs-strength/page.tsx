@@ -6,7 +6,13 @@ import { LastUpdated } from "@/components/match-list";
 import { PerformanceCards } from "@/components/performance";
 import { Eyebrow, SectionHeading } from "@/components/ui";
 import { getLeagueBySlug, LEAGUES } from "@/config/leagues";
-import { getAllTableVsStrength, getLastUpdated, MIN_HIGHLIGHT_GAP, topAcrossLeagues } from "@/data";
+import {
+  getAllTableVsStrength,
+  getLastUpdated,
+  getWeekAgo,
+  MIN_HIGHLIGHT_GAP,
+  topAcrossLeagues,
+} from "@/data";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -17,10 +23,11 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default async function TableVsStrengthPage() {
-  const [perLeague, deep, lastUpdated] = await Promise.all([
+  const [perLeague, deep, lastUpdated, weekAgo] = await Promise.all([
     getAllTableVsStrength(3),
     getAllTableVsStrength(10),
     getLastUpdated(),
+    getWeekAgo(),
   ]);
   const top = topAcrossLeagues(deep, 5);
 
@@ -50,7 +57,7 @@ export default async function TableVsStrengthPage() {
         <>
           <section aria-labelledby="all-leagues">
             <SectionHeading id="all-leagues" title={`Across all ${LEAGUES.length} leagues`} />
-            <PerformanceCards over={top.over} under={top.under} showLeague />
+            <PerformanceCards over={top.over} under={top.under} showLeague previous={weekAgo} />
           </section>
 
           {perLeague.map((l) => {
@@ -69,7 +76,7 @@ export default async function TableVsStrengthPage() {
                     </Link>
                   }
                 />
-                <PerformanceCards over={l.over} under={l.under} />
+                <PerformanceCards over={l.over} under={l.under} previous={weekAgo} />
               </section>
             );
           })}

@@ -142,3 +142,37 @@ export async function readLatestStandings(dir: string): Promise<StandingsFile[]>
   }
   return result;
 }
+
+const historyDir = (dir: string) => path.join(dir, "history");
+
+/** Days with a stored history entry (YYYY-MM-DD), oldest first. */
+export async function listHistoryDates(dir: string): Promise<string[]> {
+  try {
+    return (await readdir(historyDir(dir)))
+      .filter((n) => /^\d{4}-\d{2}-\d{2}\.json$/.test(n))
+      .map((n) => n.slice(0, 10))
+      .sort();
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") return [];
+    throw error;
+  }
+}
+
+export async function readHistoryFile<T extends { schemaVersion: number }>(
+  dir: string,
+  date: string,
+): Promise<T | null> {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) throw new Error(`Invalid history date: ${date}`);
+  const file = path.join(historyDir(dir), `${date}.json`);
+  const data = await readJson<T>(file);
+  if (data) assertSchema(file, data.schemaVersion);
+  return data;
+}
+
+export async function writeHistoryFile(
+  dir: string,
+  data: { schemaVersion: number; date: string },
+): Promise<void> {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(data.date)) throw new Error(`Invalid history date: ${data.date}`);
+  await writeJson(path.join(historyDir(dir), `${data.date}.json`), data);
+}
