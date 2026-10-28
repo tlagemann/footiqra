@@ -20,7 +20,7 @@ export function pageMetadata({
     description,
     alternates: { canonical: url },
     openGraph: { title, description, url, siteName: SITE.name, type: "website", locale: "en" },
-    twitter: { card: "summary", title, description },
+    twitter: { card: "summary_large_image", title, description },
     ...(noIndex ? { robots: { index: false, follow: true } } : {}),
   };
 }
