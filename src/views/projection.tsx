@@ -27,14 +27,14 @@ export async function projectionMetadata(locale: Locale, slug: string): Promise<
     locale,
     title: tr(
       locale,
-      `${league.name}${season} predicted final table: title and relegation chances`,
-      `${league.name}${season} Prognose Abschlusstabelle: Meister- und Abstiegschancen`,
+      `${league.name}${season} predicted table and title chances`,
+      `${league.name}${season}: Prognose der Abschlusstabelle`,
     ),
     description: leader
       ? tr(
           locale,
-          `Simulated ${league.name} final table: ${leader.team.name} win the title in ${chance(leader.title, locale)} of ${runs} simulations. Expected points, top 4 and bottom 3 chances for every club.`,
-          `Simulierte Abschlusstabelle der ${league.name}: ${leader.team.name} wird in ${chance(leader.title, locale)} von ${runs} Simulationen Meister. Erwartete Punkte sowie Chancen auf die Top 4 und die letzten 3 Plätze für jeden Verein.`,
+          `Simulated ${league.name} final table: ${leader.team.name} win the title in ${chance(leader.title, locale)} of ${runs} simulations. Expected points and relegation risk for every club.`,
+          `Simulierte Abschlusstabelle der ${league.name}: ${leader.team.name} wird in ${chance(leader.title, locale)} von ${runs} Simulationen Meister. Mit erwarteten Punkten und Abstiegsrisiko.`,
         )
       : tr(
           locale,

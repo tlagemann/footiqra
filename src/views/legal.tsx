@@ -8,11 +8,11 @@ import { ogImage } from "@/og/images";
 export function legalMetadata(locale: Locale): Metadata {
   return pageMetadata({
     locale,
-    title: locale === "de" ? "Impressum" : "Legal notice (Impressum)",
+    title: locale === "de" ? "Impressum und Kontakt" : "Legal notice and contact",
     description:
       locale === "de"
-        ? "Impressum und Anbieterkennzeichnung von Footiqra."
-        : "Legal notice and provider identification of Footiqra.",
+        ? "Impressum von Footiqra mit Anbieterkennzeichnung, Kontaktdaten und Angaben zum inhaltlich Verantwortlichen der Website footiqra.com."
+        : "Legal notice of Footiqra: provider identification, contact details and the person responsible for the content of footiqra.com.",
     paths: { en: paths("en").legal, de: paths("de").legal },
     image: ogImage.legal,
   });

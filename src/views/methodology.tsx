@@ -21,8 +21,8 @@ export function methodologyMetadata(locale: Locale): Metadata {
     ),
     description: tr(
       locale,
-      "How Footiqra rates team strength across Europe's top leagues: an Elo rating with a league strength component calibrated by European matches, match forecasts and season simulations.",
-      "Wie Footiqra die Stärke der Vereine in Europas Top-Ligen bewertet: ein Elo-Rating mit Ligastärke, kalibriert durch Europapokalspiele, dazu Spielprognosen und Saisonsimulationen.",
+      "How Footiqra rates Europe's top clubs: an Elo rating with league strength calibrated by European matches, plus match forecasts and season simulations.",
+      "Wie Footiqra die Topklubs Europas bewertet: ein Elo-Rating mit Ligastärke aus Europapokalspielen, dazu Spielprognosen und Saisonsimulationen.",
     ),
     paths: { en: paths("en").methodology, de: paths("de").methodology },
     image: ogImage.methodology,

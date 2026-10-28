@@ -15,13 +15,13 @@ export function predictionsMetadata(locale: Locale): Metadata {
     locale,
     title: tr(
       locale,
-      "Football predictions: win probabilities for the next matches",
-      "Fußball-Prognosen: Siegwahrscheinlichkeiten für die nächsten Spiele",
+      "Football predictions: win probabilities",
+      "Fußball-Prognosen: Siegwahrscheinlichkeiten",
     ),
     description: tr(
       locale,
-      "Win, draw and loss probabilities for upcoming matches in the Premier League, La Liga, Serie A, Bundesliga, Ligue 1, Primeira Liga, Eredivisie and Champions League, from the Footiqra rating model.",
-      "Sieg-, Remis- und Niederlagenwahrscheinlichkeiten für die nächsten Spiele in Premier League, La Liga, Serie A, Bundesliga, Ligue 1, Primeira Liga, Eredivisie und Champions League, berechnet mit dem Footiqra Ratingmodell.",
+      "Win, draw and loss probabilities for the next matches in Europe's seven top leagues and the Champions League, calculated by the Footiqra rating model.",
+      "Sieg-, Remis- und Niederlagenwahrscheinlichkeiten für die nächsten Spiele der sieben Top-Ligen Europas und der Champions League, berechnet von Footiqra.",
     ),
     paths: { en: paths("en").predictions, de: paths("de").predictions },
     image: ogImage.predictions,

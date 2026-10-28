@@ -46,6 +46,7 @@ export async function matchMetadata(locale: Locale, slug: string): Promise<Metad
   const h = m.home.shortName;
   const a = m.away.shortName;
   const date = dateLabel(locale, m.utcDate);
+  const day = fmtDate(locale, m.utcDate, { day: "numeric", month: "short" });
   const both = { en: paths("en").match(m.slug), de: paths("de").match(m.slug) };
   const pct = (n: number) => fmtPercent(locale, n);
   if (isFinished(m)) {
@@ -53,13 +54,13 @@ export async function matchMetadata(locale: Locale, slug: string): Promise<Metad
       locale,
       title: tr(
         locale,
-        `${h} ${m.homeGoals}:${m.awayGoals} ${a}: result, stats and pre-match prediction`,
-        `${h} ${m.homeGoals}:${m.awayGoals} ${a}: Ergebnis, Statistik und Prognose vor dem Spiel`,
+        `${h} ${m.homeGoals}:${m.awayGoals} ${a}: result and stats (${day})`,
+        `${h} ${m.homeGoals}:${m.awayGoals} ${a}: Ergebnis (${day})`,
       ),
       description: tr(
         locale,
-        `${m.home.name} vs ${m.away.name}, ${m.competitionName}, ${date}: result ${m.homeGoals}:${m.awayGoals}, the pre-match forecast, form and season stats of both clubs.`,
-        `${m.home.name} gegen ${m.away.name}, ${m.competitionName}, ${date}: Ergebnis ${m.homeGoals}:${m.awayGoals}, die Prognose vor dem Spiel, Form und Saisonstatistik beider Vereine.`,
+        `${h} vs ${a} (${m.competitionName}, ${date}) ended ${m.homeGoals}:${m.awayGoals}. With the pre-match forecast, form and season stats of both clubs.`,
+        `${h} gegen ${a} (${m.competitionName}, ${date}) endete ${m.homeGoals}:${m.awayGoals}. Mit der Prognose vor dem Spiel, Form und Saisonstatistik.`,
       ),
       paths: both,
       image: ogImage.match(m.slug),
@@ -70,19 +71,19 @@ export async function matchMetadata(locale: Locale, slug: string): Promise<Metad
     locale,
     title: tr(
       locale,
-      `${h} vs ${a} prediction, stats and form (${date})`,
-      `${h} gegen ${a}: Prognose, Statistik und Form (${date})`,
+      `${h} vs ${a} prediction and stats (${day})`,
+      `${h} gegen ${a}: Prognose (${day})`,
     ),
     description: p
       ? tr(
           locale,
-          `${m.home.name} vs ${m.away.name}, ${m.competitionName}, ${date}: ${h} win ${pct(p.home)}, draw ${pct(p.draw)}, ${a} win ${pct(p.away)}. Form, table and season stats of both clubs.`,
-          `${m.home.name} gegen ${m.away.name}, ${m.competitionName}, ${date}: Sieg ${h} ${pct(p.home)}, Unentschieden ${pct(p.draw)}, Sieg ${a} ${pct(p.away)}. Form, Tabelle und Saisonstatistik beider Vereine.`,
+          `${h} vs ${a} (${m.competitionName}, ${date}): ${h} win ${pct(p.home)}, draw ${pct(p.draw)}, ${a} win ${pct(p.away)}. Plus form, table and season stats of both clubs.`,
+          `${h} gegen ${a} (${m.competitionName}, ${date}): Sieg ${h} ${pct(p.home)}, Remis ${pct(p.draw)}, Sieg ${a} ${pct(p.away)}. Dazu Form, Tabelle und Saisonstatistik.`,
         )
       : tr(
           locale,
-          `${m.home.name} vs ${m.away.name}, ${m.competitionName}, ${date}: form, table and season stats of both clubs.`,
-          `${m.home.name} gegen ${m.away.name}, ${m.competitionName}, ${date}: Form, Tabelle und Saisonstatistik beider Vereine.`,
+          `${h} vs ${a} (${m.competitionName}, ${date}): form, table, season stats and recent results of both clubs, updated several times a day.`,
+          `${h} gegen ${a} (${m.competitionName}, ${date}): Form, Tabelle, Saisonstatistik und letzte Ergebnisse beider Vereine, mehrmals täglich aktuell.`,
         ),
     paths: both,
     image: ogImage.match(m.slug),

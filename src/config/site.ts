@@ -12,7 +12,7 @@ export const SITE_TEXT = {
   de: {
     tagline: "Power-Ranking der Top-Fußballligen Europas",
     description:
-      "Datenbasiertes Power-Ranking, das jeden Verein aus Premier League, La Liga, Serie A, Bundesliga, Ligue 1, Primeira Liga und Eredivisie auf einer gemeinsamen Skala vergleicht.",
+      "Datenbasiertes Power-Ranking: jeder Verein aus Premier League, La Liga, Serie A, Bundesliga, Ligue 1, Primeira Liga und Eredivisie auf einer Skala.",
   },
 } as const;
 

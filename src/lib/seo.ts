@@ -2,6 +2,18 @@ import type { Metadata } from "next";
 import { getSiteUrl, SITE } from "@/config/site";
 import type { Locale } from "@/i18n";
 
+/** Longest page title that still shows in full in Google results (roughly). */
+export const MAX_TITLE_LENGTH = 60;
+const BRAND_SUFFIX = ` | ${SITE.name}`;
+
+/**
+ * The brand suffix from the root layout's title template is only added when the
+ * whole title still fits; otherwise the page title is used on its own.
+ */
+export function documentTitle(title: string): Metadata["title"] {
+  return title.length + BRAND_SUFFIX.length <= MAX_TITLE_LENGTH ? title : { absolute: title };
+}
+
 /**
  * Per-page metadata: canonical URL, hreflang alternates (en, de, x-default)
  * and Open Graph defaults.
@@ -41,7 +53,7 @@ export function pageMetadata({
     : undefined;
   const images = image ? [{ url: `${site}${image}`, width: 1200, height: 630 }] : undefined;
   return {
-    title,
+    title: documentTitle(title),
     description,
     alternates: { canonical: url, ...(languages ? { languages } : {}) },
     openGraph: {

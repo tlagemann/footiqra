@@ -41,8 +41,8 @@ export function leagueMetadata(locale: Locale, slug: string): Metadata {
     ),
     description: tr(
       locale,
-      `${league.name} (${league.country}): team strength, standings and form in the Footiqra power ranking.`,
-      `${league.name} (${country(locale, league.country)}): Stärke der Vereine, Tabelle und Form im Footiqra Power-Ranking.`,
+      `${league.name} power ranking: every club rated by strength, plus the table, form, next matches and the predicted final standings. Updated several times a day.`,
+      `${league.name} im Power-Ranking: alle Vereine nach Stärke, dazu Tabelle, Form, nächste Spiele und die Prognose der Abschlusstabelle. Mehrmals täglich aktuell.`,
     ),
     paths: { en: paths("en").league(league.slug), de: paths("de").league(league.slug) },
     image: ogImage.league(league.slug),

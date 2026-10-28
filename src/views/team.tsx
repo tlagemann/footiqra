@@ -11,12 +11,13 @@ import {
   getAllTeamSlugs,
   getRankHistory,
   getRatingHistory,
+  getLeagueTable,
   getTeam,
   getTeamRanking,
   getUpcomingForecasts,
 } from "@/data";
 import { HistoryPanel } from "@/components/history-panel";
-import { paths, tr, type Locale } from "@/i18n";
+import { ordinal, paths, tr, type Locale } from "@/i18n";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { ogImage } from "@/og/images";
 
@@ -37,6 +38,9 @@ export async function teamStaticParams() {
   return (slugs.length > 0 ? slugs : [NO_TEAMS_PLACEHOLDER]).map((slug) => ({ slug }));
 }
 
+/** English league names used without "the" ("4th in La Liga"). */
+const NO_ARTICLE = new Set(["la-liga", "serie-a", "ligue-1"]);
+
 export async function teamMetadata(locale: Locale, slug: string): Promise<Metadata> {
   if (slug === NO_TEAMS_PLACEHOLDER) {
     return pageMetadata({
@@ -51,17 +55,38 @@ export async function teamMetadata(locale: Locale, slug: string): Promise<Metada
   if (result.status !== "ok") return {};
   const { team } = result.data;
   const league = getLeagueBySlug(team.leagueSlug);
+  const [row, table] = await Promise.all([
+    getTeamRanking(team.slug),
+    getLeagueTable(team.leagueSlug),
+  ]);
+  const position = table?.rows.find((r) => r.team.slug === team.slug)?.position;
+  const leagueName = league?.name ?? tr(locale, "Europe", "Europa");
+  const facts = [
+    row
+      ? tr(locale, `No. ${row.rank} in the power ranking`, `Platz ${row.rank} im Power-Ranking`)
+      : null,
+    position
+      ? tr(
+          locale,
+          `${ordinal(locale, position)} in ${NO_ARTICLE.has(team.leagueSlug) ? "" : "the "}${leagueName}`,
+          `${position}. in der ${leagueName}`,
+        )
+      : null,
+  ].filter(Boolean);
+  const lead = facts.length
+    ? `${team.name}: ${facts.join(tr(locale, ", ", ", "))}.`
+    : `${team.name} (${leagueName}).`;
   return pageMetadata({
     locale,
     title: tr(
       locale,
-      `${team.name}: power rating, results and fixtures`,
-      `${team.name}: Power-Rating, Ergebnisse und Spielplan`,
+      `${team.name}: rating, results and fixtures`,
+      `${team.name}: Rating, Ergebnisse und Spielplan`,
     ),
     description: tr(
       locale,
-      `${team.name} (${league?.name ?? "Europe"}): latest results, upcoming fixtures and team strength on Footiqra.`,
-      `${team.name} (${league?.name ?? "Europa"}): letzte Ergebnisse, nächste Spiele und Stärke des Vereins bei Footiqra.`,
+      `${lead} Rating, form, latest results and next matches with win probabilities.`,
+      `${lead} Rating, Form, letzte Ergebnisse und nächste Spiele mit Siegchancen.`,
     ),
     paths: { en: paths("en").team(team.slug), de: paths("de").team(team.slug) },
     image: ogImage.team(team.slug),

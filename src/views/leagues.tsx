@@ -12,15 +12,11 @@ import { ogImage } from "@/og/images";
 export function leaguesMetadata(locale: Locale): Metadata {
   return pageMetadata({
     locale,
-    title: tr(
-      locale,
-      "Leagues covered: Premier League, La Liga, Serie A, Bundesliga, Ligue 1 and more",
-      "Ligen: Premier League, La Liga, Serie A, Bundesliga, Ligue 1 und mehr",
-    ),
+    title: tr(locale, "Football leagues in the power ranking", "Fußballligen im Power-Ranking"),
     description: tr(
       locale,
-      "Overview of the European football leagues covered by the Footiqra power ranking.",
-      "Übersicht der europäischen Fußballligen im Footiqra Power-Ranking.",
+      "The seven European football leagues in the Footiqra power ranking: Premier League, La Liga, Serie A, Bundesliga, Ligue 1, Primeira Liga and Eredivisie.",
+      "Die sieben europäischen Fußballligen im Footiqra Power-Ranking: Premier League, La Liga, Serie A, Bundesliga, Ligue 1, Primeira Liga und Eredivisie.",
     ),
     paths: { en: paths("en").leagues, de: paths("de").leagues },
     image: ogImage.leagues,

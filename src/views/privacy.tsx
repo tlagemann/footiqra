@@ -11,8 +11,8 @@ export function privacyMetadata(locale: Locale): Metadata {
     title: locale === "de" ? "Datenschutzerklärung" : "Privacy policy",
     description:
       locale === "de"
-        ? "Datenschutzerklärung von Footiqra: Hosting bei SiteGround, Google Analytics nur mit Einwilligung."
-        : "Footiqra privacy policy: hosting at SiteGround, Google Analytics only with consent.",
+        ? "Datenschutzerklärung von Footiqra: welche Daten beim Besuch anfallen, Hosting bei SiteGround, Google Analytics nur mit Einwilligung und Ihre Rechte."
+        : "Footiqra privacy policy: what data a visit creates, hosting at SiteGround, Google Analytics only with your consent, and your rights.",
     paths: { en: paths("en").privacy, de: paths("de").privacy },
     image: ogImage.privacy,
   });

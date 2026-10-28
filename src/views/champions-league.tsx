@@ -28,8 +28,8 @@ export function championsLeagueMetadata(locale: Locale): Metadata {
     ),
     description: tr(
       locale,
-      "Champions League league phase table, win probabilities for the next matches, latest results and how the clubs from Europe's top leagues rate in the Footiqra power ranking.",
-      "Tabelle der Champions-League-Ligaphase, Siegwahrscheinlichkeiten für die nächsten Spiele, letzte Ergebnisse und wie die Vereine der Top-Ligen Europas im Footiqra Power-Ranking abschneiden.",
+      "Champions League league phase table, win probabilities for the next matches, latest results and how the clubs rate in the Footiqra power ranking.",
+      "Tabelle der Ligaphase, Siegwahrscheinlichkeiten für die nächsten Spiele, letzte Ergebnisse und alle Vereine im Footiqra Power-Ranking.",
     ),
     paths: { en: paths("en").championsLeague, de: paths("de").championsLeague },
     image: ogImage.championsLeague,
