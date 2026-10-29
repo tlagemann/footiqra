@@ -8,7 +8,6 @@ import { LocalTime } from "@/components/local-time";
 import { LastUpdated, MatchList } from "@/components/match-list";
 import { Crest, Eyebrow, FormGuide, SectionHeading } from "@/components/ui";
 import { getLeagueBySlug } from "@/config/leagues";
-import { getSiteUrl } from "@/config/site";
 import { getAllMatchSlugs, getLastUpdated, getMatch, type MatchDetail } from "@/data";
 import { fmtDate, fmtDecimal, fmtPercent, ordinal, paths, tr, type Locale } from "@/i18n";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
@@ -209,7 +208,6 @@ export async function MatchView({ locale, slug }: { locale: Locale; slug: string
     IN_PLAY: "Live",
     PAUSED: t("Half-time", "Halbzeit"),
   };
-  const base = getSiteUrl();
   const perGame = (total: number, played: number) =>
     played > 0 ? fmtDecimal(locale, total / played, 2) : "·";
   const share = (n: number, played: number) =>
@@ -228,26 +226,6 @@ export async function MatchView({ locale, slug }: { locale: Locale; slug: string
             : { name: t("Predictions", "Prognosen"), path: p.predictions },
           { name: `${h.shortName} ${vs} ${a.shortName}`, path: p.match(m.slug) },
         ])}
-      />
-      <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "SportsEvent",
-          name: `${h.name} vs ${a.name}`,
-          sport: "Football",
-          inLanguage: locale,
-          startDate: m.utcDate,
-          eventStatus:
-            m.status === "POSTPONED"
-              ? "https://schema.org/EventPostponed"
-              : m.status === "CANCELLED"
-                ? "https://schema.org/EventCancelled"
-                : "https://schema.org/EventScheduled",
-          homeTeam: { "@type": "SportsTeam", name: h.name, url: `${base}${p.team(h.slug)}` },
-          awayTeam: { "@type": "SportsTeam", name: a.name, url: `${base}${p.team(a.slug)}` },
-          superEvent: { "@type": "SportsEvent", name: m.competitionName },
-          url: `${base}${p.match(m.slug)}`,
-        }}
       />
 
       <header>
