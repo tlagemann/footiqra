@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getSiteUrl, SITE } from "@/config/site";
+import { getSiteUrl, SITE, SOCIAL } from "@/config/site";
 import type { Locale } from "@/i18n";
 
 /** Longest page title that still shows in full in Google results (roughly). */
@@ -87,5 +87,18 @@ export function breadcrumbJsonLd(items: Array<{ name: string; path: string }>) {
       name: item.name,
       item: `${base}${item.path}`,
     })),
+  };
+}
+
+/** schema.org Organization (name, URL, logo, social profiles) for the home pages. */
+export function organizationJsonLd() {
+  const base = getSiteUrl();
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: SITE.name,
+    url: `${base}/`,
+    logo: `${base}/icon.svg`,
+    sameAs: Object.values(SOCIAL).map((s) => s.url),
   };
 }

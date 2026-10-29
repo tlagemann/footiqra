@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd } from "@/components/json-ld";
 import { DataNotice } from "@/components/data-notice";
 import { ForecastList } from "@/components/forecast-list";
 import { LeagueStrength } from "@/components/league-strength";
@@ -21,7 +22,7 @@ import {
   topAcrossLeagues,
 } from "@/data";
 import { fmtInt, paths, tr, type Locale } from "@/i18n";
-import { pageMetadata } from "@/lib/seo";
+import { organizationJsonLd, pageMetadata } from "@/lib/seo";
 import { ogImage } from "@/og/images";
 
 export function homeMetadata(locale: Locale): Metadata {
@@ -59,6 +60,7 @@ export async function HomeView({ locale }: { locale: Locale }) {
 
   return (
     <div className="space-y-20 sm:space-y-28">
+      <JsonLd data={organizationJsonLd()} />
       <section className="grid items-center gap-10 lg:grid-cols-[1.15fr_1fr]">
         <div>
           <Eyebrow>{t("Cross-league power ranking", "Ligaübergreifendes Power-Ranking")}</Eyebrow>

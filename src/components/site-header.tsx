@@ -1,3 +1,4 @@
+import { SOCIAL } from "@/config/site";
 import Link from "next/link";
 import { paths, tr, type Locale } from "@/i18n";
 import { ConsentSettingsLink } from "./consent";
@@ -54,6 +55,16 @@ export function SiteFooter({ locale }: { locale: Locale }) {
               </Link>
             </li>
           ))}
+          <li>
+            <a
+              href={SOCIAL.instagram.url}
+              target="_blank"
+              rel="me noopener noreferrer"
+              className="text-muted hover:text-foreground"
+            >
+              {SOCIAL.instagram.label}
+            </a>
+          </li>
           <li>
             <ConsentSettingsLink locale={locale} />
           </li>

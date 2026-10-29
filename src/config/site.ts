@@ -6,6 +6,11 @@ export const SITE = {
   locale: "en",
 } as const;
 
+/** Public social profiles (linked in the footer and listed as `sameAs` in structured data). */
+export const SOCIAL = {
+  instagram: { label: "Instagram", url: "https://www.instagram.com/footiqra/" },
+} as const;
+
 /** Tagline and description per language. */
 export const SITE_TEXT = {
   en: { tagline: SITE.tagline, description: SITE.description },
