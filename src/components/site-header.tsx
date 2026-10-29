@@ -46,6 +46,27 @@ export function SiteFooter({ locale }: { locale: Locale }) {
             )}
           </p>
           <p className="text-sm text-muted">{t("Data", "Daten")}: football-data.org</p>
+          <a
+            href={SOCIAL.instagram.url}
+            target="_blank"
+            rel="me noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-surface-strong px-4 py-2 text-sm font-semibold transition hover:bg-line"
+          >
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              width="18"
+              height="18"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.3" cy="6.7" r="0.6" fill="currentColor" />
+            </svg>
+            {t("Follow on Instagram", "Auf Instagram folgen")}
+          </a>
         </div>
         <ul className="space-y-2 text-sm">
           {links.map(([href, label]) => (
@@ -55,16 +76,6 @@ export function SiteFooter({ locale }: { locale: Locale }) {
               </Link>
             </li>
           ))}
-          <li>
-            <a
-              href={SOCIAL.instagram.url}
-              target="_blank"
-              rel="me noopener noreferrer"
-              className="text-muted hover:text-foreground"
-            >
-              {SOCIAL.instagram.label}
-            </a>
-          </li>
           <li>
             <ConsentSettingsLink locale={locale} />
           </li>
