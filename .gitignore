@@ -44,3 +44,6 @@ Thumbs.db
 
 # --- Platforms ---
 .vercel
+
+# Generated Instagram slides
+/instagram-out/
