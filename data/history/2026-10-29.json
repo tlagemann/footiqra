@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "date": "2026-10-29",
-  "dataUtc": "2026-10-29T19:00:28.564Z",
+  "dataUtc": "2026-10-29T21:52:29.396Z",
   "model": "elo-v2",
   "teams": [
     {
@@ -477,9 +477,9 @@
       "leagueSlug": "serie-a",
       "powerRank": 53,
       "rating": 1530,
-      "tablePosition": 6,
+      "tablePosition": 7,
       "strengthPosition": 6,
-      "gap": 0
+      "gap": -1
     },
     {
       "slug": "juventus-fc",
@@ -653,9 +653,18 @@
       "gap": 2
     },
     {
+      "slug": "frosinone-calcio",
+      "leagueSlug": "serie-a",
+      "powerRank": 73,
+      "rating": 1489.3,
+      "tablePosition": 6,
+      "strengthPosition": 10,
+      "gap": 4
+    },
+    {
       "slug": "rc-deportivo-la-coruna",
       "leagueSlug": "la-liga",
-      "powerRank": 73,
+      "powerRank": 74,
       "rating": 1487.5,
       "tablePosition": 11,
       "strengthPosition": 14,
@@ -664,7 +673,7 @@
     {
       "slug": "getafe-cf",
       "leagueSlug": "la-liga",
-      "powerRank": 74,
+      "powerRank": 75,
       "rating": 1485.2,
       "tablePosition": 17,
       "strengthPosition": 15,
@@ -673,7 +682,7 @@
     {
       "slug": "az",
       "leagueSlug": "eredivisie",
-      "powerRank": 75,
+      "powerRank": 76,
       "rating": 1484.7,
       "tablePosition": 5,
       "strengthPosition": 5,
@@ -682,7 +691,7 @@
     {
       "slug": "sv-werder-bremen",
       "leagueSlug": "bundesliga",
-      "powerRank": 76,
+      "powerRank": 77,
       "rating": 1481,
       "tablePosition": 6,
       "strengthPosition": 10,
@@ -691,20 +700,11 @@
     {
       "slug": "valencia-cf",
       "leagueSlug": "la-liga",
-      "powerRank": 77,
+      "powerRank": 78,
       "rating": 1480.2,
       "tablePosition": 19,
       "strengthPosition": 16,
       "gap": -3
-    },
-    {
-      "slug": "frosinone-calcio",
-      "leagueSlug": "serie-a",
-      "powerRank": 78,
-      "rating": 1476.5,
-      "tablePosition": 7,
-      "strengthPosition": 10,
-      "gap": 3
     },
     {
       "slug": "le-mans-fc",
@@ -959,18 +959,9 @@
       "gap": 1
     },
     {
-      "slug": "us-lecce",
-      "leagueSlug": "serie-a",
-      "powerRank": 107,
-      "rating": 1428.2,
-      "tablePosition": 14,
-      "strengthPosition": 15,
-      "gap": 1
-    },
-    {
       "slug": "borussia-monchengladbach",
       "leagueSlug": "bundesliga",
-      "powerRank": 108,
+      "powerRank": 107,
       "rating": 1427.3,
       "tablePosition": 18,
       "strengthPosition": 18,
@@ -979,16 +970,16 @@
     {
       "slug": "acf-fiorentina",
       "leagueSlug": "serie-a",
-      "powerRank": 109,
+      "powerRank": 108,
       "rating": 1427.2,
-      "tablePosition": 19,
-      "strengthPosition": 16,
+      "tablePosition": 18,
+      "strengthPosition": 15,
       "gap": -3
     },
     {
       "slug": "academico-de-viseu-fc",
       "leagueSlug": "primeira-liga",
-      "powerRank": 110,
+      "powerRank": 109,
       "rating": 1425,
       "tablePosition": 6,
       "strengthPosition": 9,
@@ -997,7 +988,7 @@
     {
       "slug": "fortuna-sittard",
       "leagueSlug": "eredivisie",
-      "powerRank": 111,
+      "powerRank": 110,
       "rating": 1424.7,
       "tablePosition": 6,
       "strengthPosition": 10,
@@ -1006,20 +997,29 @@
     {
       "slug": "udinese-calcio",
       "leagueSlug": "serie-a",
-      "powerRank": 112,
+      "powerRank": 111,
       "rating": 1418.9,
       "tablePosition": 17,
-      "strengthPosition": 17,
-      "gap": 0
+      "strengthPosition": 16,
+      "gap": -1
     },
     {
       "slug": "go-ahead-eagles",
       "leagueSlug": "eredivisie",
-      "powerRank": 113,
+      "powerRank": 112,
       "rating": 1418.7,
       "tablePosition": 9,
       "strengthPosition": 11,
       "gap": 2
+    },
+    {
+      "slug": "us-lecce",
+      "leagueSlug": "serie-a",
+      "powerRank": 113,
+      "rating": 1415.3,
+      "tablePosition": 14,
+      "strengthPosition": 17,
+      "gap": 3
     },
     {
       "slug": "fc-alverca",
@@ -1044,9 +1044,9 @@
       "leagueSlug": "serie-a",
       "powerRank": 116,
       "rating": 1404.3,
-      "tablePosition": 18,
+      "tablePosition": 19,
       "strengthPosition": 19,
-      "gap": 1
+      "gap": 0
     },
     {
       "slug": "moreirense-fc",
