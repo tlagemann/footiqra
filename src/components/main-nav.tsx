@@ -165,6 +165,9 @@ export function MainNav({ locale }: { locale: Locale }) {
   const NAV = buildNav(locale);
   const [open, setOpen] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  // Mobile accordion: the section of the current page starts open.
+  const activeSection = NAV.find((item) => item.groups && item.match(pathname))?.label ?? null;
+  const [mobileSection, setMobileSection] = useState<string | null>(activeSection);
   const rootRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -174,6 +177,7 @@ export function MainNav({ locale }: { locale: Locale }) {
     setLastPath(pathname);
     setOpen(null);
     setMobileOpen(false);
+    setMobileSection(activeSection);
   }
 
   useEffect(() => {
@@ -193,6 +197,14 @@ export function MainNav({ locale }: { locale: Locale }) {
       document.removeEventListener("mousedown", onClick);
     };
   }, []);
+
+  // Keep the page from scrolling behind the open mobile menu.
+  useEffect(() => {
+    document.documentElement.style.overflow = mobileOpen ? "hidden" : "";
+    return () => {
+      document.documentElement.style.overflow = "";
+    };
+  }, [mobileOpen]);
 
   const hoverOpen = (label: string) => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -326,51 +338,88 @@ export function MainNav({ locale }: { locale: Locale }) {
         <nav
           id="mobile-nav"
           aria-label={tr(locale, "Main", "Hauptnavigation")}
-          className={`absolute inset-x-0 top-full max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-b border-line/70 bg-background px-4 pt-2 pb-6 shadow-xl shadow-black/5 sm:px-6 ${
+          className={`absolute inset-x-0 top-full max-h-[calc(100dvh-4.5rem)] overflow-y-auto overscroll-contain border-b border-line/70 bg-background px-5 pt-1 pb-6 shadow-xl shadow-black/5 sm:px-6 ${
             mobileOpen ? "block" : "hidden"
           }`}
         >
-          <ul className="space-y-1">
-            {NAV.map((item) => (
-              <li key={item.label}>
-                <Link
-                  href={item.href}
-                  aria-current={item.match(pathname) ? "page" : undefined}
-                  className={`block rounded-2xl px-4 py-3 font-display text-lg font-bold ${
-                    item.match(pathname) ? "bg-surface" : ""
-                  }`}
-                >
-                  {item.label}
-                </Link>
-                {item.groups && (
-                  <div className="space-y-3 px-4 pt-1 pb-3">
-                    {item.groups.map((group) => (
-                      <div key={group.title}>
-                        <p className="mb-1 text-xs font-semibold tracking-wide text-muted uppercase">
-                          {group.title}
-                        </p>
-                        <ul className="flex flex-wrap gap-1.5">
-                          {group.links.map((link) => (
-                            <li key={link.href}>
-                              <Link
-                                href={link.href}
-                                className={`block rounded-full px-3 py-1.5 text-sm font-semibold ${
-                                  pathname === link.href
-                                    ? "bg-foreground text-inverse"
-                                    : "bg-surface"
-                                }`}
-                              >
-                                {link.label}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
+          <ul className="divide-y divide-line/70">
+            {NAV.map((item) => {
+              const active = item.match(pathname);
+              if (!item.groups) {
+                return (
+                  <li key={item.label}>
+                    <Link
+                      href={item.href}
+                      aria-current={active ? "page" : undefined}
+                      className="flex items-center justify-between px-1 py-4 font-display text-xl font-extrabold tracking-[-0.02em]"
+                    >
+                      {item.label}
+                      {active && <span aria-hidden className="h-2 w-2 rounded-full bg-brand" />}
+                    </Link>
+                  </li>
+                );
+              }
+              const expanded = mobileSection === item.label;
+              const panelId = `mobile-${item.label.toLowerCase().replace(/[^a-z]/g, "")}`;
+              return (
+                <li key={item.label}>
+                  <button
+                    type="button"
+                    aria-expanded={expanded}
+                    aria-controls={panelId}
+                    onClick={() => setMobileSection(expanded ? null : item.label)}
+                    className="flex w-full items-center justify-between px-1 py-4 text-left font-display text-xl font-extrabold tracking-[-0.02em]"
+                  >
+                    <span className="flex items-center gap-2">
+                      {item.label}
+                      {active && <span aria-hidden className="h-2 w-2 rounded-full bg-brand" />}
+                    </span>
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-surface">
+                      <Chevron open={expanded} />
+                    </span>
+                  </button>
+                  <div id={panelId} className={`space-y-5 pb-5 ${expanded ? "block" : "hidden"}`}>
+                    {item.groups.map((group) => {
+                      const compact = group.links.length > 3;
+                      return (
+                        <div key={group.title}>
+                          <p className="mb-2 px-1 text-xs font-semibold tracking-wide text-muted uppercase">
+                            {group.title}
+                          </p>
+                          <ul className={compact ? "grid grid-cols-2 gap-2" : "space-y-2"}>
+                            {group.links.map((link) => {
+                              const current = pathname === link.href;
+                              return (
+                                <li key={link.href}>
+                                  <Link
+                                    href={link.href}
+                                    aria-current={current ? "page" : undefined}
+                                    className={`block rounded-2xl px-4 py-3 transition ${
+                                      current ? "bg-foreground text-inverse" : "bg-surface"
+                                    }`}
+                                  >
+                                    <span className="block text-[15px] font-semibold">
+                                      {link.label}
+                                    </span>
+                                    {link.hint && (
+                                      <span
+                                        className={`block text-xs ${current ? "opacity-70" : "text-muted"}`}
+                                      >
+                                        {link.hint}
+                                      </span>
+                                    )}
+                                  </Link>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </div>
+                      );
+                    })}
                   </div>
-                )}
-              </li>
-            ))}
+                </li>
+              );
+            })}
           </ul>
         </nav>
       </div>
