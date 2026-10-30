@@ -8,6 +8,8 @@ Account: https://www.instagram.com/footiqra/ (language: English). The link in th
 npm run instagram                      # weekly set: top10, leagues, weekend
 npm run instagram -- methodology       # evergreen carousel "How the ranking works"
 npm run instagram -- top10 weekend     # single posts
+npm run instagram -- match             # biggest game of the week in detail (5 slides)
+npm run instagram -- match --match=<match-slug>   # a specific match
 ```
 
 Output lands in `instagram-out/` (git-ignored): 1080x1350 PNGs plus `captions.md` with ready English captions.
@@ -26,12 +28,12 @@ Slide layouts live in `scripts/instagram/` (`styles.ts`, `slides.ts`), captions 
 
 ## Weekly rhythm
 
-| Day | Post | Command |
-| --- | --- | --- |
-| Tuesday | Top 10 carousel | `top10` |
-| Thursday | Best club per league | `leagues` |
-| Friday | Weekend forecast | `weekend` |
-| Sunday | Story or reel (free choice) | manual |
+| Day      | Post                        | Command   |
+| -------- | --------------------------- | --------- |
+| Tuesday  | Top 10 carousel             | `top10`   |
+| Thursday | Best club per league        | `leagues` |
+| Friday   | Weekend forecast            | `weekend` |
+| Sunday   | Story or reel (free choice) | manual    |
 
 Best posting time is evening in Central Europe. Reply to every comment within the first hour.
 

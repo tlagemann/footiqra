@@ -156,3 +156,161 @@ export function methodology(): Slides {
     ),
   };
 }
+
+/** Everything the match preview carousel shows; built from the match page data. */
+export interface MatchPreview {
+  slug: string;
+  utcDate: string;
+  competition: string;
+  venue: string | null;
+  weekRank: number;
+  weekMatches: number;
+  home: PreviewSide;
+  away: PreviewSide;
+  p: { home: number; draw: number; away: number };
+  xg: { home: number; away: number };
+  scores: { home: number; away: number; p: number }[];
+  over25: number;
+  bothScore: number;
+  cleanSheet: { home: number; away: number };
+  /** Season-end chances that this match moves most, one per club at most. */
+  stakes: {
+    team: string;
+    crest: string | null;
+    zone: string;
+    now: number;
+    win: number;
+    draw: number;
+    loss: number;
+  }[];
+}
+export interface PreviewSide {
+  name: string;
+  crest: string | null;
+  rank: number;
+  rating: number;
+  position: number | null;
+  points: number | null;
+  goalsPerGame: number | null;
+  form: ("W" | "D" | "L")[];
+  scorer: { name: string; goals: number } | null;
+}
+
+const PREVIEW_CSS = `<style>
+.vs{display:flex;align-items:center;justify-content:space-between;margin-top:70px}
+.vs .t{display:flex;flex-direction:column;align-items:center;gap:22px;width:400px;text-align:center;font-family:IT;font-weight:800;font-size:56px;line-height:1.05}
+.vs .t img,.vs .t .nocrest{width:190px;height:190px;object-fit:contain}
+.vs .x{font-family:IT;font-weight:800;font-size:48px;color:#6b7079}
+.when{color:#9aa0a8;font-size:30px;margin-top:56px;text-align:center}
+.prob.lg{height:76px;font-size:36px;border-radius:18px;margin-top:40px}
+.pl{display:flex;justify-content:space-between;color:#9aa0a8;font-size:26px;margin-top:12px}
+.tape{margin-top:40px}
+.tr{display:grid;grid-template-columns:1fr 320px 1fr;align-items:center;height:104px;border-top:2px solid #1f2226}
+.tr:first-child{border-top:0}
+.tr b{font-family:IT;font-weight:800;font-size:46px;font-variant-numeric:tabular-nums}
+.tr b.r{text-align:right}.tr span{color:#9aa0a8;font-size:26px;text-align:center}
+.tr small{display:block;color:#9aa0a8;font-family:IN;font-weight:400;font-size:24px;margin-top:2px}
+.th{display:grid;grid-template-columns:1fr 1fr;margin-top:40px}
+.th div{display:flex;align-items:center;gap:16px;font-family:IT;font-weight:800;font-size:40px}
+.th div:last-child{justify-content:flex-end}.th img,.th .nocrest{width:64px;height:64px;object-fit:contain}
+.fm{display:inline-flex;gap:8px}.fm i{font-style:normal;width:40px;height:40px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;font-family:IT;font-weight:800;font-size:22px;color:#0a0a0a}
+.fm .W{background:#12c27a}.fm .D{background:#a1a7b0}.fm .L{background:#e5484d;color:#fff}
+.sc{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:50px}
+.sc div{background:#111214;border:2px solid #1f2226;border-radius:28px;padding:34px 0;text-align:center}
+.sc div:first-child{border-color:#12c27a}
+.sc b{font-family:IT;font-weight:800;font-size:64px;display:block}
+.sc span{color:#9aa0a8;font-size:28px;display:block;margin-top:6px}
+.kp{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+.kp div{background:#111214;border:2px solid #1f2226;border-radius:28px;padding:30px 30px}
+.kp span{color:#9aa0a8;font-size:26px;display:block}
+.kp b{font-family:IT;font-weight:800;font-size:58px;display:block;margin-top:6px}
+.st{background:#111214;border:2px solid #1f2226;border-radius:28px;padding:34px 40px;margin-top:34px}
+.st .hd{display:flex;align-items:center;gap:18px;font-family:IT;font-weight:800;font-size:40px}
+.st .hd img,.st .hd .nocrest{width:60px;height:60px;object-fit:contain}
+.st .hd em{font-style:normal;color:#9aa0a8;font-family:IN;font-weight:400;font-size:28px;margin-left:auto}
+.sg{display:grid;grid-template-columns:repeat(4,1fr);margin-top:24px;text-align:center}
+.sg span{color:#9aa0a8;font-size:24px;display:block}
+.sg b{font-family:IT;font-weight:800;font-size:56px;display:block;margin-top:4px}
+.up{color:#12c27a}.down{color:#e5484d}
+</style>`;
+
+const pageP = (inner: string) => page(PREVIEW_CSS + inner);
+const pct = (p: number) => `${Math.round(p * 100)}%`;
+const ord = (n: number) =>
+  `${n}${n % 100 >= 11 && n % 100 <= 13 ? "th" : (["th", "st", "nd", "rd"][n % 10] ?? "th")}`;
+
+/** Post: one match in detail (cover, tale of the tape, likely scores, stakes, call to action). */
+export function matchPreview(m: MatchPreview): Slides {
+  const when = new Date(m.utcDate).toLocaleString("en-GB", {
+    weekday: "short",
+    day: "numeric",
+    month: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "Europe/Berlin",
+  });
+  const h = m.home;
+  const a = m.away;
+  const form = (f: PreviewSide["form"]) =>
+    `<span class="fm">${f.map((r) => `<i class="${r}">${r}</i>`).join("")}</span>`;
+  const tr = (label: string, l: string, r: string) =>
+    `<div class="tr"><b>${l}</b><span>${label}</span><b class="r">${r}</b></div>`;
+  const tone = (zone: string, v: number, now: number) => {
+    const d = v - now;
+    if (Math.abs(d) < 0.01) return "";
+    return (zone.startsWith("Bottom") ? d < 0 : d > 0) ? "up" : "down";
+  };
+  return {
+    "match-1-cover": pageP(
+      `<div class="pad"><div class="eyebrow">Game of the week · #${m.weekRank} of ${m.weekMatches}</div><h2>${h.name} vs ${a.name}</h2><div class="vs"><div class="t">${crest(h.crest)}${h.name}</div><div class="x">vs</div><div class="t">${crest(a.crest)}${a.name}</div></div><p class="when">${when} CET · ${m.competition}${m.venue ? ` · ${m.venue}` : ""}</p><div class="prob lg"><div class="ph" style="width:${m.p.home}%">${m.p.home}%</div><div class="pd" style="width:${m.p.draw}%">${m.p.draw}%</div><div class="pa" style="width:${m.p.away}%">${m.p.away}%</div></div><div class="pl"><span>${h.name} win</span><span>Draw</span><span>${a.name} win</span></div><p class="sub" style="margin-top:110px;font-size:34px">The biggest of ${m.weekMatches} matches in Europe's top leagues this week, by the strength of both clubs. Swipe for the numbers →</p></div>`,
+    ),
+    "match-2-tape": pageP(
+      `<div class="pad"><div class="eyebrow">Tale of the tape</div><h2>Head to head, by the numbers</h2><div class="th"><div>${crest(h.crest)}${h.name}</div><div>${a.name}${crest(a.crest)}</div></div><div class="tape">${[
+        tr("Power rank", `#${h.rank}`, `#${a.rank}`),
+        tr("Rating", `${h.rating}`, `${a.rating}`),
+        h.position && a.position
+          ? tr(
+              "League",
+              `${ord(h.position)}<small>${h.points} pts</small>`,
+              `${ord(a.position)}<small>${a.points} pts</small>`,
+            )
+          : "",
+        h.goalsPerGame !== null && a.goalsPerGame !== null
+          ? tr("Goals per game", h.goalsPerGame.toFixed(2), a.goalsPerGame.toFixed(2))
+          : "",
+        tr("Form", form(h.form), form(a.form)),
+        h.scorer && a.scorer
+          ? tr(
+              "Top scorer",
+              `${h.scorer.goals}<small>${h.scorer.name}</small>`,
+              `${a.scorer.goals}<small>${a.scorer.name}</small>`,
+            )
+          : "",
+      ].join(
+        "",
+      )}</div><p class="sub" style="font-size:24px;margin-top:20px">Form: last five matches, latest on the right. League goals this season.</p></div>`,
+    ),
+    "match-3-scores": pageP(
+      `<div class="pad"><div class="eyebrow">Match forecast</div><h2>Most likely scores</h2><div class="sc">${m.scores
+        .map((s) => `<div><b>${s.home}:${s.away}</b><span>${pct(s.p)}</span></div>`)
+        .join(
+          "",
+        )}</div><div class="kp"><div><span>Expected goals</span><b>${m.xg.home.toFixed(1)} : ${m.xg.away.toFixed(1)}</b></div><div><span>3+ goals</span><b>${pct(m.over25)}</b></div><div><span>Both teams score</span><b>${pct(m.bothScore)}</b></div></div><div class="kp" style="grid-template-columns:repeat(2,1fr)"><div><span>${h.name} clean sheet</span><b>${pct(m.cleanSheet.home)}</b></div><div><span>${a.name} clean sheet</span><b>${pct(m.cleanSheet.away)}</b></div></div><p class="sub" style="margin-top:40px">Exact scores from the same model as the win, draw and loss chances: league scoring levels, adjusted for the strength of both clubs.</p></div>`,
+    ),
+    ...(m.stakes.length > 0
+      ? {
+          "match-4-stakes": pageP(
+            `<div class="pad"><div class="eyebrow">What's at stake</div><h2>How this game moves the season</h2><p class="sub">Chances at the end of the season, from 10,000 simulations of all remaining matches.</p>${m.stakes
+              .map(
+                (s) =>
+                  `<div class="st"><div class="hd">${crest(s.crest)}${s.team}<em>${s.zone}</em></div><div class="sg"><div><span>Now</span><b>${pct(s.now)}</b></div><div><span>Win</span><b class="${tone(s.zone, s.win, s.now)}">${pct(s.win)}</b></div><div><span>Draw</span><b class="${tone(s.zone, s.draw, s.now)}">${pct(s.draw)}</b></div><div><span>Defeat</span><b class="${tone(s.zone, s.loss, s.now)}">${pct(s.loss)}</b></div></div></div>`,
+              )
+              .join("")}</div>`,
+          ),
+        }
+      : {}),
+    "match-5-cta": page(
+      `<div class="cta"><div class="eyebrow">Full match preview</div><h1>Every number for ${h.name} vs ${a.name}</h1><p class="sub">Forecast, likely scores, season stakes, rating trend, top scorers and the biggest games of the week.</p><span class="url">footiqra.com</span></div>`,
+    ),
+  };
+}
