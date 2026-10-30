@@ -984,20 +984,6 @@
       "lastUpdated": "2026-10-30T00:20:30.000Z"
     },
     {
-      "id": 564698,
-      "utcDate": "2026-10-10T12:00:00.000Z",
-      "status": "CANCELLED",
-      "matchday": 8,
-      "stage": "REGULAR_SEASON",
-      "homeTeamId": 87,
-      "awayTeamId": 77,
-      "homeGoals": 0,
-      "awayGoals": 0,
-      "duration": "REGULAR",
-      "winner": "DRAW",
-      "lastUpdated": "2026-10-30T00:20:30.000Z"
-    },
-    {
       "id": 564699,
       "utcDate": "2026-10-10T14:15:00.000Z",
       "status": "FINISHED",
@@ -2102,6 +2088,20 @@
       "duration": "REGULAR",
       "winner": null,
       "lastUpdated": "2026-10-30T00:20:30.000Z"
+    },
+    {
+      "id": 564698,
+      "utcDate": "2026-12-09T19:00:00.000Z",
+      "status": "CANCELLED",
+      "matchday": 8,
+      "stage": "REGULAR_SEASON",
+      "homeTeamId": 87,
+      "awayTeamId": 77,
+      "homeGoals": 0,
+      "awayGoals": 0,
+      "duration": "REGULAR",
+      "winner": "DRAW",
+      "lastUpdated": "2026-10-30T14:25:10.000Z"
     },
     {
       "id": 564778,
