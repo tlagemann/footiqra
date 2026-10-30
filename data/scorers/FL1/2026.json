@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "FL1",
   "season": 2026,
-  "fetchedUtc": "2026-10-30T18:57:04.848Z",
+  "fetchedUtc": "2026-10-30T19:30:41.434Z",
   "scorers": [
     {
       "playerId": 149850,
@@ -65,7 +65,7 @@
       "goals": 4,
       "assists": 8,
       "penalties": 3,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 124178,
@@ -122,6 +122,15 @@
       "playedMatches": 9
     },
     {
+      "playerId": 98299,
+      "name": "Boulaye Dia",
+      "teamId": 529,
+      "goals": 4,
+      "assists": null,
+      "penalties": 1,
+      "playedMatches": 7
+    },
+    {
       "playerId": 4289,
       "name": "Daniel Namaso",
       "teamId": 519,
@@ -167,15 +176,6 @@
       "playedMatches": 5
     },
     {
-      "playerId": 98299,
-      "name": "Boulaye Dia",
-      "teamId": 529,
-      "goals": 3,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 7
-    },
-    {
       "playerId": 80754,
       "name": "Himad Abdelli",
       "teamId": 516,
@@ -185,13 +185,22 @@
       "playedMatches": 8
     },
     {
+      "playerId": 53,
+      "name": "Achraf Hakimi",
+      "teamId": 524,
+      "goals": 3,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
       "playerId": 183643,
       "name": "Franjo Ivanovic",
       "teamId": 546,
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 3371,
@@ -200,7 +209,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": 1,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 188087,
@@ -218,7 +227,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 245336,
@@ -326,7 +335,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 8717,
@@ -335,7 +344,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 278087,
@@ -354,6 +363,15 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 8
+    },
+    {
+      "playerId": 180827,
+      "name": "Mohammed Amoura",
+      "teamId": 522,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 7
     },
     {
       "playerId": 43707,
@@ -410,6 +428,15 @@
       "playedMatches": 8
     },
     {
+      "playerId": 246066,
+      "name": "Senny Mayulu",
+      "teamId": 524,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 5
+    },
+    {
       "playerId": 189574,
       "name": "Mika Godts",
       "teamId": 524,
@@ -443,7 +470,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 4
+      "playedMatches": 5
     },
     {
       "playerId": 188468,
@@ -515,7 +542,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 178722,
@@ -815,15 +842,6 @@
       "playedMatches": 8
     },
     {
-      "playerId": 180827,
-      "name": "Mohammed Amoura",
-      "teamId": 522,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 7
-    },
-    {
       "playerId": 7910,
       "name": "Angel Gomes",
       "teamId": 516,
@@ -839,7 +857,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 281451,
@@ -884,24 +902,6 @@
       "goals": 1,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 9
-    },
-    {
-      "playerId": 113285,
-      "name": "Khvicha Kvaratskhelia",
-      "teamId": 524,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 7
-    },
-    {
-      "playerId": 175701,
-      "name": "Maghnes Akliouche",
-      "teamId": 524,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
       "playedMatches": 9
     }
   ]
