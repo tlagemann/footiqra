@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "competition": "SA",
+  "season": 2026,
+  "fetchedUtc": "2026-10-30T10:15:10.028Z",
+  "clubs": [
+    {
+      "teamId": 98,
+      "venue": "Stadio Giuseppe Meazza",
+      "founded": 1899
+    },
+    {
+      "teamId": 99,
+      "venue": "Stadio Artemio Franchi",
+      "founded": 1926
+    },
+    {
+      "teamId": 100,
+      "venue": "Stadio Olimpico",
+      "founded": 1927
+    },
+    {
+      "teamId": 102,
+      "venue": "Stadio Atleti Azzurri d'Italia",
+      "founded": 1904
+    },
+    {
+      "teamId": 103,
+      "venue": "Stadio Renato Dall'Ara",
+      "founded": 1909
+    },
+    {
+      "teamId": 104,
+      "venue": "Sardegna Arena",
+      "founded": 1920
+    },
+    {
+      "teamId": 107,
+      "venue": "Stadio Comunale Luigi Ferraris",
+      "founded": 1893
+    },
+    {
+      "teamId": 108,
+      "venue": "Stadio Giuseppe Meazza",
+      "founded": 1908
+    },
+    {
+      "teamId": 109,
+      "venue": "Allianz Stadium",
+      "founded": 1897
+    },
+    {
+      "teamId": 110,
+      "venue": "Stadio Olimpico",
+      "founded": 1900
+    },
+    {
+      "teamId": 112,
+      "venue": "Stadio Ennio Tardini",
+      "founded": 1913
+    },
+    {
+      "teamId": 113,
+      "venue": "Stadio San Paolo",
+      "founded": 1904
+    },
+    {
+      "teamId": 115,
+      "venue": "Dacia Arena",
+      "founded": 1896
+    },
+    {
+      "teamId": 454,
+      "venue": "Stadio Pierluigi Penzo",
+      "founded": 1907
+    },
+    {
+      "teamId": 470,
+      "venue": "Stadio Benito Stirpe",
+      "founded": 1912
+    },
+    {
+      "teamId": 471,
+      "venue": "Mapei Stadium - Città del Tricolore",
+      "founded": 1920
+    },
+    {
+      "teamId": 586,
+      "venue": "Stadio Olimpico di Torino",
+      "founded": 1894
+    },
+    {
+      "teamId": 5890,
+      "venue": "Stadio Comunale Via Del Mare",
+      "founded": 1908
+    },
+    {
+      "teamId": 5911,
+      "venue": "Stadio Comunale Brianteo",
+      "founded": 1912
+    },
+    {
+      "teamId": 7397,
+      "venue": "Stadio Giuseppe Sinigaglia",
+      "founded": 1907
+    }
+  ]
+}

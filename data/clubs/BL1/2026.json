@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "competition": "BL1",
+  "season": 2026,
+  "fetchedUtc": "2026-10-30T10:15:24.965Z",
+  "clubs": [
+    {
+      "teamId": 1,
+      "venue": "RheinEnergieSTADION",
+      "founded": 1948
+    },
+    {
+      "teamId": 2,
+      "venue": "PreZero Arena",
+      "founded": 1921
+    },
+    {
+      "teamId": 3,
+      "venue": "BayArena",
+      "founded": 1904
+    },
+    {
+      "teamId": 4,
+      "venue": "Signal Iduna Park",
+      "founded": 1909
+    },
+    {
+      "teamId": 5,
+      "venue": "Allianz Arena",
+      "founded": 1900
+    },
+    {
+      "teamId": 6,
+      "venue": "Veltins-Arena",
+      "founded": 1904
+    },
+    {
+      "teamId": 7,
+      "venue": "Volksparkstadion",
+      "founded": 1887
+    },
+    {
+      "teamId": 10,
+      "venue": "Mercedes-Benz Arena",
+      "founded": 1893
+    },
+    {
+      "teamId": 12,
+      "venue": "Weserstadion",
+      "founded": 1899
+    },
+    {
+      "teamId": 15,
+      "venue": "Opel Arena",
+      "founded": 1905
+    },
+    {
+      "teamId": 16,
+      "venue": "WWK Arena",
+      "founded": 1907
+    },
+    {
+      "teamId": 17,
+      "venue": "Schwarzwald-Stadion",
+      "founded": 1912
+    },
+    {
+      "teamId": 18,
+      "venue": "Stadion im Borussia-Park",
+      "founded": 1900
+    },
+    {
+      "teamId": 19,
+      "venue": "Deutsche Bank Park",
+      "founded": 1899
+    },
+    {
+      "teamId": 28,
+      "venue": "Stadion An der Alten Försterei",
+      "founded": 1906
+    },
+    {
+      "teamId": 29,
+      "venue": "Benteler-Arena",
+      "founded": 1985
+    },
+    {
+      "teamId": 719,
+      "venue": "Ursapharm-Arena an der Kaiserlinde",
+      "founded": 1907
+    },
+    {
+      "teamId": 721,
+      "venue": "Red Bull Arena",
+      "founded": 2009
+    }
+  ]
+}

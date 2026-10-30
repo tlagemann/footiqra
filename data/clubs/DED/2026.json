@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "competition": "DED",
+  "season": 2026,
+  "fetchedUtc": "2026-10-30T10:16:09.782Z",
+  "clubs": [
+    {
+      "teamId": 666,
+      "venue": "De Grolsch Veste",
+      "founded": 1965
+    },
+    {
+      "teamId": 670,
+      "venue": "Van Donge & De Roo Stadion",
+      "founded": 1902
+    },
+    {
+      "teamId": 672,
+      "venue": "Koning Willem II Stadion",
+      "founded": 1896
+    },
+    {
+      "teamId": 673,
+      "venue": "Abe Lenstra Stadion",
+      "founded": 1920
+    },
+    {
+      "teamId": 674,
+      "venue": "Philips Stadion",
+      "founded": 1913
+    },
+    {
+      "teamId": 675,
+      "venue": "Stadion Feijenoord",
+      "founded": 1908
+    },
+    {
+      "teamId": 676,
+      "venue": "Stadion Galgenwaard",
+      "founded": 1970
+    },
+    {
+      "teamId": 677,
+      "venue": "Hitachi Capital Mobility Stadion",
+      "founded": 1921
+    },
+    {
+      "teamId": 678,
+      "venue": "Johan Cruyff ArenA",
+      "founded": 1900
+    },
+    {
+      "teamId": 680,
+      "venue": "Cars Jeans Stadion",
+      "founded": 1905
+    },
+    {
+      "teamId": 682,
+      "venue": "AFAS Stadion",
+      "founded": 1967
+    },
+    {
+      "teamId": 684,
+      "venue": "MAC³PARK Stadion",
+      "founded": 1910
+    },
+    {
+      "teamId": 718,
+      "venue": "De Adelaarshorst",
+      "founded": 1902
+    },
+    {
+      "teamId": 1909,
+      "venue": "Cambuurstadion",
+      "founded": 1917
+    },
+    {
+      "teamId": 1912,
+      "venue": "Rabobank IJmond Stadion",
+      "founded": 1963
+    },
+    {
+      "teamId": 1915,
+      "venue": "Goffertstadion",
+      "founded": 1900
+    },
+    {
+      "teamId": 1920,
+      "venue": "Fortuna Sittard Stadion",
+      "founded": 1968
+    },
+    {
+      "teamId": 6806,
+      "venue": "Sparta-Stadion Het Kasteel",
+      "founded": 1888
+    }
+  ]
+}

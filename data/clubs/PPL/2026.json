@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "competition": "PPL",
+  "season": 2026,
+  "fetchedUtc": "2026-10-30T10:15:54.706Z",
+  "clubs": [
+    {
+      "teamId": 496,
+      "venue": "Estádio do Rio Ave Futebol Clube",
+      "founded": 1939
+    },
+    {
+      "teamId": 498,
+      "venue": "Estádio José Alvalade",
+      "founded": 1906
+    },
+    {
+      "teamId": 503,
+      "venue": "Estádio Do Dragão",
+      "founded": 1893
+    },
+    {
+      "teamId": 582,
+      "venue": "Estádio António Coimbra da Mota",
+      "founded": 1939
+    },
+    {
+      "teamId": 583,
+      "venue": "P.D. Comendador Joaquim de Almeida Freitas",
+      "founded": 1938
+    },
+    {
+      "teamId": 712,
+      "venue": "Estádio Municipal de Arouca",
+      "founded": 1952
+    },
+    {
+      "teamId": 1903,
+      "venue": "Estádio do Sport Lisboa e Benfica",
+      "founded": 1904
+    },
+    {
+      "teamId": 5527,
+      "venue": "Estádio Municipal do Fontelo",
+      "founded": 1914
+    },
+    {
+      "teamId": 5529,
+      "venue": "Estádio da Madeira",
+      "founded": 1910
+    },
+    {
+      "teamId": 5530,
+      "venue": "Cidade do Futebol",
+      "founded": 1921
+    },
+    {
+      "teamId": 5531,
+      "venue": "Estádio Municipal 22 de Junho",
+      "founded": 1931
+    },
+    {
+      "teamId": 5533,
+      "venue": "Estádio Cidade de Barcelos",
+      "founded": 1924
+    },
+    {
+      "teamId": 5543,
+      "venue": "Estádio Dom Afonso Henriques",
+      "founded": 1922
+    },
+    {
+      "teamId": 5575,
+      "venue": "Estádio dos Barreiros",
+      "founded": 1910
+    },
+    {
+      "teamId": 5613,
+      "venue": "Estádio Municipal de Braga",
+      "founded": 1921
+    },
+    {
+      "teamId": 6618,
+      "venue": "Estádio Pina Manique",
+      "founded": 1920
+    },
+    {
+      "teamId": 7822,
+      "venue": "Campo Futebol Clube Alverca",
+      "founded": 1939
+    },
+    {
+      "teamId": 9136,
+      "venue": "Estádio Nacional",
+      "founded": null
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "competition": "FL1",
+  "season": 2026,
+  "fetchedUtc": "2026-10-30T10:15:39.755Z",
+  "clubs": [
+    {
+      "teamId": 511,
+      "venue": "Stadium Municipal",
+      "founded": 1937
+    },
+    {
+      "teamId": 512,
+      "venue": "Stade Francis-Le Blé",
+      "founded": 1903
+    },
+    {
+      "teamId": 516,
+      "venue": "Orange Vélodrome",
+      "founded": 1898
+    },
+    {
+      "teamId": 519,
+      "venue": "Stade de l'Abbé Deschamps",
+      "founded": 1905
+    },
+    {
+      "teamId": 521,
+      "venue": "Stade Pierre-Mauroy",
+      "founded": 1944
+    },
+    {
+      "teamId": 522,
+      "venue": "Stade de Nice",
+      "founded": 1904
+    },
+    {
+      "teamId": 523,
+      "venue": "Groupama Stadium",
+      "founded": 1896
+    },
+    {
+      "teamId": 524,
+      "venue": "Parc des Princes",
+      "founded": 1904
+    },
+    {
+      "teamId": 525,
+      "venue": "Stade Yves Allainmat - Le Moustoir",
+      "founded": 1926
+    },
+    {
+      "teamId": 529,
+      "venue": "Roazhon Park",
+      "founded": 1901
+    },
+    {
+      "teamId": 531,
+      "venue": "Stade de l'Aube",
+      "founded": 1986
+    },
+    {
+      "teamId": 532,
+      "venue": "Stade Raymond Kopa",
+      "founded": 1919
+    },
+    {
+      "teamId": 533,
+      "venue": "Stade Océane",
+      "founded": 1872
+    },
+    {
+      "teamId": 535,
+      "venue": "MMArena",
+      "founded": 1985
+    },
+    {
+      "teamId": 546,
+      "venue": "Stade Bollaert-Delelis",
+      "founded": 1906
+    },
+    {
+      "teamId": 548,
+      "venue": "Stade Louis II.",
+      "founded": 1919
+    },
+    {
+      "teamId": 576,
+      "venue": "Stade de la Meinau",
+      "founded": 1906
+    },
+    {
+      "teamId": 1045,
+      "venue": "Stade Sébastien Charléty",
+      "founded": 1969
+    }
+  ]
+}

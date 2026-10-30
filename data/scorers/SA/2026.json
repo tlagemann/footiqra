@@ -1,0 +1,908 @@
+{
+  "schemaVersion": 1,
+  "competition": "SA",
+  "season": 2026,
+  "fetchedUtc": "2026-10-30T10:15:18.041Z",
+  "scorers": [
+    {
+      "playerId": 252836,
+      "name": "Gustavo Varela",
+      "teamId": 5911,
+      "goals": 8,
+      "assists": 1,
+      "penalties": 1,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 169216,
+      "name": "Antonio Raimondo",
+      "teamId": 470,
+      "goals": 8,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 7457,
+      "name": "Donyell Malen",
+      "teamId": 100,
+      "goals": 7,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 120679,
+      "name": "Nikola Krstović",
+      "teamId": 102,
+      "goals": 6,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 43285,
+      "name": "Anastasios Douvikas",
+      "teamId": 7397,
+      "goals": 5,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 8685,
+      "name": "Marcus Thuram-Ulien",
+      "teamId": 108,
+      "goals": 5,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 136113,
+      "name": "Daniel Maldini",
+      "teamId": 104,
+      "goals": 5,
+      "assists": null,
+      "penalties": 1,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 3654,
+      "name": "Kevin De Bruyne",
+      "teamId": 113,
+      "goals": 4,
+      "assists": 1,
+      "penalties": 1,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 192142,
+      "name": "Alphadjo Cisse",
+      "teamId": 98,
+      "goals": 4,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 3368,
+      "name": "Adrien Rabiot",
+      "teamId": 98,
+      "goals": 4,
+      "assists": 3,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 4119,
+      "name": "Che Adams",
+      "teamId": 586,
+      "goals": 4,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 3220,
+      "name": "Lautaro Martínez",
+      "teamId": 108,
+      "goals": 4,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 6
+    },
+    {
+      "playerId": 171448,
+      "name": "Tijjani Noslin",
+      "teamId": 110,
+      "goals": 4,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 40786,
+      "name": "Giacomo Calò",
+      "teamId": 470,
+      "goals": 4,
+      "assists": 1,
+      "penalties": 1,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 1754,
+      "name": "Hakan Çalhanoğlu",
+      "teamId": 108,
+      "goals": 3,
+      "assists": null,
+      "penalties": 1,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 2200,
+      "name": "Davide Frattesi",
+      "teamId": 110,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 192382,
+      "name": "Niccolo Pisilli",
+      "teamId": 100,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 7567,
+      "name": "Jurgen Ekkelenkamp",
+      "teamId": 115,
+      "goals": 3,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 156912,
+      "name": "Martin Baturina",
+      "teamId": 7397,
+      "goals": 3,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 152770,
+      "name": "Rasmus Højlund",
+      "teamId": 113,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 171121,
+      "name": "Matias Soule",
+      "teamId": 100,
+      "goals": 3,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 67743,
+      "name": "Milutin Osmajić",
+      "teamId": 107,
+      "goals": 3,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 203511,
+      "name": "Nico Paz",
+      "teamId": 7397,
+      "goals": 3,
+      "assists": 3,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 211564,
+      "name": "Giorgi Kvernadze",
+      "teamId": 470,
+      "goals": 3,
+      "assists": 3,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 183018,
+      "name": "Vasilije Adzic",
+      "teamId": 471,
+      "goals": 3,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 250304,
+      "name": "Franco Mastantuono",
+      "teamId": 99,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 182192,
+      "name": "Diego Moreira",
+      "teamId": 98,
+      "goals": 3,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 128007,
+      "name": "Gustav Isaksen",
+      "teamId": 110,
+      "goals": 3,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 217678,
+      "name": "Samuel Mbangula",
+      "teamId": 103,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 6
+    },
+    {
+      "playerId": 822,
+      "name": "Hassane Kamara",
+      "teamId": 115,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 2097,
+      "name": "Piotr Zieliński",
+      "teamId": 108,
+      "goals": 2,
+      "assists": 2,
+      "penalties": 1,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 215433,
+      "name": "Francesco Esposito",
+      "teamId": 108,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 1106,
+      "name": "Bremer",
+      "teamId": 109,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 246341,
+      "name": "Tiago Gabriel",
+      "teamId": 5890,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 125523,
+      "name": "Cas Odenthal",
+      "teamId": 471,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 101431,
+      "name": "Gonçalo Ramos",
+      "teamId": 98,
+      "goals": 2,
+      "assists": 1,
+      "penalties": 1,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 2202,
+      "name": "Domenico Berardi",
+      "teamId": 471,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 261273,
+      "name": "Rodrigo Mora",
+      "teamId": 100,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 218474,
+      "name": "Assane Diao",
+      "teamId": 7397,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 6
+    },
+    {
+      "playerId": 157538,
+      "name": "Mateo Pellegrino",
+      "teamId": 99,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 2193,
+      "name": "Matteo Politano",
+      "teamId": 113,
+      "goals": 2,
+      "assists": 3,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 81440,
+      "name": "Éderson",
+      "teamId": 102,
+      "goals": 2,
+      "assists": null,
+      "penalties": 1,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 265567,
+      "name": "Jay Robinson",
+      "teamId": 5911,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 299423,
+      "name": "Simone Lontani",
+      "teamId": 112,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 82132,
+      "name": "Akor Adams",
+      "teamId": 454,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 188464,
+      "name": "Antoine Hainaut",
+      "teamId": 454,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 8658,
+      "name": "Lassana Coulibaly",
+      "teamId": 5890,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 114054,
+      "name": "Sebastiano Esposito",
+      "teamId": 471,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 8990,
+      "name": "Edon Zhegrova",
+      "teamId": 109,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 247056,
+      "name": "Jacobo Ramón",
+      "teamId": 7397,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 165857,
+      "name": "José Romero",
+      "teamId": 112,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 167689,
+      "name": "Carlos Augusto Lobaton",
+      "teamId": 108,
+      "goals": 2,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 152738,
+      "name": "Ange-Yoan Bonny",
+      "teamId": 108,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 2040,
+      "name": "Federico Bernardeschi",
+      "teamId": 103,
+      "goals": 2,
+      "assists": null,
+      "penalties": 1,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 59075,
+      "name": "Sandro Kulenović",
+      "teamId": 586,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 102395,
+      "name": "Manu Koné",
+      "teamId": 100,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 6
+    },
+    {
+      "playerId": 2158,
+      "name": "Mattia Zaccagni",
+      "teamId": 110,
+      "goals": 2,
+      "assists": 5,
+      "penalties": 1,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 227048,
+      "name": "Álex Jiménez",
+      "teamId": 99,
+      "goals": 2,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 145,
+      "name": "Christian Pulisic",
+      "teamId": 98,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 44033,
+      "name": "Kristian Thorstvedt",
+      "teamId": 471,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 290391,
+      "name": "Emanuele Lulli",
+      "teamId": 100,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 1789,
+      "name": "Giovanni Simeone",
+      "teamId": 586,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 7905,
+      "name": "Scott McTominay",
+      "teamId": 113,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 6
+    },
+    {
+      "playerId": 82020,
+      "name": "Leonardo Balerdi",
+      "teamId": 100,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 97537,
+      "name": "Kenneth Taylor",
+      "teamId": 110,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 16346,
+      "name": "Romano Schmid",
+      "teamId": 470,
+      "goals": 2,
+      "assists": 4,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 129635,
+      "name": "Daniel Birligea",
+      "teamId": 470,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 193,
+      "name": "Yann Aurel Bisseck",
+      "teamId": 108,
+      "goals": 1,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 176944,
+      "name": "Antonio Vergara",
+      "teamId": 113,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 274076,
+      "name": "Alessandro Romano",
+      "teamId": 104,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 226967,
+      "name": "Olaf Gorter",
+      "teamId": 5890,
+      "goals": 1,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 114117,
+      "name": "Giacomo Raspadori",
+      "teamId": 102,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 6
+    },
+    {
+      "playerId": 175891,
+      "name": "Cristian Volpato",
+      "teamId": 471,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 217391,
+      "name": "Pietro Comuzzo",
+      "teamId": 586,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 64243,
+      "name": "Jakub Piotrowski",
+      "teamId": 115,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 6
+    },
+    {
+      "playerId": 1852,
+      "name": "Andrea Colpani",
+      "teamId": 5911,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 186575,
+      "name": "Gabriele Bracaglia",
+      "teamId": 470,
+      "goals": 1,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 45680,
+      "name": "Nicolás González",
+      "teamId": 109,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 7693,
+      "name": "Teun Koopmeiners",
+      "teamId": 109,
+      "goals": 1,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 130420,
+      "name": "Lazar Samardzic",
+      "teamId": 102,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 2230,
+      "name": "Rolando Mandragora",
+      "teamId": 586,
+      "goals": 1,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 32703,
+      "name": "Mario Hermoso",
+      "teamId": 100,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 98549,
+      "name": "John Yeboah",
+      "teamId": 454,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 187435,
+      "name": "Richie Sagrado",
+      "teamId": 454,
+      "goals": 1,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 122407,
+      "name": "Josh Doig",
+      "teamId": 471,
+      "goals": 1,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 102591,
+      "name": "Roberto Piccoli",
+      "teamId": 103,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 24217,
+      "name": "Artem Dovbyk",
+      "teamId": 103,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 153130,
+      "name": "Federico Gatti",
+      "teamId": 109,
+      "goals": 1,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 31065,
+      "name": "Jesper Karlström",
+      "teamId": 115,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 3851,
+      "name": "Albert Guðmundsson",
+      "teamId": 110,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 5
+    },
+    {
+      "playerId": 39330,
+      "name": "Johan Vásquez",
+      "teamId": 107,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 152787,
+      "name": "Matteo Cancellieri",
+      "teamId": 110,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 292394,
+      "name": "Paul Mendy",
+      "teamId": 104,
+      "goals": 1,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 2681,
+      "name": "Gianluca Scamacca",
+      "teamId": 102,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 53190,
+      "name": "Ricardo Mangas",
+      "teamId": 5911,
+      "goals": 1,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 153632,
+      "name": "Exequiel Zeballos",
+      "teamId": 5911,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 5
+    },
+    {
+      "playerId": 33628,
+      "name": "Stanislav Lobotka",
+      "teamId": 113,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 105081,
+      "name": "Kieron Bowie",
+      "teamId": 471,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 181633,
+      "name": "Kaiki Bruno",
+      "teamId": 7397,
+      "goals": 1,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 187208,
+      "name": "James Abankwah",
+      "teamId": 115,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    }
+  ]
+}

@@ -1,0 +1,908 @@
+{
+  "schemaVersion": 1,
+  "competition": "PL",
+  "season": 2026,
+  "fetchedUtc": "2026-10-30T10:14:47.423Z",
+  "scorers": [
+    {
+      "playerId": 38101,
+      "name": "Erling Haaland",
+      "teamId": 65,
+      "goals": 9,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 6486,
+      "name": "Alexander Isak",
+      "teamId": 64,
+      "goals": 6,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 6396,
+      "name": "Marcus Tavernier",
+      "teamId": 1044,
+      "goals": 5,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 103125,
+      "name": "João Pedro",
+      "teamId": 61,
+      "goals": 5,
+      "assists": 3,
+      "penalties": null,
+      "playedMatches": 6
+    },
+    {
+      "playerId": 82140,
+      "name": "Morgan Rogers",
+      "teamId": 61,
+      "goals": 4,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 133242,
+      "name": "Rayan Cherki",
+      "teamId": 65,
+      "goals": 4,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 8626,
+      "name": "Bryan Mbeumo",
+      "teamId": 66,
+      "goals": 4,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 152515,
+      "name": "Nicolas Jackson",
+      "teamId": 58,
+      "goals": 4,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 99813,
+      "name": "Bukayo Saka",
+      "teamId": 57,
+      "goals": 3,
+      "assists": null,
+      "penalties": 1,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 171995,
+      "name": "Thierno Barry",
+      "teamId": 62,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 190851,
+      "name": "Jack Hinshelwood",
+      "teamId": 397,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 3
+    },
+    {
+      "playerId": 2074,
+      "name": "Pedro Neto",
+      "teamId": 61,
+      "goals": 3,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 8273,
+      "name": "Pascal Groß",
+      "teamId": 397,
+      "goals": 3,
+      "assists": 4,
+      "penalties": 1,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 123286,
+      "name": "Kevin Schade",
+      "teamId": 402,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 7839,
+      "name": "Dominic Calvert-Lewin",
+      "teamId": 341,
+      "goals": 3,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 3257,
+      "name": "Bruno Fernandes",
+      "teamId": 66,
+      "goals": 3,
+      "assists": 1,
+      "penalties": 1,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 213072,
+      "name": "Mohamed Belloumi",
+      "teamId": 322,
+      "goals": 3,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 264300,
+      "name": "Charalampos Kostoulas",
+      "teamId": 397,
+      "goals": 3,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 97535,
+      "name": "Brian Brobbey",
+      "teamId": 71,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 6
+    },
+    {
+      "playerId": 131260,
+      "name": "Evanilson",
+      "teamId": 1044,
+      "goals": 3,
+      "assists": 4,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 171,
+      "name": "Kai Havertz",
+      "teamId": 57,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 7427,
+      "name": "Martin Ødegaard",
+      "teamId": 57,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 176628,
+      "name": "Emersonn",
+      "teamId": 349,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 140194,
+      "name": "Kiernan Dewsbury Hall",
+      "teamId": 62,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 101910,
+      "name": "Keane Lewis-Potter",
+      "teamId": 402,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 10000,
+      "name": "Vitaly Janelt",
+      "teamId": 402,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 142075,
+      "name": "Maxim De Cuyper",
+      "teamId": 397,
+      "goals": 2,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 166376,
+      "name": "Anthony Elanga",
+      "teamId": 67,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 4
+    },
+    {
+      "playerId": 7798,
+      "name": "Joe Willock",
+      "teamId": 67,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 246418,
+      "name": "Joshua King",
+      "teamId": 63,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 144892,
+      "name": "Cole Palmer",
+      "teamId": 61,
+      "goals": 2,
+      "assists": 3,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 77641,
+      "name": "Dan Ndoye",
+      "teamId": 351,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 273423,
+      "name": "Víctor Muñoz",
+      "teamId": 64,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 246670,
+      "name": "Malick Yalcouyé",
+      "teamId": 397,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 99120,
+      "name": "Leif Davis",
+      "teamId": 349,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 8076,
+      "name": "Harvey Barnes",
+      "teamId": 67,
+      "goals": 2,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 4184,
+      "name": "Jayden Bogle",
+      "teamId": 341,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 137068,
+      "name": "Tyrick Mitchell",
+      "teamId": 354,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 67893,
+      "name": "Zian Flemming",
+      "teamId": 349,
+      "goals": 2,
+      "assists": null,
+      "penalties": 1,
+      "playedMatches": 6
+    },
+    {
+      "playerId": 1684,
+      "name": "Bruno Guimarães",
+      "teamId": 57,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 145613,
+      "name": "Yasin Ayari",
+      "teamId": 397,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 212309,
+      "name": "Johan Manzambi",
+      "teamId": 58,
+      "goals": 2,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 5
+    },
+    {
+      "playerId": 4417,
+      "name": "Antoine Semenyo",
+      "teamId": 65,
+      "goals": 2,
+      "assists": 3,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 3320,
+      "name": "Jordan Henderson",
+      "teamId": 61,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 4
+    },
+    {
+      "playerId": 114123,
+      "name": "Jack Rudoni",
+      "teamId": 1076,
+      "goals": 2,
+      "assists": null,
+      "penalties": 1,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 6451,
+      "name": "Semi Ajayi",
+      "teamId": 322,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 190558,
+      "name": "Nobel Mendy",
+      "teamId": 322,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 5
+    },
+    {
+      "playerId": 187375,
+      "name": "Nilson Angulo",
+      "teamId": 71,
+      "goals": 1,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 4158,
+      "name": "Jack Clarke",
+      "teamId": 349,
+      "goals": 1,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 65843,
+      "name": "Anton Stach",
+      "teamId": 341,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 204348,
+      "name": "Michael Kayode",
+      "teamId": 402,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 118489,
+      "name": "Marc Guéhi",
+      "teamId": 65,
+      "goals": 1,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 122266,
+      "name": "Joško Gvardiol",
+      "teamId": 65,
+      "goals": 1,
+      "assists": 3,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 7459,
+      "name": "Cody Gakpo",
+      "teamId": 64,
+      "goals": 1,
+      "assists": 3,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 16347,
+      "name": "Dominik Szoboszlai",
+      "teamId": 64,
+      "goals": 1,
+      "assists": null,
+      "penalties": 1,
+      "playedMatches": 6
+    },
+    {
+      "playerId": 217658,
+      "name": "Gonzalo García",
+      "teamId": 63,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 4091,
+      "name": "Morgan Gibbs-White",
+      "teamId": 351,
+      "goals": 1,
+      "assists": 2,
+      "penalties": 1,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 161088,
+      "name": "Alex Scott",
+      "teamId": 1044,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 5
+    },
+    {
+      "playerId": 3316,
+      "name": "James Tarkowski",
+      "teamId": 62,
+      "goals": 1,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 110807,
+      "name": "Liam Millar",
+      "teamId": 322,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 2
+    },
+    {
+      "playerId": 612,
+      "name": "Yoane Wissa",
+      "teamId": 67,
+      "goals": 1,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 83599,
+      "name": "Wilson Isidor",
+      "teamId": 71,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 6
+    },
+    {
+      "playerId": 172738,
+      "name": "Romeo Lavia",
+      "teamId": 61,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 9053,
+      "name": "Chuba Akpom",
+      "teamId": 349,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 111437,
+      "name": "Jacob Ramsey",
+      "teamId": 67,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 5
+    },
+    {
+      "playerId": 216835,
+      "name": "Luka Vušković",
+      "teamId": 397,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 99664,
+      "name": "Enzo Le Fée",
+      "teamId": 71,
+      "goals": 1,
+      "assists": 1,
+      "penalties": 1,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 290848,
+      "name": "César Palacios",
+      "teamId": 63,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 8065,
+      "name": "Ben Chilwell",
+      "teamId": 354,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 4
+    },
+    {
+      "playerId": 250436,
+      "name": "Tyrique George",
+      "teamId": 62,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 124244,
+      "name": "Benjamin Šeško",
+      "teamId": 66,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 4
+    },
+    {
+      "playerId": 7792,
+      "name": "Ainsley Maitland-Niles",
+      "teamId": 62,
+      "goals": 1,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 6
+    },
+    {
+      "playerId": 213425,
+      "name": "Anan Khalaili",
+      "teamId": 354,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 213269,
+      "name": "Jørgen Strand Larsen",
+      "teamId": 354,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 151095,
+      "name": "Liam Delap",
+      "teamId": 351,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 260718,
+      "name": "Alysson",
+      "teamId": 58,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 256339,
+      "name": "Igor Jesus",
+      "teamId": 351,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 5
+    },
+    {
+      "playerId": 7561,
+      "name": "Justin Kluivert",
+      "teamId": 1044,
+      "goals": 1,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 6
+    },
+    {
+      "playerId": 8259,
+      "name": "Lewis Dunk",
+      "teamId": 397,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 16058,
+      "name": "Noah Okafor",
+      "teamId": 341,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 249312,
+      "name": "Bazoumana Touré",
+      "teamId": 67,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 150778,
+      "name": "Jaidon Anthony",
+      "teamId": 402,
+      "goals": 1,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 138230,
+      "name": "Thiago",
+      "teamId": 402,
+      "goals": 1,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 151119,
+      "name": "Fabio Carvalho",
+      "teamId": 402,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 6
+    },
+    {
+      "playerId": 31941,
+      "name": "Emiliano Buendía",
+      "teamId": 58,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 119265,
+      "name": "Conor Gallagher",
+      "teamId": 73,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 98566,
+      "name": "Jan Paul van Hecke",
+      "teamId": 73,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 270273,
+      "name": "Chema Andrés",
+      "teamId": 397,
+      "goals": 1,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 6
+    },
+    {
+      "playerId": 191140,
+      "name": "Lewis Hall",
+      "teamId": 67,
+      "goals": 1,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 213270,
+      "name": "Mohamed Cho",
+      "teamId": 322,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 5
+    },
+    {
+      "playerId": 6308,
+      "name": "Jay Dasilva",
+      "teamId": 1076,
+      "goals": 1,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 102603,
+      "name": "Enzo Fernández",
+      "teamId": 65,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 30842,
+      "name": "Matheus Cunha",
+      "teamId": 66,
+      "goals": 1,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 5613,
+      "name": "James Justin",
+      "teamId": 341,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 133512,
+      "name": "Riccardo Calafiori",
+      "teamId": 57,
+      "goals": 1,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 147891,
+      "name": "Jaouen Hadjam",
+      "teamId": 397,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
+      "playerId": 3959,
+      "name": "Ryan Sessegnon",
+      "teamId": 63,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 6
+    },
+    {
+      "playerId": 270889,
+      "name": "Abdoul Ouattara",
+      "teamId": 349,
+      "goals": 1,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 25650,
+      "name": "Dara O'Shea",
+      "teamId": 349,
+      "goals": 1,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 204421,
+      "name": "Yegor Yarmolyuk",
+      "teamId": 402,
+      "goals": 1,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 7
+    }
+  ]
+}

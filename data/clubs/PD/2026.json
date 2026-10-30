@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "competition": "PD",
+  "season": 2026,
+  "fetchedUtc": "2026-10-30T10:14:54.926Z",
+  "clubs": [
+    {
+      "teamId": 77,
+      "venue": "San Mamés",
+      "founded": 1898
+    },
+    {
+      "teamId": 78,
+      "venue": "Estadio Wanda Metropolitano",
+      "founded": 1903
+    },
+    {
+      "teamId": 79,
+      "venue": "Estadio El Sadar",
+      "founded": 1920
+    },
+    {
+      "teamId": 80,
+      "venue": "RCDE Stadium",
+      "founded": 1900
+    },
+    {
+      "teamId": 81,
+      "venue": "Camp Nou",
+      "founded": 1899
+    },
+    {
+      "teamId": 82,
+      "venue": "Coliseum Alfonso Pérez",
+      "founded": 1946
+    },
+    {
+      "teamId": 84,
+      "venue": "Estadio La Rosaleda",
+      "founded": 1933
+    },
+    {
+      "teamId": 86,
+      "venue": "Estadio Santiago Bernabéu",
+      "founded": 1902
+    },
+    {
+      "teamId": 87,
+      "venue": "Estadio del Rayo Vallecano",
+      "founded": 1924
+    },
+    {
+      "teamId": 88,
+      "venue": "Estadio Ciudad de Valencia",
+      "founded": 1909
+    },
+    {
+      "teamId": 90,
+      "venue": "Estadio Benito Villamarín",
+      "founded": 1907
+    },
+    {
+      "teamId": 92,
+      "venue": "Estadio Municipal de Anoeta",
+      "founded": 1903
+    },
+    {
+      "teamId": 94,
+      "venue": "Estadio de la Cerámica",
+      "founded": 1923
+    },
+    {
+      "teamId": 95,
+      "venue": "Estadio de Mestalla",
+      "founded": 1919
+    },
+    {
+      "teamId": 263,
+      "venue": "Estadio de Mendizorroza",
+      "founded": 1921
+    },
+    {
+      "teamId": 285,
+      "venue": "Estadio Manuel Martínez Valero",
+      "founded": 1923
+    },
+    {
+      "teamId": 558,
+      "venue": "Estadio de Balaídos",
+      "founded": 1923
+    },
+    {
+      "teamId": 559,
+      "venue": "Estadio Ramón Sánchez Pizjuán",
+      "founded": 1905
+    },
+    {
+      "teamId": 560,
+      "venue": "Estadio Abanca-Riazor",
+      "founded": 1906
+    },
+    {
+      "teamId": 5335,
+      "venue": "Campos de Sport de El Sardinero",
+      "founded": 1913
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "competition": "PL",
+  "season": 2026,
+  "fetchedUtc": "2026-10-30T10:14:39.977Z",
+  "clubs": [
+    {
+      "teamId": 57,
+      "venue": "Emirates Stadium",
+      "founded": 1886
+    },
+    {
+      "teamId": 58,
+      "venue": "Villa Park",
+      "founded": 1872
+    },
+    {
+      "teamId": 61,
+      "venue": "Stamford Bridge",
+      "founded": 1905
+    },
+    {
+      "teamId": 62,
+      "venue": "Goodison Park",
+      "founded": 1878
+    },
+    {
+      "teamId": 63,
+      "venue": "Craven Cottage",
+      "founded": 1879
+    },
+    {
+      "teamId": 64,
+      "venue": "Anfield",
+      "founded": 1892
+    },
+    {
+      "teamId": 65,
+      "venue": "Etihad Stadium",
+      "founded": 1880
+    },
+    {
+      "teamId": 66,
+      "venue": "Old Trafford",
+      "founded": 1878
+    },
+    {
+      "teamId": 67,
+      "venue": "St. James' Park",
+      "founded": 1881
+    },
+    {
+      "teamId": 71,
+      "venue": "Stadium of Light",
+      "founded": 1879
+    },
+    {
+      "teamId": 73,
+      "venue": "Tottenham Hotspur Stadium",
+      "founded": 1882
+    },
+    {
+      "teamId": 322,
+      "venue": "Kingston Communications Stadium",
+      "founded": 1904
+    },
+    {
+      "teamId": 341,
+      "venue": "Elland Road",
+      "founded": 1904
+    },
+    {
+      "teamId": 349,
+      "venue": "Portman Road Stadium",
+      "founded": 1887
+    },
+    {
+      "teamId": 351,
+      "venue": "The City Ground",
+      "founded": 1865
+    },
+    {
+      "teamId": 354,
+      "venue": "Selhurst Park",
+      "founded": 1905
+    },
+    {
+      "teamId": 397,
+      "venue": "The American Express Community Stadium",
+      "founded": 1898
+    },
+    {
+      "teamId": 402,
+      "venue": "Griffin Park",
+      "founded": 1889
+    },
+    {
+      "teamId": 1044,
+      "venue": "Vitality Stadium",
+      "founded": 1890
+    },
+    {
+      "teamId": 1076,
+      "venue": "Coventry Building Society Arena",
+      "founded": 1883
+    }
+  ]
+}
