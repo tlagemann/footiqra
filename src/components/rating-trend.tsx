@@ -51,7 +51,10 @@ export function RatingTrend({
   }, []);
   const narrow = W < 560;
   const H = narrow ? 220 : 260;
-  const right = narrow ? 92 : M.right;
+  // Room for the end labels ("Leverkusen 1558"), about 8 px per character at 13 px bold.
+  const right = narrow
+    ? 56
+    : Math.max(M.right, 24 + 8 * Math.max(...series.map((s) => s.name.length + 5)));
 
   const all = series.flatMap((s) => s.points);
   if (all.length === 0) return null;

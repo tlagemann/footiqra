@@ -213,7 +213,7 @@ function relevantZones(st: SideStakes): Zone[] {
     const v = [st.now[z], st.win[z], st.draw[z], st.loss[z]];
     const max = Math.max(...v);
     const min = Math.min(...v);
-    return max >= 0.01 && min <= 0.99 && max - min >= 0.01;
+    return max >= 0.03 && min <= 0.97 && max - min >= 0.02;
   });
 }
 
