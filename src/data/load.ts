@@ -1,6 +1,12 @@
 import { readdir } from "node:fs/promises";
 import path from "node:path";
-import { readAllMatchFiles, readLatestStandings, readMeta, readTeams } from "@/store/fs";
+import {
+  readAllMatchFiles,
+  readLatestSeasonFiles,
+  readLatestStandings,
+  readMeta,
+  readTeams,
+} from "@/store/fs";
 import type { Snapshot } from "./repository";
 
 /** Team ids that have a downloaded crest in public/crests. */
@@ -15,13 +21,16 @@ export async function readCrestIds(rootDir: string): Promise<Set<number>> {
 
 /** Reads everything the site and the scripts need from the data store. */
 export async function loadSnapshotFromDisk(dataDir: string, rootDir: string): Promise<Snapshot> {
-  const [meta, teams, matchFiles, crestIds, standings, archivedMatchFiles] = await Promise.all([
-    readMeta(dataDir),
-    readTeams(dataDir),
-    readAllMatchFiles(dataDir),
-    readCrestIds(rootDir),
-    readLatestStandings(dataDir),
-    readAllMatchFiles(path.join(dataDir, "archive")),
-  ]);
-  return { meta, teams, matchFiles, crestIds, standings, archivedMatchFiles };
+  const [meta, teams, matchFiles, crestIds, standings, archivedMatchFiles, clubs, scorers] =
+    await Promise.all([
+      readMeta(dataDir),
+      readTeams(dataDir),
+      readAllMatchFiles(dataDir),
+      readCrestIds(rootDir),
+      readLatestStandings(dataDir),
+      readAllMatchFiles(path.join(dataDir, "archive")),
+      readLatestSeasonFiles(dataDir, "clubs"),
+      readLatestSeasonFiles(dataDir, "scorers"),
+    ]);
+  return { meta, teams, matchFiles, crestIds, standings, archivedMatchFiles, clubs, scorers };
 }

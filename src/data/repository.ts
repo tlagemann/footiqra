@@ -1,6 +1,8 @@
 import { LEAGUES, type LeagueDefinition } from "@/config/leagues";
 import type {
+  ClubDetailsFile,
   MatchFile,
+  ScorersFile,
   StandingsFile,
   StoredMatch,
   StoredTeam,
@@ -25,6 +27,10 @@ export interface Snapshot {
    * current season; never shown as matches).
    */
   archivedMatchFiles?: MatchFile[];
+  /** Newest club details (stadium) per league. */
+  clubs?: ClubDetailsFile[];
+  /** Newest top scorer list per league. */
+  scorers?: ScorersFile[];
 }
 
 export type FormResult = "W" | "D" | "L";

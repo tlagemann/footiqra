@@ -32,6 +32,7 @@ import {
   tr,
   type Locale,
 } from "@/i18n";
+import { getSiteUrl } from "@/config/site";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { ogImage } from "@/og/images";
 
@@ -200,6 +201,21 @@ function summary(m: MatchDetail, locale: Locale, stakesLine: string | null): str
         );
       }
     }
+  }
+  const pr = m.profile;
+  if (pr && pr.weekRank <= 10 && pr.weekMatches >= 10) {
+    const where = de
+      ? pr.weekRank === 1
+        ? "ist es das größte"
+        : `liegt es auf Platz ${pr.weekRank}`
+      : pr.weekRank === 1
+        ? "it is the biggest"
+        : `it is the ${ordinal(locale, pr.weekRank)} biggest`;
+    lines.push(
+      de
+        ? `Gemessen an der Stärke beider Vereine ${where} von ${pr.weekMatches} Spielen dieser Woche in Europas Topligen.`
+        : `By the strength of both clubs ${where} of ${pr.weekMatches} matches this week in Europe's top leagues.`,
+    );
   }
   if (stakesLine) lines.push(stakesLine);
   return lines;
@@ -438,6 +454,40 @@ export async function MatchView({ locale, slug }: { locale: Locale; slug: string
   ];
   const showRanks = ranks.every((s) => s.points.length >= 2);
   const sc = m.forecast?.scorelines;
+  const pf = m.forecast?.percentages;
+  const underdog = pf
+    ? pf.home < pf.away
+      ? { name: h.shortName, chance: pf.home }
+      : pf.away < pf.home
+        ? { name: a.shortName, chance: pf.away }
+        : null
+    : null;
+  const favourite = pf ? (pf.home >= pf.away ? h.shortName : a.shortName) : null;
+  const top = pf ? Math.max(pf.home, pf.away) : 0;
+  const balanceLine = !pf
+    ? null
+    : top < 45
+      ? t(
+          "Evenly matched: neither side wins in more than 45% of cases.",
+          "Ausgeglichen: Keine Seite gewinnt in mehr als 45 % der Fälle.",
+        )
+      : top < 60
+        ? t(
+            `${favourite} are favourites, but an upset is very possible.`,
+            `${favourite} ist Favorit, eine Überraschung ist aber gut möglich.`,
+          )
+        : t(`${favourite} are clear favourites.`, `${favourite} ist klarer Favorit.`);
+  const profileCell = (label: string, value: string, note: string) => (
+    <div className="rounded-3xl bg-surface px-5 py-4">
+      <p className="text-xs font-medium text-muted">{label}</p>
+      <p className="tabular mt-1 font-display text-3xl font-extrabold tracking-[-0.03em]">
+        {value}
+      </p>
+      {note && <p className="mt-1 text-sm text-muted">{note}</p>}
+    </div>
+  );
+  const showScorers =
+    (h.scorers.length > 0 || a.scorers.length > 0) && Boolean(h.leagueSlug && a.leagueSlug);
   const marketCell = (label: string, value: string) => (
     <div className="rounded-2xl bg-background px-4 py-3">
       <p className="text-xs font-medium text-muted">{label}</p>
@@ -447,6 +497,30 @@ export async function MatchView({ locale, slug }: { locale: Locale; slug: string
 
   return (
     <div className="space-y-14">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "SportsEvent",
+          name: `${h.name} ${vs} ${a.name}`,
+          sport: "Football",
+          startDate: m.utcDate,
+          eventStatus:
+            m.status === "POSTPONED"
+              ? "https://schema.org/EventPostponed"
+              : m.status === "CANCELLED"
+                ? "https://schema.org/EventCancelled"
+                : "https://schema.org/EventScheduled",
+          url: `${getSiteUrl()}${p.match(m.slug)}`,
+          homeTeam: { "@type": "SportsTeam", name: h.name },
+          awayTeam: { "@type": "SportsTeam", name: a.name },
+          competitor: [
+            { "@type": "SportsTeam", name: h.name },
+            { "@type": "SportsTeam", name: a.name },
+          ],
+          ...(m.venue ? { location: { "@type": "Place", name: m.venue } } : {}),
+          ...(league ? { superEvent: { "@type": "SportsEvent", name: league.name } } : {}),
+        }}
+      />
       <JsonLd
         data={breadcrumbJsonLd([
           { name: t("Home", "Startseite"), path: p.home },
@@ -485,6 +559,7 @@ export async function MatchView({ locale, slug }: { locale: Locale; slug: string
                   : ""}
               <LocalTime utc={m.utcDate} locale={locale} />
             </p>
+            {m.venue && <p className="mt-1 text-xs font-medium text-muted sm:text-sm">{m.venue}</p>}
           </div>
           <Link href={p.team(a.slug)} className="flex flex-col items-center gap-3 text-center">
             <Crest src={a.crest} name={a.name} size={72} />
@@ -545,6 +620,60 @@ export async function MatchView({ locale, slug }: { locale: Locale; slug: string
                   )}
             </p>
           </div>
+        </section>
+      )}
+
+      {m.profile && (
+        <section aria-labelledby="profile-heading">
+          <SectionHeading
+            id="profile-heading"
+            title={t("How big is this match?", "Wie groß ist dieses Spiel?")}
+          />
+          {balanceLine && <p className="mb-5 max-w-3xl text-lg">{balanceLine}</p>}
+          <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+            {profileCell(
+              t("This week", "Diese Woche"),
+              `#${m.profile.weekRank}`,
+              t(
+                `of ${m.profile.weekMatches} matches in Europe's top leagues`,
+                `von ${m.profile.weekMatches} Spielen in Europas Topligen`,
+              ),
+            )}
+            {profileCell(
+              t("This season", "Diese Saison"),
+              m.profile.percentile >= 0.5
+                ? `Top ${Math.max(1, Math.round((1 - m.profile.percentile) * 100))}${locale === "de" ? " %" : "%"}`
+                : t("Lower half", "Untere Hälfte"),
+              t(
+                "of all matches by strength of both clubs",
+                "aller Spiele nach Stärke beider Vereine",
+              ),
+            )}
+            {profileCell(
+              t("Rating gap", "Rating-Abstand"),
+              `${Math.round(m.profile.ratingGap)}`,
+              h.ranking && a.ranking
+                ? t(
+                    `power rank #${h.ranking.rank} vs #${a.ranking.rank}`,
+                    `Power-Rang #${h.ranking.rank} gegen #${a.ranking.rank}`,
+                  )
+                : "",
+            )}
+            {underdog &&
+              profileCell(
+                finished
+                  ? t("Underdog win (pre-match)", "Außenseitersieg (vorher)")
+                  : t("Underdog win", "Außenseitersieg"),
+                fmtPercent(locale, underdog.chance),
+                underdog.name,
+              )}
+          </div>
+          <p className="mt-3 text-sm text-muted">
+            {t(
+              "Size ranks matches by the strength of both clubs: two strong, evenly rated clubs make the biggest match. This week means matches within three and a half days of kick-off in all covered competitions, ranked with today's ratings.",
+              "Die Größe ordnet Spiele nach der Stärke beider Vereine: Zwei starke, gleich bewertete Vereine ergeben das größte Spiel. Diese Woche heißt: Spiele aller abgedeckten Wettbewerbe innerhalb von dreieinhalb Tagen um den Anstoß, bewertet mit den aktuellen Ratings.",
+            )}
+          </p>
         </section>
       )}
 
@@ -666,6 +795,92 @@ export async function MatchView({ locale, slug }: { locale: Locale; slug: string
             {t(
               "Rating: value after each of the latest 15 matches in all competitions; higher means stronger. Power ranking: position across all clubs of Europe's top leagues at the end of each week this season.",
               "Rating: Wert nach jedem der letzten 15 Spiele in allen Wettbewerben, höher heißt stärker. Power-Ranking: Platz unter allen Vereinen der europäischen Topligen am Ende jeder Woche dieser Saison.",
+            )}
+          </p>
+        </section>
+      )}
+
+      {showScorers && (
+        <section aria-labelledby="scorers-heading">
+          <SectionHeading
+            id="scorers-heading"
+            title={t("Top scorers", "Torjäger")}
+            aside={
+              <span className="text-sm text-muted">
+                {t("League goals this season", "Ligatore dieser Saison")}
+              </span>
+            }
+          />
+          <div className="grid gap-6 lg:grid-cols-2">
+            {[h, a].map((s) => {
+              const leagueName = getLeagueBySlug(s.leagueSlug)?.name ?? t("league", "Liga");
+              return (
+                <div key={s.slug} className="min-w-0 rounded-3xl bg-surface p-5 sm:p-6">
+                  <h3 className="mb-3 flex items-center gap-2 font-display text-lg font-extrabold">
+                    <Crest src={s.crest} name={s.name} size={24} />
+                    {s.shortName}
+                  </h3>
+                  {s.scorers.length > 0 ? (
+                    <table className="w-full text-[15px]">
+                      <caption className="sr-only">
+                        {t(`Top scorers of ${s.name}`, `Torjäger von ${s.name}`)}
+                      </caption>
+                      <thead>
+                        <tr className="text-xs font-medium text-muted">
+                          <th scope="col" className="py-2 text-left font-medium">
+                            {t("Player", "Spieler")}
+                          </th>
+                          <th scope="col" className="px-2 py-2 text-right font-medium">
+                            {t("Goals", "Tore")}
+                          </th>
+                          <th scope="col" className="px-2 py-2 text-right font-medium">
+                            {t("Assists", "Vorlagen")}
+                          </th>
+                          <th scope="col" className="py-2 pl-2 text-right font-medium">
+                            {t(`${leagueName} rank`, `Rang ${leagueName}`)}
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {s.scorers.map((x) => (
+                          <tr key={x.name} className="border-t border-line/80">
+                            <th scope="row" className="py-3 pr-2 text-left font-semibold">
+                              {x.name}
+                              {x.penalties ? (
+                                <span className="ml-2 text-xs font-medium text-muted">
+                                  {t(`${x.penalties} pen.`, `${x.penalties} Elfm.`)}
+                                </span>
+                              ) : null}
+                            </th>
+                            <td className="tabular px-2 py-3 text-right font-display text-lg font-bold">
+                              {x.goals}
+                            </td>
+                            <td className="tabular px-2 py-3 text-right text-muted">
+                              {x.assists ?? "·"}
+                            </td>
+                            <td className="tabular py-3 pl-2 text-right text-muted">
+                              {x.leagueRank}.
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  ) : (
+                    <p className="text-muted">
+                      {t(
+                        `No ${s.shortName} player among the ${leagueName}'s listed top scorers yet.`,
+                        `Noch kein Spieler von ${s.shortName} unter den gelisteten Torjägern der ${leagueName}.`,
+                      )}
+                    </p>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          <p className="mt-3 text-sm text-muted">
+            {t(
+              "Goals and assists in league matches only, from the official scorer list of each league.",
+              "Tore und Vorlagen nur in Ligaspielen, aus der offiziellen Torjägerliste der jeweiligen Liga.",
             )}
           </p>
         </section>

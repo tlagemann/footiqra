@@ -55,6 +55,30 @@ export interface MatchSide {
   stats: SeasonStats;
   form: FormResult[];
   recent: MatchView[];
+  /** Home stadium from the provider's club details, if known. */
+  venue: string | null;
+  /** Best league scorers of the club this season (provider's top-100 list), most goals first. */
+  scorers: TeamScorer[];
+}
+
+export interface TeamScorer {
+  name: string;
+  goals: number;
+  assists: number | null;
+  penalties: number | null;
+  /** Position in the league's scorer list (shared ranks for equal goals). */
+  leagueRank: number;
+}
+
+/** How this match compares with the other matches of the season. */
+export interface MatchProfile {
+  /** Share of this season's matches with a lower "big game" score (0..1). */
+  percentile: number;
+  /** Rank among the matches within 3.5 days of kick-off, biggest first. */
+  weekRank: number;
+  weekMatches: number;
+  /** Absolute rating difference (without home advantage). */
+  ratingGap: number;
 }
 
 export interface MatchDetail {
@@ -85,6 +109,9 @@ export interface MatchDetail {
     scorelines: ScorelineForecast;
   } | null;
   headToHead: MatchView[];
+  /** Stadium of the home club; null for neutral finals or unknown. */
+  venue: string | null;
+  profile: MatchProfile | null;
 }
 
 const COMPETITION_NAME: Record<string, string> = {
@@ -173,6 +200,23 @@ export function matchDetail(
     const table = leagueTable(snapshot, league.slug);
     const row = rankingById.get(teamId);
     const recent = teamMatches(snapshot, team.slug, asOf, { results: 5, fixtures: 0 }).results;
+    const code = league.providerCodes.footballData;
+    const venue =
+      snapshot.clubs?.find((f) => f.competition === code)?.clubs.find((c) => c.teamId === teamId)
+        ?.venue ?? null;
+    const list = snapshot.scorers?.find((f) => f.competition === code)?.scorers ?? [];
+    const scorers = list
+      .map((s) => ({ s, leagueRank: 1 + list.filter((o) => o.goals > s.goals).length }))
+      .filter(({ s }) => s.teamId === teamId)
+      .sort((x, y) => y.s.goals - x.s.goals || x.s.name.localeCompare(y.s.name))
+      .slice(0, 3)
+      .map(({ s, leagueRank }) => ({
+        name: s.name,
+        goals: s.goals,
+        assists: s.assists,
+        penalties: s.penalties,
+        leagueRank,
+      }));
     return {
       id: teamId,
       slug: team.slug,
@@ -185,6 +229,8 @@ export function matchDetail(
       stats: seasonStats(snapshot, teamId),
       form: row?.form ?? [],
       recent,
+      venue: venue && venue.trim() ? venue.trim() : null,
+      scorers,
     };
   };
   const home = side(m.homeTeamId);
@@ -264,5 +310,56 @@ export function matchDetail(
     away,
     forecast,
     headToHead,
+    venue: m.stage === "FINAL" ? null : home.venue,
+    profile: matchProfile(snapshot, ranking, m),
+  };
+}
+
+/** "Big game" score as on the predictions page: high when both clubs are strong. */
+const bigGameScore = (a: number, b: number) => a + b - Math.abs(a - b);
+
+export function matchProfile(
+  snapshot: Snapshot,
+  ranking: PowerRanking,
+  match: StoredMatch,
+): MatchProfile | null {
+  const rating = new Map(ranking.rows.map((r) => [r.team.id, r.rating]));
+  const rh = rating.get(match.homeTeamId);
+  const ra = rating.get(match.awayTeamId);
+  if (rh === undefined || ra === undefined) return null;
+  const own = bigGameScore(rh, ra);
+  // Current season of every competition.
+  const latest = new Map<string, number>();
+  for (const f of snapshot.matchFiles) {
+    latest.set(f.competition, Math.max(latest.get(f.competition) ?? 0, f.season));
+  }
+  const kickoff = Date.parse(match.utcDate);
+  const window = 3.5 * 24 * 3600 * 1000;
+  let total = 0;
+  let lower = 0;
+  let weekMatches = 0;
+  let weekHigher = 0;
+  for (const f of snapshot.matchFiles) {
+    if (f.season !== latest.get(f.competition)) continue;
+    for (const x of f.matches) {
+      if (x.status === "CANCELLED") continue;
+      const a = rating.get(x.homeTeamId);
+      const b = rating.get(x.awayTeamId);
+      if (a === undefined || b === undefined) continue;
+      const score = bigGameScore(a, b);
+      total++;
+      if (score < own) lower++;
+      if (Math.abs(Date.parse(x.utcDate) - kickoff) <= window) {
+        weekMatches++;
+        if (score > own || (score === own && x.id < match.id)) weekHigher++;
+      }
+    }
+  }
+  if (total === 0 || weekMatches === 0) return null;
+  return {
+    percentile: lower / total,
+    weekRank: weekHigher + 1,
+    weekMatches,
+    ratingGap: Math.abs(rh - ra),
   };
 }

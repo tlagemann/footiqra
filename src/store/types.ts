@@ -88,3 +88,37 @@ export interface StandingsFile {
   fetchedUtc: string;
   rows: StoredStandingRow[];
 }
+
+/** Stadium and founding year of the clubs of one league, refreshed weekly. */
+export interface StoredClubDetails {
+  teamId: number;
+  venue: string | null;
+  founded: number | null;
+}
+
+export interface ClubDetailsFile {
+  schemaVersion: number;
+  competition: string;
+  season: number;
+  fetchedUtc: string;
+  clubs: StoredClubDetails[];
+}
+
+/** League top scorers as published by the provider (league goals only). */
+export interface StoredScorer {
+  playerId: number;
+  name: string;
+  teamId: number;
+  goals: number;
+  assists: number | null;
+  penalties: number | null;
+  playedMatches: number | null;
+}
+
+export interface ScorersFile {
+  schemaVersion: number;
+  competition: string;
+  season: number;
+  fetchedUtc: string;
+  scorers: StoredScorer[];
+}

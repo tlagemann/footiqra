@@ -2,11 +2,11 @@ import { mkdtemp, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { readMatchFile, readMeta, readStandingsFile, readTeams } from "@/store/fs";
+import { readMatchFile, readMeta, readSeasonFile, readStandingsFile, readTeams } from "@/store/fs";
 import { RateLimiter } from "./http";
 import { parseIngestEnv } from "./env";
 import { FootballDataClient } from "./providers/football-data/client";
-import { runIngest, runStandingsIngest } from "./run";
+import { runDetailsIngest, runIngest, runStandingsIngest } from "./run";
 
 // Synthetic API payloads in the documented v4 shape. Fictional teams, not real data.
 function apiMatch(id: number, home: number, away: number, lastUpdated = "2026-09-12T16:05:00Z") {
@@ -208,5 +208,82 @@ describe("standings competitions", () => {
     const { STANDINGS_COMPETITIONS } = await import("./run");
     expect(STANDINGS_COMPETITIONS).toContain("CL");
     expect(STANDINGS_COMPETITIONS).toContain("PL");
+  });
+});
+
+describe("runDetailsIngest", () => {
+  const scorers = [
+    {
+      player: { id: 1, name: "Example Striker" },
+      team: { id: 10 },
+      playedMatches: 8,
+      goals: 9,
+      assists: 2,
+      penalties: 1,
+    },
+    { player: { id: 2, name: "Example Winger" }, team: { id: 11 }, playedMatches: 8, goals: null },
+  ];
+  const teams = [
+    { id: 11, venue: "Example Arena", founded: 1900 },
+    { id: 10, venue: null },
+  ];
+
+  it("stores scorers every run and club details only when stale", async () => {
+    const client = {
+      getScorers: vi.fn(async () => scorers),
+      getCompetitionTeams: vi.fn(async () => teams),
+    };
+    let t = Date.parse("2026-10-30T10:00:00Z");
+    const now = () => new Date(t);
+    const first = await runDetailsIngest({
+      client,
+      dataDir: dir,
+      season: 2026,
+      competitions: ["BL1"],
+      now,
+    });
+    expect(first).toEqual([{ competition: "BL1", ok: true }]);
+    const clubs = await readSeasonFile(dir, "clubs", "BL1", 2026);
+    expect(clubs?.clubs).toEqual([
+      { teamId: 10, venue: null, founded: null },
+      { teamId: 11, venue: "Example Arena", founded: 1900 },
+    ]);
+    const stored = await readSeasonFile(dir, "scorers", "BL1", 2026);
+    expect(stored?.scorers).toEqual([
+      {
+        playerId: 1,
+        name: "Example Striker",
+        teamId: 10,
+        goals: 9,
+        assists: 2,
+        penalties: 1,
+        playedMatches: 8,
+      },
+    ]);
+
+    t += 24 * 3600 * 1000;
+    await runDetailsIngest({ client, dataDir: dir, season: 2026, competitions: ["BL1"], now });
+    expect(client.getCompetitionTeams).toHaveBeenCalledTimes(1);
+    expect(client.getScorers).toHaveBeenCalledTimes(2);
+
+    t += 7 * 24 * 3600 * 1000;
+    await runDetailsIngest({ client, dataDir: dir, season: 2026, competitions: ["BL1"], now });
+    expect(client.getCompetitionTeams).toHaveBeenCalledTimes(2);
+  });
+
+  it("reports failures without throwing", async () => {
+    const client = {
+      getScorers: vi.fn(async () => {
+        throw new Error("boom");
+      }),
+      getCompetitionTeams: vi.fn(async () => teams),
+    };
+    const result = await runDetailsIngest({
+      client,
+      dataDir: dir,
+      season: 2026,
+      competitions: ["PL"],
+    });
+    expect(result).toEqual([{ competition: "PL", ok: false, error: "boom" }]);
   });
 });

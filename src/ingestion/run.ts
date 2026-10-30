@@ -2,6 +2,8 @@ import { LEAGUES } from "@/config/leagues";
 import {
   readMatchFile,
   readMeta,
+  readSeasonFile,
+  writeSeasonFile,
   readTeams,
   writeMatchFile,
   writeStandingsFile,
@@ -143,6 +145,77 @@ export async function runStandingsIngest(options: {
       const message = error instanceof Error ? error.message : String(error);
       results.push({ competition: code, ok: false, error: message });
       log(`${code} ${options.season} table: FAILED (${message})`);
+    }
+  }
+  return results;
+}
+
+/** Leagues whose scorers and club details are fetched (not the Champions League). */
+export const DETAIL_COMPETITIONS: readonly string[] = LEAGUES.map(
+  (l) => l.providerCodes.footballData,
+);
+
+/** Club details (stadium) change rarely: refetched after this many days. */
+export const CLUB_DETAILS_MAX_AGE_DAYS = 7;
+
+/**
+ * Top scorers (every run) and club details (weekly) of all covered leagues.
+ * Extra information only: failures are reported but never block the site
+ * update, and the previous file stays in place.
+ */
+export async function runDetailsIngest(options: {
+  client: Pick<FootballDataClient, "getScorers" | "getCompetitionTeams">;
+  dataDir: string;
+  season: number;
+  competitions?: readonly string[];
+  now?: () => Date;
+  log?: (line: string) => void;
+}): Promise<CompetitionResult[]> {
+  const competitions = options.competitions ?? DETAIL_COMPETITIONS;
+  const now = options.now ?? (() => new Date());
+  const log = options.log ?? (() => {});
+  const results: CompetitionResult[] = [];
+  for (const code of competitions) {
+    try {
+      const existing = await readSeasonFile(options.dataDir, "clubs", code, options.season);
+      const age = existing ? now().getTime() - Date.parse(existing.fetchedUtc) : Infinity;
+      if (!(age < CLUB_DETAILS_MAX_AGE_DAYS * 24 * 3600 * 1000)) {
+        const teams = await options.client.getCompetitionTeams(code, options.season);
+        await writeSeasonFile(options.dataDir, "clubs", {
+          schemaVersion: STORE_SCHEMA_VERSION,
+          competition: code,
+          season: options.season,
+          fetchedUtc: now().toISOString(),
+          clubs: teams
+            .map((t) => ({ teamId: t.id, venue: t.venue ?? null, founded: t.founded ?? null }))
+            .sort((a, b) => a.teamId - b.teamId),
+        });
+        log(`${code} ${options.season} clubs: ${teams.length}`);
+      }
+      const scorers = await options.client.getScorers(code, options.season);
+      await writeSeasonFile(options.dataDir, "scorers", {
+        schemaVersion: STORE_SCHEMA_VERSION,
+        competition: code,
+        season: options.season,
+        fetchedUtc: now().toISOString(),
+        scorers: scorers
+          .filter((s) => s.goals !== null)
+          .map((s) => ({
+            playerId: s.player.id,
+            name: s.player.name,
+            teamId: s.team.id,
+            goals: s.goals!,
+            assists: s.assists ?? null,
+            penalties: s.penalties ?? null,
+            playedMatches: s.playedMatches ?? null,
+          })),
+      });
+      results.push({ competition: code, ok: true });
+      log(`${code} ${options.season} scorers: ${scorers.length}`);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      results.push({ competition: code, ok: false, error: message });
+      log(`${code} ${options.season} scorers/clubs: FAILED (${message})`);
     }
   }
   return results;

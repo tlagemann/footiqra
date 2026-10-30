@@ -7,7 +7,7 @@
  */
 import { parseIngestEnv } from "@/ingestion/env";
 import { FootballDataClient } from "@/ingestion/providers/football-data/client";
-import { runIngest, runStandingsIngest } from "@/ingestion/run";
+import { runDetailsIngest, runIngest, runStandingsIngest } from "@/ingestion/run";
 import { dataDir } from "@/store/fs";
 import { currentSeasonStartYear } from "@/store/merge";
 
@@ -34,6 +34,16 @@ async function main(): Promise<number> {
     season,
     log: console.info,
   });
+  const details = await runDetailsIngest({
+    client,
+    dataDir: dataDir(),
+    season,
+    log: console.info,
+  });
+  for (const d of details.filter((r) => !r.ok)) {
+    // Scorers and stadiums are extras: warn, but do not fail the update.
+    console.info(`::warning::Scorers/club details for ${d.competition} failed: ${d.error}`);
+  }
   const failed = [...result.results, ...tables].filter((r) => !r.ok);
   console.info(
     `Done: ${client.requestsMade} API requests, ${failed.length} failed competition(s).`,

@@ -90,3 +90,31 @@ export const fdStandingsSchema = z.object({
 });
 
 export type FdStandingRow = z.infer<typeof fdStandingRowSchema>;
+
+/** Teams of a competition with club details. Reference: https://docs.football-data.org/general/v4/team.html */
+export const fdCompetitionTeamsSchema = z.object({
+  teams: z.array(
+    z.object({
+      id: z.number().int(),
+      venue: z.string().nullable().optional(),
+      founded: z.number().int().nullable().optional(),
+    }),
+  ),
+});
+
+/** League top scorers. Reference: https://docs.football-data.org/general/v4/competition.html */
+export const fdScorersSchema = z.object({
+  scorers: z.array(
+    z.object({
+      player: z.object({ id: z.number().int(), name: z.string().min(1) }),
+      team: z.object({ id: z.number().int() }),
+      playedMatches: z.number().int().nullable().optional(),
+      goals: z.number().int().nullable(),
+      assists: z.number().int().nullable().optional(),
+      penalties: z.number().int().nullable().optional(),
+    }),
+  ),
+});
+
+export type FdCompetitionTeam = z.infer<typeof fdCompetitionTeamsSchema>["teams"][number];
+export type FdScorer = z.infer<typeof fdScorersSchema>["scorers"][number];

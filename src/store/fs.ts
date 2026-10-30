@@ -2,7 +2,14 @@ import { mkdir, readFile, readdir, rename, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { emptyTeamRegistry } from "./merge";
 import { STORE_SCHEMA_VERSION } from "./types";
-import type { MatchFile, StandingsFile, StoreMeta, TeamRegistry } from "./types";
+import type {
+  ClubDetailsFile,
+  MatchFile,
+  ScorersFile,
+  StandingsFile,
+  StoreMeta,
+  TeamRegistry,
+} from "./types";
 
 /** Root of the data store. Overridable for tests. */
 export function dataDir(root: string = process.cwd()): string {
@@ -175,4 +182,59 @@ export async function writeHistoryFile(
 ): Promise<void> {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(data.date)) throw new Error(`Invalid history date: ${data.date}`);
   await writeJson(path.join(historyDir(dir), `${data.date}.json`), data);
+}
+
+/** Per-season files of one kind: data/{kind}/{CODE}/{season}.json */
+type SeasonKind = "clubs" | "scorers";
+type SeasonFileOf<K extends SeasonKind> = K extends "clubs" ? ClubDetailsFile : ScorersFile;
+
+export const seasonFilePath = (
+  dir: string,
+  kind: SeasonKind,
+  competition: string,
+  season: number,
+) => path.join(dir, kind, competition, `${season}.json`);
+
+export async function readSeasonFile<K extends SeasonKind>(
+  dir: string,
+  kind: K,
+  competition: string,
+  season: number,
+): Promise<SeasonFileOf<K> | null> {
+  const file = seasonFilePath(dir, kind, competition, season);
+  const data = await readJson<SeasonFileOf<K>>(file);
+  if (data) assertSchema(file, data.schemaVersion);
+  return data;
+}
+
+export const writeSeasonFile = <K extends SeasonKind>(
+  dir: string,
+  kind: K,
+  data: SeasonFileOf<K>,
+) => writeJson(seasonFilePath(dir, kind, data.competition, data.season), data);
+
+/** Newest stored file of one kind per competition. */
+export async function readLatestSeasonFiles<K extends SeasonKind>(
+  dir: string,
+  kind: K,
+): Promise<SeasonFileOf<K>[]> {
+  const base = path.join(dir, kind);
+  let codes: string[];
+  try {
+    codes = await readdir(base);
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") return [];
+    throw error;
+  }
+  const result: SeasonFileOf<K>[] = [];
+  for (const code of codes.sort()) {
+    const seasons = (await readdir(path.join(base, code)))
+      .filter((n) => /^\d{4}\.json$/.test(n))
+      .map((n) => Number(n.slice(0, 4)))
+      .sort((a, b) => b - a);
+    if (seasons.length === 0) continue;
+    const data = await readSeasonFile(dir, kind, code, seasons[0]!);
+    if (data) result.push(data);
+  }
+  return result;
 }

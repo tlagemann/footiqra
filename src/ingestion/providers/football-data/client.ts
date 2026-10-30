@@ -1,5 +1,14 @@
 import { fetchWithRetry, RateLimiter, type FetchLike, type RetryOptions } from "@/ingestion/http";
-import { fdMatchListSchema, fdStandingsSchema, type FdMatch, type FdStandingRow } from "./schemas";
+import {
+  fdCompetitionTeamsSchema,
+  fdMatchListSchema,
+  fdScorersSchema,
+  fdStandingsSchema,
+  type FdCompetitionTeam,
+  type FdMatch,
+  type FdScorer,
+  type FdStandingRow,
+} from "./schemas";
 
 export const FOOTBALL_DATA_BASE_URL = "https://api.football-data.org/v4";
 
@@ -65,5 +74,24 @@ export class FootballDataClient {
     const total = parsed.data.standings.find((s) => s.type === "TOTAL");
     if (!total) throw new Error(`No overall table for ${code} ${season}`);
     return [...total.table].sort((a, b) => a.position - b.position);
+  }
+
+  /** Clubs of one competition and season with stadium and founding year. */
+  async getCompetitionTeams(code: string, season: number): Promise<FdCompetitionTeam[]> {
+    if (!/^[A-Z0-9]{2,5}$/.test(code)) throw new Error(`Invalid competition code: ${code}`);
+    const raw = await this.getJson(`/competitions/${code}/teams?season=${season}`);
+    const parsed = fdCompetitionTeamsSchema.safeParse(raw);
+    if (!parsed.success) throw new Error(`Unexpected teams shape for ${code} ${season}`);
+    return parsed.data.teams;
+  }
+
+  /** Top scorers of one competition and season (league goals only). */
+  async getScorers(code: string, season: number, limit = 100): Promise<FdScorer[]> {
+    if (!/^[A-Z0-9]{2,5}$/.test(code)) throw new Error(`Invalid competition code: ${code}`);
+    const n = Math.max(1, Math.min(200, Math.floor(limit)));
+    const raw = await this.getJson(`/competitions/${code}/scorers?season=${season}&limit=${n}`);
+    const parsed = fdScorersSchema.safeParse(raw);
+    if (!parsed.success) throw new Error(`Unexpected scorers shape for ${code} ${season}`);
+    return parsed.data.scorers;
   }
 }
