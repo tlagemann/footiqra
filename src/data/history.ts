@@ -1,6 +1,7 @@
 import { LEAGUES } from "@/config/leagues";
 import type { PowerRanking } from "./power-ranking";
 import { leagueTable, type Snapshot } from "./repository";
+import { computeScorerIndex } from "./scorers";
 import { tableVsStrength } from "./table-vs-strength";
 
 /**
@@ -30,7 +31,22 @@ export interface HistoryFile {
   dataUtc: string;
   model: string;
   teams: HistoryTeam[];
+  /** Scorer power ranking of that day (from 30 Oct 2026 on). */
+  scorers?: HistoryScorer[];
 }
+
+export interface HistoryScorer {
+  leagueSlug: string;
+  playerId: number;
+  indexRank: number;
+  points: number;
+  goals: number;
+}
+
+/** Players kept per day; the pages show the top 50. */
+const HISTORY_SCORERS = 200;
+
+export const scorerKey = (leagueSlug: string, playerId: number) => `${leagueSlug}:${playerId}`;
 
 export const HISTORY_SCHEMA_VERSION = 1;
 
@@ -73,6 +89,15 @@ export function buildHistoryEntry(snapshot: Snapshot, ranking: PowerRanking): Hi
         gap: g?.gap ?? null,
       };
     }),
+    scorers: computeScorerIndex(snapshot, ranking)
+      .rows.slice(0, HISTORY_SCORERS)
+      .map((r) => ({
+        leagueSlug: r.leagueSlug,
+        playerId: r.playerId,
+        indexRank: r.indexRank,
+        points: Math.round(r.points * 100) / 100,
+        goals: r.goals,
+      })),
   };
 }
 
