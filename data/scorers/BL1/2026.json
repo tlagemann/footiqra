@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "BL1",
   "season": 2026,
-  "fetchedUtc": "2026-10-30T19:30:35.016Z",
+  "fetchedUtc": "2026-10-30T20:24:57.204Z",
   "scorers": [
     {
       "playerId": 304,
@@ -77,6 +77,15 @@
       "playedMatches": 7
     },
     {
+      "playerId": 183780,
+      "name": "Maurice Krattenmacher",
+      "teamId": 719,
+      "goals": 4,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
       "playerId": 8484,
       "name": "Christopher Nkunku",
       "teamId": 721,
@@ -129,15 +138,6 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 7
-    },
-    {
-      "playerId": 183780,
-      "name": "Maurice Krattenmacher",
-      "teamId": 719,
-      "goals": 3,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 8
     },
     {
       "playerId": 9452,
@@ -252,7 +252,7 @@
       "name": "David Mokwa Ntusu",
       "teamId": 719,
       "goals": 2,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 8
     },
@@ -345,6 +345,15 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 7
+    },
+    {
+      "playerId": 182225,
+      "name": "Felix Keidel",
+      "teamId": 719,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 8
     },
     {
       "playerId": 7633,
@@ -642,15 +651,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 7
-    },
-    {
-      "playerId": 182225,
-      "name": "Felix Keidel",
-      "teamId": 719,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 8
     },
     {
       "playerId": 6576,

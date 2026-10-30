@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "FL1",
   "season": 2026,
-  "fetchedUtc": "2026-10-30T19:30:41.434Z",
+  "fetchedUtc": "2026-10-30T20:25:08.342Z",
   "scorers": [
     {
       "playerId": 149850,
@@ -23,6 +23,15 @@
       "playedMatches": 8
     },
     {
+      "playerId": 156808,
+      "name": "Sepe Elye Wahi",
+      "teamId": 522,
+      "goals": 6,
+      "assists": 2,
+      "penalties": 2,
+      "playedMatches": 8
+    },
+    {
       "playerId": 8476,
       "name": "Amine Gouiri",
       "teamId": 516,
@@ -39,15 +48,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 6
-    },
-    {
-      "playerId": 156808,
-      "name": "Sepe Elye Wahi",
-      "teamId": 522,
-      "goals": 5,
-      "assists": 2,
-      "penalties": 2,
-      "playedMatches": 8
     },
     {
       "playerId": 129381,
