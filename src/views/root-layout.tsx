@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { ConsentManager } from "@/components/consent";
+import { InstagramPrompt } from "@/components/instagram-prompt";
 import { SiteFooter, SiteHeader } from "@/components/site-header";
 import { getSiteUrl, SITE, SITE_TEXT } from "@/config/site";
 import { HTML_LANG, type Locale } from "@/i18n";
@@ -36,6 +37,7 @@ export function RootShell({ locale, children }: { locale: Locale; children: Reac
         </main>
         <SiteFooter locale={locale} />
         <ConsentManager locale={locale} />
+        <InstagramPrompt locale={locale} />
       </body>
     </html>
   );
