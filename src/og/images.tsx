@@ -2,7 +2,7 @@ import type { ImageResponse } from "next/og";
 import { getLeagueBySlug, leagueCountryList, LEAGUES } from "@/config/leagues";
 import {
   biggestMatches,
-  getAllMatchSlugs,
+  getCurrentMatchSlugs,
   getAllTableVsStrength,
   getAllTeamSlugs,
   getChampionsLeague,
@@ -57,7 +57,7 @@ const SINGLE = [
 
 /** All image paths as route params, without the leading "/og/". */
 export async function ogParams(): Promise<{ file: string[] }[]> {
-  const [teams, matches] = await Promise.all([getAllTeamSlugs(), getAllMatchSlugs()]);
+  const [teams, matches] = await Promise.all([getAllTeamSlugs(), getCurrentMatchSlugs()]);
   return [
     ...SINGLE.map((name) => [`${name}.png`]),
     ...LEAGUES.map((l) => ["league", `${l.slug}.png`]),

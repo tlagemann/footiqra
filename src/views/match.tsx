@@ -29,6 +29,7 @@ import {
   fmtPercent,
   ordinal,
   paths,
+  seasonLabel,
   tr,
   type Locale,
 } from "@/i18n";
@@ -52,6 +53,10 @@ export async function matchStaticParams() {
 const isFinished = (m: MatchDetail) =>
   m.status === "FINISHED" && m.homeGoals !== null && m.awayGoals !== null;
 
+/** "Sunday, 1 November 2026" / "Sonntag, 1. November 2026" */
+const fullDate = (locale: Locale, iso: string) =>
+  fmtDate(locale, iso, { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+
 const dateLabel = (locale: Locale, iso: string) =>
   fmtDate(locale, iso, { day: "numeric", month: "short", year: "numeric" });
 
@@ -73,20 +78,31 @@ export async function matchMetadata(locale: Locale, slug: string): Promise<Metad
   const both = { en: paths("en").match(m.slug), de: paths("de").match(m.slug) };
   const pct = (n: number) => fmtPercent(locale, n);
   if (isFinished(m)) {
+    // The full date with year stays in the title, so it is always clear which match it was.
     return pageMetadata({
       locale,
       title: tr(
         locale,
-        `${h} ${m.homeGoals}:${m.awayGoals} ${a}: result and stats (${day})`,
-        `${h} ${m.homeGoals}:${m.awayGoals} ${a}: Ergebnis (${day})`,
+        `${h} ${m.homeGoals}:${m.awayGoals} ${a}: result (${date})`,
+        `${h} ${m.homeGoals}:${m.awayGoals} ${a}: Ergebnis (${date})`,
       ),
-      description: tr(
-        locale,
-        `${h} vs ${a} (${m.competitionName}, ${date}) ended ${m.homeGoals}:${m.awayGoals}. With the pre-match forecast, form and season stats of both clubs.`,
-        `${h} gegen ${a} (${m.competitionName}, ${date}) endete ${m.homeGoals}:${m.awayGoals}. Mit der Prognose vor dem Spiel, Form und Saisonstatistik.`,
-      ),
+      description: m.archived
+        ? tr(
+            locale,
+            `${h} vs ${a} (${m.competitionName}, ${fullDate(locale, m.utcDate)}) ended ${m.homeGoals}:${m.awayGoals}. With the pre-match forecast of the Footiqra model.`,
+            `${h} gegen ${a} (${m.competitionName}, ${fullDate(locale, m.utcDate)}) endete ${m.homeGoals}:${m.awayGoals}. Mit der Prognose des Footiqra Modells vor dem Spiel.`,
+          )
+        : tr(
+            locale,
+            `${h} vs ${a} (${m.competitionName}, ${date}) ended ${m.homeGoals}:${m.awayGoals}. With the pre-match forecast, form and season stats of both clubs.`,
+            `${h} gegen ${a} (${m.competitionName}, ${date}) endete ${m.homeGoals}:${m.awayGoals}. Mit der Prognose vor dem Spiel, Form und Saisonstatistik.`,
+          ),
       paths: both,
-      image: ogImage.match(m.slug),
+      image: m.archived
+        ? m.leagueSlug
+          ? ogImage.league(m.leagueSlug)
+          : ogImage.championsLeague
+        : ogImage.match(m.slug),
     });
   }
   const p = m.forecast?.percentages;
@@ -408,13 +424,191 @@ function StatRow({ label, home, away }: { label: string; home: ReactNode; away: 
   );
 }
 
+/**
+ * Archive page for a match finished more than 30 days ago: date, result and
+ * the pre-match forecast. Nothing on it depends on today's data, so the page
+ * stays the same from build to build.
+ */
+function ArchivedMatch({ m, locale }: { m: MatchDetail; locale: Locale }) {
+  const t = (en: string, de: string) => tr(locale, en, de);
+  const p = paths(locale);
+  const h = m.home;
+  const a = m.away;
+  const league = m.leagueSlug ? getLeagueBySlug(m.leagueSlug) : undefined;
+  const vs = t("vs", "gegen");
+  const date = fullDate(locale, m.utcDate);
+  const hg = m.homeGoals!;
+  const ag = m.awayGoals!;
+  const pf = m.forecast?.percentages;
+  const outcome = hg > ag ? "home" : hg < ag ? "away" : "draw";
+  const winner = outcome === "home" ? h.shortName : a.shortName;
+  const result =
+    outcome === "draw"
+      ? t(
+          `${h.shortName} and ${a.shortName} drew ${hg}:${ag}`,
+          `${h.shortName} und ${a.shortName} trennten sich ${hg}:${ag} unentschieden`,
+        )
+      : t(`${winner} won ${hg}:${ag}`, `${winner} gewann ${hg}:${ag}`);
+  const where = m.venue ? t(` at ${m.venue}`, ` im Stadion ${m.venue}`) : "";
+  const context = `${m.competitionName}${m.matchday ? t(`, matchday ${m.matchday}`, `, ${m.matchday}. Spieltag`) : ""}`;
+  return (
+    <div className="space-y-12">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "SportsEvent",
+          name: `${h.name} ${vs} ${a.name}`,
+          sport: "Football",
+          startDate: m.utcDate,
+          eventStatus: "https://schema.org/EventScheduled",
+          url: `${getSiteUrl()}${p.match(m.slug)}`,
+          homeTeam: { "@type": "SportsTeam", name: h.name },
+          awayTeam: { "@type": "SportsTeam", name: a.name },
+          ...(m.venue ? { location: { "@type": "Place", name: m.venue } } : {}),
+          ...(league ? { superEvent: { "@type": "SportsEvent", name: league.name } } : {}),
+        }}
+      />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: t("Home", "Startseite"), path: p.home },
+          league
+            ? { name: league.name, path: p.league(league.slug) }
+            : { name: "Champions League", path: p.championsLeague },
+          { name: `${h.shortName} ${vs} ${a.shortName}`, path: p.match(m.slug) },
+        ])}
+      />
+      {m.currentMeeting && (
+        <Link
+          href={p.match(m.currentMeeting.slug)}
+          className="flex items-center justify-between gap-4 rounded-3xl bg-foreground px-6 py-5 text-inverse transition hover:opacity-90"
+        >
+          <span>
+            <span className="block text-xs font-semibold tracking-wide uppercase opacity-70">
+              {m.currentMeeting.upcoming
+                ? t("Next meeting", "Nächstes Duell")
+                : t("Latest meeting", "Letztes Duell")}
+            </span>
+            <span className="mt-1 block font-display text-xl font-extrabold tracking-[-0.02em]">
+              {m.currentMeeting.homeShortName} {vs} {m.currentMeeting.awayShortName}
+            </span>
+            <span className="block text-sm opacity-70">
+              {fullDate(locale, m.currentMeeting.utcDate)} · {m.currentMeeting.competitionName}
+            </span>
+          </span>
+          <span className="text-sm font-semibold whitespace-nowrap">
+            {m.currentMeeting.upcoming ? t("Preview", "Vorschau") : t("Result", "Ergebnis")}{" "}
+            <span aria-hidden>→</span>
+          </span>
+        </Link>
+      )}
+      <header>
+        <Eyebrow>
+          {context} · {seasonLabel(m.season)}
+        </Eyebrow>
+        <div className="mt-6 grid grid-cols-[1fr_auto_1fr] items-center gap-3 rounded-[2rem] bg-surface px-4 py-8 sm:gap-6 sm:px-10 sm:py-10">
+          <Link href={p.team(h.slug)} className="flex flex-col items-center gap-3 text-center">
+            <Crest src={h.crest} name={h.name} size={72} />
+            <span className="font-display text-xl leading-tight font-extrabold tracking-[-0.03em] sm:text-3xl">
+              {h.shortName}
+            </span>
+          </Link>
+          <div className="text-center">
+            <p className="tabular font-display text-5xl font-extrabold tracking-[-0.04em] sm:text-7xl">
+              {hg}:{ag}
+            </p>
+            <p className="mt-2 text-xs font-medium text-muted sm:text-sm">
+              {t("Full time", "Endstand")}
+            </p>
+          </div>
+          <Link href={p.team(a.slug)} className="flex flex-col items-center gap-3 text-center">
+            <Crest src={a.crest} name={a.name} size={72} />
+            <span className="font-display text-xl leading-tight font-extrabold tracking-[-0.03em] sm:text-3xl">
+              {a.shortName}
+            </span>
+          </Link>
+        </div>
+        <h1 className="mt-8 font-display text-3xl font-extrabold tracking-[-0.035em] sm:text-5xl">
+          {h.shortName} {hg}:{ag} {a.shortName}
+        </h1>
+        <p className="mt-3 font-display text-xl font-bold">
+          <time dateTime={m.utcDate}>{date}</time>
+          {m.venue ? <span className="text-muted"> · {m.venue}</span> : null}
+        </p>
+        <div className="mt-4 max-w-3xl space-y-2 text-lg text-muted">
+          <p>
+            {t(
+              `${result} on ${date}${where} (${context}).`,
+              outcome === "draw"
+                ? `Am ${date} trennten sich ${h.shortName} und ${a.shortName}${where} ${hg}:${ag} unentschieden (${context}).`
+                : `Am ${date} gewann ${winner}${where} ${hg}:${ag} (${context}).`,
+            )}
+          </p>
+          {pf && (
+            <p>
+              {t(
+                `Before kick-off the Footiqra model gave ${h.shortName} ${fmtPercent(locale, pf.home)}, a draw ${fmtPercent(locale, pf.draw)} and ${a.shortName} ${fmtPercent(locale, pf.away)}.`,
+                `Vor dem Anpfiff sah das Footiqra Modell ${h.shortName} bei ${fmtPercent(locale, pf.home)}, ein Remis bei ${fmtPercent(locale, pf.draw)} und ${a.shortName} bei ${fmtPercent(locale, pf.away)}.`,
+              )}
+            </p>
+          )}
+        </div>
+      </header>
+
+      {m.forecast && (
+        <section aria-labelledby="forecast-heading">
+          <SectionHeading
+            id="forecast-heading"
+            title={t("Pre-match forecast", "Prognose vor dem Spiel")}
+          />
+          <div className="rounded-3xl bg-surface p-5 sm:p-7">
+            <ProbabilityBar
+              percentages={m.forecast.percentages}
+              labels={{ home: h.shortName, draw: t("draw", "Remis"), away: a.shortName }}
+              large
+              locale={locale}
+            />
+            <p className="mt-4 text-sm text-muted">
+              {t(
+                "Calculated with both ratings as they were before kick-off.",
+                "Berechnet mit beiden Ratings, wie sie vor dem Anpfiff waren.",
+              )}
+            </p>
+          </div>
+        </section>
+      )}
+
+      <nav
+        aria-label={t("Related pages", "Verwandte Seiten")}
+        className="flex flex-wrap gap-2 text-sm"
+      >
+        {[h, a].map((s) => (
+          <Link
+            key={s.slug}
+            href={p.team(s.slug)}
+            className="rounded-full bg-surface px-4 py-2 font-medium hover:bg-surface-strong"
+          >
+            {t(`${s.shortName}: ranking and results`, `${s.shortName}: Ranking und Ergebnisse`)}
+          </Link>
+        ))}
+        {league && (
+          <Link
+            href={p.league(league.slug)}
+            className="rounded-full bg-surface px-4 py-2 font-medium hover:bg-surface-strong"
+          >
+            {t(`${league.name} table`, `${league.name}: Tabelle`)}
+          </Link>
+        )}
+      </nav>
+    </div>
+  );
+}
+
 export async function MatchView({ locale, slug }: { locale: Locale; slug: string }) {
   if (slug === NO_MATCHES_PLACEHOLDER) notFound();
-  const [found, lastUpdated, week] = await Promise.all([
-    getMatch(slug),
-    getLastUpdated(),
-    getWeekRanking(),
-  ]);
+  const archivedMatch = await getMatch(slug);
+  if (archivedMatch?.archived) return <ArchivedMatch m={archivedMatch} locale={locale} />;
+  const found = archivedMatch;
+  const [lastUpdated, week] = await Promise.all([getLastUpdated(), getWeekRanking()]);
   if (!found) notFound();
   // Matches in the top matches list get exactly the rank shown there.
   const weekIndex = week.findIndex((f) => f.id === found.id);

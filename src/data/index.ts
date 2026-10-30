@@ -17,6 +17,7 @@ import { matchDetail, type MatchDetail } from "./match-detail";
 import { LEAGUES } from "@/config/leagues";
 import { computePowerRanking, type PowerRanking, type PowerRankingRow } from "./power-ranking";
 import {
+  archivedMatchIds,
   crestPath,
   allLeagueTeams,
   findTeamBySlug,
@@ -197,6 +198,13 @@ export type { MatchDetail };
 /** Slugs of all match pages. */
 export async function getAllMatchSlugs(): Promise<string[]> {
   return [...matchSlugs(await loadSnapshot()).values()];
+}
+
+/** Slugs of match pages that are not archive pages (these get their own social image). */
+export async function getCurrentMatchSlugs(): Promise<string[]> {
+  const snapshot = await loadSnapshot();
+  const archived = archivedMatchIds(snapshot);
+  return [...matchSlugs(snapshot)].filter(([id]) => !archived.has(id)).map(([, slug]) => slug);
 }
 
 export async function getMatch(slug: string): Promise<MatchDetail | undefined> {

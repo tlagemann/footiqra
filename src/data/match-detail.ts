@@ -12,6 +12,7 @@ import {
 import type { StoredMatch } from "@/store/types";
 import type { PowerRanking, PowerRankingRow } from "./power-ranking";
 import {
+  archivedMatchIds,
   crestPath,
   leagueTable,
   matchSlugs,
@@ -109,6 +110,21 @@ export interface MatchDetail {
     scorelines: ScorelineForecast;
   } | null;
   headToHead: MatchView[];
+  /** Finished more than 30 days ago: shown as a slim archive page. */
+  archived: boolean;
+  /**
+   * The current page for this pairing, if it is another match: the next
+   * upcoming meeting of the two clubs, otherwise their latest one. Archive
+   * pages point to it, so search engines and readers find the current match.
+   */
+  currentMeeting: {
+    slug: string;
+    utcDate: string;
+    upcoming: boolean;
+    competitionName: string;
+    homeShortName: string;
+    awayShortName: string;
+  } | null;
   /** Stadium of the home club; null for neutral finals or unknown. */
   venue: string | null;
   profile: MatchProfile | null;
@@ -190,6 +206,7 @@ export function matchDetail(
   const found = findMatch(snapshot, id);
   if (!found) return undefined;
   const { match: m, competition, season } = found;
+  const archived = archivedMatchIds(snapshot).has(m.id);
   const leagues = teamLeagueMap(snapshot);
   const rankingById = new Map(ranking.rows.map((r) => [r.team.id, r]));
 
@@ -310,8 +327,50 @@ export function matchDetail(
     away,
     forecast,
     headToHead,
+    archived,
+    currentMeeting: currentMeeting(snapshot, m, asOf),
     venue: m.stage === "FINAL" ? null : home.venue,
-    profile: matchProfile(snapshot, ranking, m),
+    profile: archived ? null : matchProfile(snapshot, ranking, m),
+  };
+}
+
+function currentMeeting(
+  snapshot: Snapshot,
+  match: StoredMatch,
+  asOf: Date,
+): MatchDetail["currentMeeting"] {
+  const slugs = matchSlugs(snapshot);
+  const pair = new Set([match.homeTeamId, match.awayTeamId]);
+  const now = asOf.getTime();
+  const others: { m: StoredMatch; competition: string; slug: string }[] = [];
+  for (const file of snapshot.matchFiles) {
+    for (const x of file.matches) {
+      const slug = slugs.get(x.id);
+      if (!slug || x.id === match.id) continue;
+      if (!pair.has(x.homeTeamId) || !pair.has(x.awayTeamId)) continue;
+      if (x.status === "CANCELLED") continue;
+      others.push({ m: x, competition: file.competition, slug });
+    }
+  }
+  const t = (x: StoredMatch) => Date.parse(x.utcDate);
+  const upcoming = others
+    .filter((o) => t(o.m) >= now && !finished(o.m))
+    .sort((a, b) => t(a.m) - t(b.m))[0];
+  // Without an upcoming meeting: the latest one, but only if it is newer than this match.
+  const latest = others.filter((o) => t(o.m) > t(match)).sort((a, b) => t(b.m) - t(a.m))[0];
+  const pick = upcoming ?? latest;
+  if (!pick) return null;
+  const short = (id: number) => {
+    const team = snapshot.teams.teams[String(id)];
+    return team?.shortName || team?.name || "Unknown team";
+  };
+  return {
+    slug: pick.slug,
+    utcDate: pick.m.utcDate,
+    upcoming: pick === upcoming,
+    competitionName: COMPETITION_NAME[pick.competition] ?? pick.competition,
+    homeShortName: short(pick.m.homeTeamId),
+    awayShortName: short(pick.m.awayTeamId),
   };
 }
 

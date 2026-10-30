@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import type { StoredMatch } from "@/store/types";
 import { matchDetail, seasonStats } from "./match-detail";
 import { computePowerRanking } from "./power-ranking";
-import { matchSlugs, type Snapshot } from "./repository";
+import { archivedMatchIds, matchSlugs, type Snapshot } from "./repository";
 
 // Fictional teams, not real data.
 const match = (
@@ -77,14 +77,25 @@ describe("matchSlugs", () => {
     expect(slugs.has(10)).toBe(false); // outsider has no league
   });
 
-  it("only publishes matches inside the page window", () => {
+  it("keeps finished matches as archive pages and drops unplayed old ones", () => {
     const later = {
       ...snapshot,
-      meta: { ...snapshot.meta, lastSuccessfulRunUtc: "2026-10-20T00:00:00.000Z" },
+      meta: { ...snapshot.meta, lastSuccessfulRunUtc: "2026-10-30T00:00:00.000Z" },
     };
     const slugs = matchSlugs(later);
-    expect(slugs.has(1)).toBe(false); // 1 Sep: more than 30 days ago
-    expect(slugs.get(4)).toBe("b-vs-a-2026-27"); // 25 Sep: within 30 days
+    expect(slugs.get(1)).toBe("a-vs-b-2026-27"); // 1 Sep, finished: archive page
+    expect(slugs.has(4)).toBe(false); // 25 Sep, never played: no page
+    expect(archivedMatchIds(later).has(1)).toBe(true);
+    const recent = archivedMatchIds(snapshot);
+    expect(recent.has(1)).toBe(false); // within 30 days of 20 Sep
+  });
+
+  it("does not publish matches more than 14 days ahead", () => {
+    const early = {
+      ...snapshot,
+      meta: { ...snapshot.meta, lastSuccessfulRunUtc: "2026-09-05T00:00:00.000Z" },
+    };
+    expect(matchSlugs(early).has(4)).toBe(false); // 25 Sep: 20 days ahead
   });
 });
 
@@ -103,6 +114,11 @@ describe("seasonStats", () => {
 describe("matchDetail", () => {
   const ranking = computePowerRanking(snapshot);
   const asOf = new Date("2026-09-20T00:00:00.000Z");
+
+  it("points older matches to the next meeting of the same clubs", () => {
+    const m = matchDetail(snapshot, ranking, "a-vs-b-2026-27", asOf)!;
+    expect(m.currentMeeting).toMatchObject({ slug: "b-vs-a-2026-27", upcoming: true });
+  });
 
   it("uses the pre-match forecast for finished matches", () => {
     const m = matchDetail(snapshot, ranking, "a-vs-b-2026-27", asOf)!;

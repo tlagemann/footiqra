@@ -155,11 +155,34 @@ function toView(snapshot: Snapshot, competition: string, m: StoredMatch): MatchV
 const slugCache = new WeakMap<Snapshot, Map<number, string>>();
 
 /**
- * Match pages exist for kick-offs from 30 days before to 14 days after the
- * data timestamp. Far-future pages would be near-duplicates of each other,
- * and interest in a match fades within weeks after it was played.
+ * Match pages exist from 14 days before kick-off and then stay for good, so a
+ * URL never stops working once search engines know it. Far-future pages
+ * would be near-duplicates of each other.
+ *
+ * Finished matches more than `pastDays` ago become archive pages: a slim
+ * result page (date, result, pre-match forecast) whose content no longer
+ * changes, which keeps the build and the upload small.
  */
 export const MATCH_PAGE_WINDOW = { pastDays: 30, futureDays: 14 } as const;
+
+const archiveCache = new WeakMap<Snapshot, Set<number>>();
+
+/** Ids of matches whose page is an archive page (see MATCH_PAGE_WINDOW). */
+export function archivedMatchIds(snapshot: Snapshot): Set<number> {
+  const cached = archiveCache.get(snapshot);
+  if (cached) return cached;
+  const asOf = Date.parse(snapshot.meta.lastSuccessfulRunUtc ?? "");
+  const cutoff = asOf - MATCH_PAGE_WINDOW.pastDays * 24 * 3600 * 1000;
+  const slugs = matchSlugs(snapshot);
+  const ids = new Set<number>();
+  for (const file of snapshot.matchFiles) {
+    for (const m of file.matches) {
+      if (slugs.has(m.id) && Date.parse(m.utcDate) < cutoff) ids.add(m.id);
+    }
+  }
+  archiveCache.set(snapshot, ids);
+  return ids;
+}
 
 /**
  * Stable page slugs for matches that get a page: every match of the current
@@ -174,7 +197,7 @@ export function matchSlugs(snapshot: Snapshot): Map<number, string> {
   const leagues = teamLeagueMap(snapshot);
   const latestLeague = new Set(latestLeagueFiles(snapshot).map((x) => x.file));
   const currentSeason = Math.max(0, ...[...latestLeague].map((f) => f.season));
-  const candidates: { id: number; base: string; utcDate: string }[] = [];
+  const candidates: { id: number; base: string; utcDate: string; finished: boolean }[] = [];
   for (const file of snapshot.matchFiles) {
     const isLeague = latestLeague.has(file);
     const isEuropean = !leagueByCode.has(file.competition) && file.season === currentSeason;
@@ -192,6 +215,10 @@ export function matchSlugs(snapshot: Snapshot): Map<number, string> {
         id: m.id,
         base: `${home.slug}-vs-${away.slug}-${season}${suffix}`,
         utcDate: m.utcDate,
+        finished:
+          (m.status === "FINISHED" || m.status === "AWARDED") &&
+          m.homeGoals !== null &&
+          m.awayGoals !== null,
       });
     }
   }
@@ -205,11 +232,12 @@ export function matchSlugs(snapshot: Snapshot): Map<number, string> {
     const slug = used.has(c.base) ? `${c.base}-${c.id}` : c.base;
     used.add(slug);
     const kickoff = Date.parse(c.utcDate);
-    const inWindow =
-      Number.isFinite(asOf) &&
+    const recent =
       kickoff >= asOf - MATCH_PAGE_WINDOW.pastDays * day &&
       kickoff <= asOf + MATCH_PAGE_WINDOW.futureDays * day;
-    if (inWindow) slugs.set(c.id, slug);
+    // Older matches keep their page only once they have a result.
+    const archived = kickoff < asOf - MATCH_PAGE_WINDOW.pastDays * day && c.finished;
+    if (Number.isFinite(asOf) && (recent || archived)) slugs.set(c.id, slug);
   }
   slugCache.set(snapshot, slugs);
   return slugs;
