@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { createRandom, marginShares, simulateSeason, type SimOptions } from "./simulate";
+import {
+  createRandom,
+  marginShares,
+  simulateSeason,
+  simulateSeasonWithStakes,
+  type SimOptions,
+} from "./simulate";
 
 const options: SimOptions = {
   runs: 2000,
@@ -63,5 +69,25 @@ describe("helpers", () => {
   it("margin shares group 4+ goals", () => {
     expect(marginShares([1, 1, 2, 5, 0])).toEqual([0.5, 0.25, 0, 0.25]);
     expect(marginShares([])).toHaveLength(4);
+  });
+});
+
+describe("simulateSeasonWithStakes", () => {
+  it("leaves the season numbers unchanged and splits runs by result", () => {
+    const plain = simulateSeason(teams, fixtures, options);
+    // Fixture 1 vs 2 (index 0) and 2 vs 3 (index 4).
+    const { teams: tracked, stakes } = simulateSeasonWithStakes(teams, fixtures, options, [0, 4]);
+    expect(tracked).toEqual(plain);
+    expect(stakes.map((s) => s.fixture)).toEqual([0, 4]);
+    for (const st of stakes) {
+      expect(st.runs.reduce((a, b) => a + b, 0)).toBe(options.runs);
+      st.counts.forEach((bySide, o) =>
+        bySide.forEach((pos) => expect(pos.reduce((a, b) => a + b, 0)).toBe(st.runs[o])),
+      );
+    }
+    // Team 1 wins the title more often after beating team 2 than after losing.
+    const [first] = stakes;
+    const title = (o: number) => first!.counts[o]![0]![0]! / first!.runs[o]!;
+    expect(title(0)).toBeGreaterThan(title(2));
   });
 });

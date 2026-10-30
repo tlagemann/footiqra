@@ -6,7 +6,13 @@ import { upcomingForecasts, type MatchForecast } from "./forecasts";
 import { loadSnapshotFromDisk } from "./load";
 import { rankHistories, type RankPoint } from "./rank-history";
 import { ratingHistory, type RatingPoint } from "./rating-history";
-import { leagueProjection, type LeagueProjection, type ProjectionRow } from "./projection";
+import {
+  leagueProjection,
+  type LeagueProjection,
+  type MatchStakes,
+  type ProjectionRow,
+  type ZoneChances,
+} from "./projection";
 import { matchDetail, type MatchDetail } from "./match-detail";
 import { LEAGUES } from "@/config/leagues";
 import { computePowerRanking, type PowerRanking, type PowerRankingRow } from "./power-ranking";
@@ -198,7 +204,7 @@ export async function getMatch(slug: string): Promise<MatchDetail | undefined> {
   return matchDetail(snapshot, ranking, slug, asOf);
 }
 
-export type { LeagueProjection, ProjectionRow };
+export type { LeagueProjection, MatchStakes, ProjectionRow, ZoneChances };
 
 const projectionCache = new Map<string, Promise<LeagueProjection | undefined>>();
 

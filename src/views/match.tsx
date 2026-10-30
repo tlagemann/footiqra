@@ -8,8 +8,28 @@ import { LocalTime } from "@/components/local-time";
 import { LastUpdated, MatchList } from "@/components/match-list";
 import { Crest, Eyebrow, FormGuide, SectionHeading } from "@/components/ui";
 import { getLeagueBySlug } from "@/config/leagues";
-import { getAllMatchSlugs, getLastUpdated, getMatch, type MatchDetail } from "@/data";
-import { fmtDate, fmtDecimal, fmtPercent, ordinal, paths, tr, type Locale } from "@/i18n";
+import { RatingTrend, type TrendSeries } from "@/components/rating-trend";
+import {
+  getAllMatchSlugs,
+  getLastUpdated,
+  getLeagueProjection,
+  getMatch,
+  getRatingHistory,
+  type MatchDetail,
+  type MatchStakes,
+  type RatingPoint,
+  type ZoneChances,
+} from "@/data";
+import {
+  fmtChance,
+  fmtDate,
+  fmtDecimal,
+  fmtPercent,
+  ordinal,
+  paths,
+  tr,
+  type Locale,
+} from "@/i18n";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { ogImage } from "@/og/images";
 
@@ -90,7 +110,7 @@ export async function matchMetadata(locale: Locale, slug: string): Promise<Metad
 }
 
 /** Plain-language summary: the main text of the page for readers and search engines. */
-function summary(m: MatchDetail, locale: Locale): string[] {
+function summary(m: MatchDetail, locale: Locale, stakesLine: string | null): string[] {
   const h = m.home;
   const a = m.away;
   const de = locale === "de";
@@ -169,9 +189,180 @@ function summary(m: MatchDetail, locale: Locale): string[] {
             ? `Das Modell erwartet ein enges Spiel: ${odds}.`
             : `The model expects a close match: ${odds}.`,
       );
+      const top = m.forecast?.scorelines.top[0];
+      if (top) {
+        lines.push(
+          de
+            ? `Das wahrscheinlichste Ergebnis ist ${top.home}:${top.away} (${pct(Math.round(top.probability * 100))}), die Chance auf mindestens drei Tore liegt bei ${fmtChance(locale, m.forecast!.scorelines.over25)}.`
+            : `The most likely score is ${top.home}:${top.away} (${pct(Math.round(top.probability * 100))}), and the chance of three or more goals is ${fmtChance(locale, m.forecast!.scorelines.over25)}.`,
+        );
+      }
     }
   }
+  if (stakesLine) lines.push(stakesLine);
   return lines;
+}
+
+type Zone = keyof ZoneChances;
+type SideStakes = MatchStakes["home"];
+const ZONES: readonly Zone[] = ["title", "top4", "bottom3"];
+
+/** A zone is worth showing when the match can move it and it is not already settled. */
+function relevantZones(st: SideStakes): Zone[] {
+  return ZONES.filter((z) => {
+    const v = [st.now[z], st.win[z], st.draw[z], st.loss[z]];
+    const max = Math.max(...v);
+    const min = Math.min(...v);
+    return max >= 0.01 && min <= 0.99 && max - min >= 0.01;
+  });
+}
+
+/** The biggest swing of the match as one sentence, or null if nothing much is at stake. */
+function stakesHeadline(m: MatchDetail, stakes: MatchStakes, locale: Locale): string | null {
+  const de = locale === "de";
+  const c = (p: number) => fmtChance(locale, p);
+  let best: { name: string; zone: Zone; st: SideStakes; swing: number } | null = null;
+  for (const [name, st] of [
+    [m.home.shortName, stakes.home],
+    [m.away.shortName, stakes.away],
+  ] as const) {
+    for (const zone of relevantZones(st)) {
+      const swing = Math.abs(st.win[zone] - st.loss[zone]);
+      if (!best || swing > best.swing) best = { name, zone, st, swing };
+    }
+  }
+  if (!best || best.swing < 0.03) return null;
+  const { name, zone, st } = best;
+  const now = st.now[zone];
+  const win = st.win[zone];
+  const loss = st.loss[zone];
+  if (zone === "bottom3") {
+    if (!(win < now && loss > now)) return null;
+    return de
+      ? `Ein Sieg würde das Risiko von ${name}, unter den letzten drei zu landen, von ${c(now)} auf ${c(win)} senken, eine Niederlage würde es auf ${c(loss)} erhöhen.`
+      : `A win would cut ${name}'s risk of finishing in the bottom three from ${c(now)} to ${c(win)}; a defeat would raise it to ${c(loss)}.`;
+  }
+  if (!(win > now && loss < now)) return null;
+  const what = de
+    ? zone === "title"
+      ? "die Meisterschaft"
+      : "einen Platz unter den ersten vier"
+    : zone === "title"
+      ? "title"
+      : "top-four";
+  return de
+    ? `Ein Sieg würde die Chance von ${name} auf ${what} von ${c(now)} auf ${c(win)} heben, eine Niederlage würde sie auf ${c(loss)} senken.`
+    : `A win would lift ${name}'s ${what} chance from ${c(now)} to ${c(win)}; a defeat would drop it to ${c(loss)}.`;
+}
+
+function StakesTable({
+  name,
+  crest,
+  st,
+  locale,
+}: {
+  name: string;
+  crest: string | null;
+  st: SideStakes;
+  locale: Locale;
+}) {
+  const t = (en: string, de: string) => tr(locale, en, de);
+  const zones = relevantZones(st);
+  const label: Record<Zone, string> = {
+    title: t("Title", "Meister"),
+    top4: "Top 4",
+    bottom3: t("Bottom 3", "Letzte drei"),
+  };
+  const tone = (zone: Zone, v: number) => {
+    const d = v - st.now[zone];
+    if (Math.abs(d) < 0.01) return "";
+    const good = zone === "bottom3" ? d < 0 : d > 0;
+    return good ? "text-positive" : "text-negative";
+  };
+  const num = "tabular px-2 py-3 text-right font-display text-lg font-bold";
+  return (
+    <div className="min-w-0 rounded-3xl bg-surface p-5 sm:p-6">
+      <h3 className="mb-3 flex items-center gap-2 font-display text-lg font-extrabold">
+        <Crest src={crest} name={name} size={24} />
+        {name}
+      </h3>
+      {zones.length > 0 ? (
+        <table className="w-full text-[15px]">
+          <caption className="sr-only">
+            {t(
+              `${name}: chances today and after a win, draw or defeat`,
+              `${name}: Chancen heute und nach Sieg, Remis oder Niederlage`,
+            )}
+          </caption>
+          <thead>
+            <tr className="text-xs font-medium text-muted">
+              <th scope="col" className="py-2 text-left font-medium">
+                <span className="sr-only">{t("Finish", "Abschluss")}</span>
+              </th>
+              <th scope="col" className="px-2 py-2 text-right font-medium">
+                {t("Today", "Heute")}
+              </th>
+              <th scope="col" className="px-2 py-2 text-right font-medium">
+                {t("Win", "Sieg")}
+              </th>
+              <th scope="col" className="px-2 py-2 text-right font-medium">
+                {t("Draw", "Remis")}
+              </th>
+              <th scope="col" className="py-2 pl-2 text-right font-medium">
+                {t("Defeat", "Niederlage")}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {zones.map((z) => (
+              <tr key={z} className="border-t border-line/80">
+                <th scope="row" className="py-3 pr-2 text-left text-sm font-medium text-muted">
+                  {label[z]}
+                </th>
+                <td className={num}>{fmtChance(locale, st.now[z])}</td>
+                <td className={`${num} ${tone(z, st.win[z])}`}>{fmtChance(locale, st.win[z])}</td>
+                <td className={`${num} ${tone(z, st.draw[z])}`}>{fmtChance(locale, st.draw[z])}</td>
+                <td className={`${num.replace("px-2", "pl-2")} ${tone(z, st.loss[z])}`}>
+                  {fmtChance(locale, st.loss[z])}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p className="text-muted">
+          {t(
+            "This result hardly changes the title, top 4 or bottom 3 race for this club.",
+            "Für diesen Verein ändert das Ergebnis im Rennen um Meisterschaft, Top 4 und Letzte drei kaum etwas.",
+          )}
+        </p>
+      )}
+    </div>
+  );
+}
+
+/** Latest rated matches of one club, up to `until` (UTC ms). */
+function trendSeries(
+  name: string,
+  history: RatingPoint[],
+  until: number,
+  locale: Locale,
+  count = 15,
+): TrendSeries {
+  const where = (home: boolean) =>
+    locale === "de" ? (home ? "gegen" : "bei") : home ? "vs" : "at";
+  const points = history
+    .filter((p) => p.kind !== "start" && Date.parse(p.utcDate) <= until)
+    .slice(-count)
+    .map((p) => ({
+      t: Date.parse(p.utcDate),
+      rating: p.rating,
+      change: p.change,
+      match: p.match
+        ? `${where(p.match.home)} ${p.match.opponent} ${p.match.goalsFor}:${p.match.goalsAgainst}`
+        : null,
+    }));
+  return { name, points };
 }
 
 function StatRow({ label, home, away }: { label: string; home: ReactNode; away: ReactNode }) {
@@ -194,6 +385,14 @@ export async function MatchView({ locale, slug }: { locale: Locale; slug: string
   if (slug === NO_MATCHES_PLACEHOLDER) notFound();
   const [m, lastUpdated] = await Promise.all([getMatch(slug), getLastUpdated()]);
   if (!m) notFound();
+  const upcoming = m.status === "SCHEDULED" || m.status === "TIMED";
+  const [projection, homeHistory, awayHistory] = await Promise.all([
+    upcoming && m.leagueSlug ? getLeagueProjection(m.leagueSlug) : undefined,
+    getRatingHistory(m.home.slug),
+    getRatingHistory(m.away.slug),
+  ]);
+  const stakes = projection?.stakes.get(m.id);
+  const stakesLine = stakes ? stakesHeadline(m, stakes, locale) : null;
   const t = (en: string, de: string) => tr(locale, en, de);
   const p = paths(locale);
 
@@ -215,6 +414,19 @@ export async function MatchView({ locale, slug }: { locale: Locale; slug: string
   const record = (r: { won: number; drawn: number; lost: number }) =>
     `${r.won}-${r.drawn}-${r.lost}`;
   const vs = t("vs", "gegen");
+  const until = finished ? Date.parse(m.utcDate) + 6 * 3600000 : Number.POSITIVE_INFINITY;
+  const trend: [TrendSeries, TrendSeries] = [
+    trendSeries(h.shortName, homeHistory, until, locale),
+    trendSeries(a.shortName, awayHistory, until, locale),
+  ];
+  const showTrend = trend.every((s) => s.points.length >= 2);
+  const sc = m.forecast?.scorelines;
+  const marketCell = (label: string, value: string) => (
+    <div className="rounded-2xl bg-background px-4 py-3">
+      <p className="text-xs font-medium text-muted">{label}</p>
+      <p className="tabular mt-1 font-display text-2xl font-extrabold">{value}</p>
+    </div>
+  );
 
   return (
     <div className="space-y-14">
@@ -273,7 +485,7 @@ export async function MatchView({ locale, slug }: { locale: Locale; slug: string
               )}
         </h1>
         <div className="mt-4 max-w-3xl space-y-2 text-lg text-muted">
-          {summary(m, locale).map((line) => (
+          {summary(m, locale, stakesLine).map((line) => (
             <p key={line}>{line}</p>
           ))}
         </div>
@@ -316,6 +528,130 @@ export async function MatchView({ locale, slug }: { locale: Locale; slug: string
                   )}
             </p>
           </div>
+        </section>
+      )}
+
+      {sc && m.forecast && (
+        <section aria-labelledby="scores-heading">
+          <SectionHeading
+            id="scores-heading"
+            title={t("Most likely scores", "Wahrscheinlichste Ergebnisse")}
+            aside={
+              <span className="text-sm text-muted">
+                {t("Expected goals", "Erwartete Tore")}{" "}
+                <span className="tabular font-semibold text-foreground">
+                  {fmtDecimal(locale, sc.expectedGoals.home, 1)} :{" "}
+                  {fmtDecimal(locale, sc.expectedGoals.away, 1)}
+                </span>
+              </span>
+            }
+          />
+          <div className="rounded-3xl bg-surface p-5 sm:p-7">
+            <ol className="grid grid-cols-3 gap-3 sm:grid-cols-5">
+              {sc.top.map((s, i) => {
+                const actual = finished && s.home === m.homeGoals && s.away === m.awayGoals;
+                return (
+                  <li
+                    key={`${s.home}-${s.away}`}
+                    className={`rounded-2xl bg-background px-3 py-4 text-center ${actual ? "ring-2 ring-brand" : ""} ${i >= 3 ? "hidden sm:block" : ""}`}
+                  >
+                    <p className="tabular font-display text-3xl font-extrabold tracking-[-0.03em]">
+                      {s.home}:{s.away}
+                    </p>
+                    <p className="tabular mt-1 text-sm font-semibold text-muted">
+                      {fmtPercent(locale, Math.round(s.probability * 100))}
+                    </p>
+                    {actual && (
+                      <p className="mt-1 text-xs font-semibold text-brand-ink">
+                        {t("Final score", "Endstand")}
+                      </p>
+                    )}
+                  </li>
+                );
+              })}
+            </ol>
+            <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
+              {marketCell(t("3+ goals", "3+ Tore"), fmtChance(locale, sc.over25))}
+              {marketCell(
+                t("Both teams score", "Beide Teams treffen"),
+                fmtChance(locale, sc.bothScore),
+              )}
+              {marketCell(
+                t(`${h.shortName} clean sheet`, `${h.shortName} ohne Gegentor`),
+                fmtChance(locale, sc.homeCleanSheet),
+              )}
+              {marketCell(
+                t(`${a.shortName} clean sheet`, `${a.shortName} ohne Gegentor`),
+                fmtChance(locale, sc.awayCleanSheet),
+              )}
+            </div>
+            <p className="mt-4 text-sm text-muted">
+              {t(
+                "Exact scores from the same forecast: the league's average home and away goals, adjusted for the strength of both clubs. Model estimate, not betting advice.",
+                "Ergebnisse aus derselben Prognose: die durchschnittlichen Heim- und Auswärtstore der Liga, angepasst an die Stärke beider Vereine. Modellschätzung, keine Wettberatung.",
+              )}
+            </p>
+          </div>
+        </section>
+      )}
+
+      {stakes && (
+        <section aria-labelledby="stakes-heading">
+          <SectionHeading
+            id="stakes-heading"
+            title={t("What's at stake", "Was auf dem Spiel steht")}
+            aside={
+              league ? (
+                <Link
+                  href={p.projection(league.slug)}
+                  className="text-sm text-muted hover:text-foreground"
+                >
+                  {t("Predicted table", "Prognose-Tabelle")}
+                </Link>
+              ) : undefined
+            }
+          />
+          {stakesLine && <p className="mb-5 max-w-3xl text-lg">{stakesLine}</p>}
+          <div className="grid gap-6 lg:grid-cols-2">
+            <StakesTable name={h.shortName} crest={h.crest} st={stakes.home} locale={locale} />
+            <StakesTable name={a.shortName} crest={a.crest} st={stakes.away} locale={locale} />
+          </div>
+          <p className="mt-3 text-sm text-muted">
+            {t(
+              `Share of the season simulations in which the club finishes there, today and split by the result of this match. Plain table positions; how many places lead to Europe or relegation depends on the ${league?.name ?? "league"} rules.`,
+              `Anteil der Saisonsimulationen, in denen der Verein dort landet, heute und aufgeteilt nach dem Ergebnis dieses Spiels. Reine Tabellenplätze; wie viele Plätze zu Europapokal oder Abstieg führen, regelt die ${league?.name ?? "Liga"}.`,
+            )}
+          </p>
+        </section>
+      )}
+
+      {showTrend && (
+        <section aria-labelledby="trend-heading">
+          <SectionHeading
+            id="trend-heading"
+            title={t("Rating trend", "Rating-Verlauf")}
+            aside={
+              <span className="text-sm text-muted">
+                {t("Latest 15 matches", "Letzte 15 Spiele")}
+              </span>
+            }
+          />
+          <div className="rounded-3xl bg-surface p-4 sm:p-6">
+            <RatingTrend
+              series={trend}
+              locale={locale}
+              ariaLabel={t(
+                `Footiqra rating of ${h.name} and ${a.name} over their latest matches`,
+                `Footiqra-Rating von ${h.name} und ${a.name} über die letzten Spiele`,
+              )}
+            />
+          </div>
+          <p className="mt-3 text-sm text-muted">
+            {t(
+              "Rating after each match in all competitions. Higher means stronger, and ratings are comparable across leagues.",
+              "Rating nach jedem Spiel in allen Wettbewerben. Höher heißt stärker, die Ratings sind ligaübergreifend vergleichbar.",
+            )}
+          </p>
         </section>
       )}
 

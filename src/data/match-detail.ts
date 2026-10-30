@@ -1,5 +1,14 @@
 import { getLeagueBySlug, LEAGUES } from "@/config/leagues";
-import { ELO_OPTIONS, matchProbabilities, toPercentages, type MatchProbabilities } from "@/ranking";
+import {
+  ELO_OPTIONS,
+  expectedScore,
+  goalRates,
+  matchProbabilities,
+  scorelineForecast,
+  toPercentages,
+  type MatchProbabilities,
+  type ScorelineForecast,
+} from "@/ranking";
 import type { StoredMatch } from "@/store/types";
 import type { PowerRanking, PowerRankingRow } from "./power-ranking";
 import {
@@ -72,6 +81,8 @@ export interface MatchDetail {
     probabilities: MatchProbabilities;
     percentages: MatchProbabilities;
     basis: "pre-match" | "current";
+    /** Exact results and goal markets from the same forecast (scores-v1). */
+    scorelines: ScorelineForecast;
   } | null;
   headToHead: MatchView[];
 }
@@ -180,19 +191,28 @@ export function matchDetail(
   const away = side(m.awayTeamId);
   if (!home || !away) return undefined;
 
+  const file = snapshot.matchFiles.find(
+    (f) => f.competition === competition && f.season === season,
+  );
+  const rates = goalRates(file?.matches ?? []);
+  const build = (diff: number, basis: "pre-match" | "current"): MatchDetail["forecast"] => {
+    const probabilities = matchProbabilities(diff);
+    return {
+      probabilities,
+      percentages: toPercentages(probabilities),
+      basis,
+      scorelines: scorelineForecast(probabilities, expectedScore(diff, 0), rates),
+    };
+  };
   let forecast: MatchDetail["forecast"] = null;
   if (finished(m)) {
     const diff = ranking.preMatchDiff.get(m.id);
-    if (diff !== undefined) {
-      const probabilities = matchProbabilities(diff);
-      forecast = { probabilities, percentages: toPercentages(probabilities), basis: "pre-match" };
-    }
+    if (diff !== undefined) forecast = build(diff, "pre-match");
   } else if (home.ranking && away.ranking) {
     const neutral = m.stage === "FINAL";
     const diff =
       home.ranking.rating + (neutral ? 0 : ELO_OPTIONS.homeAdvantage) - away.ranking.rating;
-    const probabilities = matchProbabilities(diff);
-    forecast = { probabilities, percentages: toPercentages(probabilities), basis: "current" };
+    forecast = build(diff, "current");
   }
 
   const pair = new Set([m.homeTeamId, m.awayTeamId]);
