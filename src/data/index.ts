@@ -1,4 +1,4 @@
-import { ELO_MODEL_ID } from "@/ranking";
+import { ELO_MODEL_ID, leagueFactor, SCORER_INDEX_V1, scorerIndex } from "@/ranking";
 import "server-only";
 import { dataDir, listHistoryDates, readHistoryFile } from "@/store/fs";
 import { referenceDate, utcDay, type HistoryFile, type HistoryTeam } from "./history";
@@ -349,4 +349,51 @@ export async function getLeagueScorers(leagueSlug: string): Promise<LeagueScorer
       };
     }),
   };
+}
+
+export interface ScorerIndexRow extends LeagueScorer {
+  indexRank: number;
+  points: number;
+  clubMatches: number;
+  leagueFactor: number;
+}
+
+export interface ScorerIndex {
+  model: string;
+  /** Matches every club is scaled to: the most league matches any club has played. */
+  referenceMatches: number;
+  rows: ScorerIndexRow[];
+}
+
+/** Scorer power ranking across all leagues (see ranking/scorer-index.ts). */
+export async function getScorerIndex(): Promise<ScorerIndex> {
+  const [snapshot, ranking] = await Promise.all([loadSnapshot(), loadRanking()]);
+  const adjustment = new Map(ranking.leagues.map((l) => [l.leagueSlug, l.currentAdjustment]));
+  const played = new Map<string, number>();
+  let referenceMatches = 0;
+  for (const l of LEAGUES) {
+    for (const row of leagueTable(snapshot, l.slug)?.rows ?? []) {
+      if (row.team.slug) played.set(row.team.slug, row.playedGames);
+      referenceMatches = Math.max(referenceMatches, row.playedGames);
+    }
+  }
+  const rows: ScorerIndexRow[] = [];
+  for (const l of LEAGUES) {
+    for (const s of (await getLeagueScorers(l.slug))?.scorers ?? []) {
+      const clubMatches = s.team.slug ? (played.get(s.team.slug) ?? 0) : 0;
+      const adj = adjustment.get(l.slug) ?? 0;
+      const points = scorerIndex(
+        { goals: s.goals, penalties: s.penalties, clubMatches, leagueAdjustment: adj },
+        referenceMatches,
+      );
+      if (points === null) continue;
+      rows.push({ ...s, indexRank: 0, points, clubMatches, leagueFactor: leagueFactor(adj) });
+    }
+  }
+  rows.sort((a, b) => b.points - a.points || b.goals - a.goals || a.name.localeCompare(b.name));
+  const shown = (r: ScorerIndexRow) => Math.round(r.points * 10);
+  rows.forEach((r, i) => {
+    r.indexRank = i > 0 && shown(rows[i - 1]!) === shown(r) ? rows[i - 1]!.indexRank : i + 1;
+  });
+  return { model: SCORER_INDEX_V1.id, referenceMatches, rows };
 }

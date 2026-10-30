@@ -8,6 +8,7 @@ import {
   getChampionsLeague,
   getLeagueProjection,
   getLeagueScorers,
+  getScorerIndex,
   getLeagueTable,
   getMatch,
   getPowerRanking,
@@ -34,6 +35,7 @@ export const ogImage = {
   predictions: "/og/predictions.png",
   topMatches: "/og/top-matches.png",
   scorersIndex: "/og/top-scorers.png",
+  scorerPower: "/og/scorer-power-ranking.png",
   scorers: (slug: string) => `/og/scorers/${slug}.png`,
   tableVsStrength: "/og/table-vs-strength.png",
   methodology: "/og/methodology.png",
@@ -48,6 +50,7 @@ const SINGLE = [
   "predictions",
   "top-matches",
   "top-scorers",
+  "scorer-power-ranking",
   "table-vs-strength",
   "methodology",
   "champions-league",
@@ -115,6 +118,19 @@ export async function renderOgImage(file: string[]): Promise<ImageResponse | nul
           crest: r.team.crest,
           value: String(Math.round(r.rating)),
           sub: `#${i + 1} by strength`,
+        })),
+      });
+    }
+    case "scorer-power-ranking": {
+      const index = await getScorerIndex();
+      return genericOg({
+        eyebrow: "Scorer power ranking",
+        title: "Europe's best goalscorers, on one scale",
+        teams: index.rows.slice(0, 3).map((s) => ({
+          name: s.name,
+          crest: s.team.crest,
+          value: s.points.toFixed(1),
+          sub: `${s.goals} goals · ${s.team.name}`,
         })),
       });
     }

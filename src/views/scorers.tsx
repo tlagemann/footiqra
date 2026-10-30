@@ -6,7 +6,7 @@ import { JsonLd } from "@/components/json-ld";
 import { LastUpdated } from "@/components/match-list";
 import { Crest, Eyebrow, SectionHeading } from "@/components/ui";
 import { getLeagueBySlug, LEAGUES } from "@/config/leagues";
-import { getLastUpdated, getLeagueScorers, type LeagueScorer } from "@/data";
+import { getLastUpdated, getLeagueScorers, getScorerIndex, type LeagueScorer } from "@/data";
 import { fmtDecimal, paths, seasonLabel, tr, type Locale } from "@/i18n";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { ogImage } from "@/og/images";
@@ -277,10 +277,12 @@ export function scorersIndexMetadata(locale: Locale): Metadata {
 export async function ScorersIndexView({ locale }: { locale: Locale }) {
   const t = (en: string, de: string) => tr(locale, en, de);
   const p = paths(locale);
-  const [all, lastUpdated] = await Promise.all([
+  const [all, lastUpdated, index] = await Promise.all([
     Promise.all(LEAGUES.map((l) => getLeagueScorers(l.slug))),
     getLastUpdated(),
+    getScorerIndex(),
   ]);
+  const power = index.rows.slice(0, 5);
   const merged = all
     .flatMap((d) => d?.scorers ?? [])
     .sort((a, b) => b.goals - a.goals || (b.assists ?? 0) - (a.assists ?? 0));
@@ -314,6 +316,53 @@ export async function ScorersIndexView({ locale }: { locale: Locale }) {
               )}
         </p>
       </header>
+
+      {power.length > 0 && (
+        <section aria-labelledby="power-heading">
+          <SectionHeading
+            id="power-heading"
+            title={t("Scorer power ranking", "Torjäger-Power-Ranking")}
+            aside={
+              <Link href={p.scorerIndex} className="text-sm text-muted hover:text-foreground">
+                Top 50 <span aria-hidden>→</span>
+              </Link>
+            }
+          />
+          <Link
+            href={p.scorerIndex}
+            className="block rounded-3xl bg-surface px-5 py-2 transition hover:bg-surface-strong sm:px-6"
+          >
+            <ol>
+              {power.map((s) => (
+                <li
+                  key={`${s.leagueSlug}-${s.playerId}`}
+                  className="flex items-center gap-3 border-t border-line/80 py-3 first:border-t-0"
+                >
+                  <span className="tabular w-6 font-display font-bold text-muted">
+                    {s.indexRank}.
+                  </span>
+                  <Crest src={s.team.crest} name={s.team.name} size={22} />
+                  <span className="min-w-0 flex-1 truncate">
+                    <span className="font-semibold">{s.name}</span>{" "}
+                    <span className="text-sm text-muted">
+                      {s.team.name} · {getLeagueBySlug(s.leagueSlug)?.name}
+                    </span>
+                  </span>
+                  <span className="tabular font-display text-xl font-extrabold">
+                    {fmtDecimal(locale, s.points, 1)}
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </Link>
+          <p className="mt-3 max-w-3xl text-sm text-muted">
+            {t(
+              "Goals weighted by league strength, penalties counted lower and every club scaled to the same number of matches.",
+              "Tore gewichtet nach Ligastärke, Elfmeter geringer gezählt und jeder Verein auf gleich viele Spiele hochgerechnet.",
+            )}
+          </p>
+        </section>
+      )}
 
       {europe.length > 0 ? (
         <section aria-labelledby="europe-heading">

@@ -5,3 +5,4 @@ export * from "./league-elo";
 export * from "./forecast";
 export * from "./simulate";
 export * from "./scorelines";
+export * from "./scorer-index";

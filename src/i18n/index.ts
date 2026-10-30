@@ -61,6 +61,7 @@ export function paths(locale: Locale) {
     league: (slug: string) => `${b}${s.leagues}/${slug}/`,
     projection: (slug: string) => `${b}${s.leagues}/${slug}/${s.projection}/`,
     scorers: `${b}${s.scorers}/`,
+    scorerIndex: `${b}${s.scorers}/power-ranking/`,
     leagueScorers: (slug: string) => `${b}${s.leagues}/${slug}/${s.scorers}/`,
     team: (slug: string) => `${b}${s.teams}/${slug}/`,
     match: (slug: string) => `${b}${s.matches}/${slug}/`,
@@ -100,6 +101,7 @@ export function counterpart(pathname: string, to: Locale): string {
     if (parts[2] === src.scorers) return p.leagueScorers(parts[1]!);
     return p.league(parts[1]!);
   }
+  if (first === "scorers" && parts[1] === "power-ranking") return p.scorerIndex;
   if (first === "teams" && parts[1]) return p.team(parts[1]);
   if (first === "matches" && parts[1]) return p.match(parts[1]);
   const simple = dst[first];
