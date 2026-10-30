@@ -12,6 +12,7 @@ import { StandingsTable } from "@/components/standings-table";
 import { Crest, Eyebrow, SectionHeading } from "@/components/ui";
 import { getLeagueBySlug, LEAGUES } from "@/config/leagues";
 import {
+  getLeagueScorers,
   getLeagueProjection,
   getLeagueTable,
   getLeagueTeams,
@@ -66,6 +67,7 @@ export async function LeagueView({ locale, slug }: { locale: Locale; slug: strin
     getUpcomingForecasts(),
     getLeagueProjection(league.slug),
   ]);
+  const scorers = (await getLeagueScorers(league.slug))?.scorers.slice(0, 5) ?? [];
   const titleRace = projection?.rows.slice(0, 3) ?? [];
   const dropZone = [...(projection?.rows ?? [])].sort((a, b) => b.bottom3 - a.bottom3).slice(0, 3);
   const forecasts = nextWindow(
@@ -155,6 +157,41 @@ export async function LeagueView({ locale, slug }: { locale: Locale; slug: strin
                     </p>
                   </div>
                 </Link>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
+
+      {scorers.length > 0 && (
+        <section aria-labelledby="scorers-teaser">
+          <SectionHeading
+            id="scorers-teaser"
+            title={t("Top scorers", "Torjäger")}
+            aside={
+              <Link
+                href={p.leagueScorers(league.slug)}
+                className="text-sm text-muted hover:text-foreground"
+              >
+                {t("Top 100", "Top 100")} <span aria-hidden>→</span>
+              </Link>
+            }
+          />
+          <ol className="rounded-3xl bg-surface px-5 py-2 sm:px-6">
+            {scorers.map((s, j) => (
+              <li
+                key={s.playerId}
+                className="flex items-center gap-3 border-t border-line/80 py-3 first:border-t-0"
+              >
+                <span className="tabular w-6 font-display font-bold text-muted">
+                  {j > 0 && scorers[j - 1]!.rank === s.rank ? "" : `${s.rank}.`}
+                </span>
+                <Crest src={s.team.crest} name={s.team.name} size={22} />
+                <span className="min-w-0 flex-1 truncate">
+                  <span className="font-semibold">{s.name}</span>{" "}
+                  <span className="text-sm text-muted">{s.team.name}</span>
+                </span>
+                <span className="tabular font-display text-xl font-extrabold">{s.goals}</span>
               </li>
             ))}
           </ol>

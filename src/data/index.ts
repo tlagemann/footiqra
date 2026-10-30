@@ -17,6 +17,7 @@ import { matchDetail, type MatchDetail } from "./match-detail";
 import { LEAGUES } from "@/config/leagues";
 import { computePowerRanking, type PowerRanking, type PowerRankingRow } from "./power-ranking";
 import {
+  crestPath,
   allLeagueTeams,
   findTeamBySlug,
   competitionMatches,
@@ -285,4 +286,59 @@ export async function getRankHistory(teamSlug: string): Promise<RankPoint[]> {
   const ranking = await loadRanking();
   const team = ranking.rows.find((r) => r.team.slug === teamSlug);
   return team ? ((await rankHistoryPromise).get(team.team.id) ?? []) : [];
+}
+
+export interface LeagueScorer {
+  rank: number;
+  playerId: number;
+  name: string;
+  goals: number;
+  assists: number | null;
+  penalties: number | null;
+  playedMatches: number | null;
+  team: { slug: string | null; name: string; crest: string | null };
+  leagueSlug: string;
+}
+
+export interface LeagueScorers {
+  leagueSlug: string;
+  season: number;
+  fetchedUtc: string;
+  scorers: LeagueScorer[];
+}
+
+/** League top scorers (provider's list, league goals only); shared ranks for equal goals. */
+export async function getLeagueScorers(leagueSlug: string): Promise<LeagueScorers | undefined> {
+  const snapshot = await loadSnapshot();
+  const league = LEAGUES.find((l) => l.slug === leagueSlug);
+  if (!league) return undefined;
+  const file = snapshot.scorers?.find((f) => f.competition === league.providerCodes.footballData);
+  if (!file) return undefined;
+  const sorted = [...file.scorers].sort(
+    (a, b) =>
+      b.goals - a.goals || (b.assists ?? 0) - (a.assists ?? 0) || a.name.localeCompare(b.name),
+  );
+  return {
+    leagueSlug,
+    season: file.season,
+    fetchedUtc: file.fetchedUtc,
+    scorers: sorted.map((s) => {
+      const team = snapshot.teams.teams[String(s.teamId)];
+      return {
+        rank: 1 + sorted.filter((o) => o.goals > s.goals).length,
+        playerId: s.playerId,
+        name: s.name,
+        goals: s.goals,
+        assists: s.assists,
+        penalties: s.penalties,
+        playedMatches: s.playedMatches,
+        team: {
+          slug: team?.slug ?? null,
+          name: team?.shortName || team?.name || "Unknown team",
+          crest: crestPath(snapshot, s.teamId),
+        },
+        leagueSlug,
+      };
+    }),
+  };
 }

@@ -67,7 +67,8 @@ function buildNav(locale: Locale): NavItem[] {
       href: p.leagues,
       match: (path) =>
         (path.startsWith(leaguesPrefix) && !isProjection(path)) ||
-        path.startsWith(p.championsLeague),
+        path.startsWith(p.championsLeague) ||
+        path.startsWith(p.scorers),
       groups: [
         {
           title: t("Leagues", "Ligen"),
@@ -81,6 +82,11 @@ function buildNav(locale: Locale): NavItem[] {
           title: t("Europe", "Europa"),
           links: [
             { href: p.championsLeague, label: "Champions League" },
+            {
+              href: p.scorers,
+              label: t("Top scorers", "Torjäger"),
+              hint: t("Top 100 of every league", "Top 100 jeder Liga"),
+            },
             {
               href: p.leagues,
               label: t("All leagues", "Alle Ligen"),

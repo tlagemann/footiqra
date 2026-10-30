@@ -7,6 +7,7 @@ import {
   getAllTeamSlugs,
   getChampionsLeague,
   getLeagueProjection,
+  getLeagueScorers,
   getLeagueTable,
   getMatch,
   getPowerRanking,
@@ -32,6 +33,8 @@ export const ogImage = {
   match: (slug: string) => `/og/match/${slug}.png`,
   predictions: "/og/predictions.png",
   topMatches: "/og/top-matches.png",
+  scorersIndex: "/og/top-scorers.png",
+  scorers: (slug: string) => `/og/scorers/${slug}.png`,
   tableVsStrength: "/og/table-vs-strength.png",
   methodology: "/og/methodology.png",
   championsLeague: "/og/champions-league.png",
@@ -44,6 +47,7 @@ const SINGLE = [
   "leagues",
   "predictions",
   "top-matches",
+  "top-scorers",
   "table-vs-strength",
   "methodology",
   "champions-league",
@@ -58,6 +62,7 @@ export async function ogParams(): Promise<{ file: string[] }[]> {
     ...SINGLE.map((name) => [`${name}.png`]),
     ...LEAGUES.map((l) => ["league", `${l.slug}.png`]),
     ...LEAGUES.map((l) => ["projection", `${l.slug}.png`]),
+    ...LEAGUES.map((l) => ["scorers", `${l.slug}.png`]),
     ...teams.map((s) => ["team", `${s}.png`]),
     ...matches.map((s) => ["match", `${s}.png`]),
   ].map((file) => ({ file }));
@@ -110,6 +115,38 @@ export async function renderOgImage(file: string[]): Promise<ImageResponse | nul
           crest: r.team.crest,
           value: String(Math.round(r.rating)),
           sub: `#${i + 1} by strength`,
+        })),
+      });
+    }
+    case "top-scorers": {
+      const lists = await Promise.all(LEAGUES.map((l) => getLeagueScorers(l.slug)));
+      const top = lists
+        .flatMap((d) => d?.scorers ?? [])
+        .sort((a, b) => b.goals - a.goals)
+        .slice(0, 3);
+      return genericOg({
+        eyebrow: "Top scorers",
+        title: "Europe's top league scorers",
+        teams: top.map((s) => ({
+          name: s.name,
+          crest: s.team.crest,
+          value: `${s.goals}`,
+          sub: `${s.team.name} · ${getLeagueBySlug(s.leagueSlug)?.name ?? ""}`,
+        })),
+      });
+    }
+    case "scorers": {
+      const league = getLeagueBySlug(name);
+      if (!league) return null;
+      const data = await getLeagueScorers(league.slug);
+      return genericOg({
+        eyebrow: `${league.name} · top scorers`,
+        title: `${league.name} top scorers`,
+        teams: (data?.scorers ?? []).slice(0, 3).map((s) => ({
+          name: s.name,
+          crest: s.team.crest,
+          value: `${s.goals}`,
+          sub: s.team.name,
         })),
       });
     }

@@ -910,6 +910,20 @@ export async function MatchView({ locale, slug }: { locale: Locale; slug: string
               );
             })}
           </div>
+          <div className="mt-3 flex flex-wrap gap-2 text-sm">
+            {[...new Set([h.leagueSlug, a.leagueSlug])].map((slug) => (
+              <Link
+                key={slug}
+                href={p.leagueScorers(slug)}
+                className="rounded-full bg-surface px-4 py-2 font-medium hover:bg-surface-strong"
+              >
+                {t(
+                  `${getLeagueBySlug(slug)?.name ?? "League"} top 100 scorers`,
+                  `Top 100 Torjäger ${getLeagueBySlug(slug)?.name ?? "Liga"}`,
+                )}
+              </Link>
+            ))}
+          </div>
           <p className="mt-3 text-sm text-muted">
             {t(
               "Goals and assists in league matches only, from the official scorer list of each league.",

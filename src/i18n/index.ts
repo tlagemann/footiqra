@@ -26,6 +26,7 @@ const SEG = {
     matches: "matches",
     predictions: "predictions",
     topMatches: "top-matches",
+    scorers: "top-scorers",
     tableVsStrength: "table-vs-strength",
     methodology: "methodology",
     championsLeague: "champions-league",
@@ -39,6 +40,7 @@ const SEG = {
     matches: "spiele",
     predictions: "prognosen",
     topMatches: "topspiele",
+    scorers: "torjaeger",
     tableVsStrength: "tabelle-vs-staerke",
     methodology: "methodik",
     championsLeague: "champions-league",
@@ -58,6 +60,8 @@ export function paths(locale: Locale) {
     leagues: `${b}${s.leagues}/`,
     league: (slug: string) => `${b}${s.leagues}/${slug}/`,
     projection: (slug: string) => `${b}${s.leagues}/${slug}/${s.projection}/`,
+    scorers: `${b}${s.scorers}/`,
+    leagueScorers: (slug: string) => `${b}${s.leagues}/${slug}/${s.scorers}/`,
     team: (slug: string) => `${b}${s.teams}/${slug}/`,
     match: (slug: string) => `${b}${s.matches}/${slug}/`,
     predictions: `${b}${s.predictions}/`,
@@ -93,6 +97,7 @@ export function counterpart(pathname: string, to: Locale): string {
     if (parts.length === 1) return p.leagues;
     if (parts.length === 2) return p.league(parts[1]!);
     if (parts[2] === src.projection) return p.projection(parts[1]!);
+    if (parts[2] === src.scorers) return p.leagueScorers(parts[1]!);
     return p.league(parts[1]!);
   }
   if (first === "teams" && parts[1]) return p.team(parts[1]);
