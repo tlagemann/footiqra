@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "FL1",
   "season": 2026,
-  "fetchedUtc": "2026-10-30T16:00:20.887Z",
+  "fetchedUtc": "2026-10-30T18:33:23.304Z",
   "scorers": [
     {
       "playerId": 149850,
@@ -77,13 +77,22 @@
       "playedMatches": 8
     },
     {
+      "playerId": 10201,
+      "name": "Sebastian Szymański",
+      "teamId": 529,
+      "goals": 4,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
       "playerId": 33154,
       "name": "Ferrán Torres",
       "teamId": 524,
       "goals": 4,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 244696,
@@ -95,21 +104,30 @@
       "playedMatches": 6
     },
     {
+      "playerId": 156808,
+      "name": "Sepe Elye Wahi",
+      "teamId": 522,
+      "goals": 4,
+      "assists": 1,
+      "penalties": 1,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 4072,
+      "name": "Josh Maja",
+      "teamId": 533,
+      "goals": 4,
+      "assists": null,
+      "penalties": 1,
+      "playedMatches": 9
+    },
+    {
       "playerId": 4289,
       "name": "Daniel Namaso",
       "teamId": 519,
       "goals": 3,
       "assists": 2,
       "penalties": 1,
-      "playedMatches": 8
-    },
-    {
-      "playerId": 10201,
-      "name": "Sebastian Szymański",
-      "teamId": 529,
-      "goals": 3,
-      "assists": 1,
-      "penalties": null,
       "playedMatches": 8
     },
     {
@@ -149,31 +167,13 @@
       "playedMatches": 5
     },
     {
-      "playerId": 156808,
-      "name": "Sepe Elye Wahi",
-      "teamId": 522,
-      "goals": 3,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 7
-    },
-    {
-      "playerId": 4072,
-      "name": "Josh Maja",
-      "teamId": 533,
-      "goals": 3,
-      "assists": null,
-      "penalties": 1,
-      "playedMatches": 8
-    },
-    {
       "playerId": 98299,
       "name": "Boulaye Dia",
       "teamId": 529,
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 80754,
@@ -236,7 +236,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 137515,
@@ -279,9 +279,9 @@
       "name": "Rayan Fofana",
       "teamId": 533,
       "goals": 2,
-      "assists": null,
+      "assists": 1,
       "penalties": 1,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 136733,
@@ -308,7 +308,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 215679,
@@ -399,6 +399,15 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 8
+    },
+    {
+      "playerId": 189574,
+      "name": "Mika Godts",
+      "teamId": 524,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
     },
     {
       "playerId": 250795,
@@ -506,7 +515,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 851,
@@ -605,7 +614,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 75196,
@@ -695,7 +704,7 @@
       "goals": 1,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 532,
@@ -803,7 +812,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 7910,
@@ -866,7 +875,7 @@
       "goals": 1,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 113285,
@@ -884,7 +893,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 170412,
@@ -894,15 +903,6 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 7
-    },
-    {
-      "playerId": 274822,
-      "name": "Sion Oppong",
-      "teamId": 511,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 6
     }
   ]
 }
