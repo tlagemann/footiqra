@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "FL1",
   "season": 2026,
-  "fetchedUtc": "2026-10-30T18:33:23.304Z",
+  "fetchedUtc": "2026-10-30T18:57:04.848Z",
   "scorers": [
     {
       "playerId": 149850,
@@ -39,6 +39,15 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 6
+    },
+    {
+      "playerId": 156808,
+      "name": "Sepe Elye Wahi",
+      "teamId": 522,
+      "goals": 5,
+      "assists": 2,
+      "penalties": 2,
+      "playedMatches": 8
     },
     {
       "playerId": 129381,
@@ -102,15 +111,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 6
-    },
-    {
-      "playerId": 156808,
-      "name": "Sepe Elye Wahi",
-      "teamId": 522,
-      "goals": 4,
-      "assists": 1,
-      "penalties": 1,
-      "playedMatches": 8
     },
     {
       "playerId": 4072,
@@ -372,6 +372,15 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 5
+    },
+    {
+      "playerId": 1023,
+      "name": "Jonathan Clauss",
+      "teamId": 522,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
     },
     {
       "playerId": 3714,
@@ -894,15 +903,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 9
-    },
-    {
-      "playerId": 170412,
-      "name": "Matthis Abline",
-      "teamId": 548,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 7
     }
   ]
 }
