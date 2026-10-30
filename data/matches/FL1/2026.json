@@ -1047,11 +1047,11 @@
       "stage": "REGULAR_SEASON",
       "homeTeamId": 521,
       "awayTeamId": 546,
-      "homeGoals": 0,
+      "homeGoals": 1,
       "awayGoals": 0,
       "duration": "REGULAR",
-      "winner": "DRAW",
-      "lastUpdated": "2026-10-30T21:46:27.000Z"
+      "winner": "HOME_TEAM",
+      "lastUpdated": "2026-10-30T21:54:59.000Z"
     },
     {
       "id": 559643,

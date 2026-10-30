@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "FL1",
   "season": 2026,
-  "fetchedUtc": "2026-10-30T21:48:49.300Z",
+  "fetchedUtc": "2026-10-30T21:57:47.875Z",
   "scorers": [
     {
       "playerId": 149850,
@@ -140,6 +140,15 @@
       "playedMatches": 8
     },
     {
+      "playerId": 3371,
+      "name": "Olivier Giroud",
+      "teamId": 521,
+      "goals": 3,
+      "assists": 2,
+      "penalties": 1,
+      "playedMatches": 9
+    },
+    {
       "playerId": 3225,
       "name": "Marquinhos",
       "teamId": 524,
@@ -200,15 +209,6 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
-    },
-    {
-      "playerId": 3371,
-      "name": "Olivier Giroud",
-      "teamId": 521,
-      "goals": 2,
-      "assists": 2,
-      "penalties": 1,
       "playedMatches": 9
     },
     {
