@@ -88,6 +88,14 @@ function buildNav(locale: Locale): NavItem[] {
               hint: t("Top 100 of every league", "Top 100 jeder Liga"),
             },
             {
+              href: p.scorerIndex,
+              label: t("Scorer power ranking", "Torjäger-Power-Ranking"),
+              hint: t(
+                "Europe's best scorers on one scale",
+                "Europas beste Torjäger auf einer Skala",
+              ),
+            },
+            {
               href: p.leagues,
               label: t("All leagues", "Alle Ligen"),
               hint: t("Overview and league strength", "Übersicht und Ligastärke"),

@@ -16,6 +16,7 @@ import {
   getAllTableVsStrength,
   getLeagueProjection,
   getPowerRanking,
+  getScorerIndex,
   getUpcomingForecasts,
   getWeekAgo,
   nextWindow,
@@ -57,6 +58,7 @@ export async function HomeView({ locale }: { locale: Locale }) {
     proj ? [{ league, favourite: proj.rows.reduce((a, b) => (b.title > a.title ? b : a)) }] : [],
   );
   const hasPerformance = performance.over.length + performance.under.length > 0;
+  const scorers = (await getScorerIndex()).rows.slice(0, 3);
 
   return (
     <div className="space-y-20 sm:space-y-28">
@@ -212,6 +214,46 @@ export async function HomeView({ locale }: { locale: Locale }) {
                     </span>
                   </Link>
                 </li>
+              </ul>
+            </section>
+          )}
+
+          {scorers.length > 0 && (
+            <section aria-labelledby="scorer-power">
+              <SectionHeading
+                id="scorer-power"
+                title={t("Europe's best scorers", "Europas beste Torjäger")}
+                aside={
+                  <Link href={p.scorerIndex} className="text-sm text-muted hover:text-foreground">
+                    {t("Scorer power ranking", "Torjäger-Power-Ranking")} <span aria-hidden>→</span>
+                  </Link>
+                }
+              />
+              <ul className="grid gap-3 sm:grid-cols-3">
+                {scorers.map((s) => (
+                  <li key={`${s.leagueSlug}-${s.playerId}`}>
+                    <Link
+                      href={p.scorerIndex}
+                      className="flex h-full flex-col justify-between gap-4 rounded-3xl bg-surface p-5 transition hover:bg-surface-strong"
+                    >
+                      <span className="flex items-center justify-between text-sm font-semibold text-muted">
+                        <span>#{s.indexRank}</span>
+                        <span>{getLeagueBySlug(s.leagueSlug)?.name}</span>
+                      </span>
+                      <span className="flex items-center gap-3">
+                        <Crest src={s.team.crest} name={s.team.name} size={40} />
+                        <span className="min-w-0">
+                          <span className="block truncate font-display text-lg font-bold tracking-[-0.02em]">
+                            {s.name}
+                          </span>
+                          <span className="block text-sm text-muted">
+                            {s.goals} {t("goals", "Tore")} · {s.team.name}
+                          </span>
+                        </span>
+                      </span>
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </section>
           )}

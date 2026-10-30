@@ -7,7 +7,7 @@ import { LastUpdated } from "@/components/match-list";
 import { Crest, Eyebrow, SectionHeading } from "@/components/ui";
 import { getLeagueBySlug, LEAGUES } from "@/config/leagues";
 import { getLastUpdated, getLeagueScorers, getScorerIndex, type LeagueScorer } from "@/data";
-import { fmtDecimal, paths, seasonLabel, tr, type Locale } from "@/i18n";
+import { fmtDecimal, ordinal, paths, seasonLabel, tr, type Locale } from "@/i18n";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { ogImage } from "@/og/images";
 
@@ -182,7 +182,12 @@ export async function LeagueScorersView({ locale, slug }: { locale: Locale; slug
   if (!league) notFound();
   const t = (en: string, de: string) => tr(locale, en, de);
   const p = paths(locale);
-  const [data, lastUpdated] = await Promise.all([getLeagueScorers(league.slug), getLastUpdated()]);
+  const [data, lastUpdated, index] = await Promise.all([
+    getLeagueScorers(league.slug),
+    getLastUpdated(),
+    getScorerIndex(),
+  ]);
+  const bestInEurope = index.rows.find((r) => r.leagueSlug === league.slug);
   const list = data?.scorers.slice(0, 100) ?? [];
   const lead = leaderLine(list, locale, league.name);
 
@@ -220,11 +225,31 @@ export async function LeagueScorersView({ locale, slug }: { locale: Locale; slug
             id="scorers-heading"
             title={t(`Top ${list.length}`, `Top ${list.length}`)}
             aside={
-              <Link href={p.scorers} className="text-sm text-muted hover:text-foreground">
-                {t("All leagues", "Alle Ligen")}
-              </Link>
+              <span className="flex flex-wrap items-center gap-4 text-sm">
+                <Link href={p.scorers} className="text-muted hover:text-foreground">
+                  {t("All leagues", "Alle Ligen")}
+                </Link>
+                <Link href={p.scorerIndex} className="font-semibold hover:underline">
+                  {t("Europe ranking", "Europa-Ranking")} <span aria-hidden>→</span>
+                </Link>
+              </span>
             }
           />
+          {bestInEurope && (
+            <p className="-mt-2 mb-5 max-w-3xl text-muted">
+              {t(`Best ${league.name} scorer in the `, `Bester Torjäger der ${league.name} im `)}
+              <Link
+                href={p.scorerIndex}
+                className="font-semibold text-foreground underline underline-offset-4"
+              >
+                {t("scorer power ranking", "Torjäger-Power-Ranking")}
+              </Link>
+              {t(
+                `: ${bestInEurope.name}, ${ordinal("en", bestInEurope.indexRank)} in Europe.`,
+                `: ${bestInEurope.name}, Platz ${bestInEurope.indexRank} in Europa.`,
+              )}
+            </p>
+          )}
           <ScorerTable
             scorers={list}
             locale={locale}
