@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "date": "2026-10-30",
-  "dataUtc": "2026-10-30T21:34:36.644Z",
+  "dataUtc": "2026-10-30T21:47:11.380Z",
   "model": "elo-v2",
   "teams": [
     {
@@ -716,9 +716,18 @@
       "gap": 5
     },
     {
+      "slug": "1-fsv-mainz-05",
+      "leagueSlug": "bundesliga",
+      "powerRank": 80,
+      "rating": 1474.3,
+      "tablePosition": 8,
+      "strengthPosition": 10,
+      "gap": 2
+    },
+    {
       "slug": "angers-sco",
       "leagueSlug": "ligue-1",
-      "powerRank": 80,
+      "powerRank": 81,
       "rating": 1474,
       "tablePosition": 14,
       "strengthPosition": 16,
@@ -727,26 +736,17 @@
     {
       "slug": "rcd-espanyol-de-barcelona",
       "leagueSlug": "la-liga",
-      "powerRank": 81,
+      "powerRank": 82,
       "rating": 1473.6,
       "tablePosition": 18,
       "strengthPosition": 18,
       "gap": 0
     },
     {
-      "slug": "1-fsv-mainz-05",
-      "leagueSlug": "bundesliga",
-      "powerRank": 82,
-      "rating": 1473.1,
-      "tablePosition": 8,
-      "strengthPosition": 10,
-      "gap": 2
-    },
-    {
       "slug": "sv-07-elversberg",
       "leagueSlug": "bundesliga",
       "powerRank": 83,
-      "rating": 1468.4,
+      "rating": 1467.3,
       "tablePosition": 5,
       "strengthPosition": 11,
       "gap": 6
