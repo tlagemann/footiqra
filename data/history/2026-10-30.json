@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "date": "2026-10-30",
-  "dataUtc": "2026-10-30T21:22:29.935Z",
+  "dataUtc": "2026-10-30T21:34:36.644Z",
   "model": "elo-v2",
   "teams": [
     {
@@ -432,9 +432,9 @@
       "leagueSlug": "bundesliga",
       "powerRank": 48,
       "rating": 1534.7,
-      "tablePosition": 5,
+      "tablePosition": 6,
       "strengthPosition": 4,
-      "gap": -1
+      "gap": -2
     },
     {
       "slug": "ogc-nice",
@@ -644,18 +644,9 @@
       "gap": -1
     },
     {
-      "slug": "1-fsv-mainz-05",
-      "leagueSlug": "bundesliga",
-      "powerRank": 72,
-      "rating": 1490.5,
-      "tablePosition": 7,
-      "strengthPosition": 9,
-      "gap": 2
-    },
-    {
       "slug": "frosinone-calcio",
       "leagueSlug": "serie-a",
-      "powerRank": 73,
+      "powerRank": 72,
       "rating": 1489.3,
       "tablePosition": 6,
       "strengthPosition": 10,
@@ -664,7 +655,7 @@
     {
       "slug": "rc-deportivo-la-coruna",
       "leagueSlug": "la-liga",
-      "powerRank": 74,
+      "powerRank": 73,
       "rating": 1487.5,
       "tablePosition": 11,
       "strengthPosition": 14,
@@ -673,7 +664,7 @@
     {
       "slug": "getafe-cf",
       "leagueSlug": "la-liga",
-      "powerRank": 75,
+      "powerRank": 74,
       "rating": 1485.2,
       "tablePosition": 17,
       "strengthPosition": 15,
@@ -682,7 +673,7 @@
     {
       "slug": "az",
       "leagueSlug": "eredivisie",
-      "powerRank": 76,
+      "powerRank": 75,
       "rating": 1484.7,
       "tablePosition": 5,
       "strengthPosition": 5,
@@ -691,16 +682,16 @@
     {
       "slug": "sv-werder-bremen",
       "leagueSlug": "bundesliga",
-      "powerRank": 77,
+      "powerRank": 76,
       "rating": 1481,
-      "tablePosition": 6,
-      "strengthPosition": 10,
-      "gap": 4
+      "tablePosition": 7,
+      "strengthPosition": 9,
+      "gap": 2
     },
     {
       "slug": "valencia-cf",
       "leagueSlug": "la-liga",
-      "powerRank": 78,
+      "powerRank": 77,
       "rating": 1480.2,
       "tablePosition": 19,
       "strengthPosition": 16,
@@ -709,7 +700,7 @@
     {
       "slug": "le-mans-fc",
       "leagueSlug": "ligue-1",
-      "powerRank": 79,
+      "powerRank": 78,
       "rating": 1476.4,
       "tablePosition": 15,
       "strengthPosition": 15,
@@ -718,7 +709,7 @@
     {
       "slug": "ca-osasuna",
       "leagueSlug": "la-liga",
-      "powerRank": 80,
+      "powerRank": 79,
       "rating": 1474.6,
       "tablePosition": 12,
       "strengthPosition": 17,
@@ -727,7 +718,7 @@
     {
       "slug": "angers-sco",
       "leagueSlug": "ligue-1",
-      "powerRank": 81,
+      "powerRank": 80,
       "rating": 1474,
       "tablePosition": 14,
       "strengthPosition": 16,
@@ -736,16 +727,34 @@
     {
       "slug": "rcd-espanyol-de-barcelona",
       "leagueSlug": "la-liga",
-      "powerRank": 82,
+      "powerRank": 81,
       "rating": 1473.6,
       "tablePosition": 18,
       "strengthPosition": 18,
       "gap": 0
     },
     {
+      "slug": "1-fsv-mainz-05",
+      "leagueSlug": "bundesliga",
+      "powerRank": 82,
+      "rating": 1473.1,
+      "tablePosition": 8,
+      "strengthPosition": 10,
+      "gap": 2
+    },
+    {
+      "slug": "sv-07-elversberg",
+      "leagueSlug": "bundesliga",
+      "powerRank": 83,
+      "rating": 1468.4,
+      "tablePosition": 5,
+      "strengthPosition": 11,
+      "gap": 6
+    },
+    {
       "slug": "torino-fc",
       "leagueSlug": "serie-a",
-      "powerRank": 83,
+      "powerRank": 84,
       "rating": 1466.3,
       "tablePosition": 9,
       "strengthPosition": 11,
@@ -754,16 +763,16 @@
     {
       "slug": "eintracht-frankfurt",
       "leagueSlug": "bundesliga",
-      "powerRank": 84,
+      "powerRank": 85,
       "rating": 1464.5,
       "tablePosition": 14,
-      "strengthPosition": 11,
-      "gap": -3
+      "strengthPosition": 12,
+      "gap": -2
     },
     {
       "slug": "real-racing-club-de-santander",
       "leagueSlug": "la-liga",
-      "powerRank": 85,
+      "powerRank": 86,
       "rating": 1461.9,
       "tablePosition": 13,
       "strengthPosition": 19,
@@ -772,7 +781,7 @@
     {
       "slug": "sc-heerenveen",
       "leagueSlug": "eredivisie",
-      "powerRank": 86,
+      "powerRank": 87,
       "rating": 1460.2,
       "tablePosition": 7,
       "strengthPosition": 6,
@@ -781,20 +790,11 @@
     {
       "slug": "fc-groningen",
       "leagueSlug": "eredivisie",
-      "powerRank": 87,
+      "powerRank": 88,
       "rating": 1453.5,
       "tablePosition": 8,
       "strengthPosition": 7,
       "gap": -1
-    },
-    {
-      "slug": "sv-07-elversberg",
-      "leagueSlug": "bundesliga",
-      "powerRank": 88,
-      "rating": 1451.1,
-      "tablePosition": 8,
-      "strengthPosition": 12,
-      "gap": 4
     },
     {
       "slug": "le-havre-ac",
