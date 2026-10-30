@@ -37,6 +37,7 @@ function buildNav(locale: Locale): NavItem[] {
       href: p.predictions,
       match: (path) =>
         path.startsWith(p.predictions) ||
+        path.startsWith(p.topMatches) ||
         path.startsWith(p.match("").slice(0, -1)) ||
         isProjection(path),
       groups: [
@@ -47,6 +48,11 @@ function buildNav(locale: Locale): NavItem[] {
               href: p.predictions,
               label: t("Next 7 days", "Nächste 7 Tage"),
               hint: t("Win, draw and loss chances", "Sieg-, Remis- und Niederlagenchancen"),
+            },
+            {
+              href: p.topMatches,
+              label: t("Top matches", "Topspiele"),
+              hint: t("The biggest games of the week", "Die größten Spiele der Woche"),
             },
           ],
         },

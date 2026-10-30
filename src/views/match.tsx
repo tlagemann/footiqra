@@ -35,6 +35,7 @@ import {
 import { getSiteUrl } from "@/config/site";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { ogImage } from "@/og/images";
+import { getWeekRanking } from "@/views/top-matches";
 
 /**
  * Match pages: /matches/{home}-vs-{away}-{season}/ and /de/spiele/…
@@ -409,8 +410,22 @@ function StatRow({ label, home, away }: { label: string; home: ReactNode; away: 
 
 export async function MatchView({ locale, slug }: { locale: Locale; slug: string }) {
   if (slug === NO_MATCHES_PLACEHOLDER) notFound();
-  const [m, lastUpdated] = await Promise.all([getMatch(slug), getLastUpdated()]);
-  if (!m) notFound();
+  const [found, lastUpdated, week] = await Promise.all([
+    getMatch(slug),
+    getLastUpdated(),
+    getWeekRanking(),
+  ]);
+  if (!found) notFound();
+  // Matches in the top matches list get exactly the rank shown there.
+  const weekIndex = week.findIndex((f) => f.id === found.id);
+  const inTopList = weekIndex >= 0;
+  const m: MatchDetail =
+    inTopList && found.profile
+      ? {
+          ...found,
+          profile: { ...found.profile, weekRank: weekIndex + 1, weekMatches: week.length },
+        }
+      : found;
   const upcoming = m.status === "SCHEDULED" || m.status === "TIMED";
   const [projection, homeHistory, awayHistory, homeRanks, awayRanks] = await Promise.all([
     upcoming && m.leagueSlug ? getLeagueProjection(m.leagueSlug) : undefined,
@@ -477,15 +492,32 @@ export async function MatchView({ locale, slug }: { locale: Locale; slug: string
             `${favourite} ist Favorit, eine Überraschung ist aber gut möglich.`,
           )
         : t(`${favourite} are clear favourites.`, `${favourite} ist klarer Favorit.`);
-  const profileCell = (label: string, value: string, note: string) => (
-    <div className="rounded-3xl bg-surface px-5 py-4">
-      <p className="text-xs font-medium text-muted">{label}</p>
-      <p className="tabular mt-1 font-display text-3xl font-extrabold tracking-[-0.03em]">
-        {value}
-      </p>
-      {note && <p className="mt-1 text-sm text-muted">{note}</p>}
-    </div>
-  );
+  const profileCell = (label: string, value: string, note: string, href?: string) => {
+    const body = (
+      <>
+        <p className="text-xs font-medium text-muted">{label}</p>
+        <p className="tabular mt-1 font-display text-3xl font-extrabold tracking-[-0.03em]">
+          {value}
+        </p>
+        {note && <p className="mt-1 text-sm text-muted">{note}</p>}
+        {href && (
+          <p className="mt-2 text-sm font-semibold">
+            {t("All top matches", "Alle Topspiele")} <span aria-hidden>→</span>
+          </p>
+        )}
+      </>
+    );
+    return href ? (
+      <Link
+        href={href}
+        className="block rounded-3xl bg-surface px-5 py-4 transition hover:bg-surface-strong"
+      >
+        {body}
+      </Link>
+    ) : (
+      <div className="rounded-3xl bg-surface px-5 py-4">{body}</div>
+    );
+  };
   const showScorers =
     (h.scorers.length > 0 || a.scorers.length > 0) && Boolean(h.leagueSlug && a.leagueSlug);
   const marketCell = (label: string, value: string) => (
@@ -638,6 +670,7 @@ export async function MatchView({ locale, slug }: { locale: Locale; slug: string
                 `of ${m.profile.weekMatches} matches in Europe's top leagues`,
                 `von ${m.profile.weekMatches} Spielen in Europas Topligen`,
               ),
+              inTopList ? p.topMatches : undefined,
             )}
             {profileCell(
               t("This season", "Diese Saison"),
@@ -670,8 +703,8 @@ export async function MatchView({ locale, slug }: { locale: Locale; slug: string
           </div>
           <p className="mt-3 text-sm text-muted">
             {t(
-              "Size ranks matches by the strength of both clubs: two strong, evenly rated clubs make the biggest match. This week means matches within three and a half days of kick-off in all covered competitions, ranked with today's ratings.",
-              "Die Größe ordnet Spiele nach der Stärke beider Vereine: Zwei starke, gleich bewertete Vereine ergeben das größte Spiel. Diese Woche heißt: Spiele aller abgedeckten Wettbewerbe innerhalb von dreieinhalb Tagen um den Anstoß, bewertet mit den aktuellen Ratings.",
+              "Size ranks matches by the strength of both clubs: two strong, evenly rated clubs make the biggest match. This week: rank in the top matches list of the next 7 days, or for later matches among all matches within three and a half days of kick-off, ranked with today's ratings.",
+              "Die Größe ordnet Spiele nach der Stärke beider Vereine: Zwei starke, gleich bewertete Vereine ergeben das größte Spiel. Diese Woche: Rang in der Topspiel-Liste der nächsten 7 Tage, bei späteren Spielen unter allen Spielen innerhalb von dreieinhalb Tagen um den Anstoß, bewertet mit den aktuellen Ratings.",
             )}
           </p>
         </section>

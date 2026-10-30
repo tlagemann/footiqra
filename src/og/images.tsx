@@ -31,6 +31,7 @@ export const ogImage = {
   team: (slug: string) => `/og/team/${slug}.png`,
   match: (slug: string) => `/og/match/${slug}.png`,
   predictions: "/og/predictions.png",
+  topMatches: "/og/top-matches.png",
   tableVsStrength: "/og/table-vs-strength.png",
   methodology: "/og/methodology.png",
   championsLeague: "/og/champions-league.png",
@@ -42,6 +43,7 @@ const SINGLE = [
   "home",
   "leagues",
   "predictions",
+  "top-matches",
   "table-vs-strength",
   "methodology",
   "champions-league",
@@ -180,6 +182,17 @@ export async function renderOgImage(file: string[]): Promise<ImageResponse | nul
         subtitle: big
           ? `Big game: ${big.home.name} vs ${big.away.name}. ${big.home.name} ${big.percentages.home}%, draw ${big.percentages.draw}%, ${big.away.name} ${big.percentages.away}%.`
           : "Win, draw and loss probabilities from the Footiqra rating model.",
+      });
+    }
+    case "top-matches": {
+      const window = nextWindow(await getUpcomingForecasts(), 7);
+      const top = biggestMatches(window, 3);
+      return genericOg({
+        eyebrow: "Top matches",
+        title: "The biggest games of the week",
+        subtitle: top.length
+          ? top.map((f, i) => `${i + 1}. ${f.home.name} vs ${f.away.name}`).join("  ·  ")
+          : "Ranked by the strength of both clubs.",
       });
     }
     case "table-vs-strength": {

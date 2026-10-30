@@ -84,11 +84,24 @@ export function ProbabilityBar({
   );
 }
 
-function ForecastItem({ forecast, locale }: { forecast: MatchForecast; locale: Locale }) {
+function ForecastItem({
+  forecast,
+  locale,
+  rank,
+}: {
+  forecast: MatchForecast;
+  locale: Locale;
+  rank?: number;
+}) {
   const p = forecast.percentages;
   return (
     <li className="rounded-2xl bg-background px-4 py-4 sm:px-5">
-      <p className="mb-3 flex flex-wrap gap-x-2 text-xs font-medium text-muted">
+      <p className="mb-3 flex flex-wrap items-baseline gap-x-2 text-xs font-medium text-muted">
+        {rank !== undefined && (
+          <span className="tabular mr-1 font-display text-lg leading-none font-extrabold text-foreground">
+            #{rank}
+          </span>
+        )}
         <LocalTime utc={forecast.utcDate} locale={locale} />
         <span aria-hidden="true">·</span>
         <span>{COMPETITION_LABEL[forecast.competition] ?? forecast.competition}</span>
@@ -129,16 +142,24 @@ export function ForecastList({
   forecasts,
   grouped = true,
   locale = "en",
+  firstRank,
 }: {
   forecasts: readonly MatchForecast[];
   grouped?: boolean;
   locale?: Locale;
+  /** Ungrouped lists only: number the items from this rank. */
+  firstRank?: number;
 }) {
   if (!grouped) {
     return (
-      <ol className="space-y-2 rounded-3xl bg-surface p-3 sm:p-4">
-        {forecasts.map((f) => (
-          <ForecastItem key={f.id} forecast={f} locale={locale} />
+      <ol className="space-y-2 rounded-3xl bg-surface p-3 sm:p-4" start={firstRank}>
+        {forecasts.map((f, i) => (
+          <ForecastItem
+            key={f.id}
+            forecast={f}
+            locale={locale}
+            rank={firstRank === undefined ? undefined : firstRank + i}
+          />
         ))}
       </ol>
     );

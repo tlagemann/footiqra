@@ -87,8 +87,13 @@ export async function PredictionsView({ locale }: { locale: Locale }) {
           id="upcoming"
           title={t("Next 7 days", "Nächste 7 Tage")}
           aside={
-            <span className="text-sm text-muted">
-              {forecasts.length} {t("matches", "Spiele")}
+            <span className="flex items-center gap-4 text-sm text-muted">
+              <span>
+                {forecasts.length} {t("matches", "Spiele")}
+              </span>
+              <Link href={p.topMatches} className="font-semibold text-foreground hover:underline">
+                {t("Top matches", "Topspiele")} <span aria-hidden>→</span>
+              </Link>
             </span>
           }
         />
