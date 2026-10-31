@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "BL1",
   "season": 2026,
-  "fetchedUtc": "2026-10-31T12:59:08.865Z",
+  "fetchedUtc": "2026-10-31T15:46:09.628Z",
   "scorers": [
     {
       "playerId": 304,
@@ -11,7 +11,16 @@
       "goals": 8,
       "assists": null,
       "penalties": 3,
-      "playedMatches": 7
+      "playedMatches": 8
+    },
+    {
+      "playerId": 1826,
+      "name": "Patrik Schick",
+      "teamId": 3,
+      "goals": 7,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 8
     },
     {
       "playerId": 113765,
@@ -23,15 +32,6 @@
       "playedMatches": 7
     },
     {
-      "playerId": 1826,
-      "name": "Patrik Schick",
-      "teamId": 3,
-      "goals": 6,
-      "assists": 2,
-      "penalties": null,
-      "playedMatches": 7
-    },
-    {
       "playerId": 192207,
       "name": "Younes Ebnoutalib",
       "teamId": 19,
@@ -39,6 +39,15 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 7
+    },
+    {
+      "playerId": 6661,
+      "name": "Michael Gregoritsch",
+      "teamId": 16,
+      "goals": 5,
+      "assists": null,
+      "penalties": 1,
+      "playedMatches": 8
     },
     {
       "playerId": 45593,
@@ -59,22 +68,31 @@
       "playedMatches": 6
     },
     {
+      "playerId": 169295,
+      "name": "Antonio Nusa",
+      "teamId": 721,
+      "goals": 4,
+      "assists": 5,
+      "penalties": 1,
+      "playedMatches": 8
+    },
+    {
       "playerId": 145293,
       "name": "Yuito Suzuki",
       "teamId": 17,
       "goals": 4,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
-      "playerId": 6661,
-      "name": "Michael Gregoritsch",
-      "teamId": 16,
+      "playerId": 33242,
+      "name": "Ermedin Demirovic",
+      "teamId": 10,
       "goals": 4,
       "assists": null,
-      "penalties": 1,
-      "playedMatches": 7
+      "penalties": null,
+      "playedMatches": 8
     },
     {
       "playerId": 183780,
@@ -92,7 +110,7 @@
       "goals": 4,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 8004,
@@ -104,31 +122,13 @@
       "playedMatches": 7
     },
     {
-      "playerId": 169295,
-      "name": "Antonio Nusa",
-      "teamId": 721,
-      "goals": 3,
-      "assists": 5,
-      "penalties": null,
-      "playedMatches": 7
-    },
-    {
       "playerId": 156629,
       "name": "Igor Matanovic",
       "teamId": 17,
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 7
-    },
-    {
-      "playerId": 33242,
-      "name": "Ermedin Demirovic",
-      "teamId": 10,
-      "goals": 3,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 82442,
@@ -137,7 +137,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 9452,
@@ -146,7 +146,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 82404,
@@ -164,7 +164,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 211796,
@@ -173,7 +173,7 @@
       "goals": 3,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 178783,
@@ -182,7 +182,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 5
+      "playedMatches": 6
     },
     {
       "playerId": 8785,
@@ -227,7 +227,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 7029,
@@ -281,7 +281,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 247659,
@@ -317,7 +317,16 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
+    },
+    {
+      "playerId": 189873,
+      "name": "Bilal El Khannouss",
+      "teamId": 10,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
     },
     {
       "playerId": 61630,
@@ -326,7 +335,7 @@
       "goals": 2,
       "assists": 5,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 125151,
@@ -344,7 +353,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 188201,
@@ -380,7 +389,7 @@
       "goals": 2,
       "assists": 4,
       "penalties": 1,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 99042,
@@ -389,7 +398,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 101074,
@@ -416,7 +425,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 130173,
@@ -443,7 +452,7 @@
       "goals": 2,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 175704,
@@ -452,7 +461,7 @@
       "goals": 2,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 133903,
@@ -470,7 +479,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 10561,
@@ -479,7 +488,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 7532,
@@ -488,7 +497,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 150647,
@@ -524,7 +533,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 113457,
@@ -542,7 +551,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 4
+      "playedMatches": 5
     },
     {
       "playerId": 1858,
@@ -569,7 +578,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 172452,
@@ -587,7 +596,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 175963,
@@ -596,16 +605,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 4
-    },
-    {
-      "playerId": 189873,
-      "name": "Bilal El Khannouss",
-      "teamId": 10,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 5
     },
     {
       "playerId": 6836,
@@ -614,7 +614,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 150733,
@@ -623,7 +623,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 206319,
@@ -632,7 +632,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 144433,
@@ -641,7 +641,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 5
+      "playedMatches": 6
     },
     {
       "playerId": 154228,
@@ -650,7 +650,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 46125,
@@ -659,7 +659,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 6576,
@@ -684,9 +684,9 @@
       "name": "Arijon Ibrahimovic",
       "teamId": 16,
       "goals": 1,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 608,
@@ -695,7 +695,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 3
+      "playedMatches": 4
     },
     {
       "playerId": 1847,
@@ -713,7 +713,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 7562,
@@ -731,7 +731,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 327,
@@ -749,7 +749,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 277592,
@@ -794,7 +794,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 5
+      "playedMatches": 6
     },
     {
       "playerId": 44463,
@@ -803,7 +803,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 152726,
@@ -839,7 +839,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 5
+      "playedMatches": 6
     },
     {
       "playerId": 144953,
@@ -848,7 +848,7 @@
       "goals": 1,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 212291,
@@ -857,7 +857,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 145937,
@@ -884,7 +884,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 176718,
@@ -893,7 +893,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 2240,

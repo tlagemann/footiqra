@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PL",
   "season": 2026,
-  "fetchedUtc": "2026-10-31T12:58:46.139Z",
+  "fetchedUtc": "2026-10-31T15:45:47.406Z",
   "scorers": [
     {
       "playerId": 38101,
@@ -11,7 +11,7 @@
       "goals": 9,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 6486,
@@ -29,7 +29,7 @@
       "goals": 5,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 103125,
@@ -44,7 +44,7 @@
       "playerId": 82140,
       "name": "Morgan Rogers",
       "teamId": 61,
-      "goals": 4,
+      "goals": 5,
       "assists": 1,
       "penalties": null,
       "playedMatches": 9
@@ -56,7 +56,7 @@
       "goals": 4,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 8626,
@@ -75,6 +75,15 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 7
+    },
+    {
+      "playerId": 131260,
+      "name": "Evanilson",
+      "teamId": 1044,
+      "goals": 4,
+      "assists": 4,
+      "penalties": null,
+      "playedMatches": 9
     },
     {
       "playerId": 99813,
@@ -101,7 +110,16 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 3
+      "playedMatches": 4
+    },
+    {
+      "playerId": 144892,
+      "name": "Cole Palmer",
+      "teamId": 61,
+      "goals": 3,
+      "assists": 3,
+      "penalties": 1,
+      "playedMatches": 9
     },
     {
       "playerId": 2074,
@@ -119,7 +137,7 @@
       "goals": 3,
       "assists": 4,
       "penalties": 1,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 123286,
@@ -128,7 +146,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 7839,
@@ -137,7 +155,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 3257,
@@ -155,7 +173,7 @@
       "goals": 3,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 264300,
@@ -163,6 +181,15 @@
       "teamId": 397,
       "goals": 3,
       "assists": 2,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 145613,
+      "name": "Yasin Ayari",
+      "teamId": 397,
+      "goals": 3,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 8
     },
@@ -173,16 +200,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
-    },
-    {
-      "playerId": 131260,
-      "name": "Evanilson",
-      "teamId": 1044,
-      "goals": 3,
-      "assists": 4,
-      "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 7
     },
     {
       "playerId": 171,
@@ -209,7 +227,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 140194,
@@ -227,7 +245,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 10000,
@@ -236,16 +254,16 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 142075,
       "name": "Maxim De Cuyper",
       "teamId": 397,
       "goals": 2,
-      "assists": 2,
+      "assists": 3,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 166376,
@@ -275,22 +293,13 @@
       "playedMatches": 8
     },
     {
-      "playerId": 144892,
-      "name": "Cole Palmer",
-      "teamId": 61,
-      "goals": 2,
-      "assists": 3,
-      "penalties": null,
-      "playedMatches": 9
-    },
-    {
       "playerId": 77641,
       "name": "Dan Ndoye",
       "teamId": 351,
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 273423,
@@ -308,7 +317,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 99120,
@@ -317,7 +326,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 8076,
@@ -335,7 +344,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 137068,
@@ -353,7 +362,7 @@
       "goals": 2,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 1684,
@@ -361,15 +370,6 @@
       "teamId": 57,
       "goals": 2,
       "assists": null,
-      "penalties": null,
-      "playedMatches": 7
-    },
-    {
-      "playerId": 145613,
-      "name": "Yasin Ayari",
-      "teamId": 397,
-      "goals": 2,
-      "assists": 1,
       "penalties": null,
       "playedMatches": 7
     },
@@ -407,7 +407,7 @@
       "goals": 2,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 6451,
@@ -416,7 +416,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 190558,
@@ -425,7 +425,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 5
+      "playedMatches": 6
     },
     {
       "playerId": 187375,
@@ -434,7 +434,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 4158,
@@ -443,7 +443,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 65843,
@@ -452,7 +452,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 204348,
@@ -461,7 +461,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 118489,
@@ -470,7 +470,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 122266,
@@ -479,7 +479,7 @@
       "goals": 1,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 7459,
@@ -515,7 +515,7 @@
       "goals": 1,
       "assists": 2,
       "penalties": 1,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 161088,
@@ -560,14 +560,14 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 172738,
       "name": "Romeo Lavia",
       "teamId": 61,
       "goals": 1,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 9
     },
@@ -578,7 +578,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 111437,
@@ -596,7 +596,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 99664,
@@ -605,7 +605,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": 1,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 290848,
@@ -677,7 +677,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 260718,
@@ -702,9 +702,9 @@
       "name": "Justin Kluivert",
       "teamId": 1044,
       "goals": 1,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 8259,
@@ -713,7 +713,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 16058,
@@ -740,7 +740,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 138230,
@@ -749,7 +749,7 @@
       "goals": 1,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 151119,
@@ -794,7 +794,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 191140,
@@ -812,7 +812,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 5
+      "playedMatches": 6
     },
     {
       "playerId": 6308,
@@ -821,7 +821,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 102603,
@@ -830,7 +830,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 30842,
@@ -848,7 +848,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 133512,
@@ -866,7 +866,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 3959,
@@ -882,9 +882,9 @@
       "name": "Abdoul Ouattara",
       "teamId": 349,
       "goals": 1,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 25650,
@@ -893,7 +893,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 204421,

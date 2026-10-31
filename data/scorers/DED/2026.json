@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "DED",
   "season": 2026,
-  "fetchedUtc": "2026-10-31T12:59:31.608Z",
+  "fetchedUtc": "2026-10-31T15:46:32.046Z",
   "scorers": [
     {
       "playerId": 121280,
@@ -74,7 +74,7 @@
       "goals": 6,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 178402,
@@ -110,7 +110,7 @@
       "goals": 5,
       "assists": 4,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 136381,
@@ -119,7 +119,7 @@
       "goals": 5,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 115116,
@@ -164,7 +164,7 @@
       "goals": 5,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 169190,
@@ -173,7 +173,7 @@
       "goals": 4,
       "assists": 2,
       "penalties": 1,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 21733,
@@ -281,7 +281,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 245825,
@@ -326,7 +326,7 @@
       "goals": 3,
       "assists": 4,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 272162,
@@ -461,7 +461,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 272985,
@@ -677,7 +677,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 289506,
@@ -713,7 +713,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": 1,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 7470,
@@ -884,7 +884,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 244847,

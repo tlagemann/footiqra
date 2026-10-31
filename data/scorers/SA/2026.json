@@ -2,16 +2,16 @@
   "schemaVersion": 1,
   "competition": "SA",
   "season": 2026,
-  "fetchedUtc": "2026-10-31T12:59:05.006Z",
+  "fetchedUtc": "2026-10-31T15:46:05.245Z",
   "scorers": [
     {
       "playerId": 252836,
       "name": "Gustavo Varela",
       "teamId": 5911,
-      "goals": 8,
+      "goals": 9,
       "assists": 1,
-      "penalties": 1,
-      "playedMatches": 8
+      "penalties": 2,
+      "playedMatches": 9
     },
     {
       "playerId": 169216,
@@ -248,6 +248,15 @@
       "playedMatches": 7
     },
     {
+      "playerId": 2040,
+      "name": "Federico Bernardeschi",
+      "teamId": 103,
+      "goals": 3,
+      "assists": null,
+      "penalties": 2,
+      "playedMatches": 10
+    },
+    {
       "playerId": 128007,
       "name": "Gustav Isaksen",
       "teamId": 110,
@@ -263,7 +272,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 822,
@@ -389,7 +398,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 299423,
@@ -482,15 +491,6 @@
       "playedMatches": 9
     },
     {
-      "playerId": 2040,
-      "name": "Federico Bernardeschi",
-      "teamId": 103,
-      "goals": 2,
-      "assists": null,
-      "penalties": 1,
-      "playedMatches": 9
-    },
-    {
       "playerId": 59075,
       "name": "Sandro Kulenović",
       "teamId": 586,
@@ -543,6 +543,15 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 9
+    },
+    {
+      "playerId": 99013,
+      "name": "Tommaso Pobega",
+      "teamId": 103,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 10
     },
     {
       "playerId": 290391,
@@ -686,7 +695,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 186575,
@@ -785,7 +794,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 153130,
@@ -857,7 +866,7 @@
       "goals": 1,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 153632,
@@ -866,7 +875,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 5
+      "playedMatches": 6
     },
     {
       "playerId": 33628,
@@ -892,15 +901,6 @@
       "teamId": 7397,
       "goals": 1,
       "assists": 1,
-      "penalties": null,
-      "playedMatches": 9
-    },
-    {
-      "playerId": 187208,
-      "name": "James Abankwah",
-      "teamId": 115,
-      "goals": 1,
-      "assists": null,
       "penalties": null,
       "playedMatches": 9
     }
