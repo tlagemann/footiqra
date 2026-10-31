@@ -5,6 +5,7 @@ import { ForecastList } from "@/components/forecast-list";
 import { JsonLd } from "@/components/json-ld";
 import { LastUpdated } from "@/components/match-list";
 import { Eyebrow, SectionHeading } from "@/components/ui";
+import { LEAGUES } from "@/config/leagues";
 import { getForecastRecord, getLastUpdated, getUpcomingForecasts, nextWindow } from "@/data";
 import { fmtPercent, paths, tr, type Locale } from "@/i18n";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
@@ -81,6 +82,21 @@ export async function PredictionsView({ locale }: { locale: Locale }) {
           </dl>
         )}
       </header>
+
+      <nav aria-label={t("Predictions by league", "Prognosen nach Liga")}>
+        <ul className="flex flex-wrap gap-2">
+          {LEAGUES.map((l) => (
+            <li key={l.slug}>
+              <Link
+                href={p.leaguePredictions(l.slug)}
+                className="inline-block rounded-full bg-surface px-4 py-2 text-sm font-semibold hover:bg-surface-strong"
+              >
+                {t(`${l.name} predictions`, `${l.name} Prognosen`)}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
 
       <section aria-labelledby="upcoming">
         <SectionHeading

@@ -16,6 +16,8 @@ export interface MatchForecast {
   competition: string;
   /** League of the match, null for European competitions. */
   leagueSlug: string | null;
+  /** Matchday of league matches, null if unknown. */
+  matchday: number | null;
   home: ForecastTeam;
   away: ForecastTeam;
   probabilities: MatchProbabilities;
@@ -62,6 +64,7 @@ export function upcomingForecasts(
         utcDate: m.utcDate,
         competition: file.competition,
         leagueSlug: leagueByCode.get(file.competition) ?? null,
+        matchday: m.matchday ?? null,
         home: team(home),
         away: team(away),
         probabilities,

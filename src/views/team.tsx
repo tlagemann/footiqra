@@ -12,12 +12,15 @@ import {
   getRankHistory,
   getRatingHistory,
   getLeagueTable,
+  getPowerRanking,
   getTeam,
   getTeamRanking,
   getUpcomingForecasts,
+  type MatchView,
 } from "@/data";
 import { HistoryPanel } from "@/components/history-panel";
-import { ordinal, paths, tr, type Locale } from "@/i18n";
+import { StandingsTable } from "@/components/standings-table";
+import { fmtDate, fmtPercent, ordinal, paths, seasonLabel, tr, type Locale } from "@/i18n";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { ogImage } from "@/og/images";
 
@@ -36,6 +39,19 @@ const NO_TEAMS_PLACEHOLDER = "no-teams-yet";
 export async function teamStaticParams() {
   const slugs = await getAllTeamSlugs();
   return (slugs.length > 0 ? slugs : [NO_TEAMS_PLACEHOLDER]).map((slug) => ({ slug }));
+}
+
+/** "Lecce 0:2 Napoli" */
+function scoreLine(m: MatchView): string {
+  return `${m.home.name} ${m.homeGoals}:${m.awayGoals} ${m.away.name}`;
+}
+
+/** Up to five table rows around the club, so its neighbours are visible too. */
+function tableExcerpt<T extends { team: { slug: string | null } }>(rows: T[], slug: string): T[] {
+  const i = rows.findIndex((r) => r.team.slug === slug);
+  if (i < 0) return [];
+  const start = Math.max(0, Math.min(i - 2, rows.length - 5));
+  return rows.slice(start, start + 5);
 }
 
 /** English league names used without "the" ("4th in La Liga"). */
@@ -59,35 +75,35 @@ export async function teamMetadata(locale: Locale, slug: string): Promise<Metada
     getTeamRanking(team.slug),
     getLeagueTable(team.leagueSlug),
   ]);
-  const position = table?.rows.find((r) => r.team.slug === team.slug)?.position;
+  const standing = table?.rows.find((r) => r.team.slug === team.slug);
   const leagueName = league?.name ?? tr(locale, "Europe", "Europa");
-  const facts = [
-    row
-      ? tr(locale, `No. ${row.rank} in the power ranking`, `Platz ${row.rank} im Power-Ranking`)
-      : null,
-    position
-      ? tr(
-          locale,
-          `${ordinal(locale, position)} in ${NO_ARTICLE.has(team.leagueSlug) ? "" : "the "}${leagueName}`,
-          `${position}. in der ${leagueName}`,
-        )
-      : null,
-  ].filter(Boolean);
-  const lead = facts.length
-    ? `${team.name}: ${facts.join(tr(locale, ", ", ", "))}.`
+  const season = table ? ` ${seasonLabel(table.season)}` : "";
+  const { results, fixtures } = result.data;
+  const lead = standing
+    ? tr(
+        locale,
+        `${team.name} are ${ordinal(locale, standing.position)} in ${NO_ARTICLE.has(team.leagueSlug) ? "" : "the "}${leagueName} with ${standing.points} points.`,
+        `${team.name} ist ${standing.position}. der ${leagueName} mit ${standing.points} Punkten.`,
+      )
     : `${team.name} (${leagueName}).`;
+  const last = results[0];
+  const next = fixtures[0];
+  const facts = [
+    lead,
+    last ? `${tr(locale, "Last match", "Letztes Spiel")}: ${scoreLine(last)}.` : null,
+    next
+      ? `${tr(locale, "Next", "Nächstes Spiel")}: ${next.home.name} ${tr(locale, "vs", "gegen")} ${next.away.name} ${tr(locale, "on", "am")} ${fmtDate(locale, next.utcDate, { day: "numeric", month: "long" })}.`
+      : null,
+    row ? tr(locale, `Power ranking #${row.rank}.`, `Power-Ranking: Platz ${row.rank}.`) : null,
+  ].filter(Boolean);
   return pageMetadata({
     locale,
     title: tr(
       locale,
-      `${team.name}: rating, results and fixtures`,
-      `${team.name}: Rating, Ergebnisse und Spielplan`,
+      `${team.name}: table, results and fixtures${season}`,
+      `${team.name}: Tabelle, Spiele und Ergebnisse${season}`,
     ),
-    description: tr(
-      locale,
-      `${lead} Rating, form, latest results and next matches with win probabilities.`,
-      `${lead} Rating, Form, letzte Ergebnisse und nächste Spiele mit Siegchancen.`,
-    ),
+    description: facts.join(" "),
     paths: { en: paths("en").team(team.slug), de: paths("de").team(team.slug) },
     image: ogImage.team(team.slug),
   });
@@ -114,15 +130,31 @@ export async function TeamView({ locale, slug }: { locale: Locale; slug: string 
   const { team, results, fixtures } = result.data;
   const league = getLeagueBySlug(team.leagueSlug);
   const ranking = await getTeamRanking(team.slug);
-  const [history, rankHistory] = await Promise.all([
+  const [history, rankHistory, table, power] = await Promise.all([
     getRatingHistory(team.slug),
     getRankHistory(team.slug),
+    getLeagueTable(team.leagueSlug),
+    getPowerRanking(),
   ]);
+  const standing = table?.rows.find((r) => r.team.slug === team.slug);
+  const excerpt = table ? tableExcerpt(table.rows, team.slug) : [];
+  const powerRanks = new Map<string, number>(
+    power.status === "ok" ? power.data.rows.map((r) => [r.team.slug, r.rank]) : [],
+  );
+  const lastResult = results[0];
   const forecasts = (await getUpcomingForecasts())
     .filter((f) => f.home.slug === team.slug || f.away.slug === team.slug)
     .slice(0, 3);
   const forecastIds = new Set(forecasts.map((f) => f.id));
   const otherFixtures = fixtures.filter((f) => !forecastIds.has(f.id));
+  const nextForecast = forecasts[0];
+  const nextWin = nextForecast
+    ? nextForecast.home.slug === team.slug
+      ? nextForecast.percentages.home
+      : nextForecast.percentages.away
+    : undefined;
+  const day = (iso: string) =>
+    fmtDate(locale, iso, { weekday: "short", day: "numeric", month: "short" });
 
   return (
     <div className="space-y-14">
@@ -148,9 +180,152 @@ export async function TeamView({ locale, slug }: { locale: Locale; slug: string 
           )}
           <h1 className="mt-1 font-display text-4xl font-extrabold tracking-[-0.045em] sm:text-6xl">
             {team.name}
+            <span className="mt-2 block font-sans text-lg font-semibold tracking-normal text-muted sm:text-xl">
+              {t("Table, results and fixtures", "Tabelle, Spiele und Ergebnisse")}
+              {table ? ` ${seasonLabel(table.season)}` : ""}
+            </span>
           </h1>
         </div>
       </header>
+
+      {(standing || lastResult || fixtures[0]) && (
+        <dl className="grid gap-3 sm:grid-cols-3">
+          {standing && (
+            <div className="rounded-3xl bg-surface px-6 py-5">
+              <dt className="text-xs font-medium text-muted">
+                {t(`${league?.name ?? "League"} table`, `Tabelle ${league?.name ?? ""}`)}
+              </dt>
+              <dd className="mt-1 font-display text-2xl font-extrabold tracking-[-0.03em]">
+                {t(
+                  `${ordinal(locale, standing.position)}, ${standing.points} pts`,
+                  `${standing.position}. Platz, ${standing.points} Pkt.`,
+                )}
+              </dd>
+            </div>
+          )}
+          {lastResult && (
+            <div className="rounded-3xl bg-surface px-6 py-5">
+              <dt className="text-xs font-medium text-muted">
+                {t("Last match", "Letztes Spiel")} · {day(lastResult.utcDate)}
+              </dt>
+              <dd className="mt-1 font-display text-lg font-extrabold tracking-[-0.02em]">
+                {lastResult.slug ? (
+                  <Link href={p.match(lastResult.slug)} className="hover:underline">
+                    {scoreLine(lastResult)}
+                  </Link>
+                ) : (
+                  scoreLine(lastResult)
+                )}
+              </dd>
+            </div>
+          )}
+          {fixtures[0] && (
+            <div className="rounded-3xl bg-surface px-6 py-5">
+              <dt className="text-xs font-medium text-muted">
+                {t("Next match", "Nächstes Spiel")} · {day(fixtures[0].utcDate)}
+              </dt>
+              <dd className="mt-1 font-display text-lg font-extrabold tracking-[-0.02em]">
+                {fixtures[0].slug ? (
+                  <Link href={p.match(fixtures[0].slug)} className="hover:underline">
+                    {fixtures[0].home.name} {t("vs", "gegen")} {fixtures[0].away.name}
+                  </Link>
+                ) : (
+                  `${fixtures[0].home.name} ${t("vs", "gegen")} ${fixtures[0].away.name}`
+                )}
+                {nextForecast?.id === fixtures[0].id && nextWin !== undefined && (
+                  <span className="block font-sans text-sm font-medium text-muted">
+                    {t("Win chance", "Siegchance")} {fmtPercent(locale, nextWin)}
+                  </span>
+                )}
+              </dd>
+            </div>
+          )}
+        </dl>
+      )}
+
+      <section aria-labelledby="results-heading">
+        <SectionHeading id="results-heading" title={t("Latest results", "Letzte Ergebnisse")} />
+        {results.length > 0 ? (
+          <MatchList
+            matches={results}
+            caption={t(`Latest results of ${team.name}`, `Letzte Ergebnisse von ${team.name}`)}
+            locale={locale}
+          />
+        ) : (
+          <DataNotice
+            title={t("No results yet", "Noch keine Ergebnisse")}
+            reason={t(
+              "No finished matches stored yet.",
+              "Noch keine beendeten Spiele gespeichert.",
+            )}
+            locale={locale}
+          />
+        )}
+      </section>
+
+      {forecasts.length > 0 && (
+        <section aria-labelledby="forecasts-heading">
+          <SectionHeading
+            id="forecasts-heading"
+            title={t("Next matches", "Nächste Spiele")}
+            aside={
+              <Link href={p.predictions} className="text-sm text-muted hover:text-foreground">
+                {t("All predictions", "Alle Prognosen")}
+              </Link>
+            }
+          />
+          <ForecastList forecasts={forecasts} grouped={false} locale={locale} />
+        </section>
+      )}
+
+      {(otherFixtures.length > 0 || forecasts.length === 0) && (
+        <section aria-labelledby="fixtures-heading">
+          <SectionHeading
+            id="fixtures-heading"
+            title={
+              forecasts.length > 0
+                ? t("More fixtures", "Weitere Spiele")
+                : t("Upcoming fixtures", "Nächste Spiele")
+            }
+          />
+          {otherFixtures.length > 0 ? (
+            <MatchList
+              matches={otherFixtures}
+              caption={t(`Upcoming fixtures of ${team.name}`, `Nächste Spiele von ${team.name}`)}
+              locale={locale}
+            />
+          ) : (
+            <DataNotice
+              title={t("No fixtures", "Keine Spiele")}
+              reason={t("No scheduled matches stored.", "Keine angesetzten Spiele gespeichert.")}
+              locale={locale}
+            />
+          )}
+        </section>
+      )}
+      {excerpt.length > 0 && league && (
+        <section aria-labelledby="table-heading">
+          <SectionHeading
+            id="table-heading"
+            title={t(`${league.name} table`, `Tabelle ${league.name}`)}
+            aside={
+              <Link href={p.league(league.slug)} className="text-sm font-semibold hover:underline">
+                {t("Full table", "Ganze Tabelle")} <span aria-hidden>→</span>
+              </Link>
+            }
+          />
+          <StandingsTable
+            rows={excerpt}
+            caption={t(
+              `${team.name} in the ${league.name} table`,
+              `${team.name} in der Tabelle der ${league.name}`,
+            )}
+            powerRanks={powerRanks}
+            highlight={team.slug}
+            locale={locale}
+          />
+        </section>
+      )}
 
       {ranking && (
         <section aria-labelledby="rating-heading">
@@ -220,66 +395,6 @@ export async function TeamView({ locale, slug }: { locale: Locale; slug: string 
         </section>
       )}
 
-      <section aria-labelledby="results-heading">
-        <SectionHeading id="results-heading" title={t("Latest results", "Letzte Ergebnisse")} />
-        {results.length > 0 ? (
-          <MatchList
-            matches={results}
-            caption={t(`Latest results of ${team.name}`, `Letzte Ergebnisse von ${team.name}`)}
-            locale={locale}
-          />
-        ) : (
-          <DataNotice
-            title={t("No results yet", "Noch keine Ergebnisse")}
-            reason={t(
-              "No finished matches stored yet.",
-              "Noch keine beendeten Spiele gespeichert.",
-            )}
-            locale={locale}
-          />
-        )}
-      </section>
-
-      {forecasts.length > 0 && (
-        <section aria-labelledby="forecasts-heading">
-          <SectionHeading
-            id="forecasts-heading"
-            title={t("Next matches", "Nächste Spiele")}
-            aside={
-              <Link href={p.predictions} className="text-sm text-muted hover:text-foreground">
-                {t("All predictions", "Alle Prognosen")}
-              </Link>
-            }
-          />
-          <ForecastList forecasts={forecasts} grouped={false} locale={locale} />
-        </section>
-      )}
-
-      {(otherFixtures.length > 0 || forecasts.length === 0) && (
-        <section aria-labelledby="fixtures-heading">
-          <SectionHeading
-            id="fixtures-heading"
-            title={
-              forecasts.length > 0
-                ? t("More fixtures", "Weitere Spiele")
-                : t("Upcoming fixtures", "Nächste Spiele")
-            }
-          />
-          {otherFixtures.length > 0 ? (
-            <MatchList
-              matches={otherFixtures}
-              caption={t(`Upcoming fixtures of ${team.name}`, `Nächste Spiele von ${team.name}`)}
-              locale={locale}
-            />
-          ) : (
-            <DataNotice
-              title={t("No fixtures", "Keine Spiele")}
-              reason={t("No scheduled matches stored.", "Keine angesetzten Spiele gespeichert.")}
-              locale={locale}
-            />
-          )}
-        </section>
-      )}
       <LastUpdated utc={result.lastUpdatedUtc} locale={locale} />
     </div>
   );

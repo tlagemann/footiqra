@@ -16,9 +16,12 @@ export function StandingsTable({
   caption,
   powerRanks,
   zone,
+  highlight,
   locale = "en",
 }: {
   rows: TableRow[];
+  /** Team slug whose row is marked, e.g. on that team's page. */
+  highlight?: string;
   caption: string;
   powerRanks: ReadonlyMap<string, number>;
   /** Optional marker per position, drawn as a coloured bar next to the rank. */
@@ -97,7 +100,10 @@ export function StandingsTable({
             return (
               <tr
                 key={`${row.position}-${row.team.name}`}
-                className="border-t border-line/80 transition hover:bg-surface-strong/60"
+                className={`border-t border-line/80 transition hover:bg-surface-strong/60 ${
+                  highlight && row.team.slug === highlight ? "bg-surface-strong" : ""
+                }`}
+                aria-current={highlight && row.team.slug === highlight ? "true" : undefined}
               >
                 <td className="tabular relative py-3 pl-5 font-display font-bold text-muted sm:pl-7">
                   {zone && zone(row.position) && (

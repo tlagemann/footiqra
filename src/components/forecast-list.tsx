@@ -84,14 +84,38 @@ export function ProbabilityBar({
   );
 }
 
+/** Most likely outcome as a short tip: "Tipp: Sieg Bayern" / "Tip: Bayern win". */
+function TipLine({ forecast, locale }: { forecast: MatchForecast; locale: Locale }) {
+  const pr = forecast.probabilities;
+  const tip =
+    pr.home >= pr.away
+      ? pr.home >= pr.draw
+        ? "home"
+        : "draw"
+      : pr.away >= pr.draw
+        ? "away"
+        : "draw";
+  const team = tip === "home" ? forecast.home.name : forecast.away.name;
+  const text =
+    tip === "draw" ? tr(locale, "Draw", "Remis") : tr(locale, `${team} win`, `Sieg ${team}`);
+  return (
+    <p className="mt-3 text-sm">
+      <span className="font-medium text-muted">{tr(locale, "Tip", "Tipp")}: </span>
+      <span className="font-semibold">{text}</span>
+    </p>
+  );
+}
+
 function ForecastItem({
   forecast,
   locale,
   rank,
+  showTip = false,
 }: {
   forecast: MatchForecast;
   locale: Locale;
   rank?: number;
+  showTip?: boolean;
 }) {
   const p = forecast.percentages;
   return (
@@ -128,6 +152,7 @@ function ForecastItem({
           <ProbabilityBar percentages={forecast.percentages} locale={locale} />
         </div>
       </div>
+      {showTip && <TipLine forecast={forecast} locale={locale} />}
       <p className="sr-only">
         {locale === "de"
           ? `Prognose: Sieg ${forecast.home.name} ${fmtPercent(locale, p.home)}, Unentschieden ${fmtPercent(locale, p.draw)}, Sieg ${forecast.away.name} ${fmtPercent(locale, p.away)}.`
@@ -143,10 +168,13 @@ export function ForecastList({
   grouped = true,
   locale = "en",
   firstRank,
+  showTip = false,
 }: {
   forecasts: readonly MatchForecast[];
   grouped?: boolean;
   locale?: Locale;
+  /** Show the most likely outcome below each match. */
+  showTip?: boolean;
   /** Ungrouped lists only: number the items from this rank. */
   firstRank?: number;
 }) {
@@ -159,6 +187,7 @@ export function ForecastList({
             forecast={f}
             locale={locale}
             rank={firstRank === undefined ? undefined : firstRank + i}
+            showTip={showTip}
           />
         ))}
       </ol>
@@ -184,7 +213,7 @@ export function ForecastList({
           </h3>
           <ol className="space-y-2 rounded-3xl bg-surface p-3 sm:p-4">
             {list.map((f) => (
-              <ForecastItem key={f.id} forecast={f} locale={locale} />
+              <ForecastItem key={f.id} forecast={f} locale={locale} showTip={showTip} />
             ))}
           </ol>
         </section>

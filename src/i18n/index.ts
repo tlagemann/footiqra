@@ -33,6 +33,8 @@ const SEG = {
     championsLeague: "champions-league",
     legal: "legal-notice",
     privacy: "privacy",
+    /** Only below /leagues/{slug}/; keyOf() finds the top-level "predictions" first. */
+    leaguePredictions: "predictions",
   },
   de: {
     leagues: "ligen",
@@ -48,6 +50,7 @@ const SEG = {
     championsLeague: "champions-league",
     legal: "impressum",
     privacy: "datenschutz",
+    leaguePredictions: "prognosen",
   },
 } as const;
 
@@ -62,6 +65,7 @@ export function paths(locale: Locale) {
     leagues: `${b}${s.leagues}/`,
     league: (slug: string) => `${b}${s.leagues}/${slug}/`,
     projection: (slug: string) => `${b}${s.leagues}/${slug}/${s.projection}/`,
+    leaguePredictions: (slug: string) => `${b}${s.leagues}/${slug}/${s.leaguePredictions}/`,
     scorers: `${b}${s.scorers}/`,
     scorerIndex: `${b}${s.scorers}/power-ranking/`,
     leagueScorers: (slug: string) => `${b}${s.leagues}/${slug}/${s.scorers}/`,
@@ -102,6 +106,7 @@ export function counterpart(pathname: string, to: Locale): string {
     if (parts.length === 1) return p.leagues;
     if (parts.length === 2) return p.league(parts[1]!);
     if (parts[2] === src.projection) return p.projection(parts[1]!);
+    if (parts[2] === src.leaguePredictions) return p.leaguePredictions(parts[1]!);
     if (parts[2] === src.scorers) return p.leagueScorers(parts[1]!);
     if (parts[2] === src.tableCalculator) return p.leagueCalculator(parts[1]!);
     return p.league(parts[1]!);

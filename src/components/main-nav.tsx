@@ -25,7 +25,9 @@ function buildNav(locale: Locale): NavItem[] {
   const t = (en: string, de: string) => tr(locale, en, de);
   const leaguesPrefix = p.leagues;
   const isProjection = (path: string) =>
-    path.endsWith(`/${locale === "de" ? "prognose" : "projection"}/`);
+    path.endsWith(`/${locale === "de" ? "prognose" : "projection"}/`) ||
+    (path.startsWith(leaguesPrefix) &&
+      path.endsWith(`/${locale === "de" ? "prognosen" : "predictions"}/`));
   return [
     {
       label: "Ranking",
@@ -62,6 +64,10 @@ function buildNav(locale: Locale): NavItem[] {
               hint: t("Enter your own results", "Eigene Ergebnisse eintragen"),
             },
           ],
+        },
+        {
+          title: t("Matchday predictions", "Spieltagsprognosen"),
+          links: LEAGUES.map((l) => ({ href: p.leaguePredictions(l.slug), label: l.name })),
         },
         {
           title: t("Predicted final tables", "Prognose Abschlusstabellen"),
@@ -281,7 +287,9 @@ export function MainNav({ locale }: { locale: Locale }) {
                     id={panelId}
                     className={`absolute top-full right-0 z-30 pt-2 ${isOpen ? "block" : "hidden"}`}
                   >
-                    <div className="grid w-[30rem] grid-cols-2 gap-6 rounded-3xl border border-line/70 bg-background p-5 shadow-xl shadow-black/5">
+                    <div
+                      className={`grid ${item.groups.length > 2 ? "w-[42rem] grid-cols-3" : "w-[30rem] grid-cols-2"} gap-6 rounded-3xl border border-line/70 bg-background p-5 shadow-xl shadow-black/5`}
+                    >
                       {item.groups.map((group) => (
                         <div key={group.title}>
                           <p className="mb-2 px-3 text-xs font-semibold tracking-wide text-muted uppercase">

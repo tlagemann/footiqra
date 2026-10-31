@@ -264,8 +264,12 @@ export async function LeagueView({ locale, slug }: { locale: Locale; slug: strin
             id="forecasts-heading"
             title={t("Next matches", "Nächste Spiele")}
             aside={
-              <Link href={p.predictions} className="text-sm text-muted hover:text-foreground">
-                {t("All predictions", "Alle Prognosen")}
+              <Link
+                href={p.leaguePredictions(league.slug)}
+                className="text-sm font-semibold hover:underline"
+              >
+                {t(`${league.name} predictions and tips`, `${league.name} Prognosen und Tipps`)}{" "}
+                <span aria-hidden>→</span>
               </Link>
             }
           />

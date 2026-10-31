@@ -16,6 +16,7 @@ describe("counterpart", () => {
     ["/leagues/", "/de/ligen/"],
     ["/leagues/serie-a/", "/de/ligen/serie-a/"],
     ["/leagues/serie-a/projection/", "/de/ligen/serie-a/prognose/"],
+    ["/leagues/serie-a/predictions/", "/de/ligen/serie-a/prognosen/"],
     ["/teams/arsenal-fc/", "/de/vereine/arsenal-fc/"],
     ["/matches/a-vs-b-2026-27/", "/de/spiele/a-vs-b-2026-27/"],
     ["/leagues/serie-a/top-scorers/", "/de/ligen/serie-a/torjaeger/"],
