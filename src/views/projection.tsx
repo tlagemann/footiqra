@@ -74,7 +74,7 @@ export async function ProjectionView({ locale, slug }: { locale: Locale; slug: s
           {projection ? ` · ${seasonLabel(projection.season)}` : ""}
         </Eyebrow>
         <h1 className="mt-4 max-w-4xl font-display text-5xl leading-[0.98] font-extrabold tracking-[-0.045em] sm:text-7xl">
-          {t("Predicted final table", "Prognose Abschlusstabelle")}
+          {t(`${league.name} predicted final table`, `Prognose Abschlusstabelle ${league.name}`)}
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-muted">
           {projection && leader

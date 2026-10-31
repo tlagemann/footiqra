@@ -74,7 +74,7 @@ export async function TopMatchesView({ locale }: { locale: Locale }) {
       <header>
         <Eyebrow>{t("Match forecasts", "Spielprognosen")}</Eyebrow>
         <h1 className="mt-4 font-display text-5xl leading-[0.98] font-extrabold tracking-[-0.045em] sm:text-7xl">
-          {t("Top matches", "Topspiele")}
+          {t("Top football matches this week", "Fußball-Topspiele der Woche")}
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-muted">
           {t(

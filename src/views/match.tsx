@@ -53,6 +53,10 @@ export async function matchStaticParams() {
 const isFinished = (m: MatchDetail) =>
   m.status === "FINISHED" && m.homeGoals !== null && m.awayGoals !== null;
 
+/** "1 November 2026" / "1. November 2026" */
+const longDate = (locale: Locale, iso: string) =>
+  fmtDate(locale, iso, { day: "numeric", month: "long", year: "numeric" });
+
 /** "Sunday, 1 November 2026" / "Sonntag, 1. November 2026" */
 const fullDate = (locale: Locale, iso: string) =>
   fmtDate(locale, iso, { weekday: "long", day: "numeric", month: "long", year: "numeric" });
@@ -528,7 +532,7 @@ function ArchivedMatch({ m, locale }: { m: MatchDetail; locale: Locale }) {
           </Link>
         </div>
         <h1 className="mt-8 font-display text-3xl font-extrabold tracking-[-0.035em] sm:text-5xl">
-          {h.shortName} {hg}:{ag} {a.shortName}
+          {h.shortName} {hg}:{ag} {a.shortName} ({longDate(locale, m.utcDate)})
         </h1>
         <p className="mt-3 font-display text-xl font-bold">
           <time dateTime={m.utcDate}>{date}</time>
@@ -796,10 +800,10 @@ export async function MatchView({ locale, slug }: { locale: Locale; slug: string
         </div>
         <h1 className="mt-8 font-display text-3xl font-extrabold tracking-[-0.035em] sm:text-5xl">
           {finished
-            ? `${h.shortName} ${m.homeGoals}:${m.awayGoals} ${a.shortName}`
+            ? `${h.shortName} ${m.homeGoals}:${m.awayGoals} ${a.shortName} (${longDate(locale, m.utcDate)})`
             : t(
-                `${h.shortName} vs ${a.shortName}: prediction and stats`,
-                `${h.shortName} gegen ${a.shortName}: Prognose und Statistik`,
+                `${h.shortName} vs ${a.shortName} on ${longDate(locale, m.utcDate)}: prediction and stats`,
+                `${h.shortName} gegen ${a.shortName} am ${longDate(locale, m.utcDate)}: Prognose und Statistik`,
               )}
         </h1>
         <div className="mt-4 max-w-3xl space-y-2 text-lg text-muted">

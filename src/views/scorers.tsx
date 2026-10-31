@@ -208,7 +208,7 @@ export async function LeagueScorersView({ locale, slug }: { locale: Locale; slug
           {data ? ` · ${seasonLabel(data.season)}` : ""}
         </Eyebrow>
         <h1 className="mt-4 max-w-4xl font-display text-5xl leading-[0.98] font-extrabold tracking-[-0.045em] sm:text-7xl">
-          {t("Top scorers", "Torjäger")}
+          {t(`${league.name} top scorers`, `Torjäger ${league.name}`)}
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-muted">
           {lead ??
@@ -327,7 +327,7 @@ export async function ScorersIndexView({ locale }: { locale: Locale }) {
       <header>
         <Eyebrow>{t("Europe's top leagues", "Europas Topligen")}</Eyebrow>
         <h1 className="mt-4 font-display text-5xl leading-[0.98] font-extrabold tracking-[-0.045em] sm:text-7xl">
-          {t("Top scorers", "Torjäger")}
+          {t("Top scorers in Europe's top leagues", "Torjäger der Topligen Europas")}
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-muted">
           {europe[0]

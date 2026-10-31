@@ -65,9 +65,12 @@ export async function HomeView({ locale }: { locale: Locale }) {
       <JsonLd data={organizationJsonLd()} />
       <section className="grid items-center gap-10 lg:grid-cols-[1.15fr_1fr]">
         <div>
-          <Eyebrow>{t("Cross-league power ranking", "Ligaübergreifendes Power-Ranking")}</Eyebrow>
-          <h1 className="mt-5 font-display text-[2.9rem] leading-[0.98] font-extrabold tracking-[-0.045em] sm:text-7xl">
-            {t("Every top club. One ranking.", "Alle Topklubs. Ein Ranking.")}
+          <Eyebrow>{t("Every top club. One ranking.", "Alle Topklubs. Ein Ranking.")}</Eyebrow>
+          <h1 className="mt-5 font-display text-[2.6rem] leading-[0.98] font-extrabold tracking-[-0.045em] sm:text-6xl">
+            {t(
+              "Power ranking of Europe's top football leagues",
+              "Power-Ranking der Topligen Europas",
+            )}
           </h1>
           <p className="mt-6 max-w-xl text-lg text-muted">
             {SITE_TEXT[locale].description}{" "}

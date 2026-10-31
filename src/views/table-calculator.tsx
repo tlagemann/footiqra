@@ -72,7 +72,7 @@ export async function TableCalculatorView({ locale, slug }: { locale: Locale; sl
           {data ? ` · ${seasonLabel(data.season)}` : ""}
         </Eyebrow>
         <h1 className="mt-4 max-w-4xl font-display text-5xl leading-[0.98] font-extrabold tracking-[-0.045em] sm:text-7xl">
-          {t("Table calculator", "Tabellenrechner")}
+          {t(`${league.name} table calculator`, `Tabellenrechner ${league.name}`)}
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-muted">
           {data
@@ -178,7 +178,7 @@ export async function TableCalculatorIndexView({ locale }: { locale: Locale }) {
       <header>
         <Eyebrow>{t("Europe's top leagues", "Europas Topligen")}</Eyebrow>
         <h1 className="mt-4 font-display text-5xl leading-[0.98] font-extrabold tracking-[-0.045em] sm:text-7xl">
-          {t("Table calculator", "Tabellenrechner")}
+          {t("Football table calculator", "Fußball-Tabellenrechner")}
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-muted">
           {t(
