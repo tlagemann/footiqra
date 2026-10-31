@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "DED",
   "season": 2026,
-  "fetchedUtc": "2026-10-31T18:12:01.066Z",
+  "fetchedUtc": "2026-10-31T18:55:19.569Z",
   "scorers": [
     {
       "playerId": 121280,
@@ -32,6 +32,15 @@
       "playedMatches": 10
     },
     {
+      "playerId": 7688,
+      "name": "Guus Til",
+      "teamId": 674,
+      "goals": 7,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
       "playerId": 188914,
       "name": "Thom van Bergen",
       "teamId": 677,
@@ -59,13 +68,13 @@
       "playedMatches": 11
     },
     {
-      "playerId": 7688,
-      "name": "Guus Til",
+      "playerId": 115116,
+      "name": "Sven Mijnans",
       "teamId": 674,
       "goals": 6,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 10
     },
     {
       "playerId": 244466,
@@ -127,15 +136,6 @@
       "teamId": 1920,
       "goals": 5,
       "assists": null,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 115116,
-      "name": "Sven Mijnans",
-      "teamId": 674,
-      "goals": 5,
-      "assists": 1,
       "penalties": null,
       "playedMatches": 10
     },

@@ -1285,11 +1285,11 @@
       "stage": "REGULAR_SEASON",
       "homeTeamId": 115,
       "awayTeamId": 100,
-      "homeGoals": 0,
+      "homeGoals": 2,
       "awayGoals": 4,
       "duration": "REGULAR",
       "winner": "AWAY_TEAM",
-      "lastUpdated": "2026-10-31T18:09:23.000Z"
+      "lastUpdated": "2026-10-31T18:50:59.000Z"
     },
     {
       "id": 558548,

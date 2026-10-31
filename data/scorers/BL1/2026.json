@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "BL1",
   "season": 2026,
-  "fetchedUtc": "2026-10-31T18:11:37.770Z",
+  "fetchedUtc": "2026-10-31T18:54:57.197Z",
   "scorers": [
     {
       "playerId": 304,
@@ -137,6 +137,15 @@
       "goals": 4,
       "assists": 4,
       "penalties": 1,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 211,
+      "name": "Sehrou Guirassy",
+      "teamId": 4,
+      "goals": 3,
+      "assists": 2,
+      "penalties": null,
       "playedMatches": 8
     },
     {
@@ -309,15 +318,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 3
-    },
-    {
-      "playerId": 211,
-      "name": "Sehrou Guirassy",
-      "teamId": 4,
-      "goals": 2,
-      "assists": 2,
-      "penalties": null,
-      "playedMatches": 8
     },
     {
       "playerId": 178772,
