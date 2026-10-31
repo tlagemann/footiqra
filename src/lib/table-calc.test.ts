@@ -24,8 +24,6 @@ const fixture = (id: number, homeId: number, awayId: number): CalcFixture => ({
   homeId,
   awayId,
   slug: null,
-  percentages: null,
-  tip: null,
 });
 
 const teams = [team(1, 1, 12, 10, 4), team(2, 2, 10, 8, 5), team(3, 3, 9, 7, 7)];

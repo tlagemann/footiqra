@@ -341,6 +341,6 @@ export type { TableCalculatorData };
 export async function getTableCalculator(
   leagueSlug: string,
 ): Promise<TableCalculatorData | undefined> {
-  const [snapshot, ranking] = await Promise.all([loadSnapshot(), loadRanking()]);
-  return tableCalculator(snapshot, ranking, matchSlugs(snapshot), leagueSlug);
+  const snapshot = await loadSnapshot();
+  return tableCalculator(snapshot, matchSlugs(snapshot), leagueSlug);
 }

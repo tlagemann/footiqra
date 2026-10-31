@@ -1,5 +1,3 @@
-import type { MatchProbabilities } from "@/ranking/forecast";
-
 /**
  * Table calculator: pure logic shared by the page (server) and the
  * interactive calculator (browser).
@@ -30,10 +28,6 @@ export interface CalcFixture {
   awayId: number;
   /** Match page, when one exists. */
   slug: string | null;
-  /** Win, draw, loss in whole percent; null when a club has no rating. */
-  percentages: MatchProbabilities | null;
-  /** Model tip: the most likely score of the most likely outcome. */
-  tip: { home: number; away: number } | null;
 }
 
 export interface CalcRow extends CalcTeam {

@@ -34,8 +34,8 @@ export async function tableCalculatorMetadata(locale: Locale, slug: string): Pro
     ),
     description: tr(
       locale,
-      `Enter your own results for all ${data?.fixtures.length ?? ""} remaining ${league.name} matches and see the final table. With a model tip for every match.`,
-      `Eigene Ergebnisse für alle ${data?.fixtures.length ?? ""} restlichen Spiele der ${league.name} eintragen und die Abschlusstabelle sehen. Mit Modell-Tipp für jedes Spiel.`,
+      `Enter your own results for all ${data?.fixtures.length ?? ""} remaining ${league.name} matches and see the final table at once. Save it and share it with friends.`,
+      `Eigene Ergebnisse für alle ${data?.fixtures.length ?? ""} restlichen Spiele der ${league.name} eintragen und sofort die Abschlusstabelle sehen. Speichern und mit Freunden teilen.`,
     ),
     paths: {
       en: paths("en").leagueCalculator(league.slug),
@@ -77,8 +77,8 @@ export async function TableCalculatorView({ locale, slug }: { locale: Locale; sl
         <p className="mt-6 max-w-2xl text-lg text-muted">
           {data
             ? t(
-                `Enter your own results for the ${data.fixtures.length} remaining matches of the ${league.name} and the table updates at once. Not sure? Each match has a model tip, or fill a whole matchday with one click.`,
-                `Trag deine eigenen Ergebnisse für die ${data.fixtures.length} restlichen Spiele der ${league.name} ein, die Tabelle rechnet sofort mit. Unsicher? Jedes Spiel hat einen Modell-Tipp, ganze Spieltage füllst du mit einem Klick.`,
+                `Enter your own results for the ${data.fixtures.length} remaining matches of the ${league.name} and the table updates at once. Your results are saved in this browser and can be shared as a link.`,
+                `Trag deine eigenen Ergebnisse für die ${data.fixtures.length} restlichen Spiele der ${league.name} ein, die Tabelle rechnet sofort mit. Deine Ergebnisse bleiben in diesem Browser gespeichert und lassen sich als Link teilen.`,
               )
             : t(
                 "The calculator needs the current table and fixtures.",
@@ -120,8 +120,8 @@ export async function TableCalculatorView({ locale, slug }: { locale: Locale; sl
         </p>
         <p>
           {t(
-            "Model tip: the most likely score of the most likely outcome, from the Footiqra ratings. Because the favourite's win is usually the most likely outcome, a table filled only with tips has fewer draws than a real season. For realistic chances, see the ",
-            "Modell-Tipp: das wahrscheinlichste Ergebnis des wahrscheinlichsten Ausgangs, berechnet aus den Footiqra-Ratings. Weil meist ein Sieg des Favoriten am wahrscheinlichsten ist, hat eine nur mit Tipps gefüllte Tabelle weniger Remis als eine echte Saison. Realistische Chancen zeigt die ",
+            "How likely each final position really is, from 10,000 simulated seasons, is shown in the ",
+            "Wie wahrscheinlich jeder Endplatz tatsächlich ist, berechnet aus 10.000 simulierten Saisons, zeigt die ",
           )}
           <Link href={p.projection(league.slug)} className="underline underline-offset-4">
             {t("season simulation", "Saisonsimulation")}

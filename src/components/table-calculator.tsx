@@ -104,16 +104,6 @@ export function TableCalculator({
       const cur = prev[id] ?? { home: "", away: "" };
       return { ...prev, [id]: { ...cur, [side]: value.replace(/\D/g, "").slice(0, 2) } };
     });
-  const fillTips = (list: CalcFixture[]) =>
-    setEntries((prev) => {
-      const next = { ...prev };
-      for (const f of list) {
-        const e = next[f.id];
-        const empty = !e || (e.home === "" && e.away === "");
-        if (f.tip && empty) next[f.id] = { home: String(f.tip.home), away: String(f.tip.away) };
-      }
-      return next;
-    });
   const clear = (list: CalcFixture[]) =>
     setEntries((prev) => {
       const next = { ...prev };
@@ -233,13 +223,6 @@ export function TableCalculator({
       <div className="mb-6 flex flex-wrap items-center gap-2">
         <button
           type="button"
-          onClick={() => fillTips(fixtures)}
-          className={`${btn} bg-foreground text-inverse hover:opacity-90`}
-        >
-          {t("Fill all with model tips", "Alle mit Modell-Tipps füllen")}
-        </button>
-        <button
-          type="button"
           onClick={share}
           disabled={done === 0}
           className={`${btn} bg-surface hover:bg-surface-strong`}
@@ -323,24 +306,17 @@ export function TableCalculator({
                   </span>
                 </summary>
                 <div className="px-3 pb-3 sm:px-4">
-                  <div className="mb-2 flex flex-wrap gap-2 px-2">
-                    <button
-                      type="button"
-                      onClick={() => fillTips(list)}
-                      className="rounded-full bg-background px-3 py-1.5 text-xs font-semibold hover:bg-surface-strong"
-                    >
-                      {t("Fill with tips", "Mit Tipps füllen")}
-                    </button>
-                    {entered > 0 && (
+                  {entered > 0 && (
+                    <div className="mb-2 flex flex-wrap gap-2 px-2">
                       <button
                         type="button"
                         onClick={() => clear(list)}
                         className="rounded-full bg-background px-3 py-1.5 text-xs font-semibold text-muted hover:bg-surface-strong"
                       >
-                        {t("Clear", "Leeren")}
+                        {t("Clear matchday", "Spieltag leeren")}
                       </button>
-                    )}
-                  </div>
+                    </div>
+                  )}
                   <ul className="space-y-1.5">
                     {list.map((f) => {
                       const h = byId.get(f.homeId)!;
@@ -380,31 +356,6 @@ export function TableCalculator({
                               >
                                 {t("Preview", "Vorschau")}
                               </Link>
-                            )}
-                            {f.tip && (
-                              <button
-                                type="button"
-                                onClick={() =>
-                                  setEntries((prev) => ({
-                                    ...prev,
-                                    [f.id]: {
-                                      home: String(f.tip!.home),
-                                      away: String(f.tip!.away),
-                                    },
-                                  }))
-                                }
-                                className="ml-auto rounded-full px-2 py-0.5 font-semibold hover:bg-surface hover:text-foreground"
-                                title={
-                                  f.percentages
-                                    ? t(
-                                        `Model: ${h.name} ${f.percentages.home}%, draw ${f.percentages.draw}%, ${a.name} ${f.percentages.away}%`,
-                                        `Modell: ${h.name} ${f.percentages.home} %, Remis ${f.percentages.draw} %, ${a.name} ${f.percentages.away} %`,
-                                      )
-                                    : undefined
-                                }
-                              >
-                                {t("Tip", "Tipp")} {f.tip.home}:{f.tip.away}
-                              </button>
                             )}
                           </div>
                           <div className="grid grid-cols-[1fr_auto_auto_auto_1fr] items-center gap-1.5 text-[15px] sm:gap-2">
