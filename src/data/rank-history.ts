@@ -83,3 +83,53 @@ export function rankHistories(ranking: PowerRanking, asOf: string): Map<number, 
   }
   return result;
 }
+
+export interface RankChange {
+  /** Places gained since the reference time; negative = dropped. Null if the club had no rating then. */
+  week: number | null;
+  month: number | null;
+}
+
+/** Rank change periods in days. */
+export const RANK_CHANGE_DAYS = { week: 7, month: 30 } as const;
+
+/** Power ranking position of every rated club at time `t`, from the rating timeline. */
+export function ranksAt(ranking: PowerRanking, t: number): Map<number, number> {
+  const ratings = new Map<string, number>();
+  for (const row of ranking.rows) {
+    const tl = ranking.ratingTimeline.get(row.team.id) ?? [];
+    if (tl.length === 0 || Date.parse(tl[0]!.utcDate) > t) continue;
+    let value = tl[0]!.rating;
+    for (const p of tl) {
+      if (Date.parse(p.utcDate) > t) break;
+      value = p.rating;
+    }
+    ratings.set(String(row.team.id), value);
+  }
+  return new Map(toRanking(ratings).map((e) => [Number(e.teamId), e.rank]));
+}
+
+/**
+ * Change of every club's published rank against its position 7 and 30 days
+ * before `asOf`. Past positions are recomputed from the rating timeline, the
+ * same way as the team page chart, so no stored history is needed.
+ */
+export function rankChanges(ranking: PowerRanking, asOf: string): Map<number, RankChange> {
+  const now = Date.parse(asOf);
+  const before = (days: number) => ranksAt(ranking, now - days * DAY);
+  const week = before(RANK_CHANGE_DAYS.week);
+  const month = before(RANK_CHANGE_DAYS.month);
+  const diff = (past: Map<number, number>, id: number, rank: number) => {
+    const then = past.get(id);
+    return then === undefined ? null : then - rank;
+  };
+  return new Map(
+    ranking.rows.map((row) => [
+      row.team.id,
+      {
+        week: diff(week, row.team.id, row.rank),
+        month: diff(month, row.team.id, row.rank),
+      },
+    ]),
+  );
+}

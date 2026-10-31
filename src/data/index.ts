@@ -19,7 +19,7 @@ import {
 } from "./history";
 import { upcomingForecasts, type MatchForecast } from "./forecasts";
 import { loadSnapshotFromDisk } from "./load";
-import { rankHistories, type RankPoint } from "./rank-history";
+import { rankChanges, rankHistories, type RankChange, type RankPoint } from "./rank-history";
 import { ratingHistory, type RatingPoint } from "./rating-history";
 import {
   leagueProjection,
@@ -198,7 +198,21 @@ export function getWeekAgo(): Promise<HistoryReference | undefined> {
   return referencePromise;
 }
 
-export type { MatchForecast };
+export type { MatchForecast, RankChange };
+export { RANK_CHANGE_DAYS } from "./rank-history";
+
+let rankChangesPromise: Promise<Map<number, RankChange>> | undefined;
+
+/** Change of every club's power ranking position over 7 and 30 days, by team id. */
+export function getRankChanges(): Promise<Map<number, RankChange>> {
+  rankChangesPromise ??= (async () => {
+    const [snapshot, ranking] = await Promise.all([loadSnapshot(), loadRanking()]);
+    const asOf = snapshot.meta.lastSuccessfulRunUtc;
+    if (!asOf || ranking.matchesUsed === 0) return new Map();
+    return rankChanges(ranking, asOf);
+  })();
+  return rankChangesPromise;
+}
 
 let forecastsPromise: Promise<MatchForecast[]> | undefined;
 

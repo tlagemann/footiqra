@@ -1,8 +1,55 @@
 import { paths, tr, type Locale } from "@/i18n";
 import Link from "next/link";
 import { getLeagueBySlug } from "@/config/leagues";
-import type { PowerRankingRow } from "@/data";
+import type { PowerRankingRow, RankChange } from "@/data";
 import { Crest, FormGuide, HeaderHint } from "./ui";
+
+/** Places gained or lost; "·" when unchanged, "new" when the club was not ranked then. */
+function ChangeCell({
+  value,
+  period,
+  className,
+  locale,
+}: {
+  value: number | null;
+  period: "week" | "month";
+  className: string;
+  locale: Locale;
+}) {
+  const t = (en: string, de: string) => tr(locale, en, de);
+  const base = `tabular py-3 pr-3 text-right text-sm font-semibold whitespace-nowrap ${className}`;
+  const since =
+    period === "week"
+      ? t("in the last 7 days", "in 7 Tagen")
+      : t("in the last 30 days", "in 30 Tagen");
+  if (value === null) return <td className={`${base} text-brand-ink`}>{t("new", "neu")}</td>;
+  if (value === 0)
+    return (
+      <td
+        className={`${base} text-muted`}
+        aria-label={t(`unchanged ${since}`, `unverändert ${since}`)}
+      >
+        ·
+      </td>
+    );
+  const up = value > 0;
+  const n = Math.abs(value);
+  return (
+    <td
+      className={`${base} ${up ? "text-positive" : "text-negative"}`}
+      aria-label={
+        up
+          ? t(`up ${n} ${since}`, `${n} ${n === 1 ? "Platz" : "Plätze"} hoch ${since}`)
+          : t(`down ${n} ${since}`, `${n} ${n === 1 ? "Platz" : "Plätze"} runter ${since}`)
+      }
+    >
+      <span aria-hidden="true">
+        {up ? "▲" : "▼"}
+        {n}
+      </span>
+    </td>
+  );
+}
 
 /**
  * Power ranking as a semantic table, server-rendered so every row is in the HTML.
@@ -14,8 +61,11 @@ export function RankingTable({
   showLeague = true,
   rankLabel = "#",
   locale = "en",
+  changes,
 }: {
   rows: PowerRankingRow[];
+  /** Rank changes by team id; adds the 7-day and 30-day columns. */
+  changes?: ReadonlyMap<number, RankChange>;
   caption: string;
   showLeague?: boolean;
   rankLabel?: string;
@@ -82,6 +132,30 @@ export function RankingTable({
                 )}
               />
             </th>
+            {changes && (
+              <>
+                <th scope="col" className="py-4 pr-3 text-right font-medium">
+                  <HeaderHint
+                    align="right"
+                    label={t("7 d", "7 T")}
+                    hint={t(
+                      "Places gained (▲) or lost (▼) in the power ranking over the last 7 days.",
+                      "Gewonnene (▲) oder verlorene (▼) Plätze im Power-Ranking in den letzten 7 Tagen.",
+                    )}
+                  />
+                </th>
+                <th scope="col" className="hidden py-4 pr-3 text-right font-medium sm:table-cell">
+                  <HeaderHint
+                    align="right"
+                    label={t("30 d", "30 T")}
+                    hint={t(
+                      "Places gained (▲) or lost (▼) in the power ranking over the last 30 days.",
+                      "Gewonnene (▲) oder verlorene (▼) Plätze im Power-Ranking in den letzten 30 Tagen.",
+                    )}
+                  />
+                </th>
+              </>
+            )}
             <th scope="col" className="py-4 pr-5 text-right font-medium sm:w-56 sm:pr-7">
               <HeaderHint
                 align="right"
@@ -122,6 +196,22 @@ export function RankingTable({
               <td className="hidden py-3 lg:table-cell">
                 <FormGuide form={row.form} locale={locale} />
               </td>
+              {changes && (
+                <>
+                  <ChangeCell
+                    value={changes.get(row.team.id)?.week ?? null}
+                    period="week"
+                    className=""
+                    locale={locale}
+                  />
+                  <ChangeCell
+                    value={changes.get(row.team.id)?.month ?? null}
+                    period="month"
+                    className="hidden sm:table-cell"
+                    locale={locale}
+                  />
+                </>
+              )}
               <td className="py-3 pr-5 sm:pr-7">
                 <div className="flex items-center justify-end gap-3">
                   <span

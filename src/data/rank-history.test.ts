@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import type { StoredMatch } from "@/store/types";
 import { computePowerRanking } from "./power-ranking";
-import { rankHistories, weeklyCheckpoints } from "./rank-history";
+import { rankChanges, rankHistories, weeklyCheckpoints } from "./rank-history";
 import type { Snapshot } from "./repository";
 
 describe("weeklyCheckpoints", () => {
@@ -73,5 +73,35 @@ describe("rankHistories", () => {
     expect(a.map((p) => p.rank)).toEqual([1, 2, 2]);
     expect(a[1]!.change).toBe(-1);
     expect(a.at(-1)!.rank).toBe(ranking.rows.find((r) => r.team.id === 1)!.rank);
+  });
+});
+
+describe("rankChanges", () => {
+  it("compares the published rank with 7 and 30 days earlier", () => {
+    const snapshot: Snapshot = {
+      meta: {
+        schemaVersion: 1,
+        provider: "football-data",
+        lastSuccessfulRunUtc: "2026-09-16T00:00:00.000Z",
+        competitions: {},
+      },
+      teams: { schemaVersion: 1, teams: { "1": team(1, "a"), "2": team(2, "b") } },
+      matchFiles: [
+        {
+          schemaVersion: 1,
+          competition: "PL",
+          season: 2026,
+          // a leads after 5 Sep, b overtakes on 12 Sep.
+          matches: [match(1, "05", 1, 2, 1, 0), match(2, "12", 2, 1, 4, 0)],
+        },
+      ],
+    };
+    const ranking = computePowerRanking(snapshot);
+    const changes = rankChanges(ranking, snapshot.meta.lastSuccessfulRunUtc!);
+    // 9 Sep: a 1st, b 2nd. Today: b 1st, a 2nd.
+    expect(changes.get(1)!.week).toBe(-1);
+    expect(changes.get(2)!.week).toBe(1);
+    // 30 days before 16 Sep is before the first match: no rating yet.
+    expect(changes.get(1)!.month).toBeNull();
   });
 });

@@ -19,6 +19,7 @@ import {
   getScorerIndex,
   getUpcomingForecasts,
   getWeekAgo,
+  getRankChanges,
   nextWindow,
   topAcrossLeagues,
 } from "@/data";
@@ -47,6 +48,7 @@ export async function HomeView({ locale }: { locale: Locale }) {
   const top = ranking.status === "ok" ? ranking.data.rows.slice(0, 3) : [];
   const performance = topAcrossLeagues(await getAllTableVsStrength(10), 3);
   const weekAgo = await getWeekAgo();
+  const rankChanges = await getRankChanges();
   const bigGames = biggestMatches(nextWindow(await getUpcomingForecasts(), 7), 3).sort(
     (a, b) => Date.parse(a.utcDate) - Date.parse(b.utcDate),
   );
@@ -146,6 +148,7 @@ export async function HomeView({ locale }: { locale: Locale }) {
                 "Footiqra power ranking of all teams in the covered leagues",
                 "Footiqra Power-Ranking aller Vereine der abgedeckten Ligen",
               )}
+              changes={rankChanges.size > 0 ? rankChanges : undefined}
               locale={locale}
             />
           </section>
