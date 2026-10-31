@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PPL",
   "season": 2026,
-  "fetchedUtc": "2026-10-31T15:46:25.110Z",
+  "fetchedUtc": "2026-10-31T18:11:52.736Z",
   "scorers": [
     {
       "playerId": 67299,
@@ -131,6 +131,15 @@
       "playedMatches": 9
     },
     {
+      "playerId": 263535,
+      "name": "Nile John",
+      "teamId": 583,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 10
+    },
+    {
       "playerId": 32309,
       "name": "Héctor Hernández",
       "teamId": 5533,
@@ -210,15 +219,6 @@
       "assists": 2,
       "penalties": null,
       "playedMatches": 9
-    },
-    {
-      "playerId": 263535,
-      "name": "Nile John",
-      "teamId": 583,
-      "goals": 2,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 10
     },
     {
       "playerId": 147456,
@@ -324,7 +324,7 @@
       "name": "Manuel Mendonça",
       "teamId": 583,
       "goals": 2,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 8
     },
@@ -342,7 +342,7 @@
       "name": "Tiago Andrade",
       "teamId": 583,
       "goals": 2,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
       "playedMatches": 9
     },

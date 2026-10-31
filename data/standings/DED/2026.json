@@ -2,18 +2,18 @@
   "schemaVersion": 1,
   "competition": "DED",
   "season": 2026,
-  "fetchedUtc": "2026-10-31T15:45:31.657Z",
+  "fetchedUtc": "2026-10-31T18:10:59.327Z",
   "rows": [
     {
       "position": 1,
       "teamId": 675,
-      "playedGames": 10,
+      "playedGames": 11,
       "won": 7,
-      "draw": 3,
+      "draw": 4,
       "lost": 0,
-      "points": 24,
-      "goalsFor": 32,
-      "goalsAgainst": 11,
+      "points": 25,
+      "goalsFor": 33,
+      "goalsAgainst": 12,
       "goalDifference": 21
     },
     {
@@ -67,13 +67,13 @@
     {
       "position": 6,
       "teamId": 1920,
-      "playedGames": 10,
+      "playedGames": 11,
       "won": 5,
-      "draw": 3,
+      "draw": 4,
       "lost": 2,
-      "points": 18,
-      "goalsFor": 17,
-      "goalsAgainst": 17,
+      "points": 19,
+      "goalsFor": 18,
+      "goalsAgainst": 18,
       "goalDifference": 0
     },
     {

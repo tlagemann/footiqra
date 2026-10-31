@@ -2,13 +2,13 @@
   "schemaVersion": 1,
   "competition": "BL1",
   "season": 2026,
-  "fetchedUtc": "2026-10-31T15:46:09.628Z",
+  "fetchedUtc": "2026-10-31T18:11:37.770Z",
   "scorers": [
     {
       "playerId": 304,
       "name": "Niclas Füllkrug",
       "teamId": 12,
-      "goals": 8,
+      "goals": 9,
       "assists": null,
       "penalties": 3,
       "playedMatches": 8
@@ -29,7 +29,7 @@
       "goals": 6,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 192207,
@@ -47,6 +47,15 @@
       "goals": 5,
       "assists": null,
       "penalties": 1,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 33242,
+      "name": "Ermedin Demirovic",
+      "teamId": 10,
+      "goals": 5,
+      "assists": null,
+      "penalties": null,
       "playedMatches": 8
     },
     {
@@ -72,7 +81,7 @@
       "name": "Antonio Nusa",
       "teamId": 721,
       "goals": 4,
-      "assists": 5,
+      "assists": 6,
       "penalties": 1,
       "playedMatches": 8
     },
@@ -86,11 +95,11 @@
       "playedMatches": 7
     },
     {
-      "playerId": 33242,
-      "name": "Ermedin Demirovic",
-      "teamId": 10,
+      "playerId": 156629,
+      "name": "Igor Matanovic",
+      "teamId": 17,
       "goals": 4,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 8
     },
@@ -113,20 +122,29 @@
       "playedMatches": 7
     },
     {
+      "playerId": 178783,
+      "name": "Romulo Cruz",
+      "teamId": 721,
+      "goals": 4,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 6
+    },
+    {
       "playerId": 8004,
       "name": "Harry Kane",
       "teamId": 5,
       "goals": 4,
       "assists": 4,
       "penalties": 1,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
-      "playerId": 156629,
-      "name": "Igor Matanovic",
-      "teamId": 17,
+      "playerId": 202532,
+      "name": "Ibrahim Maza",
+      "teamId": 3,
       "goals": 3,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
       "playedMatches": 8
     },
@@ -176,15 +194,6 @@
       "playedMatches": 8
     },
     {
-      "playerId": 178783,
-      "name": "Romulo Cruz",
-      "teamId": 721,
-      "goals": 3,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 6
-    },
-    {
       "playerId": 8785,
       "name": "Anthony Caci",
       "teamId": 15,
@@ -200,7 +209,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 6523,
@@ -218,7 +227,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 6634,
@@ -308,7 +317,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 178772,
@@ -329,11 +338,20 @@
       "playedMatches": 8
     },
     {
+      "playerId": 150733,
+      "name": "Eren Dinkci",
+      "teamId": 12,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
       "playerId": 61630,
       "name": "Marco Grüll",
       "teamId": 12,
       "goals": 2,
-      "assists": 5,
+      "assists": 6,
       "penalties": null,
       "playedMatches": 8
     },
@@ -343,15 +361,6 @@
       "teamId": 4,
       "goals": 2,
       "assists": 1,
-      "penalties": null,
-      "playedMatches": 7
-    },
-    {
-      "playerId": 202532,
-      "name": "Ibrahim Maza",
-      "teamId": 3,
-      "goals": 2,
-      "assists": 2,
       "penalties": null,
       "playedMatches": 8
     },
@@ -407,7 +416,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 193605,
@@ -434,7 +443,7 @@
       "goals": 2,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 3466,
@@ -470,7 +479,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 176617,
@@ -617,15 +626,6 @@
       "playedMatches": 8
     },
     {
-      "playerId": 150733,
-      "name": "Eren Dinkci",
-      "teamId": 12,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 8
-    },
-    {
       "playerId": 206319,
       "name": "Leon Avdullahu",
       "teamId": 2,
@@ -758,7 +758,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 144393,
@@ -846,7 +846,7 @@
       "name": "Miguel Gutiérrez",
       "teamId": 3,
       "goals": 1,
-      "assists": 3,
+      "assists": 4,
       "penalties": null,
       "playedMatches": 8
     },
@@ -866,7 +866,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 75539,
@@ -875,7 +875,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 5
+      "playedMatches": 6
     },
     {
       "playerId": 45611,

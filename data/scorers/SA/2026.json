@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "SA",
   "season": 2026,
-  "fetchedUtc": "2026-10-31T15:46:05.245Z",
+  "fetchedUtc": "2026-10-31T18:11:30.349Z",
   "scorers": [
     {
       "playerId": 252836,
@@ -14,6 +14,15 @@
       "playedMatches": 9
     },
     {
+      "playerId": 7457,
+      "name": "Donyell Malen",
+      "teamId": 100,
+      "goals": 8,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
       "playerId": 169216,
       "name": "Antonio Raimondo",
       "teamId": 470,
@@ -21,15 +30,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 9
-    },
-    {
-      "playerId": 7457,
-      "name": "Donyell Malen",
-      "teamId": 100,
-      "goals": 7,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 8
     },
     {
       "playerId": 120679,
@@ -155,7 +155,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 7567,
@@ -164,7 +164,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 156912,
@@ -189,9 +189,18 @@
       "name": "Matias Soule",
       "teamId": 100,
       "goals": 3,
-      "assists": 1,
+      "assists": 3,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
+    },
+    {
+      "playerId": 261273,
+      "name": "Rodrigo Mora",
+      "teamId": 100,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 10
     },
     {
       "playerId": 67743,
@@ -281,7 +290,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 2097,
@@ -345,15 +354,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 8
-    },
-    {
-      "playerId": 261273,
-      "name": "Rodrigo Mora",
-      "teamId": 100,
-      "goals": 2,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 9
     },
     {
       "playerId": 218474,
@@ -560,7 +560,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 1789,
@@ -587,7 +587,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 97537,
@@ -686,7 +686,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 1852,
@@ -749,7 +749,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 98549,
@@ -812,7 +812,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 3851,

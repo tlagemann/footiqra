@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PD",
   "season": 2026,
-  "fetchedUtc": "2026-10-31T15:45:55.539Z",
+  "fetchedUtc": "2026-10-31T18:11:23.381Z",
   "scorers": [
     {
       "playerId": 37428,
@@ -45,7 +45,7 @@
       "name": "Sergio Camello",
       "teamId": 87,
       "goals": 7,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
       "playedMatches": 11
     },
@@ -128,7 +128,7 @@
       "goals": 4,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 16739,
@@ -263,7 +263,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 8412,
@@ -290,7 +290,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 151439,
@@ -470,7 +470,7 @@
       "goals": 2,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 127657,
@@ -489,6 +489,15 @@
       "assists": 2,
       "penalties": null,
       "playedMatches": 10
+    },
+    {
+      "playerId": 133276,
+      "name": "Jorge de Frutos",
+      "teamId": 87,
+      "goals": 2,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 9
     },
     {
       "playerId": 46123,
@@ -614,7 +623,7 @@
       "goals": 1,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 1556,
@@ -659,7 +668,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 177245,
@@ -704,7 +713,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 157135,
@@ -738,7 +747,7 @@
       "name": "Andrei Rațiu",
       "teamId": 87,
       "goals": 1,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 8
     },
@@ -893,16 +902,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 213280,
-      "name": "Adrià Pedrosa",
-      "teamId": 87,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 11
     }
   ]
 }

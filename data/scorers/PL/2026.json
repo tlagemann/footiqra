@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PL",
   "season": 2026,
-  "fetchedUtc": "2026-10-31T15:45:47.406Z",
+  "fetchedUtc": "2026-10-31T18:11:15.551Z",
   "scorers": [
     {
       "playerId": 38101,
@@ -203,6 +203,15 @@
       "playedMatches": 7
     },
     {
+      "playerId": 114123,
+      "name": "Jack Rudoni",
+      "teamId": 1076,
+      "goals": 3,
+      "assists": null,
+      "penalties": 1,
+      "playedMatches": 9
+    },
+    {
       "playerId": 171,
       "name": "Kai Havertz",
       "teamId": 57,
@@ -347,13 +356,22 @@
       "playedMatches": 9
     },
     {
+      "playerId": 99664,
+      "name": "Enzo Le Fée",
+      "teamId": 71,
+      "goals": 2,
+      "assists": 1,
+      "penalties": 2,
+      "playedMatches": 9
+    },
+    {
       "playerId": 137068,
       "name": "Tyrick Mitchell",
       "teamId": 354,
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 67893,
@@ -372,6 +390,15 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 7
+    },
+    {
+      "playerId": 138230,
+      "name": "Thiago",
+      "teamId": 402,
+      "goals": 2,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 9
     },
     {
       "playerId": 212309,
@@ -401,11 +428,20 @@
       "playedMatches": 4
     },
     {
-      "playerId": 114123,
-      "name": "Jack Rudoni",
-      "teamId": 1076,
+      "playerId": 168949,
+      "name": "Julio Enciso",
+      "teamId": 349,
       "goals": 2,
-      "assists": null,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 4359,
+      "name": "Oliver McBurnie",
+      "teamId": 322,
+      "goals": 2,
+      "assists": 2,
       "penalties": 1,
       "playedMatches": 9
     },
@@ -599,15 +635,6 @@
       "playedMatches": 9
     },
     {
-      "playerId": 99664,
-      "name": "Enzo Le Fée",
-      "teamId": 71,
-      "goals": 1,
-      "assists": 1,
-      "penalties": 1,
-      "playedMatches": 9
-    },
-    {
       "playerId": 290848,
       "name": "César Palacios",
       "teamId": 63,
@@ -623,7 +650,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 4
+      "playedMatches": 5
     },
     {
       "playerId": 250436,
@@ -659,7 +686,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 213269,
@@ -738,15 +765,6 @@
       "name": "Jaidon Anthony",
       "teamId": 402,
       "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 9
-    },
-    {
-      "playerId": 138230,
-      "name": "Thiago",
-      "teamId": 402,
-      "goals": 1,
       "assists": 2,
       "penalties": null,
       "playedMatches": 9
@@ -776,7 +794,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 98566,
@@ -785,7 +803,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 270273,
@@ -885,24 +903,6 @@
       "assists": 2,
       "penalties": null,
       "playedMatches": 9
-    },
-    {
-      "playerId": 25650,
-      "name": "Dara O'Shea",
-      "teamId": 349,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 9
-    },
-    {
-      "playerId": 204421,
-      "name": "Yegor Yarmolyuk",
-      "teamId": 402,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 7
     }
   ]
 }
