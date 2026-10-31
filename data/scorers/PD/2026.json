@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PD",
   "season": 2026,
-  "fetchedUtc": "2026-10-31T07:30:19.578Z",
+  "fetchedUtc": "2026-10-31T09:51:42.468Z",
   "scorers": [
     {
       "playerId": 37428,
@@ -794,7 +794,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 10
     },
     {
       "playerId": 31019,
