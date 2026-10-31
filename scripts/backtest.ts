@@ -266,6 +266,35 @@ for (const leagueK of [12, 16, 24])
       regress,
     });
 
+if (process.argv.includes("--early")) {
+  // Live model elo-v2 (carry 0.5, newcomer 50, league K 12) with damped early-season steps:
+  // K x (1 + boost x fade), fade = 1 - matches played / boostGames, boost < 0 = smaller steps.
+  const v2: Params = { ...best, leagueK: 12, regress: 0.5 };
+  const early: Params[] = [{ ...v2, name: "live elo-v2 (k=20)" }];
+  for (const k of [12, 15, 17]) early.push({ ...v2, name: `k=${k}`, k });
+  for (const boostGames of [8, 12, 19])
+    for (const boost of [-0.25, -0.5, -0.7])
+      early.push({ ...v2, name: `damp ${boost} over ${boostGames}`, boost, boostGames });
+  console.info(
+    "log loss (hit rate)            | 2025/26 all      | 2025/26 md 1-8   | 2026/27 all      | 2026/27 md 1-8   | both",
+  );
+  for (const p of early) {
+    const s = run(p, games, leagueBySeason);
+    const total = (s.s2025.loss + s.s2026.loss) / (s.s2025.n + s.s2026.n);
+    console.info(
+      [
+        p.name.padEnd(30),
+        fmt(s.s2025),
+        fmt(s.early2025),
+        fmt(s.s2026),
+        fmt(s.early2026),
+        total.toFixed(4),
+      ].join(" | "),
+    );
+  }
+  process.exit(0);
+}
+
 if (process.argv.includes("--soft")) {
   const names = JSON.parse(readFileSync("data/teams.json", "utf8")).teams as Record<
     string,
