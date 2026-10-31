@@ -114,6 +114,10 @@ interface Params {
   /** Early-season boost: K is multiplied by 1 + boost, fading to 1 over the first boostGames matches. */
   boost?: number;
   boostGames?: number;
+  /** UEFA starting offsets x this factor (1 = live). */
+  offsetScale?: number;
+  /** Share of the league adjustment's distance from its UEFA offset kept at a new season (1 = live). */
+  leagueKeep?: number;
 }
 
 interface Score {
@@ -124,7 +128,9 @@ interface Score {
 const empty = (): Score => ({ n: 0, loss: 0, hits: 0 });
 
 function run(p: Params, games: Game[], leagueBySeason: Map<number, Map<number, string>>) {
-  const offsets = leagueStartingOffsets() as Record<string, number>;
+  const offsets = Object.fromEntries(
+    Object.entries(leagueStartingOffsets()).map(([l, v]) => [l, v * (p.offsetScale ?? 1)]),
+  ) as Record<string, number>;
   const base = 1500;
   const team = new Map<number, number>();
   const league = new Map<string, number>(Object.entries(offsets));
@@ -154,6 +160,9 @@ function run(p: Params, games: Game[], leagueBySeason: Map<number, Map<number, s
       }
     }
     if (!p.carryLeague) for (const [l, v] of Object.entries(offsets)) league.set(l, v);
+    else if (p.leagueKeep !== undefined)
+      for (const [l, v] of Object.entries(offsets))
+        league.set(l, v + p.leagueKeep * (league.get(l)! - v));
     history.clear();
     played.clear();
   };
@@ -223,7 +232,7 @@ function run(p: Params, games: Game[], leagueBySeason: Map<number, Map<number, s
   const final = new Map<number, number>();
   for (const [id, l] of leagueBySeason.get(SEASONS.at(-1)!)!)
     final.set(id, team.get(id)! + league.get(l)!);
-  return Object.assign(score, { final });
+  return Object.assign(score, { final, league: new Map(league) });
 }
 
 const fmt = (s: Score) =>
@@ -265,6 +274,40 @@ for (const leagueK of [12, 16, 24])
       leagueK,
       regress,
     });
+
+if (process.argv.includes("--league")) {
+  // League strength: how big the league bonus should be. Only European matches
+  // test it directly (in a domestic match both clubs share the bonus).
+  const v2: Params = { ...best, leagueK: 12, regress: 0.5 };
+  const list: Params[] = [{ ...v2, name: "live (UEFA x2, league K 12, kept)" }];
+  for (const leagueK of [4, 8, 16]) list.push({ ...v2, name: `league K ${leagueK}`, leagueK });
+  for (const offsetScale of [0, 0.5, 1.5])
+    list.push({ ...v2, name: `UEFA offset x${offsetScale * 2}`, offsetScale });
+  for (const leagueKeep of [0, 0.5])
+    list.push({ ...v2, name: `league kept ${leagueKeep * 100}% at new season`, leagueKeep });
+  list.push({ ...v2, name: "league K 8 + kept 50%", leagueK: 8, leagueKeep: 0.5 });
+  list.push({ ...v2, name: "league K 16 + kept 50%", leagueK: 16, leagueKeep: 0.5 });
+  console.info(
+    "variant                              | Europe 25/26+26/27 | all matches | PL bonus now | L1 | BL | SA",
+  );
+  for (const p of list) {
+    const s = run(p, games, leagueBySeason);
+    const total = (s.s2025.loss + s.s2026.loss) / (s.s2025.n + s.s2026.n);
+    const lg = (l: string) => String(Math.round(s.league.get(l)!)).padStart(4);
+    console.info(
+      [
+        p.name.padEnd(36),
+        `${fmt(s.europe)} n=${s.europe.n}`,
+        total.toFixed(4),
+        lg("premier-league").padStart(12),
+        lg("ligue-1"),
+        lg("bundesliga"),
+        lg("serie-a"),
+      ].join(" | "),
+    );
+  }
+  process.exit(0);
+}
 
 if (process.argv.includes("--early")) {
   // Live model elo-v2 (carry 0.5, newcomer 50, league K 12) with damped early-season steps:
