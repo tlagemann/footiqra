@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PPL",
   "season": 2026,
-  "fetchedUtc": "2026-10-30T21:57:55.476Z",
+  "fetchedUtc": "2026-10-31T01:08:59.037Z",
   "scorers": [
     {
       "playerId": 67299,
@@ -264,6 +264,15 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 9
+    },
+    {
+      "playerId": 128825,
+      "name": "Geny Catamo",
+      "teamId": 498,
+      "goals": 2,
+      "assists": 4,
+      "penalties": null,
+      "playedMatches": 10
     },
     {
       "playerId": 181456,
@@ -597,15 +606,6 @@
       "assists": 2,
       "penalties": null,
       "playedMatches": 9
-    },
-    {
-      "playerId": 128825,
-      "name": "Geny Catamo",
-      "teamId": 498,
-      "goals": 1,
-      "assists": 4,
-      "penalties": null,
-      "playedMatches": 10
     },
     {
       "playerId": 214182,

@@ -1023,7 +1023,7 @@
       "awayGoals": 5,
       "duration": "REGULAR",
       "winner": "AWAY_TEAM",
-      "lastUpdated": "2026-10-30T19:59:47.000Z"
+      "lastUpdated": "2026-10-30T23:25:08.000Z"
     },
     {
       "id": 559646,
@@ -1037,12 +1037,12 @@
       "awayGoals": 2,
       "duration": "REGULAR",
       "winner": "HOME_TEAM",
-      "lastUpdated": "2026-10-30T20:02:27.000Z"
+      "lastUpdated": "2026-10-30T23:25:08.000Z"
     },
     {
       "id": 559639,
       "utcDate": "2026-10-30T20:05:00.000Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "matchday": 9,
       "stage": "REGULAR_SEASON",
       "homeTeamId": 521,
@@ -1051,7 +1051,7 @@
       "awayGoals": 0,
       "duration": "REGULAR",
       "winner": "HOME_TEAM",
-      "lastUpdated": "2026-10-30T21:54:59.000Z"
+      "lastUpdated": "2026-10-30T23:25:08.000Z"
     },
     {
       "id": 559643,
