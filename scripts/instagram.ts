@@ -19,6 +19,7 @@ import {
   getLeagueProjection,
   getMatch,
   getPowerRanking,
+  getScorerIndex,
   getUpcomingForecasts,
   nextWindow,
 } from "@/data";
@@ -26,6 +27,7 @@ import {
   bestPerLeague,
   matchPreview,
   methodology,
+  scorerPower,
   type MatchPreview,
   top10,
   weekend,
@@ -177,7 +179,7 @@ function captionFor(kind: string, rows: RankRow[], games: Forecast[]): string {
 async function main() {
   const wanted = process.argv.slice(2).filter((a) => !a.startsWith("-"));
   const kinds = wanted.length ? wanted : WEEKLY;
-  const unknown = kinds.filter((k) => ![...WEEKLY, "methodology", "match"].includes(k));
+  const unknown = kinds.filter((k) => ![...WEEKLY, "methodology", "match", "scorers"].includes(k));
   const matchArg = process.argv.find((a) => a.startsWith("--match="))?.slice(8);
   if (unknown.length) throw new Error(`Unknown post: ${unknown.join(", ")}`);
 
@@ -206,6 +208,31 @@ async function main() {
   for (const kind of kinds) {
     if (kind === "weekend" && games.length === 0) {
       console.warn("No upcoming matches in the data, skipping the weekend post.");
+      continue;
+    }
+    if (kind === "scorers") {
+      const index = await getScorerIndex();
+      const top = index.rows.slice(0, 10).map((r) => ({
+        rank: r.indexRank,
+        name: r.name,
+        team: r.team.name,
+        crest: r.team.crest,
+        league: r.leagueSlug,
+        goals: r.goals,
+        penalties: r.penalties,
+        clubMatches: r.clubMatches,
+        points: r.points,
+      }));
+      const part = scorerPower(top, index.referenceMatches);
+      Object.assign(slides, part);
+      const [a, b, c] = top;
+      const leadLine =
+        a!.rank === b!.rank
+          ? `${a!.name} (${a!.goals} goals) and ${b!.name} (${b!.goals} goals) share the top on ${a!.points.toFixed(1)} points, ahead of ${c!.name}.`
+          : `${a!.name} leads on ${a!.points.toFixed(1)} points from ${a!.goals} goals, ahead of ${b!.name} and ${c!.name}.`;
+      captions.push(
+        `## scorers (${Object.keys(part).join(", ")})\n\nWho is Europe's best goalscorer right now? ⚽🎯\n\nOur new Scorer Power Ranking puts seven leagues on one scale: penalties count 3/4, goals are weighted by league strength and every club is scaled to ${index.referenceMatches} matches.\n\n${leadLine}\n\nTop 50 and every league's top 100: link in bio.\n\n#football #soccer #footballanalytics #topscorer #goals #premierleague #laliga #bundesliga #seriea #footballstats\n`,
+      );
       continue;
     }
     if (kind === "match") {

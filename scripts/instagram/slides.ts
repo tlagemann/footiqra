@@ -314,3 +314,40 @@ export function matchPreview(m: MatchPreview): Slides {
     ),
   };
 }
+
+export interface ScorerRow {
+  rank: number;
+  name: string;
+  team: string;
+  crest: string | null;
+  league: string;
+  goals: number;
+  penalties: number | null;
+  clubMatches: number;
+  points: number;
+}
+
+/** Post: scorer power ranking (cover, top 10, how it works, call to action). */
+export function scorerPower(rows: ScorerRow[], referenceMatches: number): Slides {
+  const lead = rows[0]!;
+  const tied = rows.filter((r) => r.rank === lead.rank);
+  const pts = (x: number) => x.toFixed(1);
+  const row = (r: ScorerRow, i: number) =>
+    `<div class="row"><span class="n">${i > 0 && rows[i - 1]!.rank === r.rank ? "" : r.rank}</span>${crest(r.crest)}<span class="nm">${r.name}<span class="lg">${r.team} · ${LEAGUE[r.league] ?? r.league} · ${r.goals} goals</span></span><span class="rt">${pts(r.points)}</span></div>`;
+  const card = (title: string, text: string) =>
+    `<div class="card"><b>${title}</b><span>${text}</span></div>`;
+  return {
+    "scorers-1-cover": page(
+      `<div class="pad" style="padding-top:200px"><div class="eyebrow">Scorer power ranking</div><h1>Who is Europe's best goalscorer?</h1><p class="sub">Seven leagues, one scale. Goals weighted by league strength, penalties counted lower, every club scaled to the same number of matches.</p><div class="big" style="margin-top:110px">${pts(lead.points)}</div><p class="sub" style="margin-top:6px">${tied.length > 1 ? `${tied.map((t) => t.name).join(" and ")} share the top.` : `${lead.name} leads the way.`} Swipe for the top 10.</p></div>`,
+    ),
+    "scorers-2-list": page(
+      `<div class="pad"><div class="eyebrow">Footiqra scorer power ranking</div><h2>Top 10</h2><div class="list">${rows.slice(0, 10).map(row).join("")}</div></div>`,
+    ),
+    "scorers-3-how": page(
+      `<div class="pad"><div class="eyebrow">How it works</div><h2>Not just who scored most</h2><p class="sub" style="font-size:34px">Plain goal tallies favour leagues that have played more and players who take the penalties.</p>${card("Penalties count 3/4", "A goal from the spot says less about a striker than one from open play.")}${card("League strength", "A Premier League goal counts a little more than an Eredivisie goal, from the Footiqra league ranking.")}${card("Same number of matches", `Every club is scaled to ${referenceMatches} league matches, so no league is behind just because it played less.`)}</div>`,
+    ),
+    "scorers-4-cta": page(
+      `<div class="cta"><div class="eyebrow">Full ranking</div><h1>Top 50 and every league's top 100</h1><p class="sub">Updated several times a day, with the formula and the factor for every league.</p><span class="url">footiqra.com</span></div>`,
+    ),
+  };
+}
