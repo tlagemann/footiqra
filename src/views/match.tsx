@@ -35,6 +35,7 @@ import {
 } from "@/i18n";
 import { getSiteUrl } from "@/config/site";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
+import { searchName } from "@/config/search-names";
 import { ogImage } from "@/og/images";
 import { getWeekRanking } from "@/views/top-matches";
 
@@ -93,8 +94,10 @@ export async function matchMetadata(locale: Locale, slug: string): Promise<Metad
       noIndex: true,
     });
   }
-  const h = m.home.shortName;
-  const a = m.away.shortName;
+  const h = searchName(m.home, locale);
+  const a = searchName(m.away, locale);
+  // English uses "2-1", German "2:1".
+  const score = (hg: number, ag: number) => (locale === "de" ? `${hg}:${ag}` : `${hg}-${ag}`);
   const date = dateLabel(locale, m.utcDate);
   const day = fmtDate(locale, m.utcDate, { day: "numeric", month: "short" });
   const both = { en: paths("en").match(m.slug), de: paths("de").match(m.slug) };
@@ -105,19 +108,19 @@ export async function matchMetadata(locale: Locale, slug: string): Promise<Metad
       locale,
       title: tr(
         locale,
-        `${h} ${m.homeGoals}:${m.awayGoals} ${a}: result (${date})`,
+        `${h} ${score(m.homeGoals!, m.awayGoals!)} ${a}: result (${date})`,
         `${h} ${m.homeGoals}:${m.awayGoals} ${a}: Ergebnis (${date})`,
       ),
       description: m.archived
         ? tr(
             locale,
-            `${h} vs ${a} (${m.competitionName}, ${fullDate(locale, m.utcDate)}) ended ${m.homeGoals}:${m.awayGoals}. With the pre-match forecast of the Footiqra model.`,
-            `${h} gegen ${a} (${m.competitionName}, ${fullDate(locale, m.utcDate)}) endete ${m.homeGoals}:${m.awayGoals}. Mit der Prognose des Footiqra Modells vor dem Spiel.`,
+            `${h} vs ${a} (${m.competitionName}, ${fullDate(locale, m.utcDate)}) ended ${score(m.homeGoals!, m.awayGoals!)}. With the pre-match forecast of the Footiqra model.`,
+            `${h} vs. ${a} (${m.competitionName}, ${fullDate(locale, m.utcDate)}) endete ${m.homeGoals}:${m.awayGoals}. Mit der Prognose des Footiqra Modells vor dem Spiel.`,
           )
         : tr(
             locale,
-            `${h} vs ${a} (${m.competitionName}, ${date}) ended ${m.homeGoals}:${m.awayGoals}. With the pre-match forecast, form and season stats of both clubs.`,
-            `${h} gegen ${a} (${m.competitionName}, ${date}) endete ${m.homeGoals}:${m.awayGoals}. Mit der Prognose vor dem Spiel, Form und Saisonstatistik.`,
+            `${h} vs ${a} (${m.competitionName}, ${date}) ended ${score(m.homeGoals!, m.awayGoals!)}. With the pre-match forecast, form and season stats of both clubs.`,
+            `${h} vs. ${a} (${m.competitionName}, ${date}) endete ${m.homeGoals}:${m.awayGoals}. Mit der Prognose vor dem Spiel, Form und Saisonstatistik.`,
           ),
       paths: both,
       image: m.archived
@@ -133,18 +136,18 @@ export async function matchMetadata(locale: Locale, slug: string): Promise<Metad
     title: tr(
       locale,
       `${h} vs ${a} prediction and stats (${day})`,
-      `${h} gegen ${a}: Prognose (${day})`,
+      `${h} vs. ${a}: Prognose & Tipp (${day})`,
     ),
     description: p
       ? tr(
           locale,
           `${h} vs ${a} (${m.competitionName}, ${date}): ${h} win ${pct(p.home)}, draw ${pct(p.draw)}, ${a} win ${pct(p.away)}. Plus form, table and season stats of both clubs.`,
-          `${h} gegen ${a} (${m.competitionName}, ${date}): Sieg ${h} ${pct(p.home)}, Remis ${pct(p.draw)}, Sieg ${a} ${pct(p.away)}. Dazu Form, Tabelle und Saisonstatistik.`,
+          `${h} vs. ${a} (${m.competitionName}, ${date}): Sieg ${h} ${pct(p.home)}, Remis ${pct(p.draw)}, Sieg ${a} ${pct(p.away)}. Dazu Form, Tabelle und Saisonstatistik.`,
         )
       : tr(
           locale,
           `${h} vs ${a} (${m.competitionName}, ${date}): form, table, season stats and recent results of both clubs, updated several times a day.`,
-          `${h} gegen ${a} (${m.competitionName}, ${date}): Form, Tabelle, Saisonstatistik und letzte Ergebnisse beider Vereine, mehrmals täglich aktuell.`,
+          `${h} vs. ${a} (${m.competitionName}, ${date}): Form, Tabelle, Saisonstatistik und letzte Ergebnisse beider Vereine, mehrmals täglich aktuell.`,
         ),
     paths: both,
     image: ogImage.match(m.slug),
@@ -196,10 +199,10 @@ function summary(m: MatchDetail, locale: Locale, stakesLine: string | null): str
         outcome === "draw"
           ? de
             ? `Das Spiel endete ${m.homeGoals}:${m.awayGoals} unentschieden`
-            : `The match ended in a ${m.homeGoals}:${m.awayGoals} draw`
+            : `The match ended in a ${m.homeGoals}-${m.awayGoals} draw`
           : de
             ? `${winner} gewann ${m.homeGoals}:${m.awayGoals}`
-            : `${winner} won ${m.homeGoals}:${m.awayGoals}`;
+            : `${winner} won ${m.homeGoals}-${m.awayGoals}`;
       const favourite = p.home >= p.away ? "home" : "away";
       const verdict =
         outcome === "draw"
@@ -236,7 +239,7 @@ function summary(m: MatchDetail, locale: Locale, stakesLine: string | null): str
         lines.push(
           de
             ? `Das wahrscheinlichste Ergebnis ist ${top.home}:${top.away} (${pct(Math.round(top.probability * 100))}), die Chance auf mindestens drei Tore liegt bei ${fmtChance(locale, m.forecast!.scorelines.over25)}.`
-            : `The most likely score is ${top.home}:${top.away} (${pct(Math.round(top.probability * 100))}), and the chance of three or more goals is ${fmtChance(locale, m.forecast!.scorelines.over25)}.`,
+            : `The most likely score is ${top.home}-${top.away} (${pct(Math.round(top.probability * 100))}), and the chance of three or more goals is ${fmtChance(locale, m.forecast!.scorelines.over25)}.`,
         );
       }
     }
@@ -467,10 +470,10 @@ function ArchivedMatch({ m, locale }: { m: MatchDetail; locale: Locale }) {
   const result =
     outcome === "draw"
       ? t(
-          `${h.shortName} and ${a.shortName} drew ${hg}:${ag}`,
+          `${h.shortName} and ${a.shortName} drew ${hg}-${ag}`,
           `${h.shortName} und ${a.shortName} trennten sich ${hg}:${ag} unentschieden`,
         )
-      : t(`${winner} won ${hg}:${ag}`, `${winner} gewann ${hg}:${ag}`);
+      : t(`${winner} won ${hg}-${ag}`, `${winner} gewann ${hg}:${ag}`);
   const where = m.venue ? t(` at ${m.venue}`, ` im Stadion ${m.venue}`) : "";
   const context = `${m.competitionName}${m.matchday ? t(`, matchday ${m.matchday}`, `, ${m.matchday}. Spieltag`) : ""}`;
   return (
@@ -550,7 +553,8 @@ function ArchivedMatch({ m, locale }: { m: MatchDetail; locale: Locale }) {
           </Link>
         </div>
         <h1 className="mt-8 font-display text-3xl font-extrabold tracking-[-0.035em] sm:text-5xl">
-          {h.shortName} {hg}:{ag} {a.shortName} ({longDate(locale, m.utcDate)})
+          {searchName(h, locale)} {locale === "de" ? `${hg}:${ag}` : `${hg}-${ag}`}{" "}
+          {searchName(a, locale)} ({longDate(locale, m.utcDate)})
         </h1>
         <p className="mt-3 font-display text-xl font-bold">
           <time dateTime={m.utcDate}>{date}</time>
@@ -818,10 +822,13 @@ export async function MatchView({ locale, slug }: { locale: Locale; slug: string
         </div>
         <h1 className="mt-8 font-display text-3xl font-extrabold tracking-[-0.035em] sm:text-5xl">
           {finished
-            ? `${h.shortName} ${m.homeGoals}:${m.awayGoals} ${a.shortName} (${longDate(locale, m.utcDate)})`
+            ? t(
+                `${searchName(h, locale)} ${m.homeGoals}-${m.awayGoals} ${searchName(a, locale)} (${longDate(locale, m.utcDate)})`,
+                `${searchName(h, locale)} ${m.homeGoals}:${m.awayGoals} ${searchName(a, locale)} (${longDate(locale, m.utcDate)})`,
+              )
             : t(
-                `${h.shortName} vs ${a.shortName} on ${longDate(locale, m.utcDate)}: prediction and stats`,
-                `${h.shortName} gegen ${a.shortName} am ${longDate(locale, m.utcDate)}: Prognose und Statistik`,
+                `${searchName(h, locale)} vs ${searchName(a, locale)} on ${longDate(locale, m.utcDate)}: prediction and stats`,
+                `${searchName(h, locale)} vs. ${searchName(a, locale)} am ${longDate(locale, m.utcDate)}: Prognose, Tipp und Statistik`,
               )}
         </h1>
         <div className="mt-4 max-w-3xl space-y-2 text-lg text-muted">

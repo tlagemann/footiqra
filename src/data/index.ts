@@ -235,6 +235,32 @@ export { biggestMatches, nextWindow } from "./forecasts";
 
 export type { MatchDetail };
 
+/**
+ * Match pages with the time their content last changed, for the sitemap.
+ * Upcoming matches change with every data update (forecast, form, table);
+ * played matches last changed when the result came in, about 3 hours after kickoff.
+ */
+export async function getMatchSitemapEntries(): Promise<{ slug: string; lastModified: string }[]> {
+  const snapshot = await loadSnapshot();
+  const asOf = snapshot.meta.lastSuccessfulRunUtc;
+  if (!asOf) return [];
+  const slugs = matchSlugs(snapshot);
+  const entries: { slug: string; lastModified: string }[] = [];
+  for (const file of snapshot.matchFiles) {
+    for (const m of file.matches) {
+      const slug = slugs.get(m.id);
+      if (!slug) continue;
+      const played = m.status === "FINISHED" || m.status === "AWARDED";
+      // The provider touches lastUpdated of every match daily, so it is no use here.
+      const changed = played
+        ? new Date(Date.parse(m.utcDate) + 3 * 3600 * 1000).toISOString()
+        : asOf;
+      entries.push({ slug, lastModified: changed < asOf ? changed : asOf });
+    }
+  }
+  return entries;
+}
+
 /** Slugs of all match pages. */
 export async function getAllMatchSlugs(): Promise<string[]> {
   return [...matchSlugs(await loadSnapshot()).values()];
