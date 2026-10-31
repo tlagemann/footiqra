@@ -53,6 +53,24 @@ export async function matchStaticParams() {
 const isFinished = (m: MatchDetail) =>
   m.status === "FINISHED" && m.homeGoals !== null && m.awayGoals !== null;
 
+/**
+ * schema.org location of a match: the stadium (when known) and the country of
+ * the home club's league. Google asks for an address on every event; the
+ * stadium's street address is not in our data, the country is certain.
+ */
+function eventLocation(m: MatchDetail) {
+  const code = getLeagueBySlug(m.home.leagueSlug)?.countryCode;
+  return {
+    "@type": "Place",
+    ...(m.venue ? { name: m.venue } : {}),
+    address: {
+      "@type": "PostalAddress",
+      // ISO 3166-1: England's subdivision code "GB-ENG" belongs to the country "GB".
+      ...(code ? { addressCountry: code.slice(0, 2) } : {}),
+    },
+  };
+}
+
 /** "1 November 2026" / "1. November 2026" */
 const longDate = (locale: Locale, iso: string) =>
   fmtDate(locale, iso, { day: "numeric", month: "long", year: "numeric" });
@@ -468,7 +486,7 @@ function ArchivedMatch({ m, locale }: { m: MatchDetail; locale: Locale }) {
           url: `${getSiteUrl()}${p.match(m.slug)}`,
           homeTeam: { "@type": "SportsTeam", name: h.name },
           awayTeam: { "@type": "SportsTeam", name: a.name },
-          ...(m.venue ? { location: { "@type": "Place", name: m.venue } } : {}),
+          location: eventLocation(m),
           ...(league ? { superEvent: { "@type": "SportsEvent", name: league.name } } : {}),
         }}
       />
@@ -747,7 +765,7 @@ export async function MatchView({ locale, slug }: { locale: Locale; slug: string
             { "@type": "SportsTeam", name: h.name },
             { "@type": "SportsTeam", name: a.name },
           ],
-          ...(m.venue ? { location: { "@type": "Place", name: m.venue } } : {}),
+          location: eventLocation(m),
           ...(league ? { superEvent: { "@type": "SportsEvent", name: league.name } } : {}),
         }}
       />
