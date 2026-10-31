@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "DED",
   "season": 2026,
-  "fetchedUtc": "2026-10-31T18:54:19.112Z",
+  "fetchedUtc": "2026-10-31T21:45:44.891Z",
   "rows": [
     {
       "position": 1,
@@ -18,6 +18,18 @@
     },
     {
       "position": 2,
+      "teamId": 674,
+      "playedGames": 11,
+      "won": 7,
+      "draw": 2,
+      "lost": 2,
+      "points": 23,
+      "goalsFor": 35,
+      "goalsAgainst": 13,
+      "goalDifference": 22
+    },
+    {
+      "position": 3,
       "teamId": 678,
       "playedGames": 10,
       "won": 6,
@@ -27,18 +39,6 @@
       "goalsFor": 29,
       "goalsAgainst": 13,
       "goalDifference": 16
-    },
-    {
-      "position": 3,
-      "teamId": 674,
-      "playedGames": 10,
-      "won": 6,
-      "draw": 2,
-      "lost": 2,
-      "points": 20,
-      "goalsFor": 28,
-      "goalsAgainst": 13,
-      "goalDifference": 15
     },
     {
       "position": 4,
@@ -79,14 +79,14 @@
     {
       "position": 7,
       "teamId": 673,
-      "playedGames": 10,
-      "won": 4,
+      "playedGames": 11,
+      "won": 5,
       "draw": 3,
       "lost": 3,
-      "points": 15,
-      "goalsFor": 18,
+      "points": 18,
+      "goalsFor": 19,
       "goalsAgainst": 13,
-      "goalDifference": 5
+      "goalDifference": 6
     },
     {
       "position": 8,
@@ -139,14 +139,14 @@
     {
       "position": 12,
       "teamId": 1915,
-      "playedGames": 10,
+      "playedGames": 11,
       "won": 2,
       "draw": 5,
-      "lost": 3,
+      "lost": 4,
       "points": 11,
       "goalsFor": 17,
-      "goalsAgainst": 18,
-      "goalDifference": -1
+      "goalsAgainst": 19,
+      "goalDifference": -2
     },
     {
       "position": 13,
@@ -211,14 +211,14 @@
     {
       "position": 18,
       "teamId": 672,
-      "playedGames": 10,
+      "playedGames": 11,
       "won": 0,
       "draw": 2,
-      "lost": 8,
+      "lost": 9,
       "points": 2,
       "goalsFor": 10,
-      "goalsAgainst": 32,
-      "goalDifference": -22
+      "goalsAgainst": 39,
+      "goalDifference": -29
     }
   ]
 }

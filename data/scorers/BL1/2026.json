@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "BL1",
   "season": 2026,
-  "fetchedUtc": "2026-10-31T18:54:57.197Z",
+  "fetchedUtc": "2026-10-31T21:46:22.710Z",
   "scorers": [
     {
       "playerId": 304,
@@ -135,8 +135,17 @@
       "name": "Harry Kane",
       "teamId": 5,
       "goals": 4,
-      "assists": 4,
+      "assists": 5,
       "penalties": 1,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 9541,
+      "name": "Dayot Upamecano",
+      "teamId": 5,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
       "playedMatches": 8
     },
     {
@@ -145,6 +154,15 @@
       "teamId": 4,
       "goals": 3,
       "assists": 2,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 125151,
+      "name": "Fábio Silva",
+      "teamId": 4,
+      "goals": 3,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 8
     },
@@ -208,15 +226,6 @@
       "teamId": 15,
       "goals": 3,
       "assists": 3,
-      "penalties": null,
-      "playedMatches": 8
-    },
-    {
-      "playerId": 9541,
-      "name": "Dayot Upamecano",
-      "teamId": 5,
-      "goals": 2,
-      "assists": null,
       "penalties": null,
       "playedMatches": 8
     },
@@ -352,15 +361,6 @@
       "teamId": 12,
       "goals": 2,
       "assists": 6,
-      "penalties": null,
-      "playedMatches": 8
-    },
-    {
-      "playerId": 125151,
-      "name": "Fábio Silva",
-      "teamId": 4,
-      "goals": 2,
-      "assists": 1,
       "penalties": null,
       "playedMatches": 8
     },

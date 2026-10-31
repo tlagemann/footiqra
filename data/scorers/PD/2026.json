@@ -2,16 +2,16 @@
   "schemaVersion": 1,
   "competition": "PD",
   "season": 2026,
-  "fetchedUtc": "2026-10-31T18:54:42.842Z",
+  "fetchedUtc": "2026-10-31T21:46:08.722Z",
   "scorers": [
     {
       "playerId": 37428,
       "name": "Raphinha",
       "teamId": 81,
-      "goals": 13,
+      "goals": 15,
       "assists": 2,
       "penalties": 3,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 3374,
@@ -23,21 +23,21 @@
       "playedMatches": 10
     },
     {
+      "playerId": 202283,
+      "name": "Lamine Yamal",
+      "teamId": 81,
+      "goals": 10,
+      "assists": 7,
+      "penalties": 1,
+      "playedMatches": 11
+    },
+    {
       "playerId": 265516,
       "name": "Yassir Zabiri",
       "teamId": 5335,
       "goals": 8,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 202283,
-      "name": "Lamine Yamal",
-      "teamId": 81,
-      "goals": 8,
-      "assists": 6,
-      "penalties": 1,
       "playedMatches": 10
     },
     {
@@ -95,13 +95,22 @@
       "playedMatches": 11
     },
     {
+      "playerId": 214533,
+      "name": "Fermín López",
+      "teamId": 81,
+      "goals": 5,
+      "assists": 5,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
       "playerId": 11113,
       "name": "Lucas Boyé",
       "teamId": 263,
       "goals": 5,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 180282,
@@ -113,19 +122,10 @@
       "playedMatches": 10
     },
     {
-      "playerId": 214533,
-      "name": "Fermín López",
-      "teamId": 81,
-      "goals": 4,
-      "assists": 3,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
       "playerId": 221308,
       "name": "Adrián",
       "teamId": 84,
-      "goals": 4,
+      "goals": 5,
       "assists": null,
       "penalties": null,
       "playedMatches": 7
@@ -146,7 +146,7 @@
       "goals": 3,
       "assists": 4,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 32312,
@@ -252,9 +252,9 @@
       "name": "Gabriel Jesus",
       "teamId": 81,
       "goals": 3,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 175941,
@@ -326,7 +326,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 274546,
@@ -515,7 +515,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 290184,
@@ -776,7 +776,7 @@
       "goals": 1,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 173617,
@@ -785,7 +785,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 188897,
@@ -857,7 +857,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 184273,

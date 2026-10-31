@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "DED",
   "season": 2026,
-  "fetchedUtc": "2026-10-31T18:55:19.569Z",
+  "fetchedUtc": "2026-10-31T21:46:46.130Z",
   "scorers": [
     {
       "playerId": 121280,
@@ -11,7 +11,7 @@
       "goals": 8,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 41302,
@@ -56,7 +56,16 @@
       "goals": 6,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
+    },
+    {
+      "playerId": 178013,
+      "name": "Rafik el Arguioui",
+      "teamId": 1909,
+      "goals": 6,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 11
     },
     {
       "playerId": 210841,
@@ -72,7 +81,7 @@
       "name": "Sven Mijnans",
       "teamId": 674,
       "goals": 6,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
       "playedMatches": 10
     },
@@ -86,13 +95,22 @@
       "playedMatches": 10
     },
     {
+      "playerId": 120981,
+      "name": "Toluwalas Arokodare",
+      "teamId": 678,
+      "goals": 6,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
       "playerId": 178402,
       "name": "Ro-Zangelo Daal",
       "teamId": 682,
       "goals": 5,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 169190,
@@ -113,15 +131,6 @@
       "playedMatches": 7
     },
     {
-      "playerId": 178013,
-      "name": "Rafik el Arguioui",
-      "teamId": 1909,
-      "goals": 5,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
       "playerId": 215554,
       "name": "Gjivai Zechiël",
       "teamId": 675,
@@ -140,22 +149,13 @@
       "playedMatches": 10
     },
     {
-      "playerId": 120981,
-      "name": "Toluwalas Arokodare",
-      "teamId": 678,
-      "goals": 5,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
       "playerId": 177650,
       "name": "Ilyes Hamache",
       "teamId": 1909,
       "goals": 5,
-      "assists": 2,
+      "assists": 3,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 150305,
@@ -164,7 +164,7 @@
       "goals": 5,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 189601,
@@ -191,7 +191,16 @@
       "goals": 4,
       "assists": 2,
       "penalties": 1,
-      "playedMatches": 10
+      "playedMatches": 11
+    },
+    {
+      "playerId": 119731,
+      "name": "Ricardo Pepi",
+      "teamId": 674,
+      "goals": 4,
+      "assists": 1,
+      "penalties": 1,
+      "playedMatches": 8
     },
     {
       "playerId": 117884,
@@ -200,7 +209,7 @@
       "goals": 4,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 9701,
@@ -263,16 +272,16 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
-      "playerId": 119731,
-      "name": "Ricardo Pepi",
+      "playerId": 181984,
+      "name": "Ruben van Bommel",
       "teamId": 674,
       "goals": 3,
-      "assists": null,
-      "penalties": 1,
-      "playedMatches": 8
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 10
     },
     {
       "playerId": 167699,
@@ -317,7 +326,7 @@
       "goals": 3,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 102339,
@@ -344,7 +353,7 @@
       "goals": 3,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 102189,
@@ -362,7 +371,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 191058,
@@ -446,15 +455,6 @@
       "playedMatches": 10
     },
     {
-      "playerId": 181984,
-      "name": "Ruben van Bommel",
-      "teamId": 674,
-      "goals": 2,
-      "assists": 2,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
       "playerId": 171440,
       "name": "Philip Brittijn",
       "teamId": 1920,
@@ -495,9 +495,9 @@
       "name": "Abdellah Ouazane",
       "teamId": 678,
       "goals": 2,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 137564,
@@ -549,7 +549,7 @@
       "name": "Sergiño Dest",
       "teamId": 674,
       "goals": 2,
-      "assists": 2,
+      "assists": 3,
       "penalties": null,
       "playedMatches": 10
     },
@@ -689,6 +689,15 @@
       "playedMatches": 7
     },
     {
+      "playerId": 217935,
+      "name": "Kodai Sano",
+      "teamId": 674,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 10
+    },
+    {
       "playerId": 265472,
       "name": "Gaoussou Diarra",
       "teamId": 675,
@@ -725,6 +734,15 @@
       "playedMatches": 7
     },
     {
+      "playerId": 7476,
+      "name": "Dylan Vente",
+      "teamId": 673,
+      "goals": 2,
+      "assists": 1,
+      "penalties": 1,
+      "playedMatches": 11
+    },
+    {
       "playerId": 80161,
       "name": "Sem Steijn",
       "teamId": 675,
@@ -752,6 +770,24 @@
       "playedMatches": 10
     },
     {
+      "playerId": 283109,
+      "name": "Ismaël Baouf",
+      "teamId": 1909,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
+      "playerId": 121181,
+      "name": "Jason Ceka",
+      "teamId": 1909,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
       "playerId": 57281,
       "name": "Rui Mendes",
       "teamId": 1912,
@@ -767,7 +803,7 @@
       "goals": 1,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 280744,
@@ -776,7 +812,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 157121,
@@ -785,7 +821,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 9880,
@@ -830,7 +866,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 117796,
@@ -867,42 +903,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 11
-    },
-    {
-      "playerId": 81552,
-      "name": "Peer Koopmeiners",
-      "teamId": 682,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 203263,
-      "name": "Weslley Patati",
-      "teamId": 682,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 144629,
-      "name": "Casper Widell",
-      "teamId": 670,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 244847,
-      "name": "Nils Eggens",
-      "teamId": 677,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 9
     }
   ]
 }

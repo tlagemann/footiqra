@@ -972,16 +972,16 @@
     {
       "id": 565845,
       "utcDate": "2026-10-31T17:30:00.000Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "matchday": 8,
       "stage": "REGULAR_SEASON",
       "homeTeamId": 5,
       "awayTeamId": 4,
-      "homeGoals": 1,
-      "awayGoals": 0,
+      "homeGoals": 2,
+      "awayGoals": 2,
       "duration": "REGULAR",
-      "winner": "HOME_TEAM",
-      "lastUpdated": "2026-10-31T18:52:03.000Z"
+      "winner": "DRAW",
+      "lastUpdated": "2026-10-31T19:34:43.000Z"
     },
     {
       "id": 565841,

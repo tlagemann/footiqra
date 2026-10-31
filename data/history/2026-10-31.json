@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "date": "2026-10-31",
-  "dataUtc": "2026-10-31T18:53:26.799Z",
+  "dataUtc": "2026-10-31T21:44:52.481Z",
   "model": "elo-v2",
   "teams": [
     {
@@ -53,7 +53,7 @@
       "slug": "fc-bayern-munchen",
       "leagueSlug": "bundesliga",
       "powerRank": 6,
-      "rating": 1687.4,
+      "rating": 1683.5,
       "tablePosition": 1,
       "strengthPosition": 1,
       "gap": 0
@@ -90,9 +90,9 @@
       "leagueSlug": "serie-a",
       "powerRank": 10,
       "rating": 1641.3,
-      "tablePosition": 1,
+      "tablePosition": 2,
       "strengthPosition": 1,
-      "gap": 0
+      "gap": -1
     },
     {
       "slug": "afc-bournemouth",
@@ -113,37 +113,46 @@
       "gap": 0
     },
     {
-      "slug": "aston-villa-fc",
-      "leagueSlug": "premier-league",
-      "powerRank": 13,
-      "rating": 1612.1,
-      "tablePosition": 11,
-      "strengthPosition": 7,
-      "gap": -4
-    },
-    {
-      "slug": "como-1907",
-      "leagueSlug": "serie-a",
-      "powerRank": 14,
-      "rating": 1611.2,
-      "tablePosition": 4,
-      "strengthPosition": 2,
-      "gap": -2
-    },
-    {
       "slug": "real-betis-balompie",
       "leagueSlug": "la-liga",
-      "powerRank": 15,
-      "rating": 1609.4,
+      "powerRank": 13,
+      "rating": 1613.4,
       "tablePosition": 4,
       "strengthPosition": 4,
       "gap": 0
     },
     {
+      "slug": "aston-villa-fc",
+      "leagueSlug": "premier-league",
+      "powerRank": 14,
+      "rating": 1612.1,
+      "tablePosition": 12,
+      "strengthPosition": 7,
+      "gap": -5
+    },
+    {
+      "slug": "como-1907",
+      "leagueSlug": "serie-a",
+      "powerRank": 15,
+      "rating": 1611.2,
+      "tablePosition": 5,
+      "strengthPosition": 2,
+      "gap": -3
+    },
+    {
+      "slug": "as-roma",
+      "leagueSlug": "serie-a",
+      "powerRank": 16,
+      "rating": 1610.3,
+      "tablePosition": 3,
+      "strengthPosition": 3,
+      "gap": 0
+    },
+    {
       "slug": "borussia-dortmund",
       "leagueSlug": "bundesliga",
-      "powerRank": 16,
-      "rating": 1606.3,
+      "powerRank": 17,
+      "rating": 1610.2,
       "tablePosition": 2,
       "strengthPosition": 2,
       "gap": 0
@@ -151,7 +160,7 @@
     {
       "slug": "chelsea-fc",
       "leagueSlug": "premier-league",
-      "powerRank": 17,
+      "powerRank": 18,
       "rating": 1603,
       "tablePosition": 4,
       "strengthPosition": 8,
@@ -160,20 +169,11 @@
     {
       "slug": "olympique-lyonnais",
       "leagueSlug": "ligue-1",
-      "powerRank": 18,
+      "powerRank": 19,
       "rating": 1601.1,
       "tablePosition": 5,
       "strengthPosition": 2,
       "gap": -3
-    },
-    {
-      "slug": "as-roma",
-      "leagueSlug": "serie-a",
-      "powerRank": 19,
-      "rating": 1598.3,
-      "tablePosition": 3,
-      "strengthPosition": 3,
-      "gap": 0
     },
     {
       "slug": "lille-osc",
@@ -198,9 +198,9 @@
       "leagueSlug": "premier-league",
       "powerRank": 22,
       "rating": 1588.8,
-      "tablePosition": 9,
+      "tablePosition": 10,
       "strengthPosition": 9,
-      "gap": 0
+      "gap": -1
     },
     {
       "slug": "sporting-clube-de-portugal",
@@ -216,9 +216,9 @@
       "leagueSlug": "serie-a",
       "powerRank": 24,
       "rating": 1582.5,
-      "tablePosition": 2,
+      "tablePosition": 1,
       "strengthPosition": 4,
-      "gap": 2
+      "gap": 3
     },
     {
       "slug": "racing-club-de-lens",
@@ -234,9 +234,9 @@
       "leagueSlug": "premier-league",
       "powerRank": 26,
       "rating": 1581.7,
-      "tablePosition": 10,
+      "tablePosition": 11,
       "strengthPosition": 10,
-      "gap": 0
+      "gap": -1
     },
     {
       "slug": "sport-lisboa-e-benfica",
@@ -270,18 +270,18 @@
       "leagueSlug": "eredivisie",
       "powerRank": 30,
       "rating": 1577.1,
-      "tablePosition": 3,
+      "tablePosition": 2,
       "strengthPosition": 1,
-      "gap": -2
+      "gap": -1
     },
     {
       "slug": "everton-fc",
       "leagueSlug": "premier-league",
       "powerRank": 31,
       "rating": 1575.5,
-      "tablePosition": 13,
+      "tablePosition": 14,
       "strengthPosition": 11,
-      "gap": -2
+      "gap": -3
     },
     {
       "slug": "fc-porto",
@@ -293,31 +293,31 @@
       "gap": 2
     },
     {
-      "slug": "fulham-fc",
+      "slug": "tottenham-hotspur-fc",
       "leagueSlug": "premier-league",
       "powerRank": 33,
+      "rating": 1573.1,
+      "tablePosition": 8,
+      "strengthPosition": 12,
+      "gap": 4
+    },
+    {
+      "slug": "fulham-fc",
+      "leagueSlug": "premier-league",
+      "powerRank": 34,
       "rating": 1569.3,
       "tablePosition": 16,
-      "strengthPosition": 12,
-      "gap": -4
+      "strengthPosition": 13,
+      "gap": -3
     },
     {
       "slug": "paris-fc",
       "leagueSlug": "ligue-1",
-      "powerRank": 34,
+      "powerRank": 35,
       "rating": 1568.1,
       "tablePosition": 6,
       "strengthPosition": 8,
       "gap": 2
-    },
-    {
-      "slug": "tottenham-hotspur-fc",
-      "leagueSlug": "premier-league",
-      "powerRank": 35,
-      "rating": 1562.1,
-      "tablePosition": 14,
-      "strengthPosition": 13,
-      "gap": -1
     },
     {
       "slug": "manchester-united-fc",
@@ -351,9 +351,9 @@
       "leagueSlug": "premier-league",
       "powerRank": 39,
       "rating": 1548.5,
-      "tablePosition": 8,
+      "tablePosition": 9,
       "strengthPosition": 16,
-      "gap": 8
+      "gap": 7
     },
     {
       "slug": "rb-leipzig",
@@ -396,9 +396,9 @@
       "leagueSlug": "serie-a",
       "powerRank": 44,
       "rating": 1546.5,
-      "tablePosition": 5,
+      "tablePosition": 4,
       "strengthPosition": 5,
-      "gap": 0
+      "gap": 1
     },
     {
       "slug": "toulouse-fc",
@@ -432,9 +432,9 @@
       "leagueSlug": "premier-league",
       "powerRank": 48,
       "rating": 1534.9,
-      "tablePosition": 12,
+      "tablePosition": 13,
       "strengthPosition": 17,
-      "gap": 5
+      "gap": 4
     },
     {
       "slug": "vfb-stuttgart",
@@ -459,23 +459,14 @@
       "leagueSlug": "eredivisie",
       "powerRank": 51,
       "rating": 1533.1,
-      "tablePosition": 2,
+      "tablePosition": 3,
       "strengthPosition": 3,
-      "gap": 1
-    },
-    {
-      "slug": "crystal-palace-fc",
-      "leagueSlug": "premier-league",
-      "powerRank": 52,
-      "rating": 1532.4,
-      "tablePosition": 18,
-      "strengthPosition": 18,
       "gap": 0
     },
     {
       "slug": "ssc-napoli",
       "leagueSlug": "serie-a",
-      "powerRank": 53,
+      "powerRank": 52,
       "rating": 1530,
       "tablePosition": 7,
       "strengthPosition": 6,
@@ -484,7 +475,7 @@
     {
       "slug": "sc-freiburg",
       "leagueSlug": "bundesliga",
-      "powerRank": 54,
+      "powerRank": 53,
       "rating": 1528.9,
       "tablePosition": 3,
       "strengthPosition": 6,
@@ -493,7 +484,7 @@
     {
       "slug": "juventus-fc",
       "leagueSlug": "serie-a",
-      "powerRank": 55,
+      "powerRank": 54,
       "rating": 1526.2,
       "tablePosition": 9,
       "strengthPosition": 7,
@@ -502,7 +493,7 @@
     {
       "slug": "sevilla-fc",
       "leagueSlug": "la-liga",
-      "powerRank": 56,
+      "powerRank": 55,
       "rating": 1524.9,
       "tablePosition": 6,
       "strengthPosition": 7,
@@ -511,20 +502,29 @@
     {
       "slug": "sunderland-afc",
       "leagueSlug": "premier-league",
-      "powerRank": 57,
+      "powerRank": 56,
       "rating": 1523.7,
       "tablePosition": 20,
-      "strengthPosition": 19,
-      "gap": -1
+      "strengthPosition": 18,
+      "gap": -2
     },
     {
       "slug": "rayo-vallecano-de-madrid",
       "leagueSlug": "la-liga",
-      "powerRank": 58,
+      "powerRank": 57,
       "rating": 1522.1,
       "tablePosition": 11,
       "strengthPosition": 8,
       "gap": -3
+    },
+    {
+      "slug": "crystal-palace-fc",
+      "leagueSlug": "premier-league",
+      "powerRank": 58,
+      "rating": 1521.4,
+      "tablePosition": 18,
+      "strengthPosition": 19,
+      "gap": 1
     },
     {
       "slug": "athletic-club",
@@ -711,9 +711,9 @@
       "leagueSlug": "ligue-1",
       "powerRank": 79,
       "rating": 1476.4,
-      "tablePosition": 15,
+      "tablePosition": 17,
       "strengthPosition": 15,
-      "gap": 0
+      "gap": -2
     },
     {
       "slug": "ca-osasuna",
@@ -873,9 +873,9 @@
       "leagueSlug": "ligue-1",
       "powerRank": 97,
       "rating": 1443.8,
-      "tablePosition": 17,
+      "tablePosition": 15,
       "strengthPosition": 18,
-      "gap": 1
+      "gap": 3
     },
     {
       "slug": "cagliari-calcio",
@@ -932,18 +932,9 @@
       "gap": 2
     },
     {
-      "slug": "malaga-cf",
-      "leagueSlug": "la-liga",
-      "powerRank": 104,
-      "rating": 1432.1,
-      "tablePosition": 20,
-      "strengthPosition": 20,
-      "gap": 0
-    },
-    {
       "slug": "gil-vicente-fc",
       "leagueSlug": "primeira-liga",
-      "powerRank": 105,
+      "powerRank": 104,
       "rating": 1431.6,
       "tablePosition": 7,
       "strengthPosition": 8,
@@ -952,11 +943,20 @@
     {
       "slug": "fortuna-sittard",
       "leagueSlug": "eredivisie",
-      "powerRank": 106,
+      "powerRank": 105,
       "rating": 1430,
       "tablePosition": 6,
       "strengthPosition": 10,
       "gap": 4
+    },
+    {
+      "slug": "malaga-cf",
+      "leagueSlug": "la-liga",
+      "powerRank": 106,
+      "rating": 1428.1,
+      "tablePosition": 20,
+      "strengthPosition": 20,
+      "gap": 0
     },
     {
       "slug": "acf-fiorentina",
@@ -995,18 +995,9 @@
       "gap": 2
     },
     {
-      "slug": "udinese-calcio",
-      "leagueSlug": "serie-a",
-      "powerRank": 111,
-      "rating": 1418.9,
-      "tablePosition": 19,
-      "strengthPosition": 16,
-      "gap": -3
-    },
-    {
       "slug": "go-ahead-eagles",
       "leagueSlug": "eredivisie",
-      "powerRank": 112,
+      "powerRank": 111,
       "rating": 1418.7,
       "tablePosition": 9,
       "strengthPosition": 11,
@@ -1015,20 +1006,29 @@
     {
       "slug": "us-lecce",
       "leagueSlug": "serie-a",
-      "powerRank": 113,
+      "powerRank": 112,
       "rating": 1415.3,
       "tablePosition": 14,
-      "strengthPosition": 17,
-      "gap": 3
+      "strengthPosition": 16,
+      "gap": 2
     },
     {
       "slug": "fc-alverca",
       "leagueSlug": "primeira-liga",
-      "powerRank": 114,
+      "powerRank": 113,
       "rating": 1408.8,
       "tablePosition": 9,
       "strengthPosition": 10,
       "gap": 1
+    },
+    {
+      "slug": "udinese-calcio",
+      "leagueSlug": "serie-a",
+      "powerRank": 114,
+      "rating": 1406.9,
+      "tablePosition": 19,
+      "strengthPosition": 17,
+      "gap": -2
     },
     {
       "slug": "moreirense-fc",
@@ -1198,8 +1198,8 @@
       "leagueSlug": "la-liga",
       "playerId": 37428,
       "indexRank": 1,
-      "points": 14.12,
-      "goals": 13
+      "points": 16.43,
+      "goals": 15
     },
     {
       "leagueSlug": "premier-league",
@@ -1223,31 +1223,31 @@
       "goals": 9
     },
     {
+      "leagueSlug": "la-liga",
+      "playerId": 202283,
+      "indexRank": 5,
+      "points": 11.24,
+      "goals": 10
+    },
+    {
       "leagueSlug": "bundesliga",
       "playerId": 1826,
-      "indexRank": 5,
+      "indexRank": 6,
       "points": 9.55,
       "goals": 7
     },
     {
       "leagueSlug": "serie-a",
       "playerId": 169216,
-      "indexRank": 6,
+      "indexRank": 7,
       "points": 9.54,
       "goals": 8
     },
     {
       "leagueSlug": "premier-league",
       "playerId": 6486,
-      "indexRank": 7,
+      "indexRank": 8,
       "points": 9.37,
-      "goals": 6
-    },
-    {
-      "leagueSlug": "bundesliga",
-      "playerId": 113765,
-      "indexRank": 7,
-      "points": 9.36,
       "goals": 6
     },
     {
@@ -1272,18 +1272,18 @@
       "goals": 9
     },
     {
-      "leagueSlug": "la-liga",
-      "playerId": 202283,
+      "leagueSlug": "serie-a",
+      "playerId": 7457,
       "indexRank": 12,
-      "points": 8.93,
+      "points": 8.59,
       "goals": 8
     },
     {
-      "leagueSlug": "serie-a",
-      "playerId": 7457,
+      "leagueSlug": "bundesliga",
+      "playerId": 113765,
       "indexRank": 13,
-      "points": 8.59,
-      "goals": 8
+      "points": 8.19,
+      "goals": 6
     },
     {
       "leagueSlug": "la-liga",
@@ -1307,6 +1307,13 @@
       "goals": 8
     },
     {
+      "leagueSlug": "premier-league",
+      "playerId": 152515,
+      "indexRank": 17,
+      "points": 7.81,
+      "goals": 5
+    },
+    {
       "leagueSlug": "ligue-1",
       "playerId": 149850,
       "indexRank": 17,
@@ -1323,49 +1330,42 @@
     {
       "leagueSlug": "ligue-1",
       "playerId": 552,
-      "indexRank": 19,
+      "indexRank": 20,
       "points": 7.68,
       "goals": 6
     },
     {
       "leagueSlug": "primeira-liga",
       "playerId": 32386,
-      "indexRank": 20,
+      "indexRank": 21,
       "points": 7.41,
       "goals": 8
     },
     {
       "leagueSlug": "ligue-1",
       "playerId": 128242,
-      "indexRank": 21,
+      "indexRank": 22,
       "points": 7.31,
       "goals": 5
     },
     {
       "leagueSlug": "serie-a",
       "playerId": 120679,
-      "indexRank": 22,
+      "indexRank": 23,
       "points": 7.16,
       "goals": 6
     },
     {
       "leagueSlug": "ligue-1",
       "playerId": 156808,
-      "indexRank": 23,
+      "indexRank": 24,
       "points": 7.15,
       "goals": 6
     },
     {
       "leagueSlug": "eredivisie",
-      "playerId": 7688,
-      "indexRank": 24,
-      "points": 6.99,
-      "goals": 7
-    },
-    {
-      "leagueSlug": "eredivisie",
       "playerId": 243902,
-      "indexRank": 24,
+      "indexRank": 25,
       "points": 6.99,
       "goals": 7
     },
@@ -1447,317 +1447,317 @@
       "goals": 5
     },
     {
+      "leagueSlug": "eredivisie",
+      "playerId": 7688,
+      "indexRank": 37,
+      "points": 6.36,
+      "goals": 7
+    },
+    {
       "leagueSlug": "la-liga",
       "playerId": 180218,
-      "indexRank": 37,
+      "indexRank": 38,
       "points": 6.29,
-      "goals": 6
-    },
-    {
-      "leagueSlug": "premier-league",
-      "playerId": 152515,
-      "indexRank": 38,
-      "points": 6.25,
-      "goals": 4
-    },
-    {
-      "leagueSlug": "bundesliga",
-      "playerId": 22396,
-      "indexRank": 38,
-      "points": 6.24,
-      "goals": 4
-    },
-    {
-      "leagueSlug": "eredivisie",
-      "playerId": 210841,
-      "indexRank": 40,
-      "points": 5.99,
       "goals": 6
     },
     {
       "leagueSlug": "eredivisie",
       "playerId": 148,
-      "indexRank": 40,
+      "indexRank": 39,
       "points": 5.99,
       "goals": 6
     },
     {
       "leagueSlug": "eredivisie",
-      "playerId": 115116,
-      "indexRank": 40,
+      "playerId": 178013,
+      "indexRank": 39,
+      "points": 5.99,
+      "goals": 6
+    },
+    {
+      "leagueSlug": "eredivisie",
+      "playerId": 120981,
+      "indexRank": 39,
       "points": 5.99,
       "goals": 6
     },
     {
       "leagueSlug": "serie-a",
       "playerId": 43285,
-      "indexRank": 40,
-      "points": 5.96,
-      "goals": 5
-    },
-    {
-      "leagueSlug": "serie-a",
-      "playerId": 8685,
-      "indexRank": 40,
+      "indexRank": 39,
       "points": 5.96,
       "goals": 5
     },
     {
       "leagueSlug": "ligue-1",
       "playerId": 244696,
-      "indexRank": 45,
-      "points": 5.85,
-      "goals": 4
-    },
-    {
-      "leagueSlug": "bundesliga",
-      "playerId": 8004,
-      "indexRank": 45,
+      "indexRank": 43,
       "points": 5.85,
       "goals": 4
     },
     {
       "leagueSlug": "la-liga",
+      "playerId": 214533,
+      "indexRank": 43,
+      "points": 5.76,
+      "goals": 5
+    },
+    {
+      "leagueSlug": "la-liga",
       "playerId": 7801,
-      "indexRank": 45,
+      "indexRank": 43,
       "points": 5.76,
       "goals": 5
     },
     {
       "leagueSlug": "eredivisie",
       "playerId": 188914,
-      "indexRank": 48,
+      "indexRank": 46,
       "points": 5.74,
       "goals": 6
     },
     {
       "leagueSlug": "serie-a",
       "playerId": 136113,
-      "indexRank": 48,
+      "indexRank": 46,
       "points": 5.67,
       "goals": 5
     },
     {
       "leagueSlug": "premier-league",
       "playerId": 8626,
-      "indexRank": 50,
+      "indexRank": 48,
       "points": 5.55,
       "goals": 4
     },
     {
       "leagueSlug": "premier-league",
       "playerId": 131260,
-      "indexRank": 50,
+      "indexRank": 48,
       "points": 5.55,
       "goals": 4
     },
     {
       "leagueSlug": "premier-league",
       "playerId": 133242,
-      "indexRank": 50,
+      "indexRank": 48,
       "points": 5.55,
       "goals": 4
     },
     {
       "leagueSlug": "primeira-liga",
       "playerId": 81391,
-      "indexRank": 53,
+      "indexRank": 51,
       "points": 5.49,
       "goals": 5
     },
     {
       "leagueSlug": "ligue-1",
       "playerId": 175942,
-      "indexRank": 53,
-      "points": 5.48,
-      "goals": 4
-    },
-    {
-      "leagueSlug": "ligue-1",
-      "playerId": 124178,
-      "indexRank": 53,
+      "indexRank": 51,
       "points": 5.48,
       "goals": 4
     },
     {
       "leagueSlug": "la-liga",
       "playerId": 11113,
-      "indexRank": 53,
+      "indexRank": 51,
       "points": 5.48,
       "goals": 5
     },
     {
       "leagueSlug": "bundesliga",
       "playerId": 8484,
-      "indexRank": 53,
+      "indexRank": 51,
       "points": 5.46,
       "goals": 4
     },
     {
       "leagueSlug": "bundesliga",
       "playerId": 156629,
-      "indexRank": 53,
+      "indexRank": 51,
+      "points": 5.46,
+      "goals": 4
+    },
+    {
+      "leagueSlug": "bundesliga",
+      "playerId": 22396,
+      "indexRank": 51,
       "points": 5.46,
       "goals": 4
     },
     {
       "leagueSlug": "bundesliga",
       "playerId": 183780,
-      "indexRank": 53,
+      "indexRank": 51,
       "points": 5.46,
       "goals": 4
     },
     {
       "leagueSlug": "bundesliga",
       "playerId": 178783,
-      "indexRank": 53,
+      "indexRank": 51,
       "points": 5.46,
       "goals": 4
     },
     {
       "leagueSlug": "bundesliga",
       "playerId": 145293,
-      "indexRank": 53,
+      "indexRank": 51,
       "points": 5.46,
       "goals": 4
     },
     {
       "leagueSlug": "eredivisie",
       "playerId": 244466,
-      "indexRank": 62,
+      "indexRank": 60,
       "points": 5.45,
       "goals": 6
     },
     {
+      "leagueSlug": "eredivisie",
+      "playerId": 210841,
+      "indexRank": 60,
+      "points": 5.45,
+      "goals": 6
+    },
+    {
+      "leagueSlug": "eredivisie",
+      "playerId": 115116,
+      "indexRank": 60,
+      "points": 5.45,
+      "goals": 6
+    },
+    {
+      "leagueSlug": "serie-a",
+      "playerId": 3368,
+      "indexRank": 60,
+      "points": 5.37,
+      "goals": 5
+    },
+    {
+      "leagueSlug": "serie-a",
+      "playerId": 8685,
+      "indexRank": 60,
+      "points": 5.37,
+      "goals": 5
+    },
+    {
+      "leagueSlug": "la-liga",
+      "playerId": 221308,
+      "indexRank": 65,
+      "points": 5.24,
+      "goals": 5
+    },
+    {
       "leagueSlug": "la-liga",
       "playerId": 213278,
-      "indexRank": 63,
+      "indexRank": 65,
       "points": 5.24,
       "goals": 5
     },
     {
       "leagueSlug": "la-liga",
       "playerId": 180282,
-      "indexRank": 63,
+      "indexRank": 65,
       "points": 5.24,
       "goals": 5
     },
     {
       "leagueSlug": "primeira-liga",
       "playerId": 146109,
-      "indexRank": 63,
+      "indexRank": 65,
       "points": 5.22,
       "goals": 5
     },
     {
       "leagueSlug": "primeira-liga",
       "playerId": 15919,
-      "indexRank": 63,
+      "indexRank": 65,
       "points": 5.22,
       "goals": 5
     },
     {
       "leagueSlug": "ligue-1",
       "playerId": 33154,
-      "indexRank": 63,
+      "indexRank": 65,
       "points": 5.2,
       "goals": 4
     },
     {
       "leagueSlug": "ligue-1",
       "playerId": 10201,
-      "indexRank": 63,
+      "indexRank": 65,
       "points": 5.2,
       "goals": 4
     },
     {
       "leagueSlug": "bundesliga",
       "playerId": 169295,
-      "indexRank": 69,
+      "indexRank": 72,
+      "points": 5.12,
+      "goals": 4
+    },
+    {
+      "leagueSlug": "bundesliga",
+      "playerId": 8004,
+      "indexRank": 72,
       "points": 5.12,
       "goals": 4
     },
     {
       "leagueSlug": "eredivisie",
       "playerId": 177650,
-      "indexRank": 70,
+      "indexRank": 74,
       "points": 5,
       "goals": 5
     },
     {
       "leagueSlug": "eredivisie",
       "playerId": 150305,
-      "indexRank": 70,
-      "points": 5,
-      "goals": 5
-    },
-    {
-      "leagueSlug": "eredivisie",
-      "playerId": 178013,
-      "indexRank": 70,
+      "indexRank": 74,
       "points": 5,
       "goals": 5
     },
     {
       "leagueSlug": "eredivisie",
       "playerId": 178402,
-      "indexRank": 70,
-      "points": 5,
-      "goals": 5
-    },
-    {
-      "leagueSlug": "eredivisie",
-      "playerId": 120981,
-      "indexRank": 70,
+      "indexRank": 74,
       "points": 5,
       "goals": 5
     },
     {
       "leagueSlug": "ligue-1",
       "playerId": 98299,
-      "indexRank": 75,
+      "indexRank": 77,
       "points": 4.87,
       "goals": 4
     },
     {
       "leagueSlug": "ligue-1",
       "playerId": 4072,
-      "indexRank": 75,
+      "indexRank": 77,
+      "points": 4.87,
+      "goals": 4
+    },
+    {
+      "leagueSlug": "ligue-1",
+      "playerId": 124178,
+      "indexRank": 77,
       "points": 4.87,
       "goals": 4
     },
     {
       "leagueSlug": "serie-a",
-      "playerId": 3368,
-      "indexRank": 77,
-      "points": 4.77,
-      "goals": 4
-    },
-    {
-      "leagueSlug": "serie-a",
-      "playerId": 192142,
-      "indexRank": 77,
-      "points": 4.77,
-      "goals": 4
-    },
-    {
-      "leagueSlug": "serie-a",
       "playerId": 4119,
-      "indexRank": 77,
-      "points": 4.77,
-      "goals": 4
-    },
-    {
-      "leagueSlug": "serie-a",
-      "playerId": 3220,
-      "indexRank": 77,
+      "indexRank": 80,
       "points": 4.77,
       "goals": 4
     },
     {
       "leagueSlug": "serie-a",
       "playerId": 171448,
-      "indexRank": 77,
+      "indexRank": 80,
       "points": 4.77,
       "goals": 4
     },
@@ -1783,816 +1783,816 @@
       "goals": 3
     },
     {
-      "leagueSlug": "bundesliga",
-      "playerId": 211,
-      "indexRank": 82,
-      "points": 4.68,
-      "goals": 3
-    },
-    {
-      "leagueSlug": "la-liga",
-      "playerId": 221308,
-      "indexRank": 86,
-      "points": 4.61,
-      "goals": 4
-    },
-    {
-      "leagueSlug": "la-liga",
-      "playerId": 214533,
-      "indexRank": 86,
-      "points": 4.61,
-      "goals": 4
-    },
-    {
       "leagueSlug": "eredivisie",
       "playerId": 136381,
-      "indexRank": 88,
+      "indexRank": 85,
       "points": 4.54,
       "goals": 5
     },
     {
       "leagueSlug": "eredivisie",
       "playerId": 215554,
-      "indexRank": 88,
+      "indexRank": 85,
       "points": 4.54,
       "goals": 5
     },
     {
       "leagueSlug": "eredivisie",
       "playerId": 189601,
-      "indexRank": 88,
+      "indexRank": 85,
       "points": 4.54,
       "goals": 5
     },
     {
       "leagueSlug": "serie-a",
       "playerId": 40786,
-      "indexRank": 88,
+      "indexRank": 85,
       "points": 4.47,
       "goals": 4
     },
     {
       "leagueSlug": "serie-a",
       "playerId": 3654,
-      "indexRank": 88,
+      "indexRank": 85,
       "points": 4.47,
       "goals": 4
     },
     {
       "leagueSlug": "primeira-liga",
       "playerId": 45366,
-      "indexRank": 93,
+      "indexRank": 90,
       "points": 4.39,
       "goals": 4
     },
     {
       "leagueSlug": "primeira-liga",
       "playerId": 127034,
-      "indexRank": 93,
+      "indexRank": 90,
       "points": 4.39,
       "goals": 4
     },
     {
       "leagueSlug": "primeira-liga",
       "playerId": 144579,
-      "indexRank": 93,
+      "indexRank": 90,
       "points": 4.39,
       "goals": 4
     },
     {
       "leagueSlug": "ligue-1",
-      "playerId": 292172,
-      "indexRank": 93,
-      "points": 4.39,
-      "goals": 3
-    },
-    {
-      "leagueSlug": "ligue-1",
       "playerId": 184726,
-      "indexRank": 93,
+      "indexRank": 90,
       "points": 4.39,
       "goals": 3
     },
     {
       "leagueSlug": "ligue-1",
       "playerId": 723,
-      "indexRank": 93,
+      "indexRank": 90,
       "points": 4.39,
       "goals": 3
     },
     {
       "leagueSlug": "eredivisie",
       "playerId": 169190,
-      "indexRank": 99,
+      "indexRank": 95,
       "points": 4.31,
       "goals": 5
     },
     {
+      "leagueSlug": "serie-a",
+      "playerId": 192142,
+      "indexRank": 95,
+      "points": 4.29,
+      "goals": 4
+    },
+    {
+      "leagueSlug": "serie-a",
+      "playerId": 182192,
+      "indexRank": 95,
+      "points": 4.29,
+      "goals": 4
+    },
+    {
+      "leagueSlug": "serie-a",
+      "playerId": 3220,
+      "indexRank": 95,
+      "points": 4.29,
+      "goals": 4
+    },
+    {
       "leagueSlug": "premier-league",
       "playerId": 99813,
-      "indexRank": 99,
+      "indexRank": 95,
       "points": 4.29,
       "goals": 3
     },
     {
       "leagueSlug": "ligue-1",
       "playerId": 3370,
-      "indexRank": 101,
+      "indexRank": 100,
       "points": 4.22,
       "goals": 4
     },
     {
       "leagueSlug": "premier-league",
       "playerId": 97535,
-      "indexRank": 101,
+      "indexRank": 100,
       "points": 4.16,
       "goals": 3
     },
     {
       "leagueSlug": "premier-league",
       "playerId": 264300,
-      "indexRank": 101,
+      "indexRank": 100,
       "points": 4.16,
       "goals": 3
     },
     {
       "leagueSlug": "premier-league",
       "playerId": 7839,
-      "indexRank": 101,
+      "indexRank": 100,
       "points": 4.16,
       "goals": 3
     },
     {
       "leagueSlug": "premier-league",
       "playerId": 190851,
-      "indexRank": 101,
+      "indexRank": 100,
       "points": 4.16,
       "goals": 3
     },
     {
       "leagueSlug": "premier-league",
       "playerId": 123286,
-      "indexRank": 101,
+      "indexRank": 100,
       "points": 4.16,
       "goals": 3
     },
     {
       "leagueSlug": "premier-league",
       "playerId": 213072,
-      "indexRank": 101,
+      "indexRank": 100,
       "points": 4.16,
       "goals": 3
     },
     {
       "leagueSlug": "premier-league",
       "playerId": 2074,
-      "indexRank": 101,
+      "indexRank": 100,
       "points": 4.16,
       "goals": 3
     },
     {
       "leagueSlug": "premier-league",
       "playerId": 145613,
-      "indexRank": 101,
+      "indexRank": 100,
       "points": 4.16,
       "goals": 3
     },
     {
       "leagueSlug": "primeira-liga",
       "playerId": 150519,
-      "indexRank": 110,
+      "indexRank": 109,
       "points": 4.12,
       "goals": 4
     },
     {
       "leagueSlug": "bundesliga",
       "playerId": 8785,
-      "indexRank": 110,
+      "indexRank": 109,
+      "points": 4.09,
+      "goals": 3
+    },
+    {
+      "leagueSlug": "bundesliga",
+      "playerId": 9541,
+      "indexRank": 109,
+      "points": 4.09,
+      "goals": 3
+    },
+    {
+      "leagueSlug": "bundesliga",
+      "playerId": 125151,
+      "indexRank": 109,
       "points": 4.09,
       "goals": 3
     },
     {
       "leagueSlug": "bundesliga",
       "playerId": 202532,
-      "indexRank": 110,
+      "indexRank": 109,
       "points": 4.09,
       "goals": 3
     },
     {
       "leagueSlug": "bundesliga",
       "playerId": 82442,
-      "indexRank": 110,
+      "indexRank": 109,
       "points": 4.09,
       "goals": 3
     },
     {
       "leagueSlug": "bundesliga",
       "playerId": 9452,
-      "indexRank": 110,
+      "indexRank": 109,
       "points": 4.09,
       "goals": 3
     },
     {
       "leagueSlug": "bundesliga",
       "playerId": 65692,
-      "indexRank": 110,
+      "indexRank": 109,
+      "points": 4.09,
+      "goals": 3
+    },
+    {
+      "leagueSlug": "bundesliga",
+      "playerId": 211,
+      "indexRank": 109,
       "points": 4.09,
       "goals": 3
     },
     {
       "leagueSlug": "bundesliga",
       "playerId": 211796,
-      "indexRank": 110,
+      "indexRank": 109,
       "points": 4.09,
       "goals": 3
     },
     {
       "leagueSlug": "ligue-1",
       "playerId": 4289,
-      "indexRank": 117,
+      "indexRank": 119,
       "points": 4.02,
       "goals": 3
     },
     {
       "leagueSlug": "ligue-1",
       "playerId": 80754,
-      "indexRank": 117,
+      "indexRank": 119,
       "points": 4.02,
       "goals": 3
     },
     {
       "leagueSlug": "eredivisie",
       "playerId": 117884,
-      "indexRank": 117,
+      "indexRank": 119,
       "points": 4,
       "goals": 4
     },
     {
       "leagueSlug": "eredivisie",
       "playerId": 226917,
-      "indexRank": 117,
+      "indexRank": 119,
       "points": 4,
       "goals": 4
     },
     {
       "leagueSlug": "primeira-liga",
       "playerId": 151113,
-      "indexRank": 117,
+      "indexRank": 119,
       "points": 3.95,
       "goals": 4
     },
     {
       "leagueSlug": "primeira-liga",
       "playerId": 182080,
-      "indexRank": 117,
+      "indexRank": 119,
       "points": 3.95,
       "goals": 4
     },
     {
       "leagueSlug": "ligue-1",
       "playerId": 53,
-      "indexRank": 123,
+      "indexRank": 125,
+      "points": 3.9,
+      "goals": 3
+    },
+    {
+      "leagueSlug": "ligue-1",
+      "playerId": 292172,
+      "indexRank": 125,
       "points": 3.9,
       "goals": 3
     },
     {
       "leagueSlug": "ligue-1",
       "playerId": 3225,
-      "indexRank": 123,
+      "indexRank": 125,
       "points": 3.9,
       "goals": 3
     },
     {
       "leagueSlug": "premier-league",
       "playerId": 3257,
-      "indexRank": 125,
+      "indexRank": 128,
       "points": 3.82,
       "goals": 3
     },
     {
       "leagueSlug": "premier-league",
       "playerId": 144892,
-      "indexRank": 125,
+      "indexRank": 128,
       "points": 3.82,
       "goals": 3
     },
     {
       "leagueSlug": "premier-league",
       "playerId": 114123,
-      "indexRank": 125,
+      "indexRank": 128,
       "points": 3.82,
       "goals": 3
     },
     {
       "leagueSlug": "premier-league",
       "playerId": 8273,
-      "indexRank": 125,
+      "indexRank": 128,
       "points": 3.82,
       "goals": 3
     },
     {
       "leagueSlug": "eredivisie",
       "playerId": 9701,
-      "indexRank": 129,
+      "indexRank": 132,
       "points": 3.75,
       "goals": 4
     },
     {
       "leagueSlug": "eredivisie",
       "playerId": 176746,
-      "indexRank": 129,
+      "indexRank": 132,
       "points": 3.75,
       "goals": 4
     },
     {
       "leagueSlug": "eredivisie",
       "playerId": 7697,
-      "indexRank": 129,
+      "indexRank": 132,
       "points": 3.75,
       "goals": 4
     },
     {
       "leagueSlug": "primeira-liga",
       "playerId": 81357,
-      "indexRank": 129,
+      "indexRank": 132,
       "points": 3.71,
       "goals": 4
     },
     {
       "leagueSlug": "la-liga",
       "playerId": 16739,
-      "indexRank": 129,
+      "indexRank": 132,
       "points": 3.67,
       "goals": 4
     },
     {
       "leagueSlug": "serie-a",
       "playerId": 2200,
-      "indexRank": 134,
-      "points": 3.58,
-      "goals": 3
-    },
-    {
-      "leagueSlug": "serie-a",
-      "playerId": 182192,
-      "indexRank": 134,
+      "indexRank": 137,
       "points": 3.58,
       "goals": 3
     },
     {
       "leagueSlug": "serie-a",
       "playerId": 250304,
-      "indexRank": 134,
+      "indexRank": 137,
       "points": 3.58,
       "goals": 3
     },
     {
       "leagueSlug": "serie-a",
       "playerId": 211564,
-      "indexRank": 134,
+      "indexRank": 137,
       "points": 3.58,
       "goals": 3
     },
     {
       "leagueSlug": "serie-a",
       "playerId": 128007,
-      "indexRank": 134,
+      "indexRank": 137,
       "points": 3.58,
       "goals": 3
     },
     {
       "leagueSlug": "serie-a",
       "playerId": 156912,
-      "indexRank": 134,
+      "indexRank": 137,
       "points": 3.58,
       "goals": 3
     },
     {
       "leagueSlug": "serie-a",
       "playerId": 67743,
-      "indexRank": 134,
+      "indexRank": 137,
       "points": 3.58,
       "goals": 3
     },
     {
       "leagueSlug": "serie-a",
       "playerId": 203511,
-      "indexRank": 134,
+      "indexRank": 137,
       "points": 3.58,
       "goals": 3
     },
     {
       "leagueSlug": "serie-a",
       "playerId": 152770,
-      "indexRank": 134,
+      "indexRank": 137,
       "points": 3.58,
       "goals": 3
     },
     {
       "leagueSlug": "serie-a",
       "playerId": 183018,
-      "indexRank": 134,
+      "indexRank": 137,
       "points": 3.58,
       "goals": 3
     },
     {
       "leagueSlug": "ligue-1",
       "playerId": 3371,
-      "indexRank": 134,
+      "indexRank": 137,
       "points": 3.57,
       "goals": 3
     },
     {
       "leagueSlug": "la-liga",
       "playerId": 2294,
-      "indexRank": 145,
+      "indexRank": 147,
       "points": 3.52,
       "goals": 3
     },
     {
       "leagueSlug": "la-liga",
-      "playerId": 175941,
-      "indexRank": 145,
-      "points": 3.46,
-      "goals": 3
-    },
-    {
-      "leagueSlug": "la-liga",
       "playerId": 32312,
-      "indexRank": 145,
+      "indexRank": 147,
       "points": 3.46,
       "goals": 3
     },
     {
       "leagueSlug": "la-liga",
       "playerId": 3236,
-      "indexRank": 145,
+      "indexRank": 147,
       "points": 3.46,
       "goals": 3
     },
     {
       "leagueSlug": "la-liga",
       "playerId": 213043,
-      "indexRank": 145,
+      "indexRank": 147,
       "points": 3.46,
       "goals": 3
     },
     {
       "leagueSlug": "la-liga",
       "playerId": 125010,
-      "indexRank": 145,
+      "indexRank": 147,
       "points": 3.46,
       "goals": 3
     },
     {
       "leagueSlug": "la-liga",
       "playerId": 82516,
-      "indexRank": 145,
+      "indexRank": 147,
       "points": 3.46,
       "goals": 3
     },
     {
       "leagueSlug": "la-liga",
       "playerId": 8474,
-      "indexRank": 145,
+      "indexRank": 147,
       "points": 3.46,
       "goals": 3
     },
     {
       "leagueSlug": "la-liga",
       "playerId": 182319,
-      "indexRank": 145,
+      "indexRank": 147,
       "points": 3.46,
       "goals": 3
     },
     {
+      "leagueSlug": "eredivisie",
+      "playerId": 119731,
+      "indexRank": 155,
+      "points": 3.41,
+      "goals": 4
+    },
+    {
       "leagueSlug": "primeira-liga",
       "playerId": 175723,
-      "indexRank": 154,
+      "indexRank": 156,
       "points": 3.29,
       "goals": 3
     },
     {
       "leagueSlug": "primeira-liga",
       "playerId": 286507,
-      "indexRank": 154,
+      "indexRank": 156,
+      "points": 3.29,
+      "goals": 3
+    },
+    {
+      "leagueSlug": "primeira-liga",
+      "playerId": 221262,
+      "indexRank": 156,
       "points": 3.29,
       "goals": 3
     },
     {
       "leagueSlug": "primeira-liga",
       "playerId": 204345,
-      "indexRank": 154,
+      "indexRank": 156,
       "points": 3.29,
       "goals": 3
     },
     {
       "leagueSlug": "serie-a",
-      "playerId": 1754,
-      "indexRank": 154,
-      "points": 3.28,
+      "playerId": 145,
+      "indexRank": 160,
+      "points": 3.22,
       "goals": 3
-    },
-    {
-      "leagueSlug": "eredivisie",
-      "playerId": 21733,
-      "indexRank": 158,
-      "points": 3.25,
-      "goals": 4
     },
     {
       "leagueSlug": "serie-a",
       "playerId": 7567,
-      "indexRank": 158,
+      "indexRank": 160,
       "points": 3.22,
       "goals": 3
     },
     {
       "leagueSlug": "serie-a",
       "playerId": 171121,
-      "indexRank": 158,
+      "indexRank": 160,
       "points": 3.22,
       "goals": 3
     },
     {
       "leagueSlug": "serie-a",
       "playerId": 192382,
-      "indexRank": 158,
+      "indexRank": 160,
       "points": 3.22,
       "goals": 3
     },
     {
       "leagueSlug": "serie-a",
       "playerId": 261273,
-      "indexRank": 158,
+      "indexRank": 160,
       "points": 3.22,
       "goals": 3
     },
     {
       "leagueSlug": "serie-a",
       "playerId": 217678,
-      "indexRank": 158,
+      "indexRank": 160,
       "points": 3.22,
       "goals": 3
     },
     {
       "leagueSlug": "la-liga",
+      "playerId": 175941,
+      "indexRank": 166,
+      "points": 3.14,
+      "goals": 3
+    },
+    {
+      "leagueSlug": "la-liga",
       "playerId": 171964,
-      "indexRank": 164,
+      "indexRank": 166,
       "points": 3.14,
       "goals": 3
     },
     {
       "leagueSlug": "la-liga",
       "playerId": 156746,
-      "indexRank": 164,
+      "indexRank": 166,
       "points": 3.14,
       "goals": 3
     },
     {
       "leagueSlug": "la-liga",
       "playerId": 8924,
-      "indexRank": 164,
+      "indexRank": 166,
       "points": 3.14,
       "goals": 3
     },
     {
       "leagueSlug": "premier-league",
       "playerId": 166376,
-      "indexRank": 164,
+      "indexRank": 166,
       "points": 3.12,
       "goals": 2
     },
     {
       "leagueSlug": "premier-league",
       "playerId": 1684,
-      "indexRank": 164,
+      "indexRank": 166,
       "points": 3.12,
       "goals": 2
     },
     {
       "leagueSlug": "premier-league",
       "playerId": 8076,
-      "indexRank": 164,
+      "indexRank": 166,
       "points": 3.12,
       "goals": 2
     },
     {
       "leagueSlug": "premier-league",
       "playerId": 7798,
-      "indexRank": 164,
+      "indexRank": 166,
       "points": 3.12,
       "goals": 2
     },
     {
       "leagueSlug": "premier-league",
       "playerId": 212309,
-      "indexRank": 164,
+      "indexRank": 166,
       "points": 3.12,
       "goals": 2
     },
     {
       "leagueSlug": "premier-league",
       "playerId": 246418,
-      "indexRank": 164,
+      "indexRank": 166,
       "points": 3.12,
       "goals": 2
     },
     {
       "leagueSlug": "premier-league",
       "playerId": 171,
-      "indexRank": 164,
+      "indexRank": 166,
       "points": 3.12,
       "goals": 2
     },
     {
       "leagueSlug": "premier-league",
       "playerId": 140194,
-      "indexRank": 164,
+      "indexRank": 166,
       "points": 3.12,
       "goals": 2
     },
     {
       "leagueSlug": "premier-league",
       "playerId": 7427,
-      "indexRank": 164,
-      "points": 3.12,
-      "goals": 2
-    },
-    {
-      "leagueSlug": "premier-league",
-      "playerId": 137068,
-      "indexRank": 164,
+      "indexRank": 166,
       "points": 3.12,
       "goals": 2
     },
     {
       "leagueSlug": "premier-league",
       "playerId": 273423,
-      "indexRank": 164,
-      "points": 3.12,
-      "goals": 2
-    },
-    {
-      "leagueSlug": "bundesliga",
-      "playerId": 202665,
-      "indexRank": 164,
+      "indexRank": 166,
       "points": 3.12,
       "goals": 2
     },
     {
       "leagueSlug": "bundesliga",
       "playerId": 193605,
-      "indexRank": 164,
-      "points": 3.12,
-      "goals": 2
-    },
-    {
-      "leagueSlug": "bundesliga",
-      "playerId": 9541,
-      "indexRank": 164,
-      "points": 3.12,
-      "goals": 2
-    },
-    {
-      "leagueSlug": "bundesliga",
-      "playerId": 125151,
-      "indexRank": 164,
-      "points": 3.12,
-      "goals": 2
-    },
-    {
-      "leagueSlug": "bundesliga",
-      "playerId": 101074,
-      "indexRank": 164,
-      "points": 3.12,
-      "goals": 2
-    },
-    {
-      "leagueSlug": "bundesliga",
-      "playerId": 130173,
-      "indexRank": 164,
-      "points": 3.12,
-      "goals": 2
-    },
-    {
-      "leagueSlug": "bundesliga",
-      "playerId": 133903,
-      "indexRank": 164,
+      "indexRank": 166,
       "points": 3.12,
       "goals": 2
     },
     {
       "leagueSlug": "bundesliga",
       "playerId": 50215,
-      "indexRank": 164,
+      "indexRank": 166,
       "points": 3.12,
       "goals": 2
     },
     {
       "leagueSlug": "bundesliga",
       "playerId": 247659,
-      "indexRank": 164,
+      "indexRank": 166,
       "points": 3.12,
       "goals": 2
     },
     {
       "leagueSlug": "bundesliga",
       "playerId": 9848,
-      "indexRank": 164,
+      "indexRank": 166,
       "points": 3.12,
       "goals": 2
     },
     {
       "leagueSlug": "bundesliga",
       "playerId": 7029,
-      "indexRank": 164,
+      "indexRank": 166,
       "points": 3.12,
       "goals": 2
     },
     {
       "leagueSlug": "bundesliga",
       "playerId": 3466,
-      "indexRank": 164,
+      "indexRank": 166,
       "points": 3.12,
       "goals": 2
     },
     {
       "leagueSlug": "primeira-liga",
       "playerId": 1760,
-      "indexRank": 190,
+      "indexRank": 186,
       "points": 3.02,
       "goals": 3
     },
     {
       "leagueSlug": "eredivisie",
       "playerId": 191058,
-      "indexRank": 190,
+      "indexRank": 186,
       "points": 3,
       "goals": 3
     },
     {
       "leagueSlug": "eredivisie",
       "playerId": 272162,
-      "indexRank": 190,
+      "indexRank": 186,
       "points": 3,
       "goals": 3
     },
     {
       "leagueSlug": "eredivisie",
       "playerId": 217937,
-      "indexRank": 190,
+      "indexRank": 186,
       "points": 3,
       "goals": 3
     },
     {
       "leagueSlug": "eredivisie",
       "playerId": 214463,
-      "indexRank": 190,
+      "indexRank": 186,
       "points": 3,
       "goals": 3
     },
     {
       "leagueSlug": "eredivisie",
       "playerId": 7841,
-      "indexRank": 190,
-      "points": 3,
-      "goals": 3
-    },
-    {
-      "leagueSlug": "eredivisie",
-      "playerId": 165131,
-      "indexRank": 190,
+      "indexRank": 186,
       "points": 3,
       "goals": 3
     },
     {
       "leagueSlug": "eredivisie",
       "playerId": 249025,
-      "indexRank": 190,
+      "indexRank": 186,
       "points": 3,
       "goals": 3
     },
     {
       "leagueSlug": "eredivisie",
       "playerId": 151613,
-      "indexRank": 190,
+      "indexRank": 186,
       "points": 3,
       "goals": 3
     },
     {
       "leagueSlug": "eredivisie",
       "playerId": 102189,
-      "indexRank": 190,
+      "indexRank": 186,
       "points": 3,
       "goals": 3
     },
     {
       "leagueSlug": "eredivisie",
       "playerId": 144445,
-      "indexRank": 190,
+      "indexRank": 186,
       "points": 3,
       "goals": 3
+    },
+    {
+      "leagueSlug": "eredivisie",
+      "playerId": 245825,
+      "indexRank": 186,
+      "points": 3,
+      "goals": 3
+    },
+    {
+      "leagueSlug": "primeira-liga",
+      "playerId": 280747,
+      "indexRank": 186,
+      "points": 2.97,
+      "goals": 3
+    },
+    {
+      "leagueSlug": "primeira-liga",
+      "playerId": 263535,
+      "indexRank": 186,
+      "points": 2.97,
+      "goals": 3
+    },
+    {
+      "leagueSlug": "serie-a",
+      "playerId": 1754,
+      "indexRank": 186,
+      "points": 2.95,
+      "goals": 3
+    },
+    {
+      "leagueSlug": "eredivisie",
+      "playerId": 21733,
+      "indexRank": 186,
+      "points": 2.95,
+      "goals": 4
     }
   ]
 }

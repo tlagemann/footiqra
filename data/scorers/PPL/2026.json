@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PPL",
   "season": 2026,
-  "fetchedUtc": "2026-10-31T18:55:14.307Z",
+  "fetchedUtc": "2026-10-31T21:46:38.402Z",
   "scorers": [
     {
       "playerId": 67299,
@@ -74,7 +74,7 @@
       "goals": 4,
       "assists": 3,
       "penalties": 1,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 144579,
@@ -110,7 +110,7 @@
       "goals": 4,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 81357,
@@ -128,7 +128,7 @@
       "goals": 3,
       "assists": 2,
       "penalties": 1,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 263535,
@@ -192,6 +192,15 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 5
+    },
+    {
+      "playerId": 221262,
+      "name": "Victor Froholdt",
+      "teamId": 503,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
     },
     {
       "playerId": 553,
@@ -347,15 +356,6 @@
       "playedMatches": 9
     },
     {
-      "playerId": 221262,
-      "name": "Victor Froholdt",
-      "teamId": 503,
-      "goals": 2,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 8
-    },
-    {
       "playerId": 249135,
       "name": "Walace",
       "teamId": 5533,
@@ -488,7 +488,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 169570,
@@ -686,7 +686,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 202693,
@@ -776,7 +776,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 39635,
@@ -785,7 +785,7 @@
       "goals": 1,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 5
+      "playedMatches": 6
     },
     {
       "playerId": 276587,

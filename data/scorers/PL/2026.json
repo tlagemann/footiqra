@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PL",
   "season": 2026,
-  "fetchedUtc": "2026-10-31T18:54:35.140Z",
+  "fetchedUtc": "2026-10-31T21:46:03.530Z",
   "scorers": [
     {
       "playerId": 38101,
@@ -50,6 +50,15 @@
       "playedMatches": 9
     },
     {
+      "playerId": 152515,
+      "name": "Nicolas Jackson",
+      "teamId": 58,
+      "goals": 5,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
       "playerId": 133242,
       "name": "Rayan Cherki",
       "teamId": 65,
@@ -66,15 +75,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 9
-    },
-    {
-      "playerId": 152515,
-      "name": "Nicolas Jackson",
-      "teamId": 58,
-      "goals": 4,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 7
     },
     {
       "playerId": 131260,
@@ -299,7 +299,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 77641,
@@ -405,9 +405,18 @@
       "name": "Johan Manzambi",
       "teamId": 58,
       "goals": 2,
-      "assists": 2,
+      "assists": 3,
       "penalties": null,
-      "playedMatches": 5
+      "playedMatches": 6
+    },
+    {
+      "playerId": 98566,
+      "name": "Jan Paul van Hecke",
+      "teamId": 73,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
     },
     {
       "playerId": 4417,
@@ -542,7 +551,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 4091,
@@ -641,7 +650,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 8065,
@@ -713,7 +722,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 256339,
@@ -785,20 +794,11 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 119265,
       "name": "Conor Gallagher",
-      "teamId": 73,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 9
-    },
-    {
-      "playerId": 98566,
-      "name": "Jan Paul van Hecke",
       "teamId": 73,
       "goals": 1,
       "assists": null,

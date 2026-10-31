@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "SA",
   "season": 2026,
-  "fetchedUtc": "2026-10-31T18:54:50.727Z",
+  "fetchedUtc": "2026-10-31T21:46:15.296Z",
   "scorers": [
     {
       "playerId": 252836,
@@ -50,13 +50,22 @@
       "playedMatches": 9
     },
     {
+      "playerId": 3368,
+      "name": "Adrien Rabiot",
+      "teamId": 98,
+      "goals": 5,
+      "assists": 3,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
       "playerId": 8685,
       "name": "Marcus Thuram-Ulien",
       "teamId": 108,
       "goals": 5,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 136113,
@@ -83,16 +92,7 @@
       "goals": 4,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
-    },
-    {
-      "playerId": 3368,
-      "name": "Adrien Rabiot",
-      "teamId": 98,
-      "goals": 4,
-      "assists": 3,
-      "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 10
     },
     {
       "playerId": 4119,
@@ -122,6 +122,15 @@
       "playedMatches": 9
     },
     {
+      "playerId": 182192,
+      "name": "Diego Moreira",
+      "teamId": 98,
+      "goals": 4,
+      "assists": 3,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
       "playerId": 40786,
       "name": "Giacomo Calò",
       "teamId": 470,
@@ -137,7 +146,7 @@
       "goals": 3,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 2200,
@@ -248,21 +257,21 @@
       "playedMatches": 9
     },
     {
-      "playerId": 182192,
-      "name": "Diego Moreira",
-      "teamId": 98,
-      "goals": 3,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 7
-    },
-    {
       "playerId": 2040,
       "name": "Federico Bernardeschi",
       "teamId": 103,
       "goals": 3,
       "assists": null,
       "penalties": 2,
+      "playedMatches": 10
+    },
+    {
+      "playerId": 145,
+      "name": "Christian Pulisic",
+      "teamId": 98,
+      "goals": 3,
+      "assists": 1,
+      "penalties": null,
       "playedMatches": 10
     },
     {
@@ -299,7 +308,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": 1,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 215433,
@@ -308,7 +317,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 1106,
@@ -344,7 +353,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": 1,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 2202,
@@ -479,7 +488,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 152738,
@@ -488,7 +497,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 59075,
@@ -523,15 +532,6 @@
       "teamId": 99,
       "goals": 2,
       "assists": 2,
-      "penalties": null,
-      "playedMatches": 9
-    },
-    {
-      "playerId": 145,
-      "name": "Christian Pulisic",
-      "teamId": 98,
-      "goals": 2,
-      "assists": 1,
       "penalties": null,
       "playedMatches": 9
     },
@@ -623,7 +623,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 176944,
