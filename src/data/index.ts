@@ -29,6 +29,7 @@ import {
   type ZoneChances,
 } from "./projection";
 import { matchDetail, type MatchDetail } from "./match-detail";
+import { tableCalculator, type TableCalculatorData } from "./table-calculator";
 import { LEAGUES } from "@/config/leagues";
 import { computePowerRanking, type PowerRanking, type PowerRankingRow } from "./power-ranking";
 import {
@@ -332,4 +333,14 @@ export async function getLeagueScorers(leagueSlug: string): Promise<LeagueScorer
 export async function getScorerIndex(): Promise<ScorerIndex> {
   const [snapshot, ranking] = await Promise.all([loadSnapshot(), loadRanking()]);
   return computeScorerIndex(snapshot, ranking);
+}
+
+export type { TableCalculatorData };
+
+/** Official table and all open fixtures of a league, for the table calculator. */
+export async function getTableCalculator(
+  leagueSlug: string,
+): Promise<TableCalculatorData | undefined> {
+  const [snapshot, ranking] = await Promise.all([loadSnapshot(), loadRanking()]);
+  return tableCalculator(snapshot, ranking, matchSlugs(snapshot), leagueSlug);
 }

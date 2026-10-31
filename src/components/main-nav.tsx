@@ -38,6 +38,8 @@ function buildNav(locale: Locale): NavItem[] {
       match: (path) =>
         path.startsWith(p.predictions) ||
         path.startsWith(p.topMatches) ||
+        path.startsWith(p.tableCalculator) ||
+        path.endsWith(`/${locale === "de" ? "tabellenrechner" : "table-calculator"}/`) ||
         path.startsWith(p.match("").slice(0, -1)) ||
         isProjection(path),
       groups: [
@@ -54,6 +56,11 @@ function buildNav(locale: Locale): NavItem[] {
               label: t("Top matches", "Topspiele"),
               hint: t("The biggest games of the week", "Die größten Spiele der Woche"),
             },
+            {
+              href: p.tableCalculator,
+              label: t("Table calculator", "Tabellenrechner"),
+              hint: t("Enter your own results", "Eigene Ergebnisse eintragen"),
+            },
           ],
         },
         {
@@ -66,7 +73,9 @@ function buildNav(locale: Locale): NavItem[] {
       label: t("Leagues", "Ligen"),
       href: p.leagues,
       match: (path) =>
-        (path.startsWith(leaguesPrefix) && !isProjection(path)) ||
+        (path.startsWith(leaguesPrefix) &&
+          !isProjection(path) &&
+          !path.endsWith(`/${locale === "de" ? "tabellenrechner" : "table-calculator"}/`)) ||
         path.startsWith(p.championsLeague) ||
         path.startsWith(p.scorers),
       groups: [

@@ -204,12 +204,17 @@ export async function LeagueView({ locale, slug }: { locale: Locale; slug: strin
             id="projection-teaser"
             title={t("Predicted final table", "Prognose Abschlusstabelle")}
             aside={
-              <Link
-                href={p.projection(league.slug)}
-                className="text-sm text-muted hover:text-foreground"
-              >
-                {t("Full simulation", "Ganze Simulation")}
-              </Link>
+              <span className="flex flex-wrap items-center gap-4 text-sm">
+                <Link href={p.projection(league.slug)} className="text-muted hover:text-foreground">
+                  {t("Full simulation", "Ganze Simulation")}
+                </Link>
+                <Link
+                  href={p.leagueCalculator(league.slug)}
+                  className="font-semibold hover:underline"
+                >
+                  {t("Table calculator", "Tabellenrechner")} <span aria-hidden>→</span>
+                </Link>
+              </span>
             }
           />
           <div className="grid gap-3 md:grid-cols-2">

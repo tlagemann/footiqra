@@ -20,6 +20,8 @@ describe("counterpart", () => {
     ["/matches/a-vs-b-2026-27/", "/de/spiele/a-vs-b-2026-27/"],
     ["/leagues/serie-a/top-scorers/", "/de/ligen/serie-a/torjaeger/"],
     ["/top-scorers/", "/de/torjaeger/"],
+    ["/table-calculator/", "/de/tabellenrechner/"],
+    ["/leagues/serie-a/table-calculator/", "/de/ligen/serie-a/tabellenrechner/"],
     ["/top-scorers/power-ranking/", "/de/torjaeger/power-ranking/"],
     ["/top-matches/", "/de/topspiele/"],
     ["/predictions/", "/de/prognosen/"],

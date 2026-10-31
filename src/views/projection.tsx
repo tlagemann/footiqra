@@ -94,8 +94,16 @@ export async function ProjectionView({ locale, slug }: { locale: Locale; slug: s
             id="projection-heading"
             title={t("Simulated standings", "Simulierte Tabelle")}
             aside={
-              <span className="text-sm text-muted">
-                {t("Sorted by expected points", "Sortiert nach erwarteten Punkten")}
+              <span className="flex flex-wrap items-center gap-4 text-sm">
+                <span className="text-muted">
+                  {t("Sorted by expected points", "Sortiert nach erwarteten Punkten")}
+                </span>
+                <Link
+                  href={p.leagueCalculator(league.slug)}
+                  className="font-semibold hover:underline"
+                >
+                  {t("Your own prediction", "Eigene Prognose")} <span aria-hidden>→</span>
+                </Link>
               </span>
             }
           />
