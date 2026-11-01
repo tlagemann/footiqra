@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PD",
   "season": 2026,
-  "fetchedUtc": "2026-11-01T15:46:29.404Z",
+  "fetchedUtc": "2026-11-01T18:55:27.024Z",
   "scorers": [
     {
       "playerId": 37428,
@@ -74,7 +74,7 @@
       "goals": 6,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 7801,
@@ -275,6 +275,15 @@
       "playedMatches": 8
     },
     {
+      "playerId": 277484,
+      "name": "Yan Diomandé",
+      "teamId": 86,
+      "goals": 3,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
       "playerId": 8412,
       "name": "Nicolas Pépé",
       "teamId": 94,
@@ -452,7 +461,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 188859,
@@ -469,15 +478,6 @@
       "teamId": 81,
       "goals": 2,
       "assists": 4,
-      "penalties": null,
-      "playedMatches": 11
-    },
-    {
-      "playerId": 277484,
-      "name": "Yan Diomandé",
-      "teamId": 86,
-      "goals": 2,
-      "assists": 2,
       "penalties": null,
       "playedMatches": 11
     },
@@ -677,7 +677,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 177245,
@@ -713,7 +713,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 3
+      "playedMatches": 4
     },
     {
       "playerId": 131041,
@@ -848,7 +848,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 83351,
@@ -875,7 +875,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": 1,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 182020,

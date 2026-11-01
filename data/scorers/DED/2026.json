@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "DED",
   "season": 2026,
-  "fetchedUtc": "2026-11-01T15:47:05.479Z",
+  "fetchedUtc": "2026-11-01T18:56:04.842Z",
   "scorers": [
     {
       "playerId": 121280,
@@ -18,7 +18,16 @@
       "name": "Brynjolfur Darri Willumsson",
       "teamId": 677,
       "goals": 8,
-      "assists": null,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
+      "playerId": 243902,
+      "name": "Milan Zonneveld",
+      "teamId": 6806,
+      "goals": 8,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 11
     },
@@ -32,12 +41,12 @@
       "playedMatches": 11
     },
     {
-      "playerId": 243902,
-      "name": "Milan Zonneveld",
-      "teamId": 6806,
+      "playerId": 188914,
+      "name": "Thom van Bergen",
+      "teamId": 677,
       "goals": 7,
-      "assists": 1,
-      "penalties": null,
+      "assists": 3,
+      "penalties": 1,
       "playedMatches": 11
     },
     {
@@ -47,15 +56,6 @@
       "goals": 7,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
-    },
-    {
-      "playerId": 188914,
-      "name": "Thom van Bergen",
-      "teamId": 677,
-      "goals": 6,
-      "assists": 3,
-      "penalties": 1,
       "playedMatches": 11
     },
     {
@@ -450,7 +450,7 @@
       "name": "Marvin Young",
       "teamId": 6806,
       "goals": 2,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 11
     },
@@ -783,7 +783,7 @@
       "name": "Jens Toornstra",
       "teamId": 6806,
       "goals": 2,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
       "playedMatches": 11
     },

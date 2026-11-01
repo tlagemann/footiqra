@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "BL1",
   "season": 2026,
-  "fetchedUtc": "2026-11-01T15:46:41.965Z",
+  "fetchedUtc": "2026-11-01T18:55:41.444Z",
   "scorers": [
     {
       "playerId": 304,
@@ -35,7 +35,7 @@
       "playerId": 192207,
       "name": "Younes Ebnoutalib",
       "teamId": 19,
-      "goals": 5,
+      "goals": 6,
       "assists": 1,
       "penalties": null,
       "playedMatches": 8
@@ -423,7 +423,7 @@
       "name": "Can Uzun",
       "teamId": 19,
       "goals": 2,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 8
     },
@@ -525,6 +525,15 @@
       "assists": 2,
       "penalties": null,
       "playedMatches": 7
+    },
+    {
+      "playerId": 113427,
+      "name": "Terem Moffi",
+      "teamId": 7,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
     },
     {
       "playerId": 50215,
@@ -892,15 +901,6 @@
       "teamId": 3,
       "goals": 1,
       "assists": null,
-      "penalties": null,
-      "playedMatches": 8
-    },
-    {
-      "playerId": 176718,
-      "name": "Jarell Quansah",
-      "teamId": 3,
-      "goals": 1,
-      "assists": 1,
       "penalties": null,
       "playedMatches": 8
     }

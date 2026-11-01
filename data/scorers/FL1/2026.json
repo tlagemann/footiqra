@@ -2,8 +2,17 @@
   "schemaVersion": 1,
   "competition": "FL1",
   "season": 2026,
-  "fetchedUtc": "2026-11-01T15:46:49.731Z",
+  "fetchedUtc": "2026-11-01T18:55:48.673Z",
   "scorers": [
+    {
+      "playerId": 552,
+      "name": "Lassine Sinayoko",
+      "teamId": 1045,
+      "goals": 8,
+      "assists": 5,
+      "penalties": 3,
+      "playedMatches": 9
+    },
     {
       "playerId": 149850,
       "name": "Esteban Lepaul",
@@ -12,15 +21,6 @@
       "assists": null,
       "penalties": 4,
       "playedMatches": 7
-    },
-    {
-      "playerId": 552,
-      "name": "Lassine Sinayoko",
-      "teamId": 1045,
-      "goals": 6,
-      "assists": 4,
-      "penalties": 3,
-      "playedMatches": 9
     },
     {
       "playerId": 128242,
@@ -47,7 +47,7 @@
       "goals": 5,
       "assists": 2,
       "penalties": 1,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 129381,
@@ -56,7 +56,7 @@
       "goals": 5,
       "assists": 1,
       "penalties": 2,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 3370,
@@ -122,6 +122,15 @@
       "playedMatches": 7
     },
     {
+      "playerId": 184726,
+      "name": "Ernest Nuamah",
+      "teamId": 523,
+      "goals": 4,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
       "playerId": 4072,
       "name": "Josh Maja",
       "teamId": 533,
@@ -176,15 +185,6 @@
       "playedMatches": 8
     },
     {
-      "playerId": 184726,
-      "name": "Ernest Nuamah",
-      "teamId": 523,
-      "goals": 3,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 9
-    },
-    {
       "playerId": 292172,
       "name": "Adil Bourabaa",
       "teamId": 535,
@@ -200,7 +200,7 @@
       "goals": 3,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 53,
@@ -263,7 +263,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 119460,
@@ -335,7 +335,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 218468,
@@ -356,11 +356,29 @@
       "playedMatches": 8
     },
     {
+      "playerId": 177248,
+      "name": "Pablo Pagis",
+      "teamId": 1045,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
       "playerId": 278087,
       "name": "Prosper Peter",
       "teamId": 532,
       "goals": 2,
       "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 366,
+      "name": "Corentin Tolisso",
+      "teamId": 523,
+      "goals": 2,
+      "assists": 3,
       "penalties": null,
       "playedMatches": 9
     },
@@ -425,7 +443,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 119703,
@@ -434,14 +452,14 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 8352,
       "name": "Maxime López",
       "teamId": 1045,
       "goals": 2,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
       "playedMatches": 9
     },
@@ -479,7 +497,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 129098,
@@ -641,7 +659,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 116150,
@@ -806,15 +824,6 @@
       "playedMatches": 9
     },
     {
-      "playerId": 177248,
-      "name": "Pablo Pagis",
-      "teamId": 1045,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 9
-    },
-    {
       "playerId": 456,
       "name": "Habib Diallo",
       "teamId": 535,
@@ -842,22 +851,13 @@
       "playedMatches": 9
     },
     {
-      "playerId": 366,
-      "name": "Corentin Tolisso",
-      "teamId": 523,
-      "goals": 1,
-      "assists": 2,
-      "penalties": null,
-      "playedMatches": 9
-    },
-    {
       "playerId": 7910,
       "name": "Angel Gomes",
       "teamId": 516,
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 64837,

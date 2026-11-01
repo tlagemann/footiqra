@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "SA",
   "season": 2026,
-  "fetchedUtc": "2026-11-01T15:46:34.841Z",
+  "fetchedUtc": "2026-11-01T18:55:34.271Z",
   "scorers": [
     {
       "playerId": 252836,
@@ -77,6 +77,15 @@
       "playedMatches": 10
     },
     {
+      "playerId": 40786,
+      "name": "Giacomo Calò",
+      "teamId": 470,
+      "goals": 5,
+      "assists": 1,
+      "penalties": 1,
+      "playedMatches": 10
+    },
+    {
       "playerId": 3654,
       "name": "Kevin De Bruyne",
       "teamId": 113,
@@ -104,6 +113,15 @@
       "playedMatches": 8
     },
     {
+      "playerId": 67743,
+      "name": "Milutin Osmajić",
+      "teamId": 107,
+      "goals": 4,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
       "playerId": 3220,
       "name": "Lautaro Martínez",
       "teamId": 108,
@@ -129,15 +147,6 @@
       "assists": 3,
       "penalties": null,
       "playedMatches": 8
-    },
-    {
-      "playerId": 40786,
-      "name": "Giacomo Calò",
-      "teamId": 470,
-      "goals": 4,
-      "assists": 1,
-      "penalties": 1,
-      "playedMatches": 10
     },
     {
       "playerId": 128007,
@@ -219,15 +228,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 10
-    },
-    {
-      "playerId": 67743,
-      "name": "Milutin Osmajić",
-      "teamId": 107,
-      "goals": 3,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 8
     },
     {
       "playerId": 203511,
@@ -335,7 +335,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 125523,
@@ -536,6 +536,15 @@
       "playedMatches": 9
     },
     {
+      "playerId": 97869,
+      "name": "Junior Messias",
+      "teamId": 107,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 10
+    },
+    {
       "playerId": 2016,
       "name": "Andrea Pinamonti",
       "teamId": 110,
@@ -668,7 +677,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 114117,
@@ -848,7 +857,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 152787,
@@ -894,15 +903,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 6
-    },
-    {
-      "playerId": 33628,
-      "name": "Stanislav Lobotka",
-      "teamId": 113,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 9
     }
   ]
 }

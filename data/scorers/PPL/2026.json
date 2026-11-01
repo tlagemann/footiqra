@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PPL",
   "season": 2026,
-  "fetchedUtc": "2026-11-01T15:46:57.353Z",
+  "fetchedUtc": "2026-11-01T18:55:55.884Z",
   "scorers": [
     {
       "playerId": 67299,
@@ -110,7 +110,7 @@
       "goals": 4,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 151113,
@@ -173,7 +173,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": 2,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 286507,
@@ -182,7 +182,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 175723,
@@ -263,7 +263,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 169646,
@@ -290,7 +290,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 39102,
@@ -320,13 +320,22 @@
       "playedMatches": 8
     },
     {
+      "playerId": 177273,
+      "name": "Tiago Ribeiro",
+      "teamId": 5530,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 10
+    },
+    {
       "playerId": 227024,
       "name": "Luis Fernando",
       "teamId": 5530,
       "goals": 2,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 275465,
@@ -398,7 +407,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 262858,
@@ -524,7 +533,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 5
+      "playedMatches": 6
     },
     {
       "playerId": 211950,
@@ -533,7 +542,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 16748,
@@ -560,7 +569,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 159694,
@@ -569,7 +578,7 @@
       "goals": 1,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 243745,
@@ -578,7 +587,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 28770,
@@ -614,7 +623,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 214415,
@@ -698,22 +707,13 @@
       "playedMatches": 10
     },
     {
-      "playerId": 177273,
-      "name": "Tiago Ribeiro",
-      "teamId": 5530,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 9
-    },
-    {
       "playerId": 118015,
       "name": "Vinícius",
       "teamId": 5530,
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 157796,
@@ -794,7 +794,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 191013,
@@ -812,7 +812,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 5
+      "playedMatches": 6
     },
     {
       "playerId": 278474,
@@ -821,7 +821,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 250593,
@@ -830,7 +830,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 298704,
@@ -839,7 +839,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 183696,
@@ -857,7 +857,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 279774,
@@ -893,7 +893,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 145357,

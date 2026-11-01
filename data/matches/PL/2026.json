@@ -1238,16 +1238,16 @@
     {
       "id": 560631,
       "utcDate": "2026-11-01T16:30:00.000Z",
-      "status": "TIMED",
+      "status": "FINISHED",
       "matchday": 9,
       "stage": "REGULAR_SEASON",
       "homeTeamId": 64,
       "awayTeamId": 57,
-      "homeGoals": null,
-      "awayGoals": null,
+      "homeGoals": 0,
+      "awayGoals": 1,
       "duration": "REGULAR",
-      "winner": null,
-      "lastUpdated": "2026-11-01T01:32:01.000Z"
+      "winner": "AWAY_TEAM",
+      "lastUpdated": "2026-11-01T18:33:23.000Z"
     },
     {
       "id": 560622,
