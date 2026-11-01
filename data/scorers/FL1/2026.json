@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "FL1",
   "season": 2026,
-  "fetchedUtc": "2026-11-01T18:55:48.673Z",
+  "fetchedUtc": "2026-11-01T21:47:25.492Z",
   "scorers": [
     {
       "playerId": 552,
@@ -23,6 +23,15 @@
       "playedMatches": 7
     },
     {
+      "playerId": 8476,
+      "name": "Amine Gouiri",
+      "teamId": 516,
+      "goals": 6,
+      "assists": 3,
+      "penalties": 1,
+      "playedMatches": 9
+    },
+    {
       "playerId": 128242,
       "name": "Cameron Archer",
       "teamId": 519,
@@ -39,15 +48,6 @@
       "assists": 2,
       "penalties": 2,
       "playedMatches": 8
-    },
-    {
-      "playerId": 8476,
-      "name": "Amine Gouiri",
-      "teamId": 516,
-      "goals": 5,
-      "assists": 2,
-      "penalties": 1,
-      "playedMatches": 9
     },
     {
       "playerId": 129381,
@@ -192,6 +192,15 @@
       "assists": 2,
       "penalties": null,
       "playedMatches": 5
+    },
+    {
+      "playerId": 3714,
+      "name": "Amine Harit",
+      "teamId": 516,
+      "goals": 3,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
     },
     {
       "playerId": 80754,
@@ -437,20 +446,11 @@
       "playedMatches": 9
     },
     {
-      "playerId": 3714,
-      "name": "Amine Harit",
-      "teamId": 516,
-      "goals": 2,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 9
-    },
-    {
       "playerId": 119703,
       "name": "Igor Paixão",
       "teamId": 516,
       "goals": 2,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 9
     },

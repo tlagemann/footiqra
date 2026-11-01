@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PPL",
   "season": 2026,
-  "fetchedUtc": "2026-11-01T18:54:55.519Z",
+  "fetchedUtc": "2026-11-01T21:46:32.324Z",
   "rows": [
     {
       "position": 1,
@@ -42,6 +42,18 @@
     },
     {
       "position": 4,
+      "teamId": 5530,
+      "playedGames": 10,
+      "won": 6,
+      "draw": 3,
+      "lost": 1,
+      "points": 21,
+      "goalsFor": 15,
+      "goalsAgainst": 6,
+      "goalDifference": 9
+    },
+    {
+      "position": 5,
       "teamId": 712,
       "playedGames": 10,
       "won": 6,
@@ -53,28 +65,16 @@
       "goalDifference": 6
     },
     {
-      "position": 5,
-      "teamId": 5530,
-      "playedGames": 9,
-      "won": 5,
-      "draw": 3,
-      "lost": 1,
-      "points": 18,
-      "goalsFor": 13,
-      "goalsAgainst": 6,
-      "goalDifference": 7
-    },
-    {
       "position": 6,
       "teamId": 5527,
-      "playedGames": 9,
-      "won": 5,
+      "playedGames": 10,
+      "won": 6,
       "draw": 2,
       "lost": 2,
-      "points": 17,
-      "goalsFor": 13,
-      "goalsAgainst": 11,
-      "goalDifference": 2
+      "points": 20,
+      "goalsFor": 15,
+      "goalsAgainst": 12,
+      "goalDifference": 3
     },
     {
       "position": 7,
@@ -163,14 +163,14 @@
     {
       "position": 14,
       "teamId": 5575,
-      "playedGames": 9,
+      "playedGames": 10,
       "won": 2,
       "draw": 2,
-      "lost": 5,
+      "lost": 6,
       "points": 8,
       "goalsFor": 9,
-      "goalsAgainst": 19,
-      "goalDifference": -10
+      "goalsAgainst": 21,
+      "goalDifference": -12
     },
     {
       "position": 15,
@@ -187,14 +187,14 @@
     {
       "position": 16,
       "teamId": 496,
-      "playedGames": 9,
+      "playedGames": 10,
       "won": 2,
       "draw": 1,
-      "lost": 6,
+      "lost": 7,
       "points": 7,
-      "goalsFor": 8,
-      "goalsAgainst": 21,
-      "goalDifference": -13
+      "goalsFor": 9,
+      "goalsAgainst": 23,
+      "goalDifference": -14
     },
     {
       "position": 17,

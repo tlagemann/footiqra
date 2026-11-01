@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PPL",
   "season": 2026,
-  "fetchedUtc": "2026-11-01T18:55:55.884Z",
+  "fetchedUtc": "2026-11-01T21:47:33.391Z",
   "scorers": [
     {
       "playerId": 67299,
@@ -38,7 +38,7 @@
       "goals": 5,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 81391,
@@ -56,6 +56,15 @@
       "goals": 5,
       "assists": 4,
       "penalties": 1,
+      "playedMatches": 10
+    },
+    {
+      "playerId": 45366,
+      "name": "André Clovis",
+      "teamId": 5527,
+      "goals": 5,
+      "assists": 1,
+      "penalties": null,
       "playedMatches": 10
     },
     {
@@ -100,15 +109,6 @@
       "teamId": 5613,
       "goals": 4,
       "assists": 1,
-      "penalties": null,
-      "playedMatches": 9
-    },
-    {
-      "playerId": 45366,
-      "name": "André Clovis",
-      "teamId": 5527,
-      "goals": 4,
-      "assists": null,
       "penalties": null,
       "playedMatches": 10
     },
@@ -165,6 +165,15 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 9
+    },
+    {
+      "playerId": 142160,
+      "name": "Soufiane Messeguem",
+      "teamId": 5527,
+      "goals": 3,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 10
     },
     {
       "playerId": 247235,
@@ -257,15 +266,6 @@
       "playedMatches": 10
     },
     {
-      "playerId": 142160,
-      "name": "Soufiane Messeguem",
-      "teamId": 5527,
-      "goals": 2,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
       "playerId": 169646,
       "name": "Lucas Figueiredo",
       "teamId": 7822,
@@ -329,6 +329,15 @@
       "playedMatches": 10
     },
     {
+      "playerId": 118015,
+      "name": "Vinícius",
+      "teamId": 5530,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 10
+    },
+    {
       "playerId": 227024,
       "name": "Luis Fernando",
       "teamId": 5530,
@@ -353,7 +362,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 262708,
@@ -398,7 +407,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": 1,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 32995,
@@ -425,7 +434,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 262645,
@@ -524,7 +533,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 261190,
@@ -677,7 +686,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 188084,
@@ -701,15 +710,6 @@
       "playerId": 202693,
       "name": "Max Scholze",
       "teamId": 9136,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 118015,
-      "name": "Vinícius",
-      "teamId": 5530,
       "goals": 1,
       "assists": 1,
       "penalties": null,
@@ -740,7 +740,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 246741,
@@ -875,7 +875,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 37160,

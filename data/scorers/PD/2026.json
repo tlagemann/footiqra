@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PD",
   "season": 2026,
-  "fetchedUtc": "2026-11-01T18:55:27.024Z",
+  "fetchedUtc": "2026-11-01T21:47:04.412Z",
   "scorers": [
     {
       "playerId": 37428,
@@ -149,6 +149,24 @@
       "playedMatches": 11
     },
     {
+      "playerId": 82516,
+      "name": "Luka Sučić",
+      "teamId": 92,
+      "goals": 4,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
+      "playerId": 2294,
+      "name": "Álex Berenguer",
+      "teamId": 77,
+      "goals": 4,
+      "assists": 4,
+      "penalties": 2,
+      "playedMatches": 11
+    },
+    {
       "playerId": 16739,
       "name": "Alejandro Grimaldo",
       "teamId": 78,
@@ -203,36 +221,27 @@
       "playedMatches": 11
     },
     {
-      "playerId": 82516,
-      "name": "Luka Sučić",
-      "teamId": 92,
-      "goals": 3,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
       "playerId": 182319,
       "name": "Orri Oskarsson",
       "teamId": 92,
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
-    },
-    {
-      "playerId": 2294,
-      "name": "Álex Berenguer",
-      "teamId": 77,
-      "goals": 3,
-      "assists": 4,
-      "penalties": 1,
       "playedMatches": 10
     },
     {
       "playerId": 152458,
       "name": "Martin Satriano",
       "teamId": 82,
+      "goals": 3,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
+      "playerId": 32629,
+      "name": "Iñaki Williams",
+      "teamId": 77,
       "goals": 3,
       "assists": 2,
       "penalties": null,
@@ -317,7 +326,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 247061,
@@ -389,7 +398,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 226950,
@@ -410,22 +419,22 @@
       "playedMatches": 11
     },
     {
+      "playerId": 7672,
+      "name": "Umar Sadiq",
+      "teamId": 95,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 4
+    },
+    {
       "playerId": 101870,
       "name": "Roberto Navarro",
       "teamId": 77,
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 32629,
-      "name": "Iñaki Williams",
-      "teamId": 77,
-      "goals": 2,
-      "assists": 2,
-      "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 83406,
@@ -488,7 +497,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 66,
@@ -515,7 +524,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 133276,
@@ -707,15 +716,6 @@
       "playedMatches": 11
     },
     {
-      "playerId": 7672,
-      "name": "Umar Sadiq",
-      "teamId": 95,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 4
-    },
-    {
       "playerId": 131041,
       "name": "Troy Parrott",
       "teamId": 90,
@@ -729,9 +729,9 @@
       "name": "Nico Williams",
       "teamId": 77,
       "goals": 1,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 126878,
@@ -740,7 +740,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 25,
@@ -830,7 +830,7 @@
       "goals": 1,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 77734,
@@ -839,7 +839,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 3369,

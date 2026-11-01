@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "SA",
   "season": 2026,
-  "fetchedUtc": "2026-11-01T18:55:34.271Z",
+  "fetchedUtc": "2026-11-01T21:47:11.564Z",
   "scorers": [
     {
       "playerId": 252836,
@@ -92,7 +92,7 @@
       "goals": 4,
       "assists": 1,
       "penalties": 1,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 192142,
@@ -326,7 +326,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 246341,
@@ -389,7 +389,7 @@
       "goals": 2,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 81440,
@@ -459,9 +459,9 @@
       "name": "Edon Zhegrova",
       "teamId": 109,
       "goals": 2,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 247056,
@@ -596,7 +596,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 82020,
@@ -659,7 +659,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 274076,
@@ -749,7 +749,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 130420,
@@ -830,7 +830,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 31065,
