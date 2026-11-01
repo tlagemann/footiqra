@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PD",
   "season": 2026,
-  "fetchedUtc": "2026-10-31T21:46:08.722Z",
+  "fetchedUtc": "2026-11-01T01:20:54.619Z",
   "scorers": [
     {
       "playerId": 37428,
@@ -131,21 +131,21 @@
       "playedMatches": 7
     },
     {
+      "playerId": 8474,
+      "name": "Mariano Díaz",
+      "teamId": 263,
+      "goals": 4,
+      "assists": 4,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
       "playerId": 16739,
       "name": "Alejandro Grimaldo",
       "teamId": 78,
       "goals": 4,
       "assists": 2,
       "penalties": 2,
-      "playedMatches": 11
-    },
-    {
-      "playerId": 8474,
-      "name": "Mariano Díaz",
-      "teamId": 263,
-      "goals": 3,
-      "assists": 4,
-      "penalties": null,
       "playedMatches": 11
     },
     {
@@ -453,6 +453,15 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 10
+    },
+    {
+      "playerId": 7848,
+      "name": "Anthony Gordon",
+      "teamId": 81,
+      "goals": 2,
+      "assists": 4,
+      "penalties": null,
+      "playedMatches": 11
     },
     {
       "playerId": 277484,
@@ -894,15 +903,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 9
-    },
-    {
-      "playerId": 138031,
-      "name": "Natan",
-      "teamId": 90,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 11
     }
   ]
 }

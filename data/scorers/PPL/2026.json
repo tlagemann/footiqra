@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PPL",
   "season": 2026,
-  "fetchedUtc": "2026-10-31T21:46:38.402Z",
+  "fetchedUtc": "2026-11-01T01:21:24.302Z",
   "scorers": [
     {
       "playerId": 67299,
@@ -50,6 +50,15 @@
       "playedMatches": 9
     },
     {
+      "playerId": 150519,
+      "name": "Gabriel Veiga",
+      "teamId": 503,
+      "goals": 5,
+      "assists": 4,
+      "penalties": 1,
+      "playedMatches": 10
+    },
+    {
       "playerId": 15919,
       "name": "Gonçalo Paciência",
       "teamId": 5530,
@@ -57,6 +66,15 @@
       "assists": 1,
       "penalties": 1,
       "playedMatches": 8
+    },
+    {
+      "playerId": 127034,
+      "name": "Borja Sainz",
+      "teamId": 503,
+      "goals": 5,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 10
     },
     {
       "playerId": 182080,
@@ -68,11 +86,11 @@
       "playedMatches": 10
     },
     {
-      "playerId": 150519,
-      "name": "Gabriel Veiga",
+      "playerId": 1760,
+      "name": "André Silva",
       "teamId": 503,
       "goals": 4,
-      "assists": 3,
+      "assists": 2,
       "penalties": 1,
       "playedMatches": 10
     },
@@ -104,28 +122,10 @@
       "playedMatches": 10
     },
     {
-      "playerId": 127034,
-      "name": "Borja Sainz",
-      "teamId": 503,
-      "goals": 4,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
       "playerId": 81357,
       "name": "Ianis Stoica",
       "teamId": 9136,
       "goals": 4,
-      "assists": 2,
-      "penalties": 1,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 1760,
-      "name": "André Silva",
-      "teamId": 503,
-      "goals": 3,
       "assists": 2,
       "penalties": 1,
       "playedMatches": 10
