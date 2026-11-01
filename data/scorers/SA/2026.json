@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "SA",
   "season": 2026,
-  "fetchedUtc": "2026-11-01T13:00:10.296Z",
+  "fetchedUtc": "2026-11-01T15:46:34.841Z",
   "scorers": [
     {
       "playerId": 252836,
@@ -29,7 +29,7 @@
       "goals": 8,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 120679,
@@ -74,7 +74,7 @@
       "goals": 5,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 3654,
@@ -101,7 +101,7 @@
       "goals": 4,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 3220,
@@ -117,9 +117,9 @@
       "name": "Tijjani Noslin",
       "teamId": 110,
       "goals": 4,
-      "assists": 2,
+      "assists": 3,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 182192,
@@ -137,7 +137,16 @@
       "goals": 4,
       "assists": 1,
       "penalties": 1,
-      "playedMatches": 9
+      "playedMatches": 10
+    },
+    {
+      "playerId": 128007,
+      "name": "Gustav Isaksen",
+      "teamId": 110,
+      "goals": 4,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 10
     },
     {
       "playerId": 1754,
@@ -155,7 +164,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 192382,
@@ -234,9 +243,9 @@
       "name": "Giorgi Kvernadze",
       "teamId": 470,
       "goals": 3,
-      "assists": 3,
+      "assists": 4,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 183018,
@@ -273,15 +282,6 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 10
-    },
-    {
-      "playerId": 128007,
-      "name": "Gustav Isaksen",
-      "teamId": 110,
-      "goals": 3,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 9
     },
     {
       "playerId": 217678,
@@ -506,7 +506,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 102395,
@@ -524,7 +524,7 @@
       "goals": 2,
       "assists": 5,
       "penalties": 1,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 227048,
@@ -534,6 +534,15 @@
       "assists": 2,
       "penalties": null,
       "playedMatches": 9
+    },
+    {
+      "playerId": 2016,
+      "name": "Andrea Pinamonti",
+      "teamId": 110,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 8
     },
     {
       "playerId": 44033,
@@ -569,7 +578,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 7905,
@@ -596,7 +605,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 16346,
@@ -605,7 +614,16 @@
       "goals": 2,
       "assists": 4,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
+    },
+    {
+      "playerId": 161370,
+      "name": "M'Bala Nzola",
+      "teamId": 104,
+      "goals": 2,
+      "assists": null,
+      "penalties": 1,
+      "playedMatches": 5
     },
     {
       "playerId": 129635,
@@ -614,7 +632,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 193,
@@ -641,7 +659,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 226967,
@@ -677,7 +695,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 64243,
@@ -704,7 +722,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 45680,
@@ -839,7 +857,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 292394,
@@ -848,7 +866,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 2681,
@@ -885,24 +903,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 9
-    },
-    {
-      "playerId": 105081,
-      "name": "Kieron Bowie",
-      "teamId": 471,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 9
-    },
-    {
-      "playerId": 181633,
-      "name": "Kaiki Bruno",
-      "teamId": 7397,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 10
     }
   ]
 }

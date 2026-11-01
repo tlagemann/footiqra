@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "BL1",
   "season": 2026,
-  "fetchedUtc": "2026-11-01T13:00:14.077Z",
+  "fetchedUtc": "2026-11-01T15:46:41.965Z",
   "scorers": [
     {
       "playerId": 304,
@@ -38,7 +38,7 @@
       "goals": 5,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 6661,
@@ -200,7 +200,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 65692,
@@ -261,9 +261,9 @@
       "name": "Tim Skarke",
       "teamId": 28,
       "goals": 2,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 98330,
@@ -317,7 +317,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 9848,
@@ -425,7 +425,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 123277,
@@ -533,7 +533,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 3
+      "playedMatches": 4
     },
     {
       "playerId": 282450,
@@ -554,6 +554,15 @@
       "playedMatches": 3
     },
     {
+      "playerId": 9489,
+      "name": "Janik Haberer",
+      "teamId": 28,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
       "playerId": 150517,
       "name": "Rocco Reitz",
       "teamId": 721,
@@ -569,7 +578,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 152811,
@@ -578,7 +587,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 30548,
@@ -740,7 +749,7 @@
       "goals": 1,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 9537,
@@ -894,15 +903,6 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 8
-    },
-    {
-      "playerId": 2240,
-      "name": "Moussa Diaby",
-      "teamId": 3,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 6
     }
   ]
 }

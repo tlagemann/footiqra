@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "DED",
   "season": 2026,
-  "fetchedUtc": "2026-11-01T13:00:34.115Z",
+  "fetchedUtc": "2026-11-01T15:47:05.479Z",
   "scorers": [
     {
       "playerId": 121280,
@@ -20,7 +20,16 @@
       "goals": 8,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
+    },
+    {
+      "playerId": 7697,
+      "name": "Wout Weghorst",
+      "teamId": 666,
+      "goals": 8,
+      "assists": 2,
+      "penalties": 2,
+      "playedMatches": 11
     },
     {
       "playerId": 243902,
@@ -29,7 +38,7 @@
       "goals": 7,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 7688,
@@ -47,7 +56,7 @@
       "goals": 6,
       "assists": 3,
       "penalties": 1,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 148,
@@ -176,6 +185,15 @@
       "playedMatches": 11
     },
     {
+      "playerId": 226917,
+      "name": "Tyrone Owusu",
+      "teamId": 1912,
+      "goals": 5,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
       "playerId": 21733,
       "name": "Tjaronn Chery",
       "teamId": 1915,
@@ -221,18 +239,9 @@
       "playedMatches": 11
     },
     {
-      "playerId": 7697,
-      "name": "Wout Weghorst",
-      "teamId": 666,
-      "goals": 4,
-      "assists": 2,
-      "penalties": 1,
-      "playedMatches": 11
-    },
-    {
-      "playerId": 226917,
-      "name": "Tyrone Owusu",
-      "teamId": 1912,
+      "playerId": 191058,
+      "name": "Angel Alarcon",
+      "teamId": 676,
       "goals": 4,
       "assists": null,
       "penalties": null,
@@ -320,6 +329,15 @@
       "playedMatches": 9
     },
     {
+      "playerId": 153600,
+      "name": "Daan Rots",
+      "teamId": 666,
+      "goals": 3,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
       "playerId": 144445,
       "name": "Victor Edvardsen",
       "teamId": 718,
@@ -374,11 +392,11 @@
       "playedMatches": 11
     },
     {
-      "playerId": 191058,
-      "name": "Angel Alarcon",
+      "playerId": 148291,
+      "name": "Yoann Cathline",
       "teamId": 676,
       "goals": 3,
-      "assists": null,
+      "assists": 2,
       "penalties": null,
       "playedMatches": 11
     },
@@ -434,7 +452,25 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
+      "playedMatches": 11
+    },
+    {
+      "playerId": 117796,
+      "name": "Nökkvi Þórisson",
+      "teamId": 1912,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
       "playedMatches": 10
+    },
+    {
+      "playerId": 297046,
+      "name": "Abdelnour Soualhia",
+      "teamId": 1912,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 11
     },
     {
       "playerId": 261522,
@@ -614,7 +650,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 280290,
@@ -666,7 +702,7 @@
       "name": "Sondre Ørjasæter",
       "teamId": 666,
       "goals": 2,
-      "assists": 2,
+      "assists": 7,
       "penalties": null,
       "playedMatches": 10
     },
@@ -713,15 +749,6 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 148291,
-      "name": "Yoann Cathline",
-      "teamId": 676,
-      "goals": 2,
-      "assists": 2,
-      "penalties": null,
       "playedMatches": 11
     },
     {
@@ -731,7 +758,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 7476,
@@ -758,7 +785,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 67920,
@@ -869,24 +896,6 @@
       "playedMatches": 11
     },
     {
-      "playerId": 117796,
-      "name": "Nökkvi Þórisson",
-      "teamId": 6806,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 297046,
-      "name": "Abdelnour Soualhia",
-      "teamId": 1912,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 11
-    },
-    {
       "playerId": 7602,
       "name": "Bryan Linssen",
       "teamId": 1915,
@@ -894,15 +903,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 10
-    },
-    {
-      "playerId": 5946,
-      "name": "Thomas Verheydt",
-      "teamId": 672,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 11
     }
   ]
 }

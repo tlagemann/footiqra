@@ -1308,7 +1308,7 @@
     {
       "id": 558543,
       "utcDate": "2026-11-01T11:30:00.000Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "matchday": 10,
       "stage": "REGULAR_SEASON",
       "homeTeamId": 7397,
@@ -1317,35 +1317,35 @@
       "awayGoals": 0,
       "duration": "REGULAR",
       "winner": "HOME_TEAM",
-      "lastUpdated": "2026-11-01T12:57:23.000Z"
+      "lastUpdated": "2026-11-01T13:32:35.000Z"
     },
     {
       "id": 558544,
       "utcDate": "2026-11-01T14:00:00.000Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "matchday": 10,
       "stage": "REGULAR_SEASON",
       "homeTeamId": 470,
       "awayTeamId": 586,
-      "homeGoals": null,
-      "awayGoals": null,
+      "homeGoals": 1,
+      "awayGoals": 0,
       "duration": "REGULAR",
-      "winner": null,
-      "lastUpdated": "2026-11-01T01:32:01.000Z"
+      "winner": "HOME_TEAM",
+      "lastUpdated": "2026-11-01T15:43:47.000Z"
     },
     {
       "id": 558546,
       "utcDate": "2026-11-01T14:00:00.000Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "matchday": 10,
       "stage": "REGULAR_SEASON",
       "homeTeamId": 110,
       "awayTeamId": 104,
-      "homeGoals": null,
-      "awayGoals": null,
+      "homeGoals": 1,
+      "awayGoals": 1,
       "duration": "REGULAR",
-      "winner": null,
-      "lastUpdated": "2026-11-01T01:32:01.000Z"
+      "winner": "DRAW",
+      "lastUpdated": "2026-11-01T15:44:19.000Z"
     },
     {
       "id": 558540,

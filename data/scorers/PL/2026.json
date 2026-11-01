@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PL",
   "season": 2026,
-  "fetchedUtc": "2026-11-01T12:59:45.290Z",
+  "fetchedUtc": "2026-11-01T15:46:20.075Z",
   "scorers": [
     {
       "playerId": 38101,
@@ -20,7 +20,7 @@
       "goals": 6,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 6396,
@@ -218,7 +218,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 7427,
@@ -227,7 +227,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 176628,
@@ -317,7 +317,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 246670,
@@ -389,7 +389,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 138230,
@@ -533,7 +533,7 @@
       "goals": 1,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 16347,
@@ -542,7 +542,7 @@
       "goals": 1,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 217658,
@@ -875,7 +875,7 @@
       "goals": 1,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 147891,

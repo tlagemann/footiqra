@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PD",
   "season": 2026,
-  "fetchedUtc": "2026-11-01T12:59:55.400Z",
+  "fetchedUtc": "2026-11-01T15:46:29.404Z",
   "scorers": [
     {
       "playerId": 37428,
@@ -17,10 +17,10 @@
       "playerId": 3374,
       "name": "Kylian Mbappé",
       "teamId": 86,
-      "goals": 11,
+      "goals": 12,
       "assists": 2,
-      "penalties": 2,
-      "playedMatches": 10
+      "penalties": 3,
+      "playedMatches": 11
     },
     {
       "playerId": 202283,
@@ -38,7 +38,7 @@
       "goals": 8,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 115175,
@@ -140,6 +140,15 @@
       "playedMatches": 11
     },
     {
+      "playerId": 125010,
+      "name": "Jude Bellingham",
+      "teamId": 86,
+      "goals": 4,
+      "assists": 3,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
       "playerId": 16739,
       "name": "Alejandro Grimaldo",
       "teamId": 78,
@@ -172,15 +181,6 @@
       "teamId": 559,
       "goals": 3,
       "assists": 1,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 125010,
-      "name": "Jude Bellingham",
-      "teamId": 86,
-      "goals": 3,
-      "assists": 3,
       "penalties": null,
       "playedMatches": 10
     },
@@ -228,6 +228,15 @@
       "assists": 4,
       "penalties": 1,
       "playedMatches": 10
+    },
+    {
+      "playerId": 152458,
+      "name": "Martin Satriano",
+      "teamId": 82,
+      "goals": 3,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 11
     },
     {
       "playerId": 156746,
@@ -308,7 +317,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 32719,
@@ -318,6 +327,15 @@
       "assists": null,
       "penalties": 1,
       "playedMatches": 11
+    },
+    {
+      "playerId": 33132,
+      "name": "Enes Ünal",
+      "teamId": 82,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 10
     },
     {
       "playerId": 82515,
@@ -335,7 +353,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 98741,
@@ -378,9 +396,9 @@
       "name": "Arda Guler",
       "teamId": 86,
       "goals": 2,
-      "assists": 2,
+      "assists": 3,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 101870,
@@ -390,15 +408,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 10
-    },
-    {
-      "playerId": 152458,
-      "name": "Martin Satriano",
-      "teamId": 82,
-      "goals": 2,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 11
     },
     {
       "playerId": 32629,
@@ -470,7 +479,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 3259,
@@ -495,7 +504,7 @@
       "name": "Félix Correia",
       "teamId": 559,
       "goals": 2,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
       "playedMatches": 8
     },
@@ -626,15 +635,6 @@
       "playedMatches": 11
     },
     {
-      "playerId": 33132,
-      "name": "Enes Ünal",
-      "teamId": 82,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
       "playerId": 264254,
       "name": "Chupete",
       "teamId": 84,
@@ -749,7 +749,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 114955,
@@ -884,7 +884,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 287848,

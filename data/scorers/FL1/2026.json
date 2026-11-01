@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "FL1",
   "season": 2026,
-  "fetchedUtc": "2026-11-01T13:00:21.595Z",
+  "fetchedUtc": "2026-11-01T15:46:49.731Z",
   "scorers": [
     {
       "playerId": 149850,
@@ -20,7 +20,16 @@
       "goals": 6,
       "assists": 4,
       "penalties": 3,
-      "playedMatches": 8
+      "playedMatches": 9
+    },
+    {
+      "playerId": 128242,
+      "name": "Cameron Archer",
+      "teamId": 519,
+      "goals": 6,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 7
     },
     {
       "playerId": 156808,
@@ -39,15 +48,6 @@
       "assists": 2,
       "penalties": 1,
       "playedMatches": 8
-    },
-    {
-      "playerId": 128242,
-      "name": "Cameron Archer",
-      "teamId": 519,
-      "goals": 5,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 6
     },
     {
       "playerId": 129381,
@@ -104,13 +104,22 @@
       "playedMatches": 9
     },
     {
+      "playerId": 245336,
+      "name": "Gessime Yassine",
+      "teamId": 576,
+      "goals": 4,
+      "assists": 3,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
       "playerId": 244696,
       "name": "Paris Brunner",
       "teamId": 548,
       "goals": 4,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 4072,
@@ -137,7 +146,7 @@
       "goals": 3,
       "assists": 2,
       "penalties": 1,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 3371,
@@ -173,7 +182,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 292172,
@@ -230,15 +239,6 @@
       "playedMatches": 8
     },
     {
-      "playerId": 245336,
-      "name": "Gessime Yassine",
-      "teamId": 576,
-      "goals": 2,
-      "assists": 2,
-      "penalties": null,
-      "playedMatches": 8
-    },
-    {
       "playerId": 215579,
       "name": "Mbwana Samatta",
       "teamId": 533,
@@ -281,7 +281,7 @@
       "goals": 2,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 276430,
@@ -299,7 +299,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 206809,
@@ -308,6 +308,15 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 206744,
+      "name": "Conrad Harder",
+      "teamId": 576,
+      "goals": 2,
+      "assists": 1,
+      "penalties": 1,
       "playedMatches": 7
     },
     {
@@ -353,7 +362,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 218249,
@@ -389,7 +398,16 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 5
+      "playedMatches": 6
+    },
+    {
+      "playerId": 165314,
+      "name": "Dario Essugo",
+      "teamId": 576,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 7
     },
     {
       "playerId": 1023,
@@ -425,7 +443,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 246066,
@@ -488,7 +506,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 856,
@@ -515,7 +533,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 187065,
@@ -533,7 +551,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 213221,
@@ -596,7 +614,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 204240,
@@ -614,7 +632,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 299684,
@@ -632,7 +650,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 565,
@@ -641,7 +659,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 5
+      "playedMatches": 6
     },
     {
       "playerId": 8695,
@@ -659,7 +677,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 165315,
@@ -668,7 +686,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 221295,
@@ -704,7 +722,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 262361,
@@ -713,16 +731,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
-    },
-    {
-      "playerId": 206744,
-      "name": "Conrad Harder",
-      "teamId": 576,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 9
     },
     {
       "playerId": 134582,
@@ -749,7 +758,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 170398,
@@ -794,7 +803,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 177248,
@@ -803,7 +812,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 456,
@@ -830,7 +839,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 366,
@@ -839,7 +848,7 @@
       "goals": 1,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 7910,
@@ -866,7 +875,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 8465,
@@ -894,15 +903,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 8
-    },
-    {
-      "playerId": 169204,
-      "name": "Lucas Beraldo",
-      "teamId": 524,
-      "goals": 1,
-      "assists": null,
-      "penalties": 1,
-      "playedMatches": 9
     }
   ]
 }

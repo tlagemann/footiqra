@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "SA",
   "season": 2026,
-  "fetchedUtc": "2026-11-01T12:58:59.538Z",
+  "fetchedUtc": "2026-11-01T15:45:33.816Z",
   "rows": [
     {
       "position": 1,
@@ -42,6 +42,18 @@
     },
     {
       "position": 4,
+      "teamId": 7397,
+      "playedGames": 10,
+      "won": 7,
+      "draw": 2,
+      "lost": 1,
+      "points": 23,
+      "goalsFor": 18,
+      "goalsAgainst": 8,
+      "goalDifference": 10
+    },
+    {
+      "position": 5,
       "teamId": 98,
       "playedGames": 10,
       "won": 6,
@@ -50,18 +62,6 @@
       "points": 21,
       "goalsFor": 21,
       "goalsAgainst": 12,
-      "goalDifference": 9
-    },
-    {
-      "position": 5,
-      "teamId": 7397,
-      "playedGames": 9,
-      "won": 6,
-      "draw": 2,
-      "lost": 1,
-      "points": 20,
-      "goalsFor": 17,
-      "goalsAgainst": 8,
       "goalDifference": 9
     },
     {
@@ -235,14 +235,14 @@
     {
       "position": 20,
       "teamId": 454,
-      "playedGames": 9,
+      "playedGames": 10,
       "won": 1,
       "draw": 0,
-      "lost": 8,
+      "lost": 9,
       "points": 3,
       "goalsFor": 6,
-      "goalsAgainst": 19,
-      "goalDifference": -13
+      "goalsAgainst": 20,
+      "goalDifference": -14
     }
   ]
 }
