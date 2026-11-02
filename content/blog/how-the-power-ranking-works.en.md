@@ -1,6 +1,6 @@
 ---
 title: How the Footiqra Power Ranking Works
-description: How Footiqra rates every club in Europe's top seven leagues on one scale: Elo ratings, league strength from European matches and what the numbers mean.
+description: How Footiqra ranks every club in Europe's top 7 leagues on one scale, using Elo ratings and league strength from European games.
 published: 2026-11-09
 draft: true
 ---
