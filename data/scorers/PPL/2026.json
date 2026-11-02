@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PPL",
   "season": 2026,
-  "fetchedUtc": "2026-11-01T21:47:33.391Z",
+  "fetchedUtc": "2026-11-02T01:18:13.972Z",
   "scorers": [
     {
       "playerId": 67299,
@@ -59,6 +59,15 @@
       "playedMatches": 10
     },
     {
+      "playerId": 144579,
+      "name": "Pau Victor Delgado",
+      "teamId": 5613,
+      "goals": 5,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 10
+    },
+    {
       "playerId": 45366,
       "name": "André Clovis",
       "teamId": 5527,
@@ -101,15 +110,6 @@
       "goals": 4,
       "assists": 2,
       "penalties": 1,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 144579,
-      "name": "Pau Victor Delgado",
-      "teamId": 5613,
-      "goals": 4,
-      "assists": 1,
-      "penalties": null,
       "playedMatches": 10
     },
     {
