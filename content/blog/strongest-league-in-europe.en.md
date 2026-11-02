@@ -1,8 +1,7 @@
 ---
 title: Which Is Europe's Strongest League Right Now?
 description: The Premier League leads, Ligue 1 is second and Serie A only fifth: Footiqra's league strength ranking of Europe's top seven leagues.
-published: 2026-11-09
-draft: true
+published: 2026-11-02
 ---
 
 The Premier League is Europe's strongest league, and by a clear margin. That is the verdict of the Footiqra power ranking as of 2 November 2026. Behind it, the order looks different from what most fans would guess: Ligue 1 ranks second, ahead of La Liga, while Serie A has dropped to fifth.

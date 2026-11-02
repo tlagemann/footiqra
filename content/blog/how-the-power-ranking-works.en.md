@@ -1,8 +1,7 @@
 ---
 title: How the Footiqra Power Ranking Works
 description: How Footiqra ranks every club in Europe's top 7 leagues on one scale, using Elo ratings and league strength from European games.
-published: 2026-11-09
-draft: true
+published: 2026-11-02
 ---
 
 Is Bayern stronger than Arsenal right now? League tables can't answer that, because the two clubs play in different competitions against different opponents. The Footiqra power ranking can: it rates every club in Europe's top seven leagues on one common scale, using nothing but match results.

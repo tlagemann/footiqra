@@ -1,8 +1,7 @@
 ---
 title: The 7 Leagues in the Footiqra Power Ranking
 description: Premier League, La Liga, Serie A, Bundesliga, Ligue 1, Eredivisie and Primeira Liga: the seven leagues Footiqra ranks and why.
-published: 2026-11-09
-draft: true
+published: 2026-11-02
 ---
 
 The Footiqra power ranking covers seven leagues and every club in them: 132 clubs on one common scale. This article introduces each league, explains why these seven made the cut and shows where each one started in the ranking.

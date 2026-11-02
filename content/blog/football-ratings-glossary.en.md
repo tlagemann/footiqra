@@ -1,8 +1,7 @@
 ---
 title: Football Ratings Glossary
 description: Elo rating, league strength, expected score and more: every term behind the Footiqra power ranking, explained in plain English.
-published: 2026-11-09
-draft: true
+published: 2026-11-02
 ---
 
 Power rankings come with their own vocabulary. This glossary explains every term you will meet on Footiqra in a sentence or two, in alphabetical order. For the full picture of how the pieces fit together, start with [how the power ranking works](/blog/how-the-power-ranking-works/).

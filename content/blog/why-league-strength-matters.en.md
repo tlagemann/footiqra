@@ -1,8 +1,7 @@
 ---
 title: Why League Strength Matters in Football Rankings
 description: A win is not just a win: why the same result counts for more in some leagues, and how Footiqra measures league strength.
-published: 2026-11-09
-draft: true
+published: 2026-11-02
 ---
 
 Every league gives three points for a win. That makes tables easy to read, but it hides a simple fact: winning in the Premier League is harder than winning in the Eredivisie. Any ranking that compares clubs across leagues has to account for that, and that is what league strength does.
