@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PL",
   "season": 2026,
-  "fetchedUtc": "2026-11-02T19:41:04.723Z",
+  "fetchedUtc": "2026-11-02T21:53:07.840Z",
   "scorers": [
     {
       "playerId": 38101,
@@ -59,6 +59,15 @@
       "playedMatches": 8
     },
     {
+      "playerId": 171995,
+      "name": "Thierno Barry",
+      "teamId": 62,
+      "goals": 4,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
       "playerId": 133242,
       "name": "Rayan Cherki",
       "teamId": 65,
@@ -102,15 +111,6 @@
       "assists": null,
       "penalties": 1,
       "playedMatches": 7
-    },
-    {
-      "playerId": 171995,
-      "name": "Thierno Barry",
-      "teamId": 62,
-      "goals": 3,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 9
     },
     {
       "playerId": 190851,

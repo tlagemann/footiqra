@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "FL1",
   "season": 2026,
-  "fetchedUtc": "2026-11-02T19:41:34.720Z",
+  "fetchedUtc": "2026-11-02T21:53:37.948Z",
   "scorers": [
     {
       "playerId": 552,
@@ -113,6 +113,15 @@
       "playedMatches": 9
     },
     {
+      "playerId": 723,
+      "name": "Ludovic Ajorque",
+      "teamId": 512,
+      "goals": 4,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
       "playerId": 244696,
       "name": "Paris Brunner",
       "teamId": 548,
@@ -174,15 +183,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 6
-    },
-    {
-      "playerId": 723,
-      "name": "Ludovic Ajorque",
-      "teamId": 512,
-      "goals": 3,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 9
     },
     {
       "playerId": 292172,

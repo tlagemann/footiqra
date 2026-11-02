@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PD",
   "season": 2026,
-  "fetchedUtc": "2026-11-02T19:41:12.865Z",
+  "fetchedUtc": "2026-11-02T21:53:16.274Z",
   "scorers": [
     {
       "playerId": 37428,
@@ -32,6 +32,15 @@
       "playedMatches": 11
     },
     {
+      "playerId": 2237,
+      "name": "Ante Budimir",
+      "teamId": 79,
+      "goals": 8,
+      "assists": null,
+      "penalties": 4,
+      "playedMatches": 11
+    },
+    {
       "playerId": 265516,
       "name": "Yassir Zabiri",
       "teamId": 5335,
@@ -47,15 +56,6 @@
       "goals": 7,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 11
-    },
-    {
-      "playerId": 2237,
-      "name": "Ante Budimir",
-      "teamId": 79,
-      "goals": 7,
-      "assists": null,
-      "penalties": 4,
       "playedMatches": 11
     },
     {
@@ -500,6 +500,15 @@
       "playedMatches": 10
     },
     {
+      "playerId": 69837,
+      "name": "Mario Soriano",
+      "teamId": 560,
+      "goals": 2,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
       "playerId": 66,
       "name": "Isco",
       "teamId": 90,
@@ -516,6 +525,15 @@
       "assists": 2,
       "penalties": null,
       "playedMatches": 8
+    },
+    {
+      "playerId": 288836,
+      "name": "Nsongo Tonfack",
+      "teamId": 560,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 11
     },
     {
       "playerId": 180137,
@@ -765,7 +783,7 @@
       "name": "Luismi Cruz",
       "teamId": 560,
       "goals": 1,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
       "playedMatches": 11
     },
@@ -885,24 +903,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 11
-    },
-    {
-      "playerId": 287848,
-      "name": "Xavi Espart",
-      "teamId": 81,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 154000,
-      "name": "RamónTerrats Espacio",
-      "teamId": 82,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 10
     }
   ]
 }

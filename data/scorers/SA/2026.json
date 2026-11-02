@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "SA",
   "season": 2026,
-  "fetchedUtc": "2026-11-02T19:41:22.610Z",
+  "fetchedUtc": "2026-11-02T21:53:23.803Z",
   "scorers": [
     {
       "playerId": 252836,
@@ -257,6 +257,15 @@
       "playedMatches": 10
     },
     {
+      "playerId": 299423,
+      "name": "Simone Lontani",
+      "teamId": 112,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 10
+    },
+    {
       "playerId": 211564,
       "name": "Giorgi Kvernadze",
       "teamId": 470,
@@ -406,15 +415,6 @@
       "teamId": 5911,
       "goals": 2,
       "assists": 1,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 299423,
-      "name": "Simone Lontani",
-      "teamId": 112,
-      "goals": 2,
-      "assists": null,
       "penalties": null,
       "playedMatches": 10
     },

@@ -2,15 +2,15 @@
   "schemaVersion": 1,
   "competition": "PPL",
   "season": 2026,
-  "fetchedUtc": "2026-11-02T19:41:43.086Z",
+  "fetchedUtc": "2026-11-02T21:53:46.054Z",
   "scorers": [
     {
       "playerId": 67299,
       "name": "Vangelis Pavlidis",
       "teamId": 1903,
-      "goals": 9,
+      "goals": 10,
       "assists": 3,
-      "penalties": 2,
+      "penalties": 3,
       "playedMatches": 10
     },
     {
