@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "SA",
   "season": 2026,
-  "fetchedUtc": "2026-11-02T16:12:29.594Z",
+  "fetchedUtc": "2026-11-02T19:05:30.185Z",
   "scorers": [
     {
       "playerId": 252836,
@@ -38,7 +38,7 @@
       "goals": 6,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 43285,
@@ -239,6 +239,15 @@
       "playedMatches": 10
     },
     {
+      "playerId": 157538,
+      "name": "Mateo Pellegrino",
+      "teamId": 99,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 10
+    },
+    {
       "playerId": 211564,
       "name": "Giorgi Kvernadze",
       "teamId": 470,
@@ -254,7 +263,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 250304,
@@ -263,7 +272,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 2040,
@@ -344,7 +353,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 101431,
@@ -362,7 +371,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 218474,
@@ -372,15 +381,6 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 6
-    },
-    {
-      "playerId": 157538,
-      "name": "Mateo Pellegrino",
-      "teamId": 99,
-      "goals": 2,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 9
     },
     {
       "playerId": 2193,
@@ -398,7 +398,7 @@
       "goals": 2,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 265567,
@@ -416,7 +416,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 82132,
@@ -450,9 +450,9 @@
       "name": "Sebastiano Esposito",
       "teamId": 471,
       "goals": 2,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 8990,
@@ -479,7 +479,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 167689,
@@ -533,7 +533,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 97869,
@@ -642,6 +642,24 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 8
+    },
+    {
+      "playerId": 246508,
+      "name": "Alieu Njie",
+      "teamId": 99,
+      "goals": 2,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 10
+    },
+    {
+      "playerId": 8822,
+      "name": "Armand Lauriente",
+      "teamId": 471,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 10
     },
     {
       "playerId": 193,
@@ -758,7 +776,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 2230,
@@ -803,7 +821,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 102591,
@@ -885,24 +903,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 8
-    },
-    {
-      "playerId": 53190,
-      "name": "Ricardo Mangas",
-      "teamId": 5911,
-      "goals": 1,
-      "assists": 2,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 153632,
-      "name": "Exequiel Zeballos",
-      "teamId": 5911,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 6
     }
   ]
 }
