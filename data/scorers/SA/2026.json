@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "SA",
   "season": 2026,
-  "fetchedUtc": "2026-11-02T19:05:30.185Z",
+  "fetchedUtc": "2026-11-02T19:20:19.977Z",
   "scorers": [
     {
       "playerId": 252836,
@@ -129,6 +129,15 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 6
+    },
+    {
+      "playerId": 250304,
+      "name": "Franco Mastantuono",
+      "teamId": 99,
+      "goals": 4,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 10
     },
     {
       "playerId": 171448,
@@ -262,15 +271,6 @@
       "teamId": 471,
       "goals": 3,
       "assists": 1,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 250304,
-      "name": "Franco Mastantuono",
-      "teamId": 99,
-      "goals": 3,
-      "assists": null,
       "penalties": null,
       "playedMatches": 10
     },
