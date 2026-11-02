@@ -20,7 +20,13 @@ interface NavItem {
   groups?: { title: string; links: NavLink[] }[];
 }
 
-function buildNav(locale: Locale): NavItem[] {
+/** Blog state from the server: whether to show the link, and which posts exist in both languages. */
+export interface BlogNav {
+  show: boolean;
+  translated: string[];
+}
+
+function buildNav(locale: Locale, blog: BlogNav): NavItem[] {
   const p = paths(locale);
   const t = (en: string, de: string) => tr(locale, en, de);
   const leaguesPrefix = p.leagues;
@@ -124,6 +130,15 @@ function buildNav(locale: Locale): NavItem[] {
       href: p.tableVsStrength,
       match: (path) => path.startsWith(p.tableVsStrength),
     },
+    ...(blog.show
+      ? [
+          {
+            label: "Blog",
+            href: p.blog,
+            match: (path: string) => path.startsWith(p.blog),
+          },
+        ]
+      : []),
     {
       label: t("Methodology", "Methodik"),
       href: p.methodology,
@@ -132,20 +147,30 @@ function buildNav(locale: Locale): NavItem[] {
   ];
 }
 
-/** Link to the same page in the other language. */
+/**
+ * Link to the same page in the other language. Blog posts without a translation
+ * link to the other language's blog overview instead.
+ */
 function LanguageSwitch({
   locale,
   pathname,
+  translatedPosts,
   className = "",
 }: {
   locale: Locale;
   pathname: string;
+  translatedPosts: string[];
   className?: string;
 }) {
   const other: Locale = locale === "de" ? "en" : "de";
+  const blogPost = pathname.slice(paths(locale).blog.length).replace(/\/$/, "");
+  const untranslatedPost =
+    pathname.startsWith(paths(locale).blog) &&
+    blogPost !== "" &&
+    !translatedPosts.includes(blogPost);
   return (
     <a
-      href={counterpart(pathname, other)}
+      href={untranslatedPost ? paths(other).blog : counterpart(pathname, other)}
       hrefLang={other}
       lang={other}
       className={className}
@@ -189,9 +214,9 @@ function pillClass(active: boolean): string {
  * hover or keyboard. Phones: a menu button opens a full-width panel.
  * All links are always in the HTML (hidden with CSS), so crawlers see them.
  */
-export function MainNav({ locale }: { locale: Locale }) {
+export function MainNav({ locale, blog }: { locale: Locale; blog: BlogNav }) {
   const pathname = usePathname() ?? "/";
-  const NAV = buildNav(locale);
+  const NAV = buildNav(locale, blog);
   const [open, setOpen] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   // Mobile accordion: the section of the current page starts open.
@@ -329,6 +354,7 @@ export function MainNav({ locale }: { locale: Locale }) {
         <LanguageSwitch
           locale={locale}
           pathname={pathname}
+          translatedPosts={blog.translated}
           className="rounded-full bg-surface px-3.5 py-2 text-sm font-semibold text-muted transition hover:bg-foreground hover:text-inverse"
         />
       </div>
@@ -338,6 +364,7 @@ export function MainNav({ locale }: { locale: Locale }) {
         <LanguageSwitch
           locale={locale}
           pathname={pathname}
+          translatedPosts={blog.translated}
           className="rounded-full bg-surface px-3.5 py-2 text-sm font-semibold text-muted"
         />
         <button

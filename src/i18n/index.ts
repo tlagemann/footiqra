@@ -33,6 +33,7 @@ const SEG = {
     championsLeague: "champions-league",
     legal: "legal-notice",
     privacy: "privacy",
+    blog: "blog",
     /** Only below /leagues/{slug}/; keyOf() finds the top-level "predictions" first. */
     leaguePredictions: "predictions",
   },
@@ -50,6 +51,7 @@ const SEG = {
     championsLeague: "champions-league",
     legal: "impressum",
     privacy: "datenschutz",
+    blog: "blog",
     leaguePredictions: "prognosen",
   },
 } as const;
@@ -80,6 +82,8 @@ export function paths(locale: Locale) {
     championsLeague: `${b}${s.championsLeague}/`,
     legal: `${b}${s.legal}/`,
     privacy: `${b}${s.privacy}/`,
+    blog: `${b}${s.blog}/`,
+    blogPost: (slug: string) => `${b}${s.blog}/${slug}/`,
   };
 }
 
@@ -114,6 +118,7 @@ export function counterpart(pathname: string, to: Locale): string {
   if (first === "scorers" && parts[1] === "power-ranking") return p.scorerIndex;
   if (first === "teams" && parts[1]) return p.team(parts[1]);
   if (first === "matches" && parts[1]) return p.match(parts[1]);
+  if (first === "blog" && parts[1]) return p.blogPost(parts[1]);
   const simple = dst[first];
   return typeof simple === "string" ? `${base(to)}${simple}/` : p.home;
 }

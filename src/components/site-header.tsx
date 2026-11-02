@@ -1,3 +1,4 @@
+import { hasBlogPosts, translatedBlogSlugs } from "@/blog/posts";
 import { SOCIAL } from "@/config/site";
 import Link from "next/link";
 import { paths, tr, type Locale } from "@/i18n";
@@ -16,7 +17,10 @@ export function SiteHeader({ locale }: { locale: Locale }) {
         >
           <Logo />
         </Link>
-        <MainNav locale={locale} />
+        <MainNav
+          locale={locale}
+          blog={{ show: hasBlogPosts(), translated: translatedBlogSlugs() }}
+        />
       </div>
     </header>
   );
@@ -30,6 +34,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
     [p.championsLeague, "Champions League"],
     [p.predictions, t("Predictions", "Prognosen")],
     [p.tableVsStrength, t("Table vs. strength", "Tabelle vs. Stärke")],
+    ...(hasBlogPosts() ? ([[p.blog, "Blog"]] as [string, string][]) : []),
     [p.methodology, t("Methodology", "Methodik")],
     [p.legal, t("Legal notice", "Impressum")],
     [p.privacy, t("Privacy", "Datenschutz")],

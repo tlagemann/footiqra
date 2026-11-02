@@ -18,7 +18,13 @@ import {
   nextWindow,
   topAcrossLeagues,
 } from "@/data";
+import { getBlogPost, getBlogPosts } from "@/blog/posts";
 import { genericOg, matchOg, teamOg } from "./templates";
+
+/** One image per post slug; posts in both languages share the English one if it exists. */
+function blogPostSlugs(): string[] {
+  return [...new Set([...getBlogPosts("en"), ...getBlogPosts("de")].map((post) => post.slug))];
+}
 
 /**
  * Social preview images at fixed URLs, shared by both languages:
@@ -42,6 +48,8 @@ export const ogImage = {
   championsLeague: "/og/champions-league.png",
   legal: "/og/legal.png",
   privacy: "/og/privacy.png",
+  blog: "/og/blog.png",
+  blogPost: (slug: string) => `/og/blog/${slug}.png`,
 };
 
 const SINGLE = [
@@ -56,6 +64,7 @@ const SINGLE = [
   "champions-league",
   "legal",
   "privacy",
+  "blog",
 ] as const;
 
 /** All image paths as route params, without the leading "/og/". */
@@ -68,6 +77,7 @@ export async function ogParams(): Promise<{ file: string[] }[]> {
     ...LEAGUES.map((l) => ["scorers", `${l.slug}.png`]),
     ...teams.map((s) => ["team", `${s}.png`]),
     ...matches.map((s) => ["match", `${s}.png`]),
+    ...blogPostSlugs().map((s) => ["blog", `${s}.png`]),
   ].map((file) => ({ file }));
 }
 
@@ -284,6 +294,18 @@ export async function renderOgImage(file: string[]): Promise<ImageResponse | nul
     }
     case "legal":
       return genericOg({ eyebrow: "Legal notice", title: "Impressum" });
+    case "blog": {
+      if (!second) {
+        return genericOg({
+          eyebrow: "Blog",
+          title: "Football analysis",
+          subtitle: "League comparisons, biggest movers and predictions from the power ranking.",
+        });
+      }
+      const post = getBlogPost("en", name) ?? getBlogPost("de", name);
+      if (!post) return null;
+      return genericOg({ eyebrow: "Blog", title: post.title, subtitle: post.description });
+    }
     case "privacy":
       return genericOg({
         eyebrow: "Privacy policy",

@@ -42,6 +42,7 @@ Node.js 22 oder neuer (`.nvmrc`), npm 10 oder neuer.
 | `/leagues/{slug}/` (z. B. `premier-league`, `eredivisie`) | Liga-Seiten mit Teams                             |
 | `/teams/{slug}/`                                          | Teamprofile mit Ergebnissen und kommenden Spielen |
 | `/methodology/`                                           | Erklärung der Berechnung                          |
+| `/blog/`, `/blog/{slug}/`                                 | Blog aus `content/blog/*.md` (siehe README dort)  |
 | `/sitemap.xml`, `/robots.txt`                             | SEO (Indexierung bis zum Launch gesperrt)         |
 
 Alle Inhalte stehen im ausgelieferten HTML, inklusive Canonical-URL, Open-Graph-Daten und BreadcrumbList-JSON-LD.
@@ -58,6 +59,7 @@ src/ingestion/    Datenabruf: Rate Limit, Retries, Validierung, Client
 src/store/        JSON-Datenspeicher: Format und Merge-Regeln
 scripts/          npm run ingest
 data/             Datenbestand (vom Workflow gepflegt, nicht von Hand ändern)
+content/blog/     Blogbeiträge als Markdown, eine Datei pro Sprache
 docs/             Architektur und Deployment
 ```
 

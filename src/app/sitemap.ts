@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { getBlogPosts, translatedBlogSlugs } from "@/blog/posts";
 import { LEAGUES } from "@/config/leagues";
 import { getSiteUrl } from "@/config/site";
 import { getAllTeamSlugs, getLastUpdated, getMatchSitemapEntries } from "@/data";
@@ -53,7 +54,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: m.lastModified,
     })),
   ];
-  return pages.flatMap(({ page, lastModified }) => {
+  if (getBlogPosts("en").length > 0 || getBlogPosts("de").length > 0) {
+    const newest = [...getBlogPosts("en"), ...getBlogPosts("de")]
+      .map((post) => post.updated)
+      .sort()
+      .at(-1);
+    pages.push({ page: (l: Locale) => paths(l).blog, lastModified: newest });
+  }
+  const shared = pages.flatMap(({ page, lastModified }) => {
     const languages = {
       en: `${base}${page("en")}`,
       de: `${base}${page("de")}`,
@@ -65,4 +73,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       alternates: { languages },
     }));
   });
+  // Posts exist per language; only translated posts list each other as alternates.
+  const translated = new Set(translatedBlogSlugs());
+  const posts = (["en", "de"] as const).flatMap((l) =>
+    getBlogPosts(l).map((post) => ({
+      url: `${base}${paths(l).blogPost(post.slug)}`,
+      lastModified: post.updated,
+      ...(translated.has(post.slug)
+        ? {
+            alternates: {
+              languages: {
+                en: `${base}${paths("en").blogPost(post.slug)}`,
+                de: `${base}${paths("de").blogPost(post.slug)}`,
+                "x-default": `${base}${paths("en").blogPost(post.slug)}`,
+              },
+            },
+          }
+        : {}),
+    })),
+  );
+  return [...shared, ...posts];
 }

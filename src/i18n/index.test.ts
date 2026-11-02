@@ -31,6 +31,8 @@ describe("counterpart", () => {
     ["/champions-league/", "/de/champions-league/"],
     ["/legal-notice/", "/de/impressum/"],
     ["/privacy/", "/de/datenschutz/"],
+    ["/blog/", "/de/blog/"],
+    ["/blog/how-the-power-ranking-works/", "/de/blog/how-the-power-ranking-works/"],
   ];
   it.each(cases)("%s <-> %s", (en, de) => {
     expect(counterpart(en, "de")).toBe(de);
