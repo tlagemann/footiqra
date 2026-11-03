@@ -790,7 +790,7 @@
     {
       "id": 575379,
       "utcDate": "2026-11-03T20:00:00.000Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "matchday": 4,
       "stage": "LEAGUE_STAGE",
       "homeTeamId": 675,
@@ -799,12 +799,12 @@
       "awayGoals": 3,
       "duration": "REGULAR",
       "winner": "AWAY_TEAM",
-      "lastUpdated": "2026-11-03T21:54:27.000Z"
+      "lastUpdated": "2026-11-03T22:00:51.000Z"
     },
     {
       "id": 575380,
       "utcDate": "2026-11-03T20:00:00.000Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "matchday": 4,
       "stage": "LEAGUE_STAGE",
       "homeTeamId": 81,
@@ -813,12 +813,12 @@
       "awayGoals": 0,
       "duration": "REGULAR",
       "winner": "HOME_TEAM",
-      "lastUpdated": "2026-11-03T21:54:27.000Z"
+      "lastUpdated": "2026-11-03T21:59:47.000Z"
     },
     {
       "id": 575381,
       "utcDate": "2026-11-03T20:00:00.000Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "matchday": 4,
       "stage": "LEAGUE_STAGE",
       "homeTeamId": 78,
@@ -827,12 +827,12 @@
       "awayGoals": 2,
       "duration": "REGULAR",
       "winner": "AWAY_TEAM",
-      "lastUpdated": "2026-11-03T21:52:51.000Z"
+      "lastUpdated": "2026-11-03T21:59:15.000Z"
     },
     {
       "id": 575382,
       "utcDate": "2026-11-03T20:00:00.000Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "matchday": 4,
       "stage": "LEAGUE_STAGE",
       "homeTeamId": 94,
@@ -841,12 +841,12 @@
       "awayGoals": 6,
       "duration": "REGULAR",
       "winner": "AWAY_TEAM",
-      "lastUpdated": "2026-11-03T21:53:55.000Z"
+      "lastUpdated": "2026-11-03T21:58:11.000Z"
     },
     {
       "id": 575383,
       "utcDate": "2026-11-03T20:00:00.000Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "matchday": 4,
       "stage": "LEAGUE_STAGE",
       "homeTeamId": 66,
@@ -855,7 +855,7 @@
       "awayGoals": 2,
       "duration": "REGULAR",
       "winner": "HOME_TEAM",
-      "lastUpdated": "2026-11-03T21:53:23.000Z"
+      "lastUpdated": "2026-11-03T22:00:51.000Z"
     },
     {
       "id": 575384,
@@ -874,7 +874,7 @@
     {
       "id": 575385,
       "utcDate": "2026-11-03T20:00:00.000Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "matchday": 4,
       "stage": "LEAGUE_STAGE",
       "homeTeamId": 2016,
@@ -883,7 +883,7 @@
       "awayGoals": 0,
       "duration": "REGULAR",
       "winner": "HOME_TEAM",
-      "lastUpdated": "2026-11-03T21:53:23.000Z"
+      "lastUpdated": "2026-11-03T21:59:47.000Z"
     },
     {
       "id": 575386,
