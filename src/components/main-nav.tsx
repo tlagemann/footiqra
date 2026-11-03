@@ -46,13 +46,14 @@ function buildNav(locale: Locale, blog: BlogNav): NavItem[] {
       match: (path) =>
         path.startsWith(p.predictions) ||
         path.startsWith(p.topMatches) ||
+        path.startsWith(p.titleRace) ||
         path.startsWith(p.tableCalculator) ||
         path.endsWith(`/${locale === "de" ? "tabellenrechner" : "table-calculator"}/`) ||
         path.startsWith(p.match("").slice(0, -1)) ||
         isProjection(path),
       groups: [
         {
-          title: t("Matches", "Spiele"),
+          title: t("Overview", "Überblick"),
           links: [
             {
               href: p.predictions,
@@ -63,6 +64,11 @@ function buildNav(locale: Locale, blog: BlogNav): NavItem[] {
               href: p.topMatches,
               label: t("Top matches", "Topspiele"),
               hint: t("The biggest games of the week", "Die größten Spiele der Woche"),
+            },
+            {
+              href: p.titleRace,
+              label: t("Title race", "Titelrennen"),
+              hint: t("How title chances changed", "Meisterchancen im Verlauf"),
             },
             {
               href: p.tableCalculator,

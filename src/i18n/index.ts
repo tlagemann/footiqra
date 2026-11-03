@@ -34,6 +34,7 @@ const SEG = {
     legal: "legal-notice",
     privacy: "privacy",
     blog: "blog",
+    titleRace: "title-race",
     /** Only below /leagues/{slug}/; keyOf() finds the top-level "predictions" first. */
     leaguePredictions: "predictions",
   },
@@ -52,6 +53,7 @@ const SEG = {
     legal: "impressum",
     privacy: "datenschutz",
     blog: "blog",
+    titleRace: "titelrennen",
     leaguePredictions: "prognosen",
   },
 } as const;
@@ -83,6 +85,7 @@ export function paths(locale: Locale) {
     legal: `${b}${s.legal}/`,
     privacy: `${b}${s.privacy}/`,
     blog: `${b}${s.blog}/`,
+    titleRace: `${b}${s.titleRace}/`,
     blogPost: (slug: string) => `${b}${s.blog}/${slug}/`,
   };
 }

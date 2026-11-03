@@ -32,6 +32,7 @@ describe("counterpart", () => {
     ["/legal-notice/", "/de/impressum/"],
     ["/privacy/", "/de/datenschutz/"],
     ["/blog/", "/de/blog/"],
+    ["/title-race/", "/de/titelrennen/"],
     ["/blog/how-the-power-ranking-works/", "/de/blog/how-the-power-ranking-works/"],
   ];
   it.each(cases)("%s <-> %s", (en, de) => {

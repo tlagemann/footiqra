@@ -39,6 +39,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     (l) => paths(l).scorerIndex,
     ...LEAGUES.map((league) => (l: Locale) => paths(l).leagueScorers(league.slug)),
     (l) => paths(l).tableVsStrength,
+    (l) => paths(l).titleRace,
     ...teams.map((slug) => (l: Locale) => paths(l).team(slug)),
   ];
   const undated: Page[] = [

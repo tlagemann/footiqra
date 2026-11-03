@@ -49,6 +49,7 @@ export const ogImage = {
   legal: "/og/legal.png",
   privacy: "/og/privacy.png",
   blog: "/og/blog.png",
+  titleRace: "/og/title-race.png",
   blogPost: (slug: string) => `/og/blog/${slug}.png`,
 };
 
@@ -65,6 +66,7 @@ const SINGLE = [
   "legal",
   "privacy",
   "blog",
+  "title-race",
 ] as const;
 
 /** All image paths as route params, without the leading "/og/". */
@@ -294,6 +296,24 @@ export async function renderOgImage(file: string[]): Promise<ImageResponse | nul
     }
     case "legal":
       return genericOg({ eyebrow: "Legal notice", title: "Impressum" });
+    case "title-race": {
+      const projections = await Promise.all(LEAGUES.map((l) => getLeagueProjection(l.slug)));
+      const leaders = projections
+        .flatMap((pr) => (pr?.rows[0] ? [{ row: pr.rows[0], league: pr.leagueSlug }] : []))
+        .sort((a, b) => a.row.title - b.row.title)
+        .slice(0, 3);
+      return genericOg({
+        eyebrow: "Title race",
+        title: "Who will be champion?",
+        subtitle: "Title chances in Europe's top leagues, week by week.",
+        teams: leaders.map(({ row, league }) => ({
+          name: row.team.name,
+          crest: row.team.crest,
+          value: pct(row.title),
+          sub: getLeagueBySlug(league)?.name ?? "",
+        })),
+      });
+    }
     case "blog": {
       if (!second) {
         return genericOg({

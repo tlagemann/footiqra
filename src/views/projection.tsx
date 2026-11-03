@@ -7,7 +7,8 @@ import { LastUpdated } from "@/components/match-list";
 import { chance, ProjectionTable } from "@/components/projection-table";
 import { Eyebrow, SectionHeading } from "@/components/ui";
 import { getLeagueBySlug, LEAGUES } from "@/config/leagues";
-import { getLastUpdated, getLeagueProjection } from "@/data";
+import { TitleRacePanel, titleRaceSummary } from "@/components/title-race";
+import { getLastUpdated, getLeagueProjection, getTitleRace } from "@/data";
 import { fmtInt, paths, seasonLabel, tr, type Locale } from "@/i18n";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { ogImage } from "@/og/images";
@@ -51,9 +52,10 @@ export async function ProjectionView({ locale, slug }: { locale: Locale; slug: s
   if (!league) notFound();
   const t = (en: string, de: string) => tr(locale, en, de);
   const p = paths(locale);
-  const [projection, lastUpdated] = await Promise.all([
+  const [projection, lastUpdated, race] = await Promise.all([
     getLeagueProjection(league.slug),
     getLastUpdated(),
+    getTitleRace(league.slug),
   ]);
   const leader = projection?.rows[0];
 
@@ -130,6 +132,22 @@ export async function ProjectionView({ locale, slug }: { locale: Locale; slug: s
           )}
           locale={locale}
         />
+      )}
+
+      {race && (
+        <section aria-labelledby="race-heading">
+          <SectionHeading
+            id="race-heading"
+            title={t("Title race", "Titelrennen")}
+            aside={
+              <Link href={p.titleRace} className="text-sm font-semibold hover:underline">
+                {t("All leagues", "Alle Ligen")} <span aria-hidden>→</span>
+              </Link>
+            }
+          />
+          <p className="mb-4 max-w-3xl text-muted">{titleRaceSummary(race, league.name, locale)}</p>
+          <TitleRacePanel race={race} leagueName={league.name} locale={locale} />
+        </section>
       )}
 
       <section aria-labelledby="how" className="max-w-3xl space-y-3 text-muted">

@@ -184,6 +184,36 @@ export async function writeHistoryFile(
   await writeJson(path.join(historyDir(dir), `${data.date}.json`), data);
 }
 
+const titleRaceDir = (dir: string) => path.join(dir, "title-race");
+
+/** Seasons with a stored title race (data/title-race/{season}.json), oldest first. */
+export async function listTitleRaceSeasons(dir: string): Promise<number[]> {
+  try {
+    return (await readdir(titleRaceDir(dir)))
+      .filter((n) => /^\d{4}\.json$/.test(n))
+      .map((n) => Number(n.slice(0, 4)))
+      .sort((a, b) => a - b);
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") return [];
+    throw error;
+  }
+}
+
+/** Stored title race of a season, or null. Unknown schema versions are ignored (recomputed). */
+export async function readTitleRaceFile<T extends { schemaVersion: number }>(
+  dir: string,
+  season: number,
+): Promise<T | null> {
+  return readJson<T>(path.join(titleRaceDir(dir), `${season}.json`));
+}
+
+export async function writeTitleRaceFile(
+  dir: string,
+  data: { schemaVersion: number; season: number },
+): Promise<void> {
+  await writeJson(path.join(titleRaceDir(dir), `${data.season}.json`), data);
+}
+
 /** Per-season files of one kind: data/{kind}/{CODE}/{season}.json */
 type SeasonKind = "clubs" | "scorers";
 type SeasonFileOf<K extends SeasonKind> = K extends "clubs" ? ClubDetailsFile : ScorersFile;

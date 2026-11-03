@@ -59,6 +59,11 @@ jobs:
         continue-on-error: true
         run: npm run snapshot
 
+      - name: Update title race history
+        if: steps.ingest.outputs.code != 'skipped'
+        continue-on-error: true
+        run: npm run title-race
+
       - name: Commit data changes
         if: steps.ingest.outputs.code != 'skipped'
         run: |

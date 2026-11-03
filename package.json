@@ -16,6 +16,7 @@
     "preview": "npx --yes serve@14 out",
     "crests": "tsx scripts/crests.ts",
     "snapshot": "tsx scripts/snapshot.ts",
+    "title-race": "tsx scripts/title-race.ts",
     "instagram": "tsx --conditions=react-server scripts/instagram.ts"
   },
   "dependencies": {

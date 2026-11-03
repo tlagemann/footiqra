@@ -8,7 +8,8 @@ import {
   type ScorerIndexRow,
 } from "./scorers";
 import "server-only";
-import { dataDir, listHistoryDates, readHistoryFile } from "@/store/fs";
+import { dataDir, listHistoryDates, readHistoryFile, readTitleRaceFile } from "@/store/fs";
+import { buildTitleRace, playedBefore, type TitleRace, type TitleRaceFile } from "./title-race";
 import {
   referenceDate,
   scorerKey,
@@ -38,6 +39,7 @@ import {
   findTeamBySlug,
   competitionMatches,
   competitionTable,
+  crestPath,
   leagueTable,
   matchSlugs,
   teamMatches,
@@ -383,4 +385,56 @@ export async function getTableCalculator(
 ): Promise<TableCalculatorData | undefined> {
   const snapshot = await loadSnapshot();
   return tableCalculator(snapshot, matchSlugs(snapshot), leagueSlug);
+}
+
+export type { TitleRace };
+
+const titleRaceCache = new Map<string, Promise<TitleRace | null>>();
+
+/**
+ * How the title chances of a league developed this season: the stored weekly
+ * checkpoints (npm run title-race) plus today's chances from the predicted table.
+ */
+export function getTitleRace(leagueSlug: string): Promise<TitleRace | null> {
+  let cached = titleRaceCache.get(leagueSlug);
+  if (!cached) {
+    cached = (async () => {
+      const [snapshot, projection] = await Promise.all([
+        loadSnapshot(),
+        getLeagueProjection(leagueSlug),
+      ]);
+      if (!projection) return null;
+      const file = await readTitleRaceFile<TitleRaceFile>(dataDir(), projection.season);
+      if (!file || file.season !== projection.season) return null;
+      const idBySlug = new Map(
+        Object.entries(snapshot.teams.teams).map(([id, t]) => [t.slug, Number(id)]),
+      );
+      const league = LEAGUES.find((l) => l.slug === leagueSlug)!;
+      const matches =
+        snapshot.matchFiles.find(
+          (f) =>
+            f.competition === league.providerCodes.footballData && f.season === projection.season,
+        )?.matches ?? [];
+      const at = Date.parse(snapshot.meta.lastSuccessfulRunUtc ?? "");
+      const live = Number.isNaN(at)
+        ? null
+        : {
+            at,
+            played: playedBefore(matches, Infinity),
+            chances: new Map(
+              projection.rows
+                .filter((r) => idBySlug.has(r.team.slug))
+                .map((r) => [idBySlug.get(r.team.slug)!, r.title]),
+            ),
+          };
+      return buildTitleRace(leagueSlug, file, live, (id) => {
+        const t = snapshot.teams.teams[String(id)];
+        return t
+          ? { slug: t.slug, name: t.shortName || t.name, crest: crestPath(snapshot, id) }
+          : undefined;
+      });
+    })();
+    titleRaceCache.set(leagueSlug, cached);
+  }
+  return cached;
 }

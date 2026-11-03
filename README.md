@@ -22,28 +22,30 @@ Node.js 22 oder neuer (`.nvmrc`), npm 10 oder neuer.
 
 ## Befehle
 
-| Befehl            | Zweck                                                                        |
-| ----------------- | ---------------------------------------------------------------------------- |
-| `npm ci`          | Abhängigkeiten installieren                                                  |
-| `npm run dev`     | Entwicklungsserver, http://localhost:3000                                    |
-| `npm run ingest`  | Daten von football-data.org nach `data/` (braucht `FOOTBALL_DATA_API_TOKEN`) |
-| `npm run build`   | Statische Website nach `out/`                                                |
-| `npm run preview` | `out/` lokal ausliefern                                                      |
-| `npm run check`   | Typecheck, Lint, Formatprüfung und Tests                                     |
-| `npm test`        | Unit-Tests                                                                   |
-| `npm run format`  | Code formatieren                                                             |
+| Befehl               | Zweck                                                                        |
+| -------------------- | ---------------------------------------------------------------------------- |
+| `npm ci`             | Abhängigkeiten installieren                                                  |
+| `npm run dev`        | Entwicklungsserver, http://localhost:3000                                    |
+| `npm run title-race` | Wöchentliche Meisterchancen in `data/title-race/` nachtragen                 |
+| `npm run ingest`     | Daten von football-data.org nach `data/` (braucht `FOOTBALL_DATA_API_TOKEN`) |
+| `npm run build`      | Statische Website nach `out/`                                                |
+| `npm run preview`    | `out/` lokal ausliefern                                                      |
+| `npm run check`      | Typecheck, Lint, Formatprüfung und Tests                                     |
+| `npm test`           | Unit-Tests                                                                   |
+| `npm run format`     | Code formatieren                                                             |
 
 ## Seitenstruktur
 
-| URL                                                       | Inhalt                                            |
-| --------------------------------------------------------- | ------------------------------------------------- |
-| `/`                                                       | Ligaübergreifendes Power-Ranking und Ligastärke   |
-| `/leagues/`                                               | Übersicht der sieben Ligen                        |
-| `/leagues/{slug}/` (z. B. `premier-league`, `eredivisie`) | Liga-Seiten mit Teams                             |
-| `/teams/{slug}/`                                          | Teamprofile mit Ergebnissen und kommenden Spielen |
-| `/methodology/`                                           | Erklärung der Berechnung                          |
-| `/blog/`, `/blog/{slug}/`                                 | Blog aus `content/blog/*.md` (siehe README dort)  |
-| `/sitemap.xml`, `/robots.txt`                             | SEO (Indexierung bis zum Launch gesperrt)         |
+| URL                                                       | Inhalt                                                               |
+| --------------------------------------------------------- | -------------------------------------------------------------------- |
+| `/`                                                       | Ligaübergreifendes Power-Ranking und Ligastärke                      |
+| `/leagues/`                                               | Übersicht der sieben Ligen                                           |
+| `/leagues/{slug}/` (z. B. `premier-league`, `eredivisie`) | Liga-Seiten mit Teams                                                |
+| `/teams/{slug}/`                                          | Teamprofile mit Ergebnissen und kommenden Spielen                    |
+| `/methodology/`                                           | Erklärung der Berechnung                                             |
+| `/blog/`, `/blog/{slug}/`                                 | Blog aus `content/blog/*.md` (siehe README dort)                     |
+| `/title-race/`                                            | Verlauf der Meisterchancen aller Ligen (Daten: `npm run title-race`) |
+| `/sitemap.xml`, `/robots.txt`                             | SEO (Indexierung bis zum Launch gesperrt)                            |
 
 Alle Inhalte stehen im ausgelieferten HTML, inklusive Canonical-URL, Open-Graph-Daten und BreadcrumbList-JSON-LD.
 
