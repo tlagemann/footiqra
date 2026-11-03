@@ -1,0 +1,44 @@
+# Manual check: can the UEFA association coefficients be fetched from GitHub Actions?
+# Prints status codes and a short summary of each candidate response. Nothing is committed.
+name: Probe UEFA coefficients
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Fetch candidates
+        run: |
+          UA="Mozilla/5.0 (compatible; FootiqraBot/1.0; +https://footiqra.com)"
+          for url in \
+            "https://comp.uefa.com/v2/coefficients?coefficientRange=OVERALL&coefficientType=MEN_ASSOCIATION&language=EN&page=1&pagesize=500&seasonYear=2027" \
+            "https://comp.uefa.com/v2/coefficients?coefficientRange=OVERALL&coefficientType=MEN_ASSOCIATION&language=EN&page=1&pagesize=500&seasonYear=2026" \
+            "https://www.uefa.com/nationalassociations/uefarankings/country/?year=2027" ; do
+            echo "=== $url"
+            code=$(curl -s -m 30 -A "$UA" -H "Accept: application/json" -o body.txt -w "%{http_code}" "$url")
+            echo "status $code, $(wc -c < body.txt) bytes"
+            head -c 1500 body.txt; echo
+            python3 - <<'PY' || true
+          import json
+          try:
+              d = json.load(open("body.txt"))
+          except Exception as e:
+              print("not json:", e); raise SystemExit
+          def keys(o, depth=0, prefix=""):
+              if depth > 4: return
+              if isinstance(o, dict):
+                  for k, v in list(o.items())[:25]:
+                      print("  " * depth + f"{prefix}{k}: {type(v).__name__}" + (f" = {v!r}"[:90] if not isinstance(v,(dict,list)) else ""))
+                      keys(v, depth + 1)
+              elif isinstance(o, list) and o:
+                  print("  " * depth + f"[list of {len(o)}]")
+                  keys(o[0], depth + 1)
+          keys(d)
+          PY
+          done
