@@ -36,16 +36,17 @@ Node.js 22 oder neuer (`.nvmrc`), npm 10 oder neuer.
 
 ## Seitenstruktur
 
-| URL                                                       | Inhalt                                                               |
-| --------------------------------------------------------- | -------------------------------------------------------------------- |
-| `/`                                                       | Ligaübergreifendes Power-Ranking und Ligastärke                      |
-| `/leagues/`                                               | Übersicht der sieben Ligen                                           |
-| `/leagues/{slug}/` (z. B. `premier-league`, `eredivisie`) | Liga-Seiten mit Teams                                                |
-| `/teams/{slug}/`                                          | Teamprofile mit Ergebnissen und kommenden Spielen                    |
-| `/methodology/`                                           | Erklärung der Berechnung                                             |
-| `/blog/`, `/blog/{slug}/`                                 | Blog aus `content/blog/*.md` (siehe README dort)                     |
-| `/title-race/`                                            | Verlauf der Meisterchancen aller Ligen (Daten: `npm run title-race`) |
-| `/sitemap.xml`, `/robots.txt`                             | SEO (Indexierung bis zum Launch gesperrt)                            |
+| URL                                                       | Inhalt                                                                |
+| --------------------------------------------------------- | --------------------------------------------------------------------- |
+| `/`                                                       | Ligaübergreifendes Power-Ranking und Ligastärke                       |
+| `/leagues/`                                               | Übersicht der sieben Ligen                                            |
+| `/leagues/{slug}/` (z. B. `premier-league`, `eredivisie`) | Liga-Seiten mit Teams                                                 |
+| `/teams/{slug}/`                                          | Teamprofile mit Ergebnissen und kommenden Spielen                     |
+| `/methodology/`                                           | Erklärung der Berechnung                                              |
+| `/blog/`, `/blog/{slug}/`                                 | Blog aus `content/blog/*.md` (siehe README dort)                      |
+| `/title-race/`                                            | Verlauf der Meisterchancen aller Ligen (Daten: `npm run title-race`)  |
+| `/uefa-coefficients/`                                     | UEFA-5-Jahres-Wertung, berechnet aus `content/uefa/` (Anleitung dort) |
+| `/sitemap.xml`, `/robots.txt`                             | SEO (Indexierung bis zum Launch gesperrt)                             |
 
 Alle Inhalte stehen im ausgelieferten HTML, inklusive Canonical-URL, Open-Graph-Daten und BreadcrumbList-JSON-LD.
 
@@ -62,6 +63,7 @@ src/store/        JSON-Datenspeicher: Format und Merge-Regeln
 scripts/          npm run ingest
 data/             Datenbestand (vom Workflow gepflegt, nicht von Hand ändern)
 content/blog/     Blogbeiträge als Markdown, eine Datei pro Sprache
+content/uefa/     Ergebnisse und Vorjahreswerte für die 5-Jahres-Wertung (von Hand gepflegt)
 docs/             Architektur und Deployment
 ```
 

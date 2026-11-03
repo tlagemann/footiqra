@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { getBlogPosts, translatedBlogSlugs } from "@/blog/posts";
 import { LEAGUES } from "@/config/leagues";
 import { getSiteUrl } from "@/config/site";
-import { getAllTeamSlugs, getLastUpdated, getMatchSitemapEntries } from "@/data";
+import { getAllTeamSlugs, getLastUpdated, getMatchSitemapEntries, getUefaRanking } from "@/data";
 import { paths, type Locale } from "@/i18n";
 
 export const dynamic = "force-static";
@@ -55,6 +55,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: m.lastModified,
     })),
   ];
+  const uefa = await getUefaRanking();
+  if (uefa && !uefa.historyIncomplete) {
+    pages.push({
+      page: (l: Locale) => paths(l).uefaRanking,
+      lastModified: uefa.lastMatch ?? undefined,
+    });
+  }
   if (getBlogPosts("en").length > 0 || getBlogPosts("de").length > 0) {
     const newest = [...getBlogPosts("en"), ...getBlogPosts("de")]
       .map((post) => post.updated)

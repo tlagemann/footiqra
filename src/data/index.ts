@@ -9,6 +9,7 @@ import {
 } from "./scorers";
 import "server-only";
 import { dataDir, listHistoryDates, readHistoryFile, readTitleRaceFile } from "@/store/fs";
+import { loadUefaRanking, type UefaRanking } from "@/uefa";
 import { buildTitleRace, playedBefore, type TitleRace, type TitleRaceFile } from "./title-race";
 import {
   referenceDate,
@@ -437,4 +438,19 @@ export function getTitleRace(leagueSlug: string): Promise<TitleRace | null> {
     titleRaceCache.set(leagueSlug, cached);
   }
   return cached;
+}
+
+export type { UefaRanking };
+
+let uefaPromise: Promise<UefaRanking | null> | undefined;
+
+/** UEFA five-season association ranking from content/uefa (see src/uefa/index.ts). */
+export function getUefaRanking(): Promise<UefaRanking | null> {
+  uefaPromise ??= loadSnapshot().then((snapshot) =>
+    loadUefaRanking(
+      (season) => snapshot.matchFiles.find((f) => f.competition === "CL" && f.season === season),
+      (id) => snapshot.teams.teams[String(id)]?.name ?? `team ${id}`,
+    ),
+  );
+  return uefaPromise;
 }

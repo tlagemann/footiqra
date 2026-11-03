@@ -1,12 +1,14 @@
 import { hasBlogPosts, translatedBlogSlugs } from "@/blog/posts";
 import { SOCIAL } from "@/config/site";
+import { getUefaRanking } from "@/data";
 import Link from "next/link";
 import { paths, tr, type Locale } from "@/i18n";
 import { ConsentSettingsLink } from "./consent";
 import { Logo } from "./logo";
 import { MainNav } from "./main-nav";
 
-export function SiteHeader({ locale }: { locale: Locale }) {
+export async function SiteHeader({ locale }: { locale: Locale }) {
+  const uefa = await getUefaRanking();
   return (
     <header className="sticky top-0 z-20 border-b border-line/70 bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6 lg:h-[4.5rem]">
@@ -19,7 +21,11 @@ export function SiteHeader({ locale }: { locale: Locale }) {
         </Link>
         <MainNav
           locale={locale}
-          blog={{ show: hasBlogPosts(), translated: translatedBlogSlugs() }}
+          blog={{
+            show: hasBlogPosts(),
+            translated: translatedBlogSlugs(),
+            uefa: uefa !== null && !uefa.historyIncomplete,
+          }}
         />
       </div>
     </header>

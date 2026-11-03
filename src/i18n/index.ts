@@ -35,6 +35,7 @@ const SEG = {
     privacy: "privacy",
     blog: "blog",
     titleRace: "title-race",
+    uefaRanking: "uefa-coefficients",
     /** Only below /leagues/{slug}/; keyOf() finds the top-level "predictions" first. */
     leaguePredictions: "predictions",
   },
@@ -54,6 +55,7 @@ const SEG = {
     privacy: "datenschutz",
     blog: "blog",
     titleRace: "titelrennen",
+    uefaRanking: "5-jahres-wertung",
     leaguePredictions: "prognosen",
   },
 } as const;
@@ -86,6 +88,7 @@ export function paths(locale: Locale) {
     privacy: `${b}${s.privacy}/`,
     blog: `${b}${s.blog}/`,
     titleRace: `${b}${s.titleRace}/`,
+    uefaRanking: `${b}${s.uefaRanking}/`,
     blogPost: (slug: string) => `${b}${s.blog}/${slug}/`,
   };
 }

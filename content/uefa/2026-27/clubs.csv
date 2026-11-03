@@ -1,0 +1,39 @@
+# Every club that plays in a UEFA competition this season, with its country (3-letter code from associations.csv).
+# fd_id: only for Champions League league phase clubs, so their matches are imported automatically.
+club,country,fd_id
+Arsenal,ENG,57
+Aston Villa,ENG,58
+Liverpool,ENG,64
+Manchester City,ENG,65
+Manchester United,ENG,66
+Atlético Madrid,ESP,78
+Barcelona,ESP,81
+Real Madrid,ESP,86
+Real Betis,ESP,90
+Villarreal,ESP,94
+AS Roma,ITA,100
+Inter,ITA,108
+Napoli,ITA,113
+Como,ITA,7397
+Borussia Dortmund,GER,4
+Bayern München,GER,5
+VfB Stuttgart,GER,10
+RB Leipzig,GER,721
+Paris Saint-Germain,FRA,524
+Lille,FRA,521
+Lens,FRA,546
+Sporting CP,POR,498
+FC Porto,POR,503
+PSV,NED,674
+Feyenoord,NED,675
+Galatasaray,TUR,610
+Fenerbahçe,TUR,613
+Club Brugge,BEL,851
+Slavia Praha,CZE,930
+Shakhtar Donetsk,UKR,1887
+AEK Athens,GRE,1899
+LASK,AUT,2016
+Viking,NOR,5720
+Bodø/Glimt,NOR,5721
+Slovan Bratislava,SVK,7509
+Sabah,AZE,10233

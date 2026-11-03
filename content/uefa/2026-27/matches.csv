@@ -1,0 +1,7 @@
+# Results of the season, one match per line (see README.md).
+# competition: UCL, UEL or UECL. round: PR, Q1, Q2, Q3, PO, LP, KPO, R16, QF, SF, F.
+# Champions League from the league phase on is imported automatically: enter only PR, Q1, Q2, Q3 and PO there.
+# score: after extra time, e.g. 2-1. Penalty shoot-out: the draw plus "pen", e.g. 1-1 pen. Empty = not played yet.
+# Example:
+# 2026-07-08,UECL,Q1,Shamrock Rovers,Víkingur,2-0
+date,competition,round,home,away,score

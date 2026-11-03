@@ -24,6 +24,8 @@ interface NavItem {
 export interface BlogNav {
   show: boolean;
   translated: string[];
+  /** Show the UEFA five-year ranking (only once its earlier seasons are complete). */
+  uefa?: boolean;
 }
 
 function buildNav(locale: Locale, blog: BlogNav): NavItem[] {
@@ -95,6 +97,7 @@ function buildNav(locale: Locale, blog: BlogNav): NavItem[] {
           !isProjection(path) &&
           !path.endsWith(`/${locale === "de" ? "tabellenrechner" : "table-calculator"}/`)) ||
         path.startsWith(p.championsLeague) ||
+        path.startsWith(p.uefaRanking) ||
         path.startsWith(p.scorers),
       groups: [
         {
@@ -122,6 +125,15 @@ function buildNav(locale: Locale, blog: BlogNav): NavItem[] {
                 "Europas beste Torjäger auf einer Skala",
               ),
             },
+            ...(blog.uefa
+              ? [
+                  {
+                    href: p.uefaRanking,
+                    label: t("UEFA 5-year ranking", "5-Jahres-Wertung"),
+                    hint: t("Country coefficients", "Länderkoeffizienten"),
+                  },
+                ]
+              : []),
             {
               href: p.leagues,
               label: t("All leagues", "Alle Ligen"),
