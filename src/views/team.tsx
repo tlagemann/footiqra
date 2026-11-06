@@ -6,7 +6,7 @@ import { JsonLd } from "@/components/json-ld";
 import { ForecastList } from "@/components/forecast-list";
 import { LastUpdated, MatchList } from "@/components/match-list";
 import { Crest, FormGuide, SectionHeading } from "@/components/ui";
-import { getLeagueBySlug } from "@/config/leagues";
+import { getLeagueBySlug, NO_ARTICLE } from "@/config/leagues";
 import {
   getAllTeamSlugs,
   getRankHistory,
@@ -54,8 +54,10 @@ function tableExcerpt<T extends { team: { slug: string | null } }>(rows: T[], sl
   return rows.slice(start, start + 5);
 }
 
-/** English league names used without "the" ("4th in La Liga"). */
-const NO_ARTICLE = new Set(["la-liga", "serie-a", "ligue-1"]);
+/** One letter per result: W/D/L in English, S/U/N in German. */
+function formLetter(locale: Locale, r: "W" | "D" | "L"): string {
+  return locale === "de" ? { W: "S", D: "U", L: "N" }[r] : r;
+}
 
 export async function teamMetadata(locale: Locale, slug: string): Promise<Metadata> {
   if (slug === NO_TEAMS_PLACEHOLDER) {
@@ -71,37 +73,57 @@ export async function teamMetadata(locale: Locale, slug: string): Promise<Metada
   if (result.status !== "ok") return {};
   const { team } = result.data;
   const league = getLeagueBySlug(team.leagueSlug);
-  const [row, table] = await Promise.all([
-    getTeamRanking(team.slug),
-    getLeagueTable(team.leagueSlug),
-  ]);
-  const standing = table?.rows.find((r) => r.team.slug === team.slug);
+  const [row, power] = await Promise.all([getTeamRanking(team.slug), getPowerRanking()]);
   const leagueName = league?.name ?? tr(locale, "Europe", "Europa");
-  const season = table ? ` ${seasonLabel(table.season)}` : "";
-  const { results, fixtures } = result.data;
-  const lead = standing
+  const { fixtures } = result.data;
+  // The snippet leads with what only Footiqra has (strength, form, win chance);
+  // plain league tables are better served by Google's own sports box.
+  const leagueRank =
+    power.status === "ok"
+      ? power.data.rows
+          .filter((r) => r.team.leagueSlug === team.leagueSlug)
+          .findIndex((r) => r.team.slug === team.slug) + 1
+      : 0;
+  const lead = row
     ? tr(
         locale,
-        `${team.name} are ${ordinal(locale, standing.position)} in ${NO_ARTICLE.has(team.leagueSlug) ? "" : "the "}${leagueName} with ${standing.points} points.`,
-        `${team.name} ist ${standing.position}. der ${leagueName} mit ${standing.points} Punkten.`,
+        `${team.name} are #${row.rank} in the power ranking of Europe's top leagues${leagueRank > 0 ? ` (#${leagueRank} in ${NO_ARTICLE.has(team.leagueSlug) ? "" : "the "}${leagueName})` : ""}.`,
+        `${team.name} ist Nr. ${row.rank} im Power-Ranking der Top-Ligen Europas${leagueRank > 0 ? ` (Nr. ${leagueRank} der ${leagueName})` : ""}.`,
       )
     : `${team.name} (${leagueName}).`;
-  const last = results[0];
+  const form =
+    row && row.form.length > 0
+      ? `${tr(locale, "Form", "Form")}: ${row.form.map((r) => formLetter(locale, r)).join(" ")}.`
+      : null;
+  const nextForecast = (await getUpcomingForecasts()).find(
+    (f) => f.home.slug === team.slug || f.away.slug === team.slug,
+  );
   const next = fixtures[0];
-  const facts = [
-    lead,
-    last ? `${tr(locale, "Last match", "Letztes Spiel")}: ${scoreLine(last)}.` : null,
-    next
+  const nextLine = nextForecast
+    ? (() => {
+        const home = nextForecast.home.slug === team.slug;
+        const opponent = home ? nextForecast.away.name : nextForecast.home.name;
+        const win = fmtPercent(
+          locale,
+          home ? nextForecast.percentages.home : nextForecast.percentages.away,
+        );
+        const day = fmtDate(locale, nextForecast.utcDate, { day: "numeric", month: "long" });
+        return tr(
+          locale,
+          `On ${day} ${home ? "vs" : "at"} ${opponent}: win chance ${win}.`,
+          `Am ${day} ${home ? "gegen" : "bei"} ${opponent}: Siegchance ${win}.`,
+        );
+      })()
+    : next
       ? `${tr(locale, "Next", "Nächstes Spiel")}: ${next.home.name} ${tr(locale, "vs", "gegen")} ${next.away.name} ${tr(locale, "on", "am")} ${fmtDate(locale, next.utcDate, { day: "numeric", month: "long" })}.`
-      : null,
-    row ? tr(locale, `Power ranking #${row.rank}.`, `Power-Ranking: Platz ${row.rank}.`) : null,
-  ].filter(Boolean);
+      : null;
+  const facts = [lead, form, nextLine].filter(Boolean);
   return pageMetadata({
     locale,
     title: tr(
       locale,
-      `${team.name}: table, results and fixtures${season}`,
-      `${team.name}: Tabelle, Spiele und Ergebnisse${season}`,
+      `${team.name}: form, strength and power ranking`,
+      `${team.name}: Form, Stärke und Power-Ranking`,
     ),
     description: facts.join(" "),
     paths: { en: paths("en").team(team.slug), de: paths("de").team(team.slug) },
@@ -181,7 +203,7 @@ export async function TeamView({ locale, slug }: { locale: Locale; slug: string 
           <h1 className="mt-1 font-display text-4xl font-extrabold tracking-[-0.045em] sm:text-6xl">
             {team.name}
             <span className="mt-2 block font-sans text-lg font-semibold tracking-normal text-muted sm:text-xl">
-              {t("Table, results and fixtures", "Tabelle, Spiele und Ergebnisse")}
+              {t("Form, strength and power ranking", "Form, Stärke und Power-Ranking")}
               {table ? ` ${seasonLabel(table.season)}` : ""}
             </span>
           </h1>

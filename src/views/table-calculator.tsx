@@ -20,6 +20,12 @@ export function tableCalculatorStaticParams() {
   return LEAGUES.map((league) => ({ league: league.slug }));
 }
 
+function remaining(locale: Locale, n: number | undefined): string {
+  return n
+    ? tr(locale, `the ${n} remaining matches`, `die ${n} restlichen Spiele`)
+    : tr(locale, "the remaining matches", "die restlichen Spiele");
+}
+
 export async function tableCalculatorMetadata(locale: Locale, slug: string): Promise<Metadata> {
   const league = getLeagueBySlug(slug);
   if (!league) return {};
@@ -27,15 +33,17 @@ export async function tableCalculatorMetadata(locale: Locale, slug: string): Pro
   const season = data ? ` ${seasonLabel(data.season)}` : "";
   return pageMetadata({
     locale,
+    // Searches come in both orders ("serie a tabellenrechner", "tabellenrechner serie a");
+    // the title leads with the tool, the description names the outcome people want.
     title: tr(
       locale,
-      `${league.name}${season} table calculator`,
-      `${league.name}${season}: Tabellenrechner`,
+      `${league.name} table calculator${season}: predict the table`,
+      `Tabellenrechner ${league.name}${season}: Tabelle selbst tippen`,
     ),
     description: tr(
       locale,
-      `Enter your own results for all ${data?.fixtures.length ?? ""} remaining ${league.name} matches and see the final table at once. Save it and share it with friends.`,
-      `Eigene Ergebnisse für alle ${data?.fixtures.length ?? ""} restlichen Spiele der ${league.name} eintragen und sofort die Abschlusstabelle sehen. Speichern und mit Freunden teilen.`,
+      `Free ${league.name} table calculator: tip ${remaining(locale, data?.fixtures.length)} and see who wins the title and who goes down. No sign-up, save and share.`,
+      `Kostenloser Tabellenrechner ${league.name}: ${remaining(locale, data?.fixtures.length)} tippen und sehen, wer Meister wird und wer absteigt. Ohne Anmeldung, speichern und teilen.`,
     ),
     paths: {
       en: paths("en").leagueCalculator(league.slug),
@@ -151,11 +159,15 @@ export async function TableCalculatorView({ locale, slug }: { locale: Locale; sl
 export function tableCalculatorIndexMetadata(locale: Locale): Metadata {
   return pageMetadata({
     locale,
-    title: tr(locale, "Football table calculator", "Fußball-Tabellenrechner"),
+    title: tr(
+      locale,
+      "Football table calculator for 7 top leagues",
+      "Tabellenrechner Fußball: 7 Top-Ligen selbst tippen",
+    ),
     description: tr(
       locale,
-      "Table calculator for the Premier League, La Liga, Serie A, Bundesliga, Ligue 1, Primeira Liga and Eredivisie: enter your own results and see the final table.",
-      "Tabellenrechner für Premier League, La Liga, Serie A, Bundesliga, Ligue 1, Primeira Liga und Eredivisie: eigene Ergebnisse eintragen und die Abschlusstabelle sehen.",
+      "Free table calculator for the Premier League, La Liga, Serie A, Bundesliga, Ligue 1, Primeira Liga and Eredivisie: tip the rest of the season, see the final table.",
+      "Kostenloser Tabellenrechner für Bundesliga, Premier League, La Liga, Serie A, Ligue 1, Primeira Liga und Eredivisie: Restspiele tippen, Tabelle sehen.",
     ),
     paths: { en: paths("en").tableCalculator, de: paths("de").tableCalculator },
     image: ogImage.leagues,

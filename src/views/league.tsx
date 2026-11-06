@@ -10,7 +10,7 @@ import { chance } from "@/components/projection-table";
 import { RankingTable } from "@/components/ranking-table";
 import { StandingsTable } from "@/components/standings-table";
 import { Crest, Eyebrow, SectionHeading } from "@/components/ui";
-import { getLeagueBySlug, LEAGUES } from "@/config/leagues";
+import { getLeagueBySlug, LEAGUES, NO_ARTICLE } from "@/config/leagues";
 import {
   getLeagueScorers,
   getLeagueProjection,
@@ -30,21 +30,38 @@ export function leagueStaticParams() {
   return LEAGUES.map((league) => ({ league: league.slug }));
 }
 
-export function leagueMetadata(locale: Locale, slug: string): Metadata {
+export async function leagueMetadata(locale: Locale, slug: string): Promise<Metadata> {
   const league = getLeagueBySlug(slug);
   if (!league) return {};
+  const ranking = await getPowerRanking();
+  const rows =
+    ranking.status === "ok"
+      ? ranking.data.rows.filter((r) => r.team.leagueSlug === league.slug)
+      : [];
+  const best = rows[0];
+  const lead = best
+    ? tr(
+        locale,
+        `Who is the best team in ${NO_ARTICLE.has(league.slug) ? "" : "the "}${league.name} right now? All ${rows.length} clubs rated by strength, not points: ${best.team.shortName || best.team.name} lead.`,
+        `Wer ist aktuell das stärkste Team der ${league.name}? Alle ${rows.length} Vereine nach Stärke statt Punkten bewertet: ${best.team.shortName || best.team.name} führt.`,
+      )
+    : tr(
+        locale,
+        `All ${league.name} clubs rated by strength, not points.`,
+        `Alle Vereine der ${league.name} nach Stärke statt Punkten bewertet.`,
+      );
   return pageMetadata({
     locale,
     title: tr(
       locale,
-      `${league.name} power ranking, table and form`,
-      `${league.name}: Power-Ranking, Tabelle und Form`,
+      `${league.name} power rankings: every club by strength`,
+      `${league.name} Power-Ranking: alle Vereine nach Stärke`,
     ),
-    description: tr(
+    description: `${lead} ${tr(
       locale,
-      `${league.name} power ranking: every club rated by strength, plus the table, form, next matches and the predicted final standings. Updated several times a day.`,
-      `${league.name} im Power-Ranking: alle Vereine nach Stärke, dazu Tabelle, Form, nächste Spiele und die Prognose der Abschlusstabelle. Mehrmals täglich aktuell.`,
-    ),
+      "Plus form, table and title chances.",
+      "Dazu Form, Tabelle und Meisterchancen.",
+    )}`,
     paths: { en: paths("en").league(league.slug), de: paths("de").league(league.slug) },
     image: ogImage.league(league.slug),
   });

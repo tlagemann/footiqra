@@ -89,3 +89,6 @@ export function leagueCountryList(locale: Locale = "en"): string {
 export function getLeagueBySlug(slug: string): LeagueDefinition | undefined {
   return LEAGUES.find((league) => league.slug === slug);
 }
+
+/** Leagues named without "the" in English ("in La Liga", but "in the Bundesliga"). */
+export const NO_ARTICLE: ReadonlySet<string> = new Set(["la-liga", "serie-a", "ligue-1"]);
