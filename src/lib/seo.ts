@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getSiteUrl, SITE, SOCIAL } from "@/config/site";
+import { getSiteUrl, SITE, SOCIAL, OWNER } from "@/config/site";
 import type { Locale } from "@/i18n";
 
 /** Longest page title that still shows in full in Google results (roughly). */
@@ -100,5 +100,11 @@ export function organizationJsonLd() {
     url: `${base}/`,
     logo: `${base}/icon.svg`,
     sameAs: Object.values(SOCIAL).map((s) => s.url),
+    founder: { "@type": "Person", name: OWNER.name, url: OWNER.url },
+    parentOrganization: {
+      "@type": "Organization",
+      name: OWNER.business.name,
+      url: OWNER.business.url,
+    },
   };
 }

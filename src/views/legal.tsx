@@ -66,6 +66,22 @@ function ImpressumDe() {
       </section>
 
       <section className="space-y-2">
+        <h2 className={h2}>Betreiber</h2>
+        <p>
+          Footiqra ist ein Projekt von Tim Lagemann. Mehr über mich und meine Arbeit im
+          Online-Marketing (SEO und GEO) finden Sie auf{" "}
+          <a href="https://tim-lagemann.de/" className="underline underline-offset-4">
+            tim-lagemann.de
+          </a>{" "}
+          und{" "}
+          <a href="https://online-creators.de/" className="underline underline-offset-4">
+            online-creators.de
+          </a>
+          .
+        </p>
+      </section>
+
+      <section className="space-y-2">
         <h2 className={h2}>Umsatzsteuer-ID</h2>
         <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz: DE332916944</p>
       </section>
@@ -203,6 +219,22 @@ function LegalNoticeEn() {
           <a href="mailto:tlagemann@online-creators.de" className="underline underline-offset-4">
             tlagemann@online-creators.de
           </a>
+        </p>
+      </section>
+
+      <section className="space-y-2">
+        <h2 className={h2}>Operator</h2>
+        <p>
+          Footiqra is a project by Tim Lagemann. More about me and my work in online marketing (SEO
+          and GEO) at{" "}
+          <a href="https://tim-lagemann.de/" className="underline underline-offset-4">
+            tim-lagemann.de
+          </a>{" "}
+          and{" "}
+          <a href="https://online-creators.de/" className="underline underline-offset-4">
+            online-creators.de
+          </a>
+          .
         </p>
       </section>
 

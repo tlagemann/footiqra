@@ -6,6 +6,13 @@ export const SITE = {
   locale: "en",
 } as const;
 
+/** The person and business behind Footiqra (footer, legal notice, structured data). */
+export const OWNER = {
+  name: "Tim Lagemann",
+  url: "https://tim-lagemann.de/",
+  business: { name: "Online Creators", url: "https://online-creators.de/" },
+} as const;
+
 /** Public social profiles (linked in the footer and listed as `sameAs` in structured data). */
 export const SOCIAL = {
   instagram: { label: "Instagram", url: "https://www.instagram.com/footiqra/" },

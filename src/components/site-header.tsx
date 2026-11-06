@@ -1,5 +1,5 @@
 import { hasBlogPosts, translatedBlogSlugs } from "@/blog/posts";
-import { SOCIAL } from "@/config/site";
+import { SOCIAL, OWNER } from "@/config/site";
 import { getUefaRanking } from "@/data";
 import Link from "next/link";
 import { paths, tr, type Locale } from "@/i18n";
@@ -57,6 +57,19 @@ export function SiteFooter({ locale }: { locale: Locale }) {
             )}
           </p>
           <p className="text-sm text-muted">{t("Data", "Daten")}: football-data.org</p>
+          <p className="text-sm text-muted">
+            {t("A project by", "Ein Projekt von")}{" "}
+            <a href={OWNER.url} className="underline underline-offset-4 hover:text-foreground">
+              {OWNER.name}
+            </a>{" "}
+            {t("and", "und")}{" "}
+            <a
+              href={OWNER.business.url}
+              className="underline underline-offset-4 hover:text-foreground"
+            >
+              {OWNER.business.name}
+            </a>
+          </p>
           <a
             href={SOCIAL.instagram.url}
             target="_blank"
