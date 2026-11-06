@@ -42,6 +42,7 @@ import {
   competitionTable,
   crestPath,
   leagueTable,
+  MATCH_PAGE_WINDOW,
   matchSlugs,
   teamMatches,
   teamsOfLeague,
@@ -248,17 +249,39 @@ export async function getMatchSitemapEntries(): Promise<{ slug: string; lastModi
   const asOf = snapshot.meta.lastSuccessfulRunUtc;
   if (!asOf) return [];
   const slugs = matchSlugs(snapshot);
+  const hour = 3600 * 1000;
+  const isPlayed = (status: string) => status === "FINISHED" || status === "AWARDED";
+  // Last time each club played: its form, rating and table change then, and with
+  // them the content of its upcoming match pages.
+  const lastPlayed = new Map<number, number>();
+  for (const file of snapshot.matchFiles) {
+    for (const m of file.matches) {
+      if (!isPlayed(m.status)) continue;
+      const t = Date.parse(m.utcDate) + 3 * hour;
+      for (const id of [m.homeTeamId, m.awayTeamId]) {
+        if (t > (lastPlayed.get(id) ?? 0)) lastPlayed.set(id, t);
+      }
+    }
+  }
+  const asOfMs = Date.parse(asOf);
   const entries: { slug: string; lastModified: string }[] = [];
   for (const file of snapshot.matchFiles) {
     for (const m of file.matches) {
       const slug = slugs.get(m.id);
       if (!slug) continue;
-      const played = m.status === "FINISHED" || m.status === "AWARDED";
+      const kickoff = Date.parse(m.utcDate);
       // The provider touches lastUpdated of every match daily, so it is no use here.
-      const changed = played
-        ? new Date(Date.parse(m.utcDate) + 3 * 3600 * 1000).toISOString()
-        : asOf;
-      entries.push({ slug, lastModified: changed < asOf ? changed : asOf });
+      // Upcoming pages are rebuilt every few hours, but only count as changed when the
+      // page appeared or one of the two clubs played: a lastmod that moves on every
+      // run teaches search engines to ignore it.
+      const changed = isPlayed(m.status)
+        ? kickoff + 3 * hour
+        : Math.max(
+            kickoff - MATCH_PAGE_WINDOW.futureDays * 24 * hour,
+            Math.min(lastPlayed.get(m.homeTeamId) ?? 0, kickoff),
+            Math.min(lastPlayed.get(m.awayTeamId) ?? 0, kickoff),
+          );
+      entries.push({ slug, lastModified: new Date(Math.min(changed, asOfMs)).toISOString() });
     }
   }
   return entries;

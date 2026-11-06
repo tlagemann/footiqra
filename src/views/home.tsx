@@ -22,6 +22,7 @@ import {
   getRankChanges,
   nextWindow,
   topAcrossLeagues,
+  type MatchForecast,
 } from "@/data";
 import { fmtInt, paths, tr, type Locale } from "@/i18n";
 import { organizationJsonLd, pageMetadata } from "@/lib/seo";
@@ -41,6 +42,40 @@ export function homeMetadata(locale: Locale): Metadata {
   };
 }
 
+/** Number of big games on the home page; each links to its match page. */
+const BIG_GAMES = 6;
+/** Matches of the locale's home league that the home page always shows, if any are on. */
+const HOME_LEAGUE_GAMES = 2;
+
+/**
+ * The German page serves readers who search for Bundesliga matches above all, so
+ * it keeps the biggest Bundesliga games of the week in the list, replacing the
+ * smallest games of other leagues (Champions League games are never replaced).
+ */
+function withHomeLeague(
+  games: MatchForecast[],
+  week: readonly MatchForecast[],
+  leagueSlug: string | null,
+): MatchForecast[] {
+  if (!leagueSlug) return games;
+  const inLeague = (f: MatchForecast) => f.leagueSlug === leagueSlug;
+  const missing = HOME_LEAGUE_GAMES - games.filter(inLeague).length;
+  if (missing <= 0) return games;
+  const ids = new Set(games.map((f) => f.id));
+  const extra = biggestMatches(
+    week.filter((f) => inLeague(f) && !ids.has(f.id)),
+    missing,
+  );
+  const result = [...games];
+  for (const add of extra) {
+    // biggestMatches orders biggest first, so the last replaceable game is the smallest.
+    const i = result.findLastIndex((f) => !inLeague(f) && f.competition !== "CL");
+    if (i === -1) break;
+    result[i] = add;
+  }
+  return result;
+}
+
 export async function HomeView({ locale }: { locale: Locale }) {
   const t = (en: string, de: string) => tr(locale, en, de);
   const p = paths(locale);
@@ -49,9 +84,12 @@ export async function HomeView({ locale }: { locale: Locale }) {
   const performance = topAcrossLeagues(await getAllTableVsStrength(10), 3);
   const weekAgo = await getWeekAgo();
   const rankChanges = await getRankChanges();
-  const bigGames = biggestMatches(nextWindow(await getUpcomingForecasts(), 7), 3).sort(
-    (a, b) => Date.parse(a.utcDate) - Date.parse(b.utcDate),
-  );
+  const week = nextWindow(await getUpcomingForecasts(), 7);
+  const bigGames = withHomeLeague(
+    biggestMatches(week, BIG_GAMES),
+    week,
+    locale === "de" ? "bundesliga" : null,
+  ).sort((a, b) => Date.parse(a.utcDate) - Date.parse(b.utcDate));
   const projections = (
     await Promise.all(
       LEAGUES.map(async (l) => ({ league: l, p: await getLeagueProjection(l.slug) })),

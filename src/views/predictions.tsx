@@ -39,6 +39,10 @@ export async function PredictionsView({ locale }: { locale: Locale }) {
     getLastUpdated(),
   ]);
   const forecasts = nextWindow(all, 7);
+  // Matches beyond the first week that already have a page (up to 14 days ahead):
+  // linked here so search engines find each match page as soon as it exists.
+  const shown = new Set(forecasts.map((f) => f.id));
+  const later = all.filter((f) => !shown.has(f.id) && f.slug);
 
   return (
     <div className="space-y-14">
@@ -125,6 +129,21 @@ export async function PredictionsView({ locale }: { locale: Locale }) {
           />
         )}
       </section>
+
+      {later.length > 0 && (
+        <section aria-labelledby="later">
+          <SectionHeading
+            id="later"
+            title={t("The week after", "Die Woche danach")}
+            aside={
+              <span className="text-sm text-muted">
+                {later.length} {t("matches", "Spiele")}
+              </span>
+            }
+          />
+          <ForecastList forecasts={later} locale={locale} />
+        </section>
+      )}
 
       <section aria-labelledby="how" className="max-w-3xl space-y-3 text-muted">
         <h2
