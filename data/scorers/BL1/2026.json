@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "BL1",
   "season": 2026,
-  "fetchedUtc": "2026-11-06T19:03:26.908Z",
+  "fetchedUtc": "2026-11-06T21:48:43.824Z",
   "scorers": [
     {
       "playerId": 304,
@@ -104,6 +104,15 @@
       "playedMatches": 8
     },
     {
+      "playerId": 82442,
+      "name": "Joseph Scally",
+      "teamId": 18,
+      "goals": 4,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
       "playerId": 183780,
       "name": "Maurice Krattenmacher",
       "teamId": 719,
@@ -176,15 +185,6 @@
       "playedMatches": 8
     },
     {
-      "playerId": 82442,
-      "name": "Joseph Scally",
-      "teamId": 18,
-      "goals": 3,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 9
-    },
-    {
       "playerId": 9452,
       "name": "Maximilian Eggestein",
       "teamId": 17,
@@ -228,6 +228,15 @@
       "assists": 3,
       "penalties": null,
       "playedMatches": 8
+    },
+    {
+      "playerId": 50215,
+      "name": "Miro Muheim",
+      "teamId": 7,
+      "goals": 3,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 5
     },
     {
       "playerId": 6523,
@@ -534,15 +543,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 9
-    },
-    {
-      "playerId": 50215,
-      "name": "Miro Muheim",
-      "teamId": 7,
-      "goals": 2,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 5
     },
     {
       "playerId": 282450,

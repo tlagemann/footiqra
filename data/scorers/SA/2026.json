@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "SA",
   "season": 2026,
-  "fetchedUtc": "2026-11-06T19:03:20.391Z",
+  "fetchedUtc": "2026-11-06T21:48:37.573Z",
   "scorers": [
     {
       "playerId": 252836,
@@ -200,7 +200,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 156912,
@@ -317,7 +317,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 2097,
@@ -425,16 +425,16 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 188464,
       "name": "Antoine Hainaut",
       "teamId": 454,
       "goals": 2,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 8658,
@@ -731,7 +731,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 1852,
@@ -803,7 +803,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 187435,
@@ -812,7 +812,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 122407,
@@ -857,7 +857,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 3851,

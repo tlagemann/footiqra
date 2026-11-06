@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "FL1",
   "season": 2026,
-  "fetchedUtc": "2026-11-06T19:02:33.771Z",
+  "fetchedUtc": "2026-11-06T21:47:50.538Z",
   "rows": [
     {
       "position": 1,
@@ -114,6 +114,18 @@
     },
     {
       "position": 10,
+      "teamId": 511,
+      "playedGames": 10,
+      "won": 3,
+      "draw": 4,
+      "lost": 3,
+      "points": 13,
+      "goalsFor": 15,
+      "goalsAgainst": 14,
+      "goalDifference": 1
+    },
+    {
+      "position": 11,
       "teamId": 512,
       "playedGames": 9,
       "won": 3,
@@ -125,7 +137,7 @@
       "goalDifference": 4
     },
     {
-      "position": 11,
+      "position": 12,
       "teamId": 525,
       "playedGames": 9,
       "won": 3,
@@ -137,28 +149,16 @@
       "goalDifference": -1
     },
     {
-      "position": 12,
-      "teamId": 511,
-      "playedGames": 9,
-      "won": 2,
-      "draw": 4,
-      "lost": 3,
-      "points": 10,
-      "goalsFor": 12,
-      "goalsAgainst": 13,
-      "goalDifference": -1
-    },
-    {
       "position": 13,
       "teamId": 576,
-      "playedGames": 9,
+      "playedGames": 10,
       "won": 3,
       "draw": 1,
-      "lost": 5,
+      "lost": 6,
       "points": 10,
-      "goalsFor": 17,
-      "goalsAgainst": 19,
-      "goalDifference": -2
+      "goalsFor": 18,
+      "goalsAgainst": 22,
+      "goalDifference": -4
     },
     {
       "position": 14,

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "FL1",
   "season": 2026,
-  "fetchedUtc": "2026-11-06T19:03:34.381Z",
+  "fetchedUtc": "2026-11-06T21:48:51.563Z",
   "scorers": [
     {
       "playerId": 552,
@@ -194,6 +194,24 @@
       "playedMatches": 5
     },
     {
+      "playerId": 136733,
+      "name": "Gio Reyna",
+      "teamId": 576,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 10
+    },
+    {
+      "playerId": 215679,
+      "name": "Thomas Jørgensen",
+      "teamId": 511,
+      "goals": 3,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 10
+    },
+    {
       "playerId": 3714,
       "name": "Amine Harit",
       "teamId": 516,
@@ -302,15 +320,6 @@
       "playedMatches": 9
     },
     {
-      "playerId": 136733,
-      "name": "Gio Reyna",
-      "teamId": 576,
-      "goals": 2,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
       "playerId": 206809,
       "name": "Samuel Amo-Ameyaw",
       "teamId": 576,
@@ -336,15 +345,6 @@
       "assists": 2,
       "penalties": null,
       "playedMatches": 9
-    },
-    {
-      "playerId": 215679,
-      "name": "Thomas Jørgensen",
-      "teamId": 511,
-      "goals": 2,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 10
     },
     {
       "playerId": 218468,
