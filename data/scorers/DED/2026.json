@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "DED",
   "season": 2026,
-  "fetchedUtc": "2026-11-06T16:00:21.789Z",
+  "fetchedUtc": "2026-11-06T19:03:50.769Z",
   "scorers": [
     {
       "playerId": 121280,
@@ -236,7 +236,7 @@
       "goals": 4,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 191058,
@@ -272,7 +272,7 @@
       "goals": 3,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 249025,
@@ -524,7 +524,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 282165,
@@ -614,7 +614,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 214414,
@@ -788,13 +788,22 @@
       "playedMatches": 11
     },
     {
+      "playerId": 80336,
+      "name": "Sydney van Hooijdonk",
+      "teamId": 684,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
       "playerId": 67920,
       "name": "Thijs Oosting",
       "teamId": 684,
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 283109,
@@ -894,15 +903,6 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 11
-    },
-    {
-      "playerId": 7602,
-      "name": "Bryan Linssen",
-      "teamId": 1915,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 10
     }
   ]
 }
