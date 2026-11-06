@@ -56,7 +56,7 @@ Zwei Dinge sind wichtig:
 - **Kein Europapokal.** Brighton spielt nur in der Liga und kann sich voll auf die Premier League konzentrieren. Gleichzeitig beruht das Rating auf weniger Spielen als bei Champions-League-Vereinen.
 - **Die nächsten Wochen sehen machbar aus.** Brentford, Hull City und Newcastle sind die nächsten Gegner. Starke Ergebnisse dort würden Brighton in den Top Ten halten.
 
-Brightons Rating und Form zeigt die [Vereinsseite](/de/vereine/brighton-and-hove-albion-fc/), das Rennen an der Spitze die [Prognose der Premier League](/de/ligen/premier-league/prognose/).
+Brightons Rating und Form zeigt die [Vereinsseite](/de/vereine/brighton-and-hove-albion-fc/), das Rennen an der Spitze die [Prognose der Premier League](/de/ligen/premier-league/tabellenprognose/).
 
 ## Häufige Fragen
 

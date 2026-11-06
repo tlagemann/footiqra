@@ -33,7 +33,7 @@ function buildNav(locale: Locale, blog: BlogNav): NavItem[] {
   const t = (en: string, de: string) => tr(locale, en, de);
   const leaguesPrefix = p.leagues;
   const isProjection = (path: string) =>
-    path.endsWith(`/${locale === "de" ? "prognose" : "projection"}/`) ||
+    path.endsWith(`/${locale === "de" ? "tabellenprognose" : "projection"}/`) ||
     (path.startsWith(leaguesPrefix) &&
       path.endsWith(`/${locale === "de" ? "prognosen" : "predictions"}/`));
   return [
@@ -80,11 +80,11 @@ function buildNav(locale: Locale, blog: BlogNav): NavItem[] {
           ],
         },
         {
-          title: t("Matchday predictions", "Spieltagsprognosen"),
+          title: t("Matchday predictions", "Spieltipps"),
           links: LEAGUES.map((l) => ({ href: p.leaguePredictions(l.slug), label: l.name })),
         },
         {
-          title: t("Predicted final tables", "Prognose Abschlusstabellen"),
+          title: t("Predicted final tables", "Tabellenprognosen"),
           links: LEAGUES.map((l) => ({ href: p.projection(l.slug), label: l.name })),
         },
       ],

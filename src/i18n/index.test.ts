@@ -4,7 +4,7 @@ import { counterpart, fmtChance, fmtInt, ordinal, paths, signed } from "./index"
 describe("paths", () => {
   it("builds English paths at the root and German paths under /de/", () => {
     expect(paths("en").projection("bundesliga")).toBe("/leagues/bundesliga/projection/");
-    expect(paths("de").projection("bundesliga")).toBe("/de/ligen/bundesliga/prognose/");
+    expect(paths("de").projection("bundesliga")).toBe("/de/ligen/bundesliga/tabellenprognose/");
     expect(paths("de").team("fc-bayern-munchen")).toBe("/de/vereine/fc-bayern-munchen/");
     expect(paths("de").home).toBe("/de/");
   });
@@ -15,7 +15,7 @@ describe("counterpart", () => {
     ["/", "/de/"],
     ["/leagues/", "/de/ligen/"],
     ["/leagues/serie-a/", "/de/ligen/serie-a/"],
-    ["/leagues/serie-a/projection/", "/de/ligen/serie-a/prognose/"],
+    ["/leagues/serie-a/projection/", "/de/ligen/serie-a/tabellenprognose/"],
     ["/leagues/serie-a/predictions/", "/de/ligen/serie-a/prognosen/"],
     ["/teams/arsenal-fc/", "/de/vereine/arsenal-fc/"],
     ["/matches/a-vs-b-2026-27/", "/de/spiele/a-vs-b-2026-27/"],

@@ -202,7 +202,7 @@ export async function LeagueView({ locale, slug }: { locale: Locale; slug: strin
         <section aria-labelledby="projection-teaser">
           <SectionHeading
             id="projection-teaser"
-            title={t("Predicted final table", "Prognose Abschlusstabelle")}
+            title={t("Predicted final table", "Tabellenprognose")}
             aside={
               <span className="flex flex-wrap items-center gap-4 text-sm">
                 <Link href={p.projection(league.slug)} className="text-muted hover:text-foreground">

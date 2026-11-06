@@ -52,7 +52,7 @@ Schiefgelaufen ist vor allem das Timing: zwei Niederlagen in einer Woche, eine d
 
 Der nächste Test folgt sofort: **Atlético Madrid gegen Barcelona am 8. November**. Atlético liegt nur zwei Punkte zurück, mit einer Niederlage wäre Barça die Tabellenführung los. Der Rück-Clásico im Bernabéu steht am 9. Mai an.
 
-Wie sich die Chancen Woche für Woche verändern, zeigen das [Titelrennen](/de/titelrennen/) und die [Prognose der Abschlusstabelle von La Liga](/de/ligen/la-liga/prognose/).
+Wie sich die Chancen Woche für Woche verändern, zeigen das [Titelrennen](/de/titelrennen/) und die [Prognose der Abschlusstabelle von La Liga](/de/ligen/la-liga/tabellenprognose/).
 
 ## Häufige Fragen
 

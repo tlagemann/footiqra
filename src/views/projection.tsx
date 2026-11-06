@@ -29,7 +29,7 @@ export async function projectionMetadata(locale: Locale, slug: string): Promise<
     title: tr(
       locale,
       `${league.name}${season} predicted table and title chances`,
-      `${league.name}${season}: Prognose der Abschlusstabelle`,
+      `${league.name} Tabellenprognose${season}: Abschlusstabelle und Meisterchancen`,
     ),
     description: leader
       ? tr(
@@ -65,7 +65,7 @@ export async function ProjectionView({ locale, slug }: { locale: Locale; slug: s
         data={breadcrumbJsonLd([
           { name: t("Home", "Startseite"), path: p.home },
           { name: league.name, path: p.league(league.slug) },
-          { name: t("Predicted table", "Prognose"), path: p.projection(league.slug) },
+          { name: t("Predicted table", "Tabellenprognose"), path: p.projection(league.slug) },
         ])}
       />
       <header>
@@ -76,7 +76,7 @@ export async function ProjectionView({ locale, slug }: { locale: Locale; slug: s
           {projection ? ` · ${seasonLabel(projection.season)}` : ""}
         </Eyebrow>
         <h1 className="mt-4 max-w-4xl font-display text-5xl leading-[0.98] font-extrabold tracking-[-0.045em] sm:text-7xl">
-          {t(`${league.name} predicted final table`, `Prognose Abschlusstabelle ${league.name}`)}
+          {t(`${league.name} predicted final table`, `${league.name} Tabellenprognose`)}
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-muted">
           {projection && leader

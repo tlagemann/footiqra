@@ -90,7 +90,7 @@ export async function TitleRaceView({ locale }: { locale: Locale }) {
               {name}
             </h2>
             <Link href={p.projection(slug)} className="text-sm font-semibold hover:underline">
-              {t("Predicted final table", "Prognose Abschlusstabelle")} <span aria-hidden>→</span>
+              {t("Predicted final table", "Tabellenprognose")} <span aria-hidden>→</span>
             </Link>
           </div>
           <p className="max-w-3xl text-muted">{titleRaceSummary(race, name, locale)}</p>

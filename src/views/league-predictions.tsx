@@ -128,12 +128,12 @@ export async function leaguePredictionsMetadata(locale: Locale, slug: string): P
         ? tr(
             locale,
             `${league.name} predictions and tips: matchday ${round.matchday}${s}`,
-            `${league.name} Prognosen und Tipps: ${round.matchday}. Spieltag${s}`,
+            `${league.name} Prognosen: Spieltipps zum ${round.matchday}. Spieltag${s}`,
           )
         : tr(
             locale,
             `${league.name} predictions and tips${s}`,
-            `${league.name} Prognosen und Tipps${s}`,
+            `${league.name} Prognosen: Spieltipps${s}`,
           ),
     description:
       round && fav
@@ -177,7 +177,7 @@ export async function LeaguePredictionsView({ locale, slug }: { locale: Locale; 
         data={breadcrumbJsonLd([
           { name: t("Home", "Startseite"), path: p.home },
           { name: league.name, path: p.league(league.slug) },
-          { name: t("Predictions", "Prognosen"), path: p.leaguePredictions(league.slug) },
+          { name: t("Predictions", "Spieltipps"), path: p.leaguePredictions(league.slug) },
         ])}
       />
       <header>
@@ -191,7 +191,7 @@ export async function LeaguePredictionsView({ locale, slug }: { locale: Locale; 
           {first && first.matchday !== null
             ? t(
                 `${league.name} predictions: matchday ${first.matchday}`,
-                `${league.name} Prognosen: ${first.matchday}. Spieltag`,
+                `${league.name} Prognosen: Spieltipps zum ${first.matchday}. Spieltag`,
               )
             : t(`${league.name} predictions`, `${league.name} Prognosen`)}
         </h1>
@@ -207,7 +207,7 @@ export async function LeaguePredictionsView({ locale, slug }: { locale: Locale; 
         </p>
         <p className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold">
           <Link href={p.projection(league.slug)} className="hover:underline">
-            {t("Predicted final table", "Prognose Abschlusstabelle")} <span aria-hidden>→</span>
+            {t("Predicted final table", "Tabellenprognose")} <span aria-hidden>→</span>
           </Link>
           <Link href={p.leagueCalculator(league.slug)} className="hover:underline">
             {t("Table calculator", "Tabellenrechner")} <span aria-hidden>→</span>

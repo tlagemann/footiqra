@@ -129,7 +129,7 @@ export async function LeaguesView({ locale }: { locale: Locale }) {
                   href={p.projection(league.slug)}
                   className="relative z-10 self-start rounded-full bg-background px-4 py-2 text-sm font-semibold transition hover:bg-foreground hover:text-inverse"
                 >
-                  {t("Predicted final table", "Prognose Abschlusstabelle")}
+                  {t("Predicted final table", "Tabellenprognose")}
                 </Link>
               )}
             </li>

@@ -1,7 +1,7 @@
 /**
  * Two languages: English at the root, German under /de/ with translated paths.
  *
- *   en: /leagues/bundesliga/projection/     de: /de/ligen/bundesliga/prognose/
+ *   en: /leagues/bundesliga/projection/     de: /de/ligen/bundesliga/tabellenprognose/
  *
  * Slugs of leagues, teams and matches are the same in both languages, so every
  * page has exactly one counterpart (used for hreflang and the language switch).
@@ -41,7 +41,7 @@ const SEG = {
   },
   de: {
     leagues: "ligen",
-    projection: "prognose",
+    projection: "tabellenprognose",
     teams: "vereine",
     matches: "spiele",
     predictions: "prognosen",
