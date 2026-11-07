@@ -2,16 +2,16 @@
   "schemaVersion": 1,
   "competition": "DED",
   "season": 2026,
-  "fetchedUtc": "2026-11-07T18:57:13.909Z",
+  "fetchedUtc": "2026-11-07T21:48:08.942Z",
   "scorers": [
     {
       "playerId": 121280,
       "name": "Søren Tengstedt",
       "teamId": 718,
-      "goals": 8,
+      "goals": 9,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 41302,
@@ -227,7 +227,7 @@
       "goals": 4,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 9701,
@@ -248,6 +248,15 @@
       "playedMatches": 12
     },
     {
+      "playerId": 102189,
+      "name": "Nigel Thomas",
+      "teamId": 680,
+      "goals": 4,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 12
+    },
+    {
       "playerId": 191058,
       "name": "Angel Alarcon",
       "teamId": 676,
@@ -263,7 +272,7 @@
       "goals": 3,
       "assists": 5,
       "penalties": 1,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 214463,
@@ -272,7 +281,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 184643,
@@ -371,7 +380,7 @@
       "goals": 3,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 272162,
@@ -380,23 +389,14 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 151613,
       "name": "Mathis Suray",
       "teamId": 718,
       "goals": 3,
-      "assists": 3,
-      "penalties": null,
-      "playedMatches": 11
-    },
-    {
-      "playerId": 102189,
-      "name": "Nigel Thomas",
-      "teamId": 680,
-      "goals": 3,
-      "assists": 1,
+      "assists": 4,
       "penalties": null,
       "playedMatches": 12
     },
@@ -425,7 +425,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 4
+      "playedMatches": 5
     },
     {
       "playerId": 7574,
@@ -848,7 +848,7 @@
       "goals": 1,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 280744,
@@ -857,7 +857,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 157121,
@@ -866,7 +866,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 9880,

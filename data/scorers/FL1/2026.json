@@ -2,13 +2,13 @@
   "schemaVersion": 1,
   "competition": "FL1",
   "season": 2026,
-  "fetchedUtc": "2026-11-07T18:56:58.335Z",
+  "fetchedUtc": "2026-11-07T21:47:52.112Z",
   "scorers": [
     {
       "playerId": 552,
       "name": "Lassine Sinayoko",
       "teamId": 1045,
-      "goals": 8,
+      "goals": 9,
       "assists": 5,
       "penalties": 3,
       "playedMatches": 10
@@ -101,7 +101,7 @@
       "goals": 4,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 245336,
@@ -369,7 +369,7 @@
       "name": "Pablo Pagis",
       "teamId": 1045,
       "goals": 2,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
       "playedMatches": 10
     },
@@ -446,6 +446,15 @@
       "playedMatches": 9
     },
     {
+      "playerId": 143573,
+      "name": "Illia Zabarnyi",
+      "teamId": 524,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
       "playerId": 119703,
       "name": "Igor Paixão",
       "teamId": 516,
@@ -468,9 +477,9 @@
       "name": "Senny Mayulu",
       "teamId": 524,
       "goals": 2,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
-      "playedMatches": 5
+      "playedMatches": 6
     },
     {
       "playerId": 189574,
@@ -479,7 +488,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 250795,
@@ -587,7 +596,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 851,
@@ -596,7 +605,7 @@
       "goals": 1,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 178696,
@@ -605,7 +614,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 8437,
@@ -731,7 +740,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 295761,
@@ -758,7 +767,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 3540,
@@ -893,15 +902,6 @@
       "goals": 1,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 9
-    },
-    {
-      "playerId": 279671,
-      "name": "Gabin Bernardeau",
-      "teamId": 525,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
       "playedMatches": 9
     }
   ]

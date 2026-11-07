@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PL",
   "season": 2026,
-  "fetchedUtc": "2026-11-07T18:56:28.636Z",
+  "fetchedUtc": "2026-11-07T21:47:22.213Z",
   "scorers": [
     {
       "playerId": 38101,
@@ -191,6 +191,15 @@
       "goals": 3,
       "assists": 1,
       "penalties": 1,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 151095,
+      "name": "Liam Delap",
+      "teamId": 351,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
       "playedMatches": 9
     },
     {
@@ -383,15 +392,6 @@
       "playedMatches": 7
     },
     {
-      "playerId": 151095,
-      "name": "Liam Delap",
-      "teamId": 351,
-      "goals": 2,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 9
-    },
-    {
       "playerId": 1684,
       "name": "Bruno Guimarães",
       "teamId": 57,
@@ -576,7 +576,7 @@
       "name": "Morgan Gibbs-White",
       "teamId": 351,
       "goals": 1,
-      "assists": 2,
+      "assists": 3,
       "penalties": 1,
       "playedMatches": 9
     },

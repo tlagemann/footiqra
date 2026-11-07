@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PPL",
   "season": 2026,
-  "fetchedUtc": "2026-11-07T18:57:06.692Z",
+  "fetchedUtc": "2026-11-07T21:47:59.974Z",
   "scorers": [
     {
       "playerId": 67299,
@@ -20,7 +20,7 @@
       "goals": 8,
       "assists": 1,
       "penalties": 2,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 182123,
@@ -137,7 +137,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 32309,
@@ -155,7 +155,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 204345,
@@ -227,7 +227,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 186459,
@@ -236,7 +236,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 147456,
@@ -246,6 +246,15 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 11
+    },
+    {
+      "playerId": 146253,
+      "name": "Ian Luccas",
+      "teamId": 7822,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
     },
     {
       "playerId": 140169,
@@ -281,7 +290,7 @@
       "goals": 2,
       "assists": 4,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 181456,
@@ -306,7 +315,7 @@
       "name": "Chiquinho",
       "teamId": 7822,
       "goals": 2,
-      "assists": 2,
+      "assists": 3,
       "penalties": 1,
       "playedMatches": 9
     },
@@ -353,7 +362,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 169412,
@@ -479,7 +488,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 45514,
@@ -498,15 +507,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 8
-    },
-    {
-      "playerId": 146253,
-      "name": "Ian Luccas",
-      "teamId": 7822,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 9
     },
     {
       "playerId": 45671,
@@ -614,7 +614,7 @@
       "goals": 1,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 243569,
@@ -704,7 +704,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 8086,
@@ -857,7 +857,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 262651,

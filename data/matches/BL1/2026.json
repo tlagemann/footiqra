@@ -1084,7 +1084,7 @@
     {
       "id": 565849,
       "utcDate": "2026-11-07T17:30:00.000Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "matchday": 9,
       "stage": "REGULAR_SEASON",
       "homeTeamId": 10,
@@ -1093,7 +1093,7 @@
       "awayGoals": 0,
       "duration": "REGULAR",
       "winner": "HOME_TEAM",
-      "lastUpdated": "2026-11-07T18:53:39.000Z"
+      "lastUpdated": "2026-11-07T19:27:47.000Z"
     },
     {
       "id": 565855,

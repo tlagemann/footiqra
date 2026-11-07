@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "SA",
   "season": 2026,
-  "fetchedUtc": "2026-11-07T18:56:42.461Z",
+  "fetchedUtc": "2026-11-07T21:47:38.198Z",
   "scorers": [
     {
       "playerId": 252836,
@@ -18,9 +18,9 @@
       "name": "Donyell Malen",
       "teamId": 100,
       "goals": 8,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 169216,
@@ -113,6 +113,15 @@
       "playedMatches": 9
     },
     {
+      "playerId": 261273,
+      "name": "Rodrigo Mora",
+      "teamId": 100,
+      "goals": 4,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
       "playerId": 67743,
       "name": "Milutin Osmajić",
       "teamId": 107,
@@ -191,7 +200,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 7567,
@@ -227,16 +236,7 @@
       "goals": 3,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 261273,
-      "name": "Rodrigo Mora",
-      "teamId": 100,
-      "goals": 3,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 203511,
@@ -281,7 +281,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 2040,
@@ -362,7 +362,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 101431,
@@ -410,6 +410,15 @@
       "playedMatches": 10
     },
     {
+      "playerId": 32703,
+      "name": "Mario Hermoso",
+      "teamId": 100,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
       "playerId": 265567,
       "name": "Jay Robinson",
       "teamId": 5911,
@@ -452,7 +461,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 8990,
@@ -515,7 +524,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 2158,
@@ -569,7 +578,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 99013,
@@ -587,7 +596,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 167394,
@@ -623,7 +632,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 97537,
@@ -677,7 +686,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 193,
@@ -806,15 +815,6 @@
       "playedMatches": 9
     },
     {
-      "playerId": 32703,
-      "name": "Mario Hermoso",
-      "teamId": 100,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
       "playerId": 98549,
       "name": "John Yeboah",
       "teamId": 454,
@@ -839,7 +839,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 102591,

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PD",
   "season": 2026,
-  "fetchedUtc": "2026-11-07T18:56:35.502Z",
+  "fetchedUtc": "2026-11-07T21:47:30.223Z",
   "scorers": [
     {
       "playerId": 37428,
@@ -17,10 +17,10 @@
       "playerId": 3374,
       "name": "Kylian Mbappé",
       "teamId": 86,
-      "goals": 12,
+      "goals": 13,
       "assists": 2,
       "penalties": 3,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 202283,
@@ -146,7 +146,7 @@
       "goals": 4,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 82516,
@@ -230,6 +230,15 @@
       "playedMatches": 10
     },
     {
+      "playerId": 169162,
+      "name": "Arda Guler",
+      "teamId": 86,
+      "goals": 3,
+      "assists": 4,
+      "penalties": null,
+      "playedMatches": 12
+    },
+    {
       "playerId": 152458,
       "name": "Martin Satriano",
       "teamId": 82,
@@ -290,7 +299,7 @@
       "goals": 3,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 8412,
@@ -335,7 +344,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 32719,
@@ -410,22 +419,13 @@
       "playedMatches": 8
     },
     {
-      "playerId": 169162,
-      "name": "Arda Guler",
-      "teamId": 86,
-      "goals": 2,
-      "assists": 3,
-      "penalties": null,
-      "playedMatches": 11
-    },
-    {
       "playerId": 7672,
       "name": "Umar Sadiq",
       "teamId": 95,
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 4
+      "playedMatches": 5
     },
     {
       "playerId": 101870,
@@ -435,6 +435,15 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 12
+    },
+    {
+      "playerId": 157135,
+      "name": "Nico Williams",
+      "teamId": 77,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 10
     },
     {
       "playerId": 83406,
@@ -746,15 +755,6 @@
       "playerId": 131041,
       "name": "Troy Parrott",
       "teamId": 90,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 157135,
-      "name": "Nico Williams",
-      "teamId": 77,
       "goals": 1,
       "assists": 1,
       "penalties": null,
