@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PPL",
   "season": 2026,
-  "fetchedUtc": "2026-11-07T15:49:49.044Z",
+  "fetchedUtc": "2026-11-07T18:57:06.692Z",
   "scorers": [
     {
       "playerId": 67299,
@@ -164,7 +164,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 142160,
@@ -200,7 +200,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 221262,
@@ -272,7 +272,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 128825,
@@ -308,7 +308,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": 1,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 82403,
@@ -372,6 +372,15 @@
       "assists": 2,
       "penalties": null,
       "playedMatches": 9
+    },
+    {
+      "playerId": 214406,
+      "name": "Silvi",
+      "teamId": 6618,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 11
     },
     {
       "playerId": 249135,
@@ -497,7 +506,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 45671,
@@ -749,7 +758,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 125031,
@@ -765,9 +774,9 @@
       "name": "Henrique Araujo",
       "teamId": 6618,
       "goals": 1,
-      "assists": 1,
+      "assists": 2,
       "penalties": 1,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 147286,
@@ -890,15 +899,6 @@
       "playerId": 298463,
       "name": "Israel Ayuma",
       "teamId": 5575,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 145357,
-      "name": "Gonçalo Inácio",
-      "teamId": 498,
       "goals": 1,
       "assists": null,
       "penalties": null,

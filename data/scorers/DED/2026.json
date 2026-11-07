@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "DED",
   "season": 2026,
-  "fetchedUtc": "2026-11-07T15:49:56.576Z",
+  "fetchedUtc": "2026-11-07T18:57:13.909Z",
   "scorers": [
     {
       "playerId": 121280,
@@ -27,9 +27,9 @@
       "name": "Milan Zonneveld",
       "teamId": 6806,
       "goals": 8,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 7697,
@@ -275,6 +275,15 @@
       "playedMatches": 11
     },
     {
+      "playerId": 184643,
+      "name": "Patrick Brouwer",
+      "teamId": 1912,
+      "goals": 3,
+      "assists": 3,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
       "playerId": 165131,
       "name": "Devin Haen",
       "teamId": 672,
@@ -291,6 +300,15 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 11
+    },
+    {
+      "playerId": 297046,
+      "name": "Abdelnour Soualhia",
+      "teamId": 1912,
+      "goals": 3,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 12
     },
     {
       "playerId": 181984,
@@ -380,7 +398,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 7841,
@@ -408,15 +426,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 4
-    },
-    {
-      "playerId": 184643,
-      "name": "Patrick Brouwer",
-      "teamId": 1912,
-      "goals": 2,
-      "assists": 2,
-      "penalties": null,
-      "playedMatches": 11
     },
     {
       "playerId": 7574,
@@ -452,7 +461,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 117796,
@@ -462,15 +471,6 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 11
-    },
-    {
-      "playerId": 297046,
-      "name": "Abdelnour Soualhia",
-      "teamId": 1912,
-      "goals": 2,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 12
     },
     {
       "playerId": 261522,
@@ -569,7 +569,7 @@
       "goals": 2,
       "assists": 5,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 2004,
@@ -749,7 +749,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 45647,
@@ -770,6 +770,15 @@
       "playedMatches": 11
     },
     {
+      "playerId": 172942,
+      "name": "Juho Kilo",
+      "teamId": 680,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 12
+    },
+    {
       "playerId": 80161,
       "name": "Sem Steijn",
       "teamId": 675,
@@ -785,7 +794,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 80336,
@@ -894,15 +903,6 @@
       "assists": 2,
       "penalties": null,
       "playedMatches": 10
-    },
-    {
-      "playerId": 7690,
-      "name": "Calvin Stengs",
-      "teamId": 682,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 11
     }
   ]
 }

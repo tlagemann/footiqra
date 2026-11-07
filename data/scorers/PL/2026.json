@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PL",
   "season": 2026,
-  "fetchedUtc": "2026-11-07T15:49:11.070Z",
+  "fetchedUtc": "2026-11-07T18:56:28.636Z",
   "scorers": [
     {
       "playerId": 38101,
@@ -11,7 +11,7 @@
       "goals": 9,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 171995,
@@ -59,6 +59,15 @@
       "playedMatches": 9
     },
     {
+      "playerId": 133242,
+      "name": "Rayan Cherki",
+      "teamId": 65,
+      "goals": 5,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 10
+    },
+    {
       "playerId": 152515,
       "name": "Nicolas Jackson",
       "teamId": 58,
@@ -66,15 +75,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 8
-    },
-    {
-      "playerId": 133242,
-      "name": "Rayan Cherki",
-      "teamId": 65,
-      "goals": 4,
-      "assists": 2,
-      "penalties": null,
-      "playedMatches": 9
     },
     {
       "playerId": 8626,
@@ -111,6 +111,15 @@
       "assists": null,
       "penalties": 1,
       "playedMatches": 7
+    },
+    {
+      "playerId": 7427,
+      "name": "Martin Ødegaard",
+      "teamId": 57,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 10
     },
     {
       "playerId": 140194,
@@ -230,15 +239,6 @@
       "playedMatches": 10
     },
     {
-      "playerId": 7427,
-      "name": "Martin Ødegaard",
-      "teamId": 57,
-      "goals": 2,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
       "playerId": 176628,
       "name": "Emersonn",
       "teamId": 349,
@@ -308,7 +308,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 273423,
@@ -381,6 +381,15 @@
       "assists": null,
       "penalties": 1,
       "playedMatches": 7
+    },
+    {
+      "playerId": 151095,
+      "name": "Liam Delap",
+      "teamId": 351,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
     },
     {
       "playerId": 1684,
@@ -524,7 +533,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 122266,
@@ -533,7 +542,7 @@
       "goals": 1,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 7459,
@@ -569,7 +578,7 @@
       "goals": 1,
       "assists": 2,
       "penalties": 1,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 161088,
@@ -716,15 +725,6 @@
       "playedMatches": 7
     },
     {
-      "playerId": 151095,
-      "name": "Liam Delap",
-      "teamId": 351,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 8
-    },
-    {
       "playerId": 260718,
       "name": "Alysson",
       "teamId": 58,
@@ -740,7 +740,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 5
+      "playedMatches": 6
     },
     {
       "playerId": 7561,
@@ -848,7 +848,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 30842,

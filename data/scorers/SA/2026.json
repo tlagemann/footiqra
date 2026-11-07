@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "SA",
   "season": 2026,
-  "fetchedUtc": "2026-11-07T15:49:27.217Z",
+  "fetchedUtc": "2026-11-07T18:56:42.461Z",
   "scorers": [
     {
       "playerId": 252836,
@@ -263,7 +263,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 211564,
@@ -290,7 +290,7 @@
       "goals": 3,
       "assists": null,
       "penalties": 2,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 145,
@@ -308,7 +308,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 822,
@@ -441,7 +441,7 @@
       "name": "Lassana Coulibaly",
       "teamId": 5890,
       "goals": 2,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
       "playedMatches": 8
     },
@@ -479,7 +479,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 167689,
@@ -545,6 +545,15 @@
       "playedMatches": 10
     },
     {
+      "playerId": 1886,
+      "name": "Riccardo Orsolini",
+      "teamId": 103,
+      "goals": 2,
+      "assists": null,
+      "penalties": 1,
+      "playedMatches": 6
+    },
+    {
       "playerId": 2016,
       "name": "Andrea Pinamonti",
       "teamId": 110,
@@ -569,7 +578,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 290391,
@@ -579,6 +588,15 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 10
+    },
+    {
+      "playerId": 167394,
+      "name": "Konan N'Dri",
+      "teamId": 5890,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 11
     },
     {
       "playerId": 1789,
@@ -830,7 +848,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 24217,
@@ -839,7 +857,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 153130,
@@ -881,24 +899,6 @@
       "playerId": 152787,
       "name": "Matteo Cancellieri",
       "teamId": 110,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 8
-    },
-    {
-      "playerId": 292394,
-      "name": "Paul Mendy",
-      "teamId": 104,
-      "goals": 1,
-      "assists": 2,
-      "penalties": null,
-      "playedMatches": 11
-    },
-    {
-      "playerId": 2681,
-      "name": "Gianluca Scamacca",
-      "teamId": 102,
       "goals": 1,
       "assists": null,
       "penalties": null,

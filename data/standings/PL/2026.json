@@ -2,19 +2,19 @@
   "schemaVersion": 1,
   "competition": "PL",
   "season": 2026,
-  "fetchedUtc": "2026-11-07T15:48:10.283Z",
+  "fetchedUtc": "2026-11-07T18:55:27.467Z",
   "rows": [
     {
       "position": 1,
       "teamId": 57,
-      "playedGames": 9,
-      "won": 8,
+      "playedGames": 10,
+      "won": 9,
       "draw": 0,
       "lost": 1,
-      "points": 24,
-      "goalsFor": 14,
+      "points": 27,
+      "goalsFor": 15,
       "goalsAgainst": 5,
-      "goalDifference": 9
+      "goalDifference": 10
     },
     {
       "position": 2,
@@ -126,6 +126,18 @@
     },
     {
       "position": 11,
+      "teamId": 67,
+      "playedGames": 10,
+      "won": 3,
+      "draw": 3,
+      "lost": 4,
+      "points": 12,
+      "goalsFor": 13,
+      "goalsAgainst": 16,
+      "goalDifference": -3
+    },
+    {
+      "position": 12,
       "teamId": 58,
       "playedGames": 9,
       "won": 3,
@@ -137,28 +149,16 @@
       "goalDifference": -3
     },
     {
-      "position": 12,
+      "position": 13,
       "teamId": 322,
-      "playedGames": 9,
+      "playedGames": 10,
       "won": 2,
       "draw": 5,
-      "lost": 2,
+      "lost": 3,
       "points": 11,
       "goalsFor": 11,
-      "goalsAgainst": 10,
-      "goalDifference": 1
-    },
-    {
-      "position": 13,
-      "teamId": 67,
-      "playedGames": 9,
-      "won": 3,
-      "draw": 2,
-      "lost": 4,
-      "points": 11,
-      "goalsFor": 12,
-      "goalsAgainst": 15,
-      "goalDifference": -3
+      "goalsAgainst": 11,
+      "goalDifference": 0
     },
     {
       "position": 14,
@@ -175,13 +175,13 @@
     {
       "position": 15,
       "teamId": 63,
-      "playedGames": 9,
+      "playedGames": 10,
       "won": 2,
-      "draw": 3,
+      "draw": 4,
       "lost": 4,
-      "points": 9,
-      "goalsFor": 9,
-      "goalsAgainst": 11,
+      "points": 10,
+      "goalsFor": 10,
+      "goalsAgainst": 12,
       "goalDifference": -2
     },
     {

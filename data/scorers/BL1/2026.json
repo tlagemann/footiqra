@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "BL1",
   "season": 2026,
-  "fetchedUtc": "2026-11-07T15:49:33.646Z",
+  "fetchedUtc": "2026-11-07T18:56:50.938Z",
   "scorers": [
     {
       "playerId": 304,
@@ -11,7 +11,7 @@
       "goals": 9,
       "assists": null,
       "penalties": 3,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 1826,
@@ -41,6 +41,15 @@
       "playedMatches": 9
     },
     {
+      "playerId": 45593,
+      "name": "Phillip Tietz",
+      "teamId": 15,
+      "goals": 6,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
       "playerId": 6661,
       "name": "Michael Gregoritsch",
       "teamId": 16,
@@ -56,14 +65,14 @@
       "goals": 5,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
-      "playerId": 45593,
-      "name": "Phillip Tietz",
-      "teamId": 15,
+      "playerId": 82404,
+      "name": "Jonathan Burkardt",
+      "teamId": 19,
       "goals": 5,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 9
     },
@@ -72,9 +81,18 @@
       "name": "Christopher Nkunku",
       "teamId": 721,
       "goals": 5,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
       "playedMatches": 8
+    },
+    {
+      "playerId": 178783,
+      "name": "Romulo Cruz",
+      "teamId": 721,
+      "goals": 5,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 7
     },
     {
       "playerId": 22396,
@@ -90,7 +108,7 @@
       "name": "Antonio Nusa",
       "teamId": 721,
       "goals": 4,
-      "assists": 6,
+      "assists": 7,
       "penalties": 1,
       "playedMatches": 9
     },
@@ -131,22 +149,13 @@
       "playedMatches": 9
     },
     {
-      "playerId": 82404,
-      "name": "Jonathan Burkardt",
-      "teamId": 19,
-      "goals": 4,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 9
-    },
-    {
-      "playerId": 178783,
-      "name": "Romulo Cruz",
-      "teamId": 721,
+      "playerId": 101074,
+      "name": "Felix Kalu Nmecha",
+      "teamId": 4,
       "goals": 4,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 9
     },
     {
       "playerId": 8004,
@@ -206,15 +215,6 @@
       "playerId": 65692,
       "name": "Robin Fellhauer",
       "teamId": 16,
-      "goals": 3,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 9
-    },
-    {
-      "playerId": 101074,
-      "name": "Felix Kalu Nmecha",
-      "teamId": 4,
       "goals": 3,
       "assists": null,
       "penalties": null,
@@ -371,7 +371,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 150733,
@@ -380,7 +380,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 61630,
@@ -389,7 +389,7 @@
       "goals": 2,
       "assists": 6,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 188201,
@@ -423,7 +423,7 @@
       "name": "Fabian Rieder",
       "teamId": 16,
       "goals": 2,
-      "assists": 4,
+      "assists": 5,
       "penalties": 1,
       "playedMatches": 9
     },
@@ -431,6 +431,15 @@
       "playerId": 99042,
       "name": "Adam Hložek",
       "teamId": 2,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 6549,
+      "name": "Maximilian Mittelstädt",
+      "teamId": 10,
       "goals": 2,
       "assists": 1,
       "penalties": null,
@@ -533,14 +542,14 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 150647,
       "name": "Benedict Hollerbach",
       "teamId": 15,
       "goals": 2,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 8
     },
@@ -586,6 +595,15 @@
       "teamId": 2,
       "goals": 2,
       "assists": 1,
+      "penalties": null,
+      "playedMatches": 3
+    },
+    {
+      "playerId": 56829,
+      "name": "Christoph Baumgartner",
+      "teamId": 721,
+      "goals": 2,
+      "assists": null,
       "penalties": null,
       "playedMatches": 3
     },
@@ -650,16 +668,16 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 6836,
       "name": "Grischa Prömel",
       "teamId": 10,
       "goals": 1,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 206319,
@@ -759,15 +777,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 6
-    },
-    {
-      "playerId": 6549,
-      "name": "Maximilian Mittelstädt",
-      "teamId": 10,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 7
     },
     {
       "playerId": 327,
@@ -894,15 +903,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 9
-    },
-    {
-      "playerId": 75539,
-      "name": "Nico Schlotterbeck",
-      "teamId": 4,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 7
     }
   ]
 }
