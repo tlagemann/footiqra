@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PD",
   "season": 2026,
-  "fetchedUtc": "2026-11-07T13:01:48.093Z",
+  "fetchedUtc": "2026-11-07T15:49:19.001Z",
   "scorers": [
     {
       "playerId": 37428,
@@ -32,6 +32,15 @@
       "playedMatches": 11
     },
     {
+      "playerId": 265516,
+      "name": "Yassir Zabiri",
+      "teamId": 5335,
+      "goals": 9,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 12
+    },
+    {
       "playerId": 2237,
       "name": "Ante Budimir",
       "teamId": 79,
@@ -39,15 +48,6 @@
       "assists": null,
       "penalties": 4,
       "playedMatches": 11
-    },
-    {
-      "playerId": 265516,
-      "name": "Yassir Zabiri",
-      "teamId": 5335,
-      "goals": 8,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 12
     },
     {
       "playerId": 115175,
@@ -65,7 +65,7 @@
       "goals": 6,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 214497,
@@ -83,7 +83,7 @@
       "goals": 5,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 213278,
@@ -126,7 +126,7 @@
       "name": "Adrián",
       "teamId": 84,
       "goals": 5,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 8
     },
@@ -455,6 +455,15 @@
       "playedMatches": 9
     },
     {
+      "playerId": 189380,
+      "name": "Carlos Dotor",
+      "teamId": 84,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
       "playerId": 150533,
       "name": "Alberto Moleiro",
       "teamId": 94,
@@ -506,7 +515,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 66,
@@ -533,7 +542,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 180137,
@@ -614,7 +623,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 159647,
@@ -650,7 +659,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 176745,
@@ -785,7 +794,7 @@
       "goals": 1,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 114100,
@@ -830,7 +839,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 31019,
@@ -893,15 +902,6 @@
       "goals": 1,
       "assists": 1,
       "penalties": 1,
-      "playedMatches": 11
-    },
-    {
-      "playerId": 182020,
-      "name": "Álvaro Carreras",
-      "teamId": 86,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
       "playedMatches": 11
     }
   ]

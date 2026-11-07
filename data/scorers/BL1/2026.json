@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "BL1",
   "season": 2026,
-  "fetchedUtc": "2026-11-07T13:02:02.089Z",
+  "fetchedUtc": "2026-11-07T15:49:33.646Z",
   "scorers": [
     {
       "playerId": 304,
@@ -29,7 +29,7 @@
       "goals": 6,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 192207,
@@ -38,7 +38,7 @@
       "goals": 6,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 6661,
@@ -47,7 +47,7 @@
       "goals": 5,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 33242,
@@ -64,6 +64,15 @@
       "teamId": 15,
       "goals": 5,
       "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 8484,
+      "name": "Christopher Nkunku",
+      "teamId": 721,
+      "goals": 5,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 8
     },
@@ -83,7 +92,7 @@
       "goals": 4,
       "assists": 6,
       "penalties": 1,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 145293,
@@ -119,16 +128,16 @@
       "goals": 4,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
-      "playerId": 8484,
-      "name": "Christopher Nkunku",
-      "teamId": 721,
+      "playerId": 82404,
+      "name": "Jonathan Burkardt",
+      "teamId": 19,
       "goals": 4,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 9
     },
     {
       "playerId": 178783,
@@ -137,16 +146,16 @@
       "goals": 4,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 8004,
       "name": "Harry Kane",
       "teamId": 5,
       "goals": 4,
-      "assists": 5,
+      "assists": 7,
       "penalties": 1,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 9541,
@@ -155,7 +164,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 211,
@@ -171,9 +180,9 @@
       "name": "Fábio Silva",
       "teamId": 4,
       "goals": 3,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 202532,
@@ -194,22 +203,22 @@
       "playedMatches": 8
     },
     {
-      "playerId": 82404,
-      "name": "Jonathan Burkardt",
-      "teamId": 19,
-      "goals": 3,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 8
-    },
-    {
       "playerId": 65692,
       "name": "Robin Fellhauer",
       "teamId": 16,
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
+    },
+    {
+      "playerId": 101074,
+      "name": "Felix Kalu Nmecha",
+      "teamId": 4,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
     },
     {
       "playerId": 211796,
@@ -218,7 +227,7 @@
       "goals": 3,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 8785,
@@ -227,7 +236,7 @@
       "goals": 3,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 50215,
@@ -254,7 +263,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 6634,
@@ -263,7 +272,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 7029,
@@ -281,7 +290,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 265182,
@@ -290,7 +299,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 213737,
@@ -299,7 +308,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 274045,
@@ -338,13 +347,22 @@
       "playedMatches": 3
     },
     {
+      "playerId": 175963,
+      "name": "Anton Kade",
+      "teamId": 16,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 6
+    },
+    {
       "playerId": 178772,
       "name": "Rodrigo Ribeiro",
       "teamId": 16,
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 189873,
@@ -389,7 +407,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 7633,
@@ -398,7 +416,7 @@
       "goals": 2,
       "assists": 4,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 152692,
@@ -407,7 +425,7 @@
       "goals": 2,
       "assists": 4,
       "penalties": 1,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 99042,
@@ -419,22 +437,13 @@
       "playedMatches": 8
     },
     {
-      "playerId": 101074,
-      "name": "Felix Kalu Nmecha",
-      "teamId": 4,
-      "goals": 2,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 8
-    },
-    {
       "playerId": 193605,
       "name": "Can Uzun",
       "teamId": 19,
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 123277,
@@ -444,6 +453,15 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 7
+    },
+    {
+      "playerId": 277592,
+      "name": "Lennart Karl",
+      "teamId": 5,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
     },
     {
       "playerId": 130173,
@@ -488,7 +506,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 176617,
@@ -497,7 +515,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 10561,
@@ -506,7 +524,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 7532,
@@ -524,7 +542,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 177525,
@@ -541,6 +559,15 @@
       "teamId": 7,
       "goals": 2,
       "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
+      "playerId": 175951,
+      "name": "Ezechiel Banzuzi",
+      "teamId": 721,
+      "goals": 2,
+      "assists": 2,
       "penalties": null,
       "playedMatches": 9
     },
@@ -578,7 +605,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 5
+      "playedMatches": 6
     },
     {
       "playerId": 1858,
@@ -624,15 +651,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 8
-    },
-    {
-      "playerId": 175963,
-      "name": "Anton Kade",
-      "teamId": 16,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 5
     },
     {
       "playerId": 6836,
@@ -695,7 +713,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 176899,
@@ -704,7 +722,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 608,
@@ -713,7 +731,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 4
+      "playedMatches": 5
     },
     {
       "playerId": 1847,
@@ -767,16 +785,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
-    },
-    {
-      "playerId": 277592,
-      "name": "Lennart Karl",
-      "teamId": 5,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 144393,
@@ -830,7 +839,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 5
+      "playedMatches": 6
     },
     {
       "playerId": 6707,
@@ -839,7 +848,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 67408,
@@ -875,7 +884,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 145937,
@@ -884,7 +893,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 75539,
@@ -893,16 +902,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
-    },
-    {
-      "playerId": 45611,
-      "name": "Robert Andrich",
-      "teamId": 3,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 7
     }
   ]
 }
