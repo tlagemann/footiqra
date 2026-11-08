@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "FL1",
   "season": 2026,
-  "fetchedUtc": "2026-11-08T18:56:30.889Z",
+  "fetchedUtc": "2026-11-08T21:48:16.590Z",
   "scorers": [
     {
       "playerId": 552,
@@ -14,6 +14,15 @@
       "playedMatches": 10
     },
     {
+      "playerId": 8476,
+      "name": "Amine Gouiri",
+      "teamId": 516,
+      "goals": 7,
+      "assists": 3,
+      "penalties": 1,
+      "playedMatches": 10
+    },
+    {
       "playerId": 149850,
       "name": "Esteban Lepaul",
       "teamId": 529,
@@ -21,15 +30,6 @@
       "assists": null,
       "penalties": 4,
       "playedMatches": 7
-    },
-    {
-      "playerId": 8476,
-      "name": "Amine Gouiri",
-      "teamId": 516,
-      "goals": 6,
-      "assists": 3,
-      "penalties": 1,
-      "playedMatches": 9
     },
     {
       "playerId": 128242,
@@ -48,6 +48,15 @@
       "assists": 2,
       "penalties": 2,
       "playedMatches": 9
+    },
+    {
+      "playerId": 3370,
+      "name": "Florian Thauvin",
+      "teamId": 546,
+      "goals": 5,
+      "assists": 8,
+      "penalties": 3,
+      "playedMatches": 10
     },
     {
       "playerId": 723,
@@ -75,15 +84,6 @@
       "assists": null,
       "penalties": 1,
       "playedMatches": 8
-    },
-    {
-      "playerId": 3370,
-      "name": "Florian Thauvin",
-      "teamId": 546,
-      "goals": 4,
-      "assists": 8,
-      "penalties": 3,
-      "playedMatches": 9
     },
     {
       "playerId": 124178,
@@ -227,7 +227,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 80754,
@@ -236,7 +236,7 @@
       "goals": 3,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 53,
@@ -246,6 +246,15 @@
       "assists": 2,
       "penalties": null,
       "playedMatches": 8
+    },
+    {
+      "playerId": 250795,
+      "name": "Keyliane Abdallah",
+      "teamId": 516,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
     },
     {
       "playerId": 183643,
@@ -380,7 +389,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 177248,
@@ -470,7 +479,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 8352,
@@ -518,22 +527,13 @@
       "playedMatches": 6
     },
     {
-      "playerId": 250795,
-      "name": "Keyliane Abdallah",
-      "teamId": 516,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 8
-    },
-    {
       "playerId": 8093,
       "name": "Pierre Emile Højbjerg",
       "teamId": 516,
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 129098,
@@ -542,7 +542,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 5
+      "playedMatches": 6
     },
     {
       "playerId": 188468,
@@ -884,16 +884,16 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 64837,
       "name": "Florian Sotoca",
       "teamId": 546,
       "goals": 1,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 281451,

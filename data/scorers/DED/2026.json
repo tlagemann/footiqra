@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "DED",
   "season": 2026,
-  "fetchedUtc": "2026-11-08T18:56:46.173Z",
+  "fetchedUtc": "2026-11-08T21:48:32.084Z",
   "scorers": [
     {
       "playerId": 121280,
@@ -275,11 +275,20 @@
       "playedMatches": 12
     },
     {
+      "playerId": 148291,
+      "name": "Yoann Cathline",
+      "teamId": 676,
+      "goals": 4,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 12
+    },
+    {
       "playerId": 191058,
       "name": "Angel Alarcon",
       "teamId": 676,
       "goals": 4,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 12
     },
@@ -428,11 +437,11 @@
       "playedMatches": 12
     },
     {
-      "playerId": 148291,
-      "name": "Yoann Cathline",
+      "playerId": 7564,
+      "name": "Dani de Wit",
       "teamId": 676,
       "goals": 3,
-      "assists": 2,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 12
     },
@@ -698,15 +707,6 @@
       "playedMatches": 12
     },
     {
-      "playerId": 7564,
-      "name": "Dani de Wit",
-      "teamId": 676,
-      "goals": 2,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 12
-    },
-    {
       "playerId": 182241,
       "name": "Noe Lebreton",
       "teamId": 1915,
@@ -833,6 +833,15 @@
       "playedMatches": 12
     },
     {
+      "playerId": 290975,
+      "name": "Kevin Kers",
+      "teamId": 1915,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 12
+    },
+    {
       "playerId": 283109,
       "name": "Ismaël Baouf",
       "teamId": 1909,
@@ -860,6 +869,15 @@
       "playedMatches": 11
     },
     {
+      "playerId": 3444,
+      "name": "Dušan Tadić",
+      "teamId": 1915,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
       "playerId": 57281,
       "name": "Rui Mendes",
       "teamId": 1912,
@@ -885,24 +903,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 12
-    },
-    {
-      "playerId": 157121,
-      "name": "Julius Dirksen",
-      "teamId": 718,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 9880,
-      "name": "Ole Romeny",
-      "teamId": 1920,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 7
     }
   ]
 }

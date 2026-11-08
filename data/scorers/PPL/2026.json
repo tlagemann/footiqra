@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PPL",
   "season": 2026,
-  "fetchedUtc": "2026-11-08T18:56:38.675Z",
+  "fetchedUtc": "2026-11-08T21:48:24.454Z",
   "scorers": [
     {
       "playerId": 67299,
@@ -11,7 +11,7 @@
       "goals": 10,
       "assists": 3,
       "penalties": 3,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 32386,
@@ -26,10 +26,10 @@
       "playerId": 182123,
       "name": "Gianluca Prestianni",
       "teamId": 1903,
-      "goals": 6,
+      "goals": 7,
       "assists": 4,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 127034,
@@ -74,7 +74,7 @@
       "goals": 5,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 45366,
@@ -101,7 +101,7 @@
       "goals": 4,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 1760,
@@ -119,7 +119,7 @@
       "goals": 4,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 81357,
@@ -128,7 +128,7 @@
       "goals": 4,
       "assists": 2,
       "penalties": 1,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 263535,
@@ -182,7 +182,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": 2,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 286507,
@@ -446,6 +446,15 @@
       "playedMatches": 10
     },
     {
+      "playerId": 183635,
+      "name": "Lovro Zvonarek",
+      "teamId": 9136,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
       "playerId": 32995,
       "name": "Raphael Guzzo",
       "teamId": 5575,
@@ -470,7 +479,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 262645,
@@ -587,7 +596,7 @@
       "goals": 1,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 104493,
@@ -596,7 +605,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 37698,
@@ -623,7 +632,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 28770,
@@ -639,7 +648,7 @@
       "name": "Gustavo Silva",
       "teamId": 5543,
       "goals": 1,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 10
     },
@@ -704,7 +713,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 273888,
@@ -713,7 +722,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 188084,
@@ -740,7 +749,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 157796,
@@ -749,7 +758,7 @@
       "goals": 1,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 38088,
@@ -767,7 +776,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 246741,
@@ -848,7 +857,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 298704,
@@ -857,7 +866,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 183696,
@@ -893,16 +902,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
-    },
-    {
-      "playerId": 298463,
-      "name": "Israel Ayuma",
-      "teamId": 5575,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 8
     }
   ]
 }

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PD",
   "season": 2026,
-  "fetchedUtc": "2026-11-08T18:56:10.213Z",
+  "fetchedUtc": "2026-11-08T21:47:54.687Z",
   "scorers": [
     {
       "playerId": 37428,
@@ -11,7 +11,7 @@
       "goals": 15,
       "assists": 2,
       "penalties": 3,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 3374,
@@ -27,9 +27,9 @@
       "name": "Lamine Yamal",
       "teamId": 81,
       "goals": 10,
-      "assists": 7,
+      "assists": 8,
       "penalties": 1,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 265516,
@@ -55,6 +55,15 @@
       "teamId": 87,
       "goals": 7,
       "assists": 2,
+      "penalties": null,
+      "playedMatches": 12
+    },
+    {
+      "playerId": 214533,
+      "name": "Fermín López",
+      "teamId": 81,
+      "goals": 7,
+      "assists": 5,
       "penalties": null,
       "playedMatches": 12
     },
@@ -93,15 +102,6 @@
       "assists": 3,
       "penalties": null,
       "playedMatches": 12
-    },
-    {
-      "playerId": 214533,
-      "name": "Fermín López",
-      "teamId": 81,
-      "goals": 5,
-      "assists": 5,
-      "penalties": null,
-      "playedMatches": 11
     },
     {
       "playerId": 11113,
@@ -145,6 +145,15 @@
       "teamId": 86,
       "goals": 4,
       "assists": 3,
+      "penalties": null,
+      "playedMatches": 12
+    },
+    {
+      "playerId": 171964,
+      "name": "Giuliano Simeone",
+      "teamId": 78,
+      "goals": 4,
+      "assists": 2,
       "penalties": null,
       "playedMatches": 12
     },
@@ -230,15 +239,6 @@
       "playedMatches": 12
     },
     {
-      "playerId": 171964,
-      "name": "Giuliano Simeone",
-      "teamId": 78,
-      "goals": 3,
-      "assists": 2,
-      "penalties": null,
-      "playedMatches": 12
-    },
-    {
       "playerId": 33038,
       "name": "Bartra",
       "teamId": 90,
@@ -299,7 +299,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 175941,
@@ -324,7 +324,7 @@
       "name": "Nicolas Pépé",
       "teamId": 94,
       "goals": 2,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 9
     },
@@ -380,7 +380,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 274546,
@@ -506,7 +506,7 @@
       "goals": 2,
       "assists": 4,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 3259,
@@ -812,7 +812,7 @@
       "goals": 1,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 173617,

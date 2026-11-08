@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "SA",
   "season": 2026,
-  "fetchedUtc": "2026-11-08T18:56:17.218Z",
+  "fetchedUtc": "2026-11-08T21:48:05.046Z",
   "scorers": [
     {
       "playerId": 252836,
@@ -140,6 +140,15 @@
       "playedMatches": 10
     },
     {
+      "playerId": 157538,
+      "name": "Mateo Pellegrino",
+      "teamId": 99,
+      "goals": 4,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
       "playerId": 3220,
       "name": "Lautaro Martínez",
       "teamId": 108,
@@ -155,7 +164,7 @@
       "goals": 4,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 171448,
@@ -208,6 +217,15 @@
       "teamId": 108,
       "goals": 3,
       "assists": 1,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
+      "playerId": 1106,
+      "name": "Bremer",
+      "teamId": 109,
+      "goals": 3,
+      "assists": null,
       "penalties": null,
       "playedMatches": 11
     },
@@ -266,15 +284,6 @@
       "playedMatches": 11
     },
     {
-      "playerId": 157538,
-      "name": "Mateo Pellegrino",
-      "teamId": 99,
-      "goals": 3,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
       "playerId": 299423,
       "name": "Simone Lontani",
       "teamId": 112,
@@ -320,6 +329,15 @@
       "playedMatches": 8
     },
     {
+      "playerId": 246508,
+      "name": "Alieu Njie",
+      "teamId": 99,
+      "goals": 3,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
       "playerId": 822,
       "name": "Hassane Kamara",
       "teamId": 115,
@@ -336,15 +354,6 @@
       "assists": 2,
       "penalties": 1,
       "playedMatches": 11
-    },
-    {
-      "playerId": 1106,
-      "name": "Bremer",
-      "teamId": 109,
-      "goals": 2,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 10
     },
     {
       "playerId": 246341,
@@ -470,7 +479,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 247056,
@@ -542,7 +551,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 97869,
@@ -680,15 +689,6 @@
       "playedMatches": 9
     },
     {
-      "playerId": 246508,
-      "name": "Alieu Njie",
-      "teamId": 99,
-      "goals": 2,
-      "assists": 2,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
       "playerId": 8822,
       "name": "Armand Lauriente",
       "teamId": 471,
@@ -803,7 +803,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 130420,
@@ -875,7 +875,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 31065,
