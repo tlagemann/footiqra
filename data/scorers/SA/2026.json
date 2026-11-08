@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "SA",
   "season": 2026,
-  "fetchedUtc": "2026-11-08T13:02:34.147Z",
+  "fetchedUtc": "2026-11-08T15:48:14.429Z",
   "scorers": [
     {
       "playerId": 252836,
@@ -11,7 +11,7 @@
       "goals": 9,
       "assists": 1,
       "penalties": 2,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 7457,
@@ -35,10 +35,10 @@
       "playerId": 120679,
       "name": "Nikola Krstović",
       "teamId": 102,
-      "goals": 6,
+      "goals": 7,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 43285,
@@ -50,13 +50,22 @@
       "playedMatches": 10
     },
     {
+      "playerId": 192142,
+      "name": "Alphadjo Cisse",
+      "teamId": 98,
+      "goals": 5,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
       "playerId": 3368,
       "name": "Adrien Rabiot",
       "teamId": 98,
       "goals": 5,
-      "assists": 3,
+      "assists": 4,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 8685,
@@ -95,15 +104,6 @@
       "playedMatches": 11
     },
     {
-      "playerId": 192142,
-      "name": "Alphadjo Cisse",
-      "teamId": 98,
-      "goals": 4,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
       "playerId": 4119,
       "name": "Che Adams",
       "teamId": 586,
@@ -137,7 +137,7 @@
       "goals": 4,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 3220,
@@ -173,7 +173,16 @@
       "goals": 4,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
+    },
+    {
+      "playerId": 145,
+      "name": "Christian Pulisic",
+      "teamId": 98,
+      "goals": 4,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 11
     },
     {
       "playerId": 128007,
@@ -293,15 +302,6 @@
       "playedMatches": 11
     },
     {
-      "playerId": 145,
-      "name": "Christian Pulisic",
-      "teamId": 98,
-      "goals": 3,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
       "playerId": 217678,
       "name": "Samuel Mbangula",
       "teamId": 103,
@@ -369,9 +369,9 @@
       "name": "Gonçalo Ramos",
       "teamId": 98,
       "goals": 2,
-      "assists": 1,
+      "assists": 2,
       "penalties": 1,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 2202,
@@ -407,7 +407,7 @@
       "goals": 2,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 32703,
@@ -425,7 +425,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 82132,
@@ -551,7 +551,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 1886,
@@ -767,7 +767,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 186575,
@@ -803,7 +803,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 2230,
@@ -893,7 +893,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 152787,

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PL",
   "season": 2026,
-  "fetchedUtc": "2026-11-08T13:02:20.270Z",
+  "fetchedUtc": "2026-11-08T15:47:58.361Z",
   "scorers": [
     {
       "playerId": 38101,
@@ -74,7 +74,25 @@
       "goals": 5,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
+    },
+    {
+      "playerId": 131260,
+      "name": "Evanilson",
+      "teamId": 1044,
+      "goals": 5,
+      "assists": 4,
+      "penalties": null,
+      "playedMatches": 10
+    },
+    {
+      "playerId": 8273,
+      "name": "Pascal Groß",
+      "teamId": 397,
+      "goals": 4,
+      "assists": 4,
+      "penalties": 2,
+      "playedMatches": 10
     },
     {
       "playerId": 8626,
@@ -82,15 +100,6 @@
       "teamId": 66,
       "goals": 4,
       "assists": null,
-      "penalties": null,
-      "playedMatches": 9
-    },
-    {
-      "playerId": 131260,
-      "name": "Evanilson",
-      "teamId": 1044,
-      "goals": 4,
-      "assists": 4,
       "penalties": null,
       "playedMatches": 10
     },
@@ -137,7 +146,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 4
+      "playedMatches": 5
     },
     {
       "playerId": 144892,
@@ -158,22 +167,13 @@
       "playedMatches": 10
     },
     {
-      "playerId": 8273,
-      "name": "Pascal Groß",
-      "teamId": 397,
-      "goals": 3,
-      "assists": 4,
-      "penalties": 1,
-      "playedMatches": 9
-    },
-    {
       "playerId": 123286,
       "name": "Kevin Schade",
       "teamId": 402,
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 7839,
@@ -191,7 +191,16 @@
       "goals": 3,
       "assists": 1,
       "penalties": 1,
-      "playedMatches": 9
+      "playedMatches": 10
+    },
+    {
+      "playerId": 99664,
+      "name": "Enzo Le Fée",
+      "teamId": 71,
+      "goals": 3,
+      "assists": 1,
+      "penalties": 3,
+      "playedMatches": 10
     },
     {
       "playerId": 151095,
@@ -218,7 +227,7 @@
       "goals": 3,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 145613,
@@ -227,7 +236,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 97535,
@@ -257,13 +266,22 @@
       "playedMatches": 10
     },
     {
+      "playerId": 4158,
+      "name": "Jack Clarke",
+      "teamId": 349,
+      "goals": 2,
+      "assists": 1,
+      "penalties": 1,
+      "playedMatches": 10
+    },
+    {
       "playerId": 101910,
       "name": "Keane Lewis-Potter",
       "teamId": 402,
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 10000,
@@ -272,7 +290,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 142075,
@@ -281,7 +299,7 @@
       "goals": 2,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 166376,
@@ -335,7 +353,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 99120,
@@ -362,15 +380,6 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 99664,
-      "name": "Enzo Le Fée",
-      "teamId": 71,
-      "goals": 2,
-      "assists": 1,
-      "penalties": 2,
       "playedMatches": 10
     },
     {
@@ -416,7 +425,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 212309,
@@ -425,7 +434,7 @@
       "goals": 2,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 98566,
@@ -453,6 +462,15 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 5
+    },
+    {
+      "playerId": 178951,
+      "name": "Diego Gómez",
+      "teamId": 397,
+      "goals": 2,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 10
     },
     {
       "playerId": 168949,
@@ -500,15 +518,6 @@
       "playedMatches": 10
     },
     {
-      "playerId": 4158,
-      "name": "Jack Clarke",
-      "teamId": 349,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
       "playerId": 65843,
       "name": "Anton Stach",
       "teamId": 341,
@@ -524,7 +533,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 118489,
@@ -558,7 +567,7 @@
       "name": "Dominik Szoboszlai",
       "teamId": 64,
       "goals": 1,
-      "assists": null,
+      "assists": 1,
       "penalties": 1,
       "playedMatches": 8
     },
@@ -659,7 +668,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 290848,
@@ -731,7 +740,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 256339,
@@ -758,7 +767,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 249312,
@@ -776,7 +785,7 @@
       "goals": 1,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 151119,
@@ -794,7 +803,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 119265,
@@ -812,7 +821,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 191140,
@@ -857,7 +866,7 @@
       "goals": 1,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 5613,
@@ -884,7 +893,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 3959,
@@ -894,15 +903,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 7
-    },
-    {
-      "playerId": 270889,
-      "name": "Abdoul Ouattara",
-      "teamId": 349,
-      "goals": 1,
-      "assists": 2,
-      "penalties": null,
-      "playedMatches": 10
     }
   ]
 }

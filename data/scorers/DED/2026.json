@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "DED",
   "season": 2026,
-  "fetchedUtc": "2026-11-08T13:03:06.117Z",
+  "fetchedUtc": "2026-11-08T15:48:43.959Z",
   "scorers": [
     {
       "playerId": 121280,
@@ -14,13 +14,22 @@
       "playedMatches": 12
     },
     {
+      "playerId": 7697,
+      "name": "Wout Weghorst",
+      "teamId": 666,
+      "goals": 9,
+      "assists": 2,
+      "penalties": 3,
+      "playedMatches": 12
+    },
+    {
       "playerId": 41302,
       "name": "Brynjolfur Darri Willumsson",
       "teamId": 677,
       "goals": 8,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 243902,
@@ -32,22 +41,13 @@
       "playedMatches": 12
     },
     {
-      "playerId": 7697,
-      "name": "Wout Weghorst",
-      "teamId": 666,
-      "goals": 8,
-      "assists": 2,
-      "penalties": 2,
-      "playedMatches": 12
-    },
-    {
       "playerId": 188914,
       "name": "Thom van Bergen",
       "teamId": 677,
       "goals": 7,
       "assists": 3,
       "penalties": 1,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 7688,
@@ -55,6 +55,15 @@
       "teamId": 674,
       "goals": 7,
       "assists": 1,
+      "penalties": null,
+      "playedMatches": 12
+    },
+    {
+      "playerId": 115116,
+      "name": "Sven Mijnans",
+      "teamId": 674,
+      "goals": 7,
+      "assists": 2,
       "penalties": null,
       "playedMatches": 11
     },
@@ -66,6 +75,15 @@
       "assists": 2,
       "penalties": null,
       "playedMatches": 11
+    },
+    {
+      "playerId": 120981,
+      "name": "Toluwalas Arokodare",
+      "teamId": 678,
+      "goals": 7,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 12
     },
     {
       "playerId": 148,
@@ -83,7 +101,7 @@
       "goals": 6,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 210841,
@@ -91,24 +109,6 @@
       "teamId": 673,
       "goals": 6,
       "assists": 3,
-      "penalties": null,
-      "playedMatches": 12
-    },
-    {
-      "playerId": 115116,
-      "name": "Sven Mijnans",
-      "teamId": 674,
-      "goals": 6,
-      "assists": 2,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 120981,
-      "name": "Toluwalas Arokodare",
-      "teamId": 678,
-      "goals": 6,
-      "assists": 1,
       "penalties": null,
       "playedMatches": 12
     },
@@ -128,7 +128,7 @@
       "goals": 5,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 169190,
@@ -173,7 +173,16 @@
       "goals": 5,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
+    },
+    {
+      "playerId": 125914,
+      "name": "Ringo Meerveld",
+      "teamId": 673,
+      "goals": 5,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 12
     },
     {
       "playerId": 150305,
@@ -182,7 +191,7 @@
       "goals": 5,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 226917,
@@ -209,7 +218,7 @@
       "goals": 4,
       "assists": 2,
       "penalties": 1,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 119731,
@@ -218,7 +227,7 @@
       "goals": 4,
       "assists": 1,
       "penalties": 1,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 117884,
@@ -251,15 +260,6 @@
       "playerId": 102189,
       "name": "Nigel Thomas",
       "teamId": 680,
-      "goals": 4,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 12
-    },
-    {
-      "playerId": 125914,
-      "name": "Ringo Meerveld",
-      "teamId": 673,
       "goals": 4,
       "assists": 1,
       "penalties": null,
@@ -335,7 +335,7 @@
       "goals": 3,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 167699,
@@ -468,7 +468,7 @@
       "name": "Luca Oyen",
       "teamId": 673,
       "goals": 2,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
       "playedMatches": 12
     },
@@ -506,7 +506,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 171440,
@@ -605,7 +605,7 @@
       "goals": 2,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 53469,
@@ -623,7 +623,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 273158,
@@ -668,7 +668,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 280290,
@@ -740,7 +740,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 265472,
@@ -767,7 +767,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 7476,
@@ -821,7 +821,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 121181,
@@ -830,7 +830,16 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
+    },
+    {
+      "playerId": 135009,
+      "name": "Jacob Ondrejka",
+      "teamId": 677,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 11
     },
     {
       "playerId": 57281,
@@ -884,7 +893,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 283059,
@@ -893,16 +902,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 160443,
-      "name": "Edouard Michut",
-      "teamId": 1920,
-      "goals": 1,
-      "assists": 2,
-      "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     }
   ]
 }

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "BL1",
   "season": 2026,
-  "fetchedUtc": "2026-11-08T13:02:43.008Z",
+  "fetchedUtc": "2026-11-08T15:48:21.048Z",
   "scorers": [
     {
       "playerId": 304,
@@ -20,7 +20,7 @@
       "goals": 7,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 113765,
@@ -119,7 +119,7 @@
       "goals": 4,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 156629,
@@ -128,7 +128,7 @@
       "goals": 4,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 82442,
@@ -200,7 +200,7 @@
       "goals": 3,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 9452,
@@ -209,7 +209,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 65692,
@@ -281,7 +281,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 98330,
@@ -335,7 +335,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 9848,
@@ -461,7 +461,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 277592,
@@ -506,7 +506,7 @@
       "goals": 2,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 133903,
@@ -614,7 +614,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 150517,
@@ -632,7 +632,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 152811,
@@ -641,7 +641,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 30548,
@@ -704,7 +704,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 46125,
@@ -713,7 +713,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 6576,
@@ -785,7 +785,7 @@
       "goals": 1,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 9537,
@@ -884,7 +884,7 @@
       "goals": 1,
       "assists": 4,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 212291,

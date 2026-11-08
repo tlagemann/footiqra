@@ -2,34 +2,46 @@
   "schemaVersion": 1,
   "competition": "DED",
   "season": 2026,
-  "fetchedUtc": "2026-11-08T13:02:04.150Z",
+  "fetchedUtc": "2026-11-08T15:47:42.466Z",
   "rows": [
     {
       "position": 1,
       "teamId": 675,
-      "playedGames": 11,
+      "playedGames": 12,
       "won": 7,
       "draw": 4,
-      "lost": 0,
+      "lost": 1,
       "points": 25,
-      "goalsFor": 33,
-      "goalsAgainst": 12,
-      "goalDifference": 21
+      "goalsFor": 36,
+      "goalsAgainst": 17,
+      "goalDifference": 19
     },
     {
       "position": 2,
       "teamId": 678,
-      "playedGames": 11,
+      "playedGames": 12,
       "won": 7,
-      "draw": 3,
+      "draw": 4,
       "lost": 1,
-      "points": 24,
-      "goalsFor": 30,
-      "goalsAgainst": 13,
+      "points": 25,
+      "goalsFor": 32,
+      "goalsAgainst": 15,
       "goalDifference": 17
     },
     {
       "position": 3,
+      "teamId": 666,
+      "playedGames": 12,
+      "won": 7,
+      "draw": 3,
+      "lost": 2,
+      "points": 24,
+      "goalsFor": 30,
+      "goalsAgainst": 12,
+      "goalDifference": 18
+    },
+    {
+      "position": 4,
       "teamId": 674,
       "playedGames": 11,
       "won": 7,
@@ -41,19 +53,19 @@
       "goalDifference": 22
     },
     {
-      "position": 4,
-      "teamId": 666,
-      "playedGames": 11,
-      "won": 7,
-      "draw": 2,
-      "lost": 2,
-      "points": 23,
-      "goalsFor": 28,
-      "goalsAgainst": 10,
-      "goalDifference": 18
+      "position": 5,
+      "teamId": 673,
+      "playedGames": 12,
+      "won": 6,
+      "draw": 3,
+      "lost": 3,
+      "points": 21,
+      "goalsFor": 24,
+      "goalsAgainst": 16,
+      "goalDifference": 8
     },
     {
-      "position": 5,
+      "position": 6,
       "teamId": 682,
       "playedGames": 11,
       "won": 6,
@@ -65,7 +77,7 @@
       "goalDifference": 7
     },
     {
-      "position": 6,
+      "position": 7,
       "teamId": 1920,
       "playedGames": 12,
       "won": 5,
@@ -75,18 +87,6 @@
       "goalsFor": 20,
       "goalsAgainst": 20,
       "goalDifference": 0
-    },
-    {
-      "position": 7,
-      "teamId": 673,
-      "playedGames": 11,
-      "won": 5,
-      "draw": 3,
-      "lost": 3,
-      "points": 18,
-      "goalsFor": 19,
-      "goalsAgainst": 13,
-      "goalDifference": 6
     },
     {
       "position": 8,

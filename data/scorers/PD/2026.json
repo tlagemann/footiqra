@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PD",
   "season": 2026,
-  "fetchedUtc": "2026-11-08T13:02:28.353Z",
+  "fetchedUtc": "2026-11-08T15:48:09.523Z",
   "scorers": [
     {
       "playerId": 37428,
@@ -56,7 +56,7 @@
       "goals": 7,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 180218,
@@ -155,7 +155,7 @@
       "goals": 4,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 2294,
@@ -194,6 +194,15 @@
       "playedMatches": 10
     },
     {
+      "playerId": 128731,
+      "name": "Rodrigo Riquelme",
+      "teamId": 90,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 12
+    },
+    {
       "playerId": 213043,
       "name": "Isaac",
       "teamId": 559,
@@ -221,13 +230,22 @@
       "playedMatches": 11
     },
     {
+      "playerId": 33038,
+      "name": "Bartra",
+      "teamId": 90,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 12
+    },
+    {
       "playerId": 182319,
       "name": "Orri Oskarsson",
       "teamId": 92,
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 169162,
@@ -320,15 +338,6 @@
       "playedMatches": 11
     },
     {
-      "playerId": 128731,
-      "name": "Rodrigo Riquelme",
-      "teamId": 90,
-      "goals": 2,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 12
-    },
-    {
       "playerId": 151439,
       "name": "Aitor Paredes Casamichana",
       "teamId": 77,
@@ -392,22 +401,13 @@
       "playedMatches": 9
     },
     {
-      "playerId": 33038,
-      "name": "Bartra",
-      "teamId": 90,
-      "goals": 2,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 12
-    },
-    {
       "playerId": 101182,
       "name": "Ander Barrenetxea",
       "teamId": 92,
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 226950,
@@ -515,7 +515,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 69837,
@@ -569,7 +569,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 46123,
@@ -785,7 +785,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 176255,
@@ -857,7 +857,7 @@
       "goals": 1,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 77734,
@@ -866,7 +866,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 3369,

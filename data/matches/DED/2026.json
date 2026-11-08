@@ -1448,30 +1448,30 @@
     {
       "id": 558840,
       "utcDate": "2026-11-08T11:15:00.000Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "matchday": 12,
       "stage": "REGULAR_SEASON",
       "homeTeamId": 673,
       "awayTeamId": 675,
-      "homeGoals": 3,
+      "homeGoals": 5,
       "awayGoals": 3,
       "duration": "REGULAR",
-      "winner": "DRAW",
-      "lastUpdated": "2026-11-08T13:00:35.000Z"
+      "winner": "HOME_TEAM",
+      "lastUpdated": "2026-11-08T13:17:39.000Z"
     },
     {
       "id": 558839,
       "utcDate": "2026-11-08T13:30:00.000Z",
-      "status": "TIMED",
+      "status": "FINISHED",
       "matchday": 12,
       "stage": "REGULAR_SEASON",
       "homeTeamId": 666,
       "awayTeamId": 678,
-      "homeGoals": null,
-      "awayGoals": null,
+      "homeGoals": 2,
+      "awayGoals": 2,
       "duration": "REGULAR",
-      "winner": null,
-      "lastUpdated": "2026-11-08T00:20:27.000Z"
+      "winner": "DRAW",
+      "lastUpdated": "2026-11-08T15:35:15.000Z"
     },
     {
       "id": 558837,
