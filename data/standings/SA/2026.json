@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "SA",
   "season": 2026,
-  "fetchedUtc": "2026-11-08T15:47:12.435Z",
+  "fetchedUtc": "2026-11-08T18:55:15.010Z",
   "rows": [
     {
       "position": 1,
@@ -42,6 +42,18 @@
     },
     {
       "position": 4,
+      "teamId": 98,
+      "playedGames": 11,
+      "won": 7,
+      "draw": 3,
+      "lost": 1,
+      "points": 24,
+      "goalsFor": 23,
+      "goalsAgainst": 13,
+      "goalDifference": 10
+    },
+    {
+      "position": 5,
       "teamId": 7397,
       "playedGames": 10,
       "won": 7,
@@ -51,18 +63,6 @@
       "goalsFor": 18,
       "goalsAgainst": 8,
       "goalDifference": 10
-    },
-    {
-      "position": 5,
-      "teamId": 98,
-      "playedGames": 10,
-      "won": 6,
-      "draw": 3,
-      "lost": 1,
-      "points": 21,
-      "goalsFor": 21,
-      "goalsAgainst": 12,
-      "goalDifference": 9
     },
     {
       "position": 6,
@@ -138,27 +138,27 @@
     },
     {
       "position": 12,
-      "teamId": 107,
-      "playedGames": 10,
+      "teamId": 102,
+      "playedGames": 11,
       "won": 4,
-      "draw": 1,
+      "draw": 2,
       "lost": 5,
-      "points": 13,
-      "goalsFor": 10,
-      "goalsAgainst": 14,
-      "goalDifference": -4
+      "points": 14,
+      "goalsFor": 17,
+      "goalsAgainst": 20,
+      "goalDifference": -3
     },
     {
       "position": 13,
-      "teamId": 102,
-      "playedGames": 10,
-      "won": 3,
-      "draw": 2,
-      "lost": 5,
-      "points": 11,
-      "goalsFor": 16,
-      "goalsAgainst": 20,
-      "goalDifference": -4
+      "teamId": 107,
+      "playedGames": 11,
+      "won": 4,
+      "draw": 1,
+      "lost": 6,
+      "points": 13,
+      "goalsFor": 11,
+      "goalsAgainst": 16,
+      "goalDifference": -5
     },
     {
       "position": 14,
@@ -211,14 +211,14 @@
     {
       "position": 18,
       "teamId": 5911,
-      "playedGames": 10,
+      "playedGames": 11,
       "won": 2,
       "draw": 1,
-      "lost": 7,
+      "lost": 8,
       "points": 7,
       "goalsFor": 17,
-      "goalsAgainst": 24,
-      "goalDifference": -7
+      "goalsAgainst": 25,
+      "goalDifference": -8
     },
     {
       "position": 19,

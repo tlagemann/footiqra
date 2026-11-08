@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PL",
   "season": 2026,
-  "fetchedUtc": "2026-11-08T15:47:58.361Z",
+  "fetchedUtc": "2026-11-08T18:56:01.930Z",
   "scorers": [
     {
       "playerId": 38101,
@@ -14,6 +14,15 @@
       "playedMatches": 10
     },
     {
+      "playerId": 6486,
+      "name": "Alexander Isak",
+      "teamId": 64,
+      "goals": 7,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
       "playerId": 171995,
       "name": "Thierno Barry",
       "teamId": 62,
@@ -23,11 +32,11 @@
       "playedMatches": 10
     },
     {
-      "playerId": 6486,
-      "name": "Alexander Isak",
-      "teamId": 64,
+      "playerId": 152515,
+      "name": "Nicolas Jackson",
+      "teamId": 58,
       "goals": 6,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 9
     },
@@ -68,15 +77,6 @@
       "playedMatches": 10
     },
     {
-      "playerId": 152515,
-      "name": "Nicolas Jackson",
-      "teamId": 58,
-      "goals": 5,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 9
-    },
-    {
       "playerId": 131260,
       "name": "Evanilson",
       "teamId": 1044,
@@ -91,6 +91,15 @@
       "teamId": 397,
       "goals": 4,
       "assists": 4,
+      "penalties": 2,
+      "playedMatches": 10
+    },
+    {
+      "playerId": 3257,
+      "name": "Bruno Fernandes",
+      "teamId": 66,
+      "goals": 4,
+      "assists": 2,
       "penalties": 2,
       "playedMatches": 10
     },
@@ -182,15 +191,6 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 3257,
-      "name": "Bruno Fernandes",
-      "teamId": 66,
-      "goals": 3,
-      "assists": 1,
-      "penalties": 1,
       "playedMatches": 10
     },
     {
@@ -401,6 +401,15 @@
       "playedMatches": 8
     },
     {
+      "playerId": 260718,
+      "name": "Alysson",
+      "teamId": 58,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
       "playerId": 1684,
       "name": "Bruno Guimarães",
       "teamId": 57,
@@ -462,6 +471,15 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 5
+    },
+    {
+      "playerId": 34646,
+      "name": "John McGinn",
+      "teamId": 58,
+      "goals": 2,
+      "assists": 4,
+      "penalties": 1,
+      "playedMatches": 10
     },
     {
       "playerId": 178951,
@@ -734,15 +752,6 @@
       "playedMatches": 8
     },
     {
-      "playerId": 260718,
-      "name": "Alysson",
-      "teamId": 58,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 9
-    },
-    {
       "playerId": 256339,
       "name": "Igor Jesus",
       "teamId": 351,
@@ -894,15 +903,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 9
-    },
-    {
-      "playerId": 3959,
-      "name": "Ryan Sessegnon",
-      "teamId": 63,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 7
     }
   ]
 }

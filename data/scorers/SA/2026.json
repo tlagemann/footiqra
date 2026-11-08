@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "SA",
   "season": 2026,
-  "fetchedUtc": "2026-11-08T15:48:14.429Z",
+  "fetchedUtc": "2026-11-08T18:56:17.218Z",
   "scorers": [
     {
       "playerId": 252836,
@@ -41,13 +41,22 @@
       "playedMatches": 11
     },
     {
+      "playerId": 8685,
+      "name": "Marcus Thuram-Ulien",
+      "teamId": 108,
+      "goals": 6,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
       "playerId": 43285,
       "name": "Anastasios Douvikas",
       "teamId": 7397,
       "goals": 5,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 192142,
@@ -66,15 +75,6 @@
       "assists": 4,
       "penalties": null,
       "playedMatches": 9
-    },
-    {
-      "playerId": 8685,
-      "name": "Marcus Thuram-Ulien",
-      "teamId": 108,
-      "goals": 5,
-      "assists": 2,
-      "penalties": null,
-      "playedMatches": 10
     },
     {
       "playerId": 136113,
@@ -200,7 +200,16 @@
       "goals": 3,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 8
+      "playedMatches": 9
+    },
+    {
+      "playerId": 215433,
+      "name": "Francesco Esposito",
+      "teamId": 108,
+      "goals": 3,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 11
     },
     {
       "playerId": 192382,
@@ -227,7 +236,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 152770,
@@ -254,7 +263,7 @@
       "goals": 3,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 157538,
@@ -326,16 +335,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": 1,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 215433,
-      "name": "Francesco Esposito",
-      "teamId": 108,
-      "goals": 2,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 1106,
@@ -479,7 +479,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 165857,
@@ -497,7 +497,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 152738,
@@ -506,7 +506,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 59075,
@@ -653,6 +653,15 @@
       "playedMatches": 11
     },
     {
+      "playerId": 172413,
+      "name": "Mikael Egill Ellertsson",
+      "teamId": 107,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
       "playerId": 161370,
       "name": "M'Bala Nzola",
       "teamId": 104,
@@ -695,7 +704,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 176944,
@@ -894,15 +903,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 10
-    },
-    {
-      "playerId": 152787,
-      "name": "Matteo Cancellieri",
-      "teamId": 110,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 9
     }
   ]
 }

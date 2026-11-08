@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "BL1",
   "season": 2026,
-  "fetchedUtc": "2026-11-08T15:47:19.997Z",
+  "fetchedUtc": "2026-11-08T18:55:22.486Z",
   "rows": [
     {
       "position": 1,
@@ -30,6 +30,18 @@
     },
     {
       "position": 3,
+      "teamId": 17,
+      "playedGames": 9,
+      "won": 6,
+      "draw": 1,
+      "lost": 2,
+      "points": 19,
+      "goalsFor": 20,
+      "goalsAgainst": 10,
+      "goalDifference": 10
+    },
+    {
+      "position": 4,
       "teamId": 721,
       "playedGames": 9,
       "won": 6,
@@ -41,19 +53,19 @@
       "goalDifference": 14
     },
     {
-      "position": 4,
-      "teamId": 17,
-      "playedGames": 8,
+      "position": 5,
+      "teamId": 3,
+      "playedGames": 9,
       "won": 5,
       "draw": 1,
-      "lost": 2,
+      "lost": 3,
       "points": 16,
-      "goalsFor": 18,
-      "goalsAgainst": 10,
-      "goalDifference": 8
+      "goalsFor": 20,
+      "goalsAgainst": 17,
+      "goalDifference": 3
     },
     {
-      "position": 5,
+      "position": 6,
       "teamId": 12,
       "playedGames": 9,
       "won": 4,
@@ -62,18 +74,6 @@
       "points": 15,
       "goalsFor": 17,
       "goalsAgainst": 15,
-      "goalDifference": 2
-    },
-    {
-      "position": 6,
-      "teamId": 3,
-      "playedGames": 8,
-      "won": 4,
-      "draw": 1,
-      "lost": 3,
-      "points": 13,
-      "goalsFor": 18,
-      "goalsAgainst": 16,
       "goalDifference": 2
     },
     {
@@ -175,26 +175,26 @@
     {
       "position": 15,
       "teamId": 1,
-      "playedGames": 8,
+      "playedGames": 9,
       "won": 2,
       "draw": 3,
-      "lost": 3,
+      "lost": 4,
       "points": 9,
-      "goalsFor": 9,
-      "goalsAgainst": 12,
-      "goalDifference": -3
+      "goalsFor": 10,
+      "goalsAgainst": 14,
+      "goalDifference": -4
     },
     {
       "position": 16,
       "teamId": 28,
-      "playedGames": 8,
+      "playedGames": 9,
       "won": 1,
       "draw": 4,
-      "lost": 3,
+      "lost": 4,
       "points": 7,
       "goalsFor": 7,
-      "goalsAgainst": 19,
-      "goalDifference": -12
+      "goalsAgainst": 21,
+      "goalDifference": -14
     },
     {
       "position": 17,

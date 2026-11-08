@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "BL1",
   "season": 2026,
-  "fetchedUtc": "2026-11-08T15:48:21.048Z",
+  "fetchedUtc": "2026-11-08T18:56:23.487Z",
   "scorers": [
     {
       "playerId": 304,
@@ -17,7 +17,7 @@
       "playerId": 1826,
       "name": "Patrik Schick",
       "teamId": 3,
-      "goals": 7,
+      "goals": 8,
       "assists": 2,
       "penalties": null,
       "playedMatches": 9
@@ -48,6 +48,15 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 9
+    },
+    {
+      "playerId": 145293,
+      "name": "Yuito Suzuki",
+      "teamId": 17,
+      "goals": 5,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
     },
     {
       "playerId": 6661,
@@ -113,15 +122,6 @@
       "playedMatches": 9
     },
     {
-      "playerId": 145293,
-      "name": "Yuito Suzuki",
-      "teamId": 17,
-      "goals": 4,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 8
-    },
-    {
       "playerId": 156629,
       "name": "Igor Matanovic",
       "teamId": 17,
@@ -176,6 +176,15 @@
       "playedMatches": 9
     },
     {
+      "playerId": 247659,
+      "name": "Said El Mala",
+      "teamId": 1,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
       "playerId": 211,
       "name": "Sehrou Guirassy",
       "teamId": 4,
@@ -198,7 +207,7 @@
       "name": "Ibrahim Maza",
       "teamId": 3,
       "goals": 3,
-      "assists": 2,
+      "assists": 3,
       "penalties": null,
       "playedMatches": 9
     },
@@ -326,16 +335,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 8
-    },
-    {
-      "playerId": 247659,
-      "name": "Said El Mala",
-      "teamId": 1,
-      "goals": 2,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 9848,
@@ -392,6 +392,15 @@
       "playedMatches": 9
     },
     {
+      "playerId": 144433,
+      "name": "Tim Lemperle",
+      "teamId": 2,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
       "playerId": 188201,
       "name": "Hugo Bolin",
       "teamId": 18,
@@ -434,7 +443,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 6549,
@@ -504,7 +513,7 @@
       "name": "Derry Scherhant",
       "teamId": 17,
       "goals": 2,
-      "assists": 3,
+      "assists": 4,
       "penalties": null,
       "playedMatches": 9
     },
@@ -596,7 +605,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 3
+      "playedMatches": 4
     },
     {
       "playerId": 56829,
@@ -650,7 +659,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 172452,
@@ -686,16 +695,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
-    },
-    {
-      "playerId": 144433,
-      "name": "Tim Lemperle",
-      "teamId": 2,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 9
     },
     {
       "playerId": 154228,
@@ -758,7 +758,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 128453,
@@ -767,7 +767,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 7562,

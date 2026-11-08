@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "DED",
   "season": 2026,
-  "fetchedUtc": "2026-11-08T15:48:43.959Z",
+  "fetchedUtc": "2026-11-08T18:56:46.173Z",
   "scorers": [
     {
       "playerId": 121280,
@@ -14,6 +14,24 @@
       "playedMatches": 12
     },
     {
+      "playerId": 41302,
+      "name": "Brynjolfur Darri Willumsson",
+      "teamId": 677,
+      "goals": 9,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 12
+    },
+    {
+      "playerId": 115116,
+      "name": "Sven Mijnans",
+      "teamId": 674,
+      "goals": 9,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
       "playerId": 7697,
       "name": "Wout Weghorst",
       "teamId": 666,
@@ -23,12 +41,12 @@
       "playedMatches": 12
     },
     {
-      "playerId": 41302,
-      "name": "Brynjolfur Darri Willumsson",
+      "playerId": 188914,
+      "name": "Thom van Bergen",
       "teamId": 677,
       "goals": 8,
-      "assists": 1,
-      "penalties": null,
+      "assists": 3,
+      "penalties": 1,
       "playedMatches": 12
     },
     {
@@ -41,15 +59,6 @@
       "playedMatches": 12
     },
     {
-      "playerId": 188914,
-      "name": "Thom van Bergen",
-      "teamId": 677,
-      "goals": 7,
-      "assists": 3,
-      "penalties": 1,
-      "playedMatches": 12
-    },
-    {
       "playerId": 7688,
       "name": "Guus Til",
       "teamId": 674,
@@ -57,15 +66,6 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 12
-    },
-    {
-      "playerId": 115116,
-      "name": "Sven Mijnans",
-      "teamId": 674,
-      "goals": 7,
-      "assists": 2,
-      "penalties": null,
-      "playedMatches": 11
     },
     {
       "playerId": 244466,
@@ -95,11 +95,20 @@
       "playedMatches": 11
     },
     {
+      "playerId": 176746,
+      "name": "Mexx Meerdink",
+      "teamId": 682,
+      "goals": 6,
+      "assists": 3,
+      "penalties": 2,
+      "playedMatches": 12
+    },
+    {
       "playerId": 178013,
       "name": "Rafik el Arguioui",
       "teamId": 1909,
       "goals": 6,
-      "assists": 2,
+      "assists": 3,
       "penalties": null,
       "playedMatches": 12
     },
@@ -126,7 +135,7 @@
       "name": "Ro-Zangelo Daal",
       "teamId": 682,
       "goals": 5,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 12
     },
@@ -146,7 +155,7 @@
       "goals": 5,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 215554,
@@ -209,16 +218,16 @@
       "goals": 4,
       "assists": 2,
       "penalties": 3,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
-      "playerId": 176746,
-      "name": "Mexx Meerdink",
-      "teamId": 682,
+      "playerId": 181984,
+      "name": "Ruben van Bommel",
+      "teamId": 674,
       "goals": 4,
-      "assists": 2,
-      "penalties": 1,
-      "playedMatches": 12
+      "assists": 3,
+      "penalties": null,
+      "playedMatches": 11
     },
     {
       "playerId": 119731,
@@ -272,7 +281,7 @@
       "goals": 4,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 191155,
@@ -329,11 +338,11 @@
       "playedMatches": 12
     },
     {
-      "playerId": 181984,
-      "name": "Ruben van Bommel",
-      "teamId": 674,
+      "playerId": 254626,
+      "name": "Ayoub Oufkir",
+      "teamId": 682,
       "goals": 3,
-      "assists": 2,
+      "assists": null,
       "penalties": null,
       "playedMatches": 11
     },
@@ -425,7 +434,7 @@
       "goals": 3,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 80161,
@@ -452,7 +461,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 182186,
@@ -461,7 +470,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 82116,
@@ -497,16 +506,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
-    },
-    {
-      "playerId": 254626,
-      "name": "Ayoub Oufkir",
-      "teamId": 682,
-      "goals": 2,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 171440,
@@ -578,7 +578,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 150603,
@@ -606,6 +606,15 @@
       "assists": 3,
       "penalties": null,
       "playedMatches": 11
+    },
+    {
+      "playerId": 246145,
+      "name": "Mateo Chávez",
+      "teamId": 682,
+      "goals": 2,
+      "assists": 3,
+      "penalties": null,
+      "playedMatches": 12
     },
     {
       "playerId": 53469,
@@ -695,7 +704,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 182241,
@@ -704,7 +713,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 246761,
@@ -734,11 +743,20 @@
       "playedMatches": 7
     },
     {
+      "playerId": 218195,
+      "name": "Iwan Henstra",
+      "teamId": 1909,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 12
+    },
+    {
       "playerId": 217935,
       "name": "Kodai Sano",
       "teamId": 674,
       "goals": 2,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 11
     },
@@ -837,7 +855,7 @@
       "name": "Jacob Ondrejka",
       "teamId": 677,
       "goals": 2,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 11
     },
@@ -885,24 +903,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 7
-    },
-    {
-      "playerId": 184642,
-      "name": "Ryan Flamingo",
-      "teamId": 674,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 12
-    },
-    {
-      "playerId": 283059,
-      "name": "Noah Fernandez",
-      "teamId": 674,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 11
     }
   ]
 }

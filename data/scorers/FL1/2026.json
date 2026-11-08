@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "FL1",
   "season": 2026,
-  "fetchedUtc": "2026-11-08T15:48:28.507Z",
+  "fetchedUtc": "2026-11-08T18:56:30.889Z",
   "scorers": [
     {
       "playerId": 552,
@@ -50,6 +50,15 @@
       "playedMatches": 9
     },
     {
+      "playerId": 723,
+      "name": "Ludovic Ajorque",
+      "teamId": 512,
+      "goals": 5,
+      "assists": 1,
+      "penalties": 1,
+      "playedMatches": 10
+    },
+    {
       "playerId": 129381,
       "name": "Casper Tengstedt",
       "teamId": 511,
@@ -90,7 +99,7 @@
       "name": "Kamory Doumbia",
       "teamId": 512,
       "goals": 4,
-      "assists": 1,
+      "assists": 2,
       "penalties": 1,
       "playedMatches": 10
     },
@@ -118,15 +127,6 @@
       "teamId": 576,
       "goals": 4,
       "assists": 3,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 723,
-      "name": "Ludovic Ajorque",
-      "teamId": 512,
-      "goals": 4,
-      "assists": 1,
       "penalties": null,
       "playedMatches": 10
     },
@@ -212,6 +212,15 @@
       "playedMatches": 10
     },
     {
+      "playerId": 1023,
+      "name": "Jonathan Clauss",
+      "teamId": 522,
+      "goals": 3,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 10
+    },
+    {
       "playerId": 3714,
       "name": "Amine Harit",
       "teamId": 516,
@@ -264,6 +273,15 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 9
+    },
+    {
+      "playerId": 8437,
+      "name": "Jean-Victor Makengo",
+      "teamId": 525,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 10
     },
     {
       "playerId": 215579,
@@ -405,7 +423,7 @@
       "name": "Mohammed Amoura",
       "teamId": 522,
       "goals": 2,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
       "playedMatches": 8
     },
@@ -437,15 +455,6 @@
       "playedMatches": 8
     },
     {
-      "playerId": 1023,
-      "name": "Jonathan Clauss",
-      "teamId": 522,
-      "goals": 2,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
       "playerId": 143573,
       "name": "Illia Zabarnyi",
       "teamId": 524,
@@ -473,6 +482,15 @@
       "playedMatches": 10
     },
     {
+      "playerId": 76723,
+      "name": "Sofiane Diop",
+      "teamId": 522,
+      "goals": 2,
+      "assists": 3,
+      "penalties": null,
+      "playedMatches": 10
+    },
+    {
       "playerId": 246066,
       "name": "Senny Mayulu",
       "teamId": 524,
@@ -489,6 +507,15 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 10
+    },
+    {
+      "playerId": 212975,
+      "name": "Noah Edjouma",
+      "teamId": 512,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 6
     },
     {
       "playerId": 250795,
@@ -617,15 +644,6 @@
       "playedMatches": 10
     },
     {
-      "playerId": 8437,
-      "name": "Jean-Victor Makengo",
-      "teamId": 525,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
       "playerId": 73215,
       "name": "Loïs Openda",
       "teamId": 523,
@@ -729,7 +747,7 @@
       "name": "Mamadou Koné",
       "teamId": 525,
       "goals": 1,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 9
     },
@@ -885,24 +903,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 9
-    },
-    {
-      "playerId": 8465,
-      "name": "Lucas Tousart",
-      "teamId": 512,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 8778,
-      "name": "Kenny Lala",
-      "teamId": 512,
-      "goals": 1,
-      "assists": null,
-      "penalties": 1,
-      "playedMatches": 10
     }
   ]
 }

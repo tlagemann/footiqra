@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PPL",
   "season": 2026,
-  "fetchedUtc": "2026-11-08T15:48:36.221Z",
+  "fetchedUtc": "2026-11-08T18:56:38.675Z",
   "scorers": [
     {
       "playerId": 67299,
@@ -32,6 +32,15 @@
       "playedMatches": 10
     },
     {
+      "playerId": 127034,
+      "name": "Borja Sainz",
+      "teamId": 503,
+      "goals": 6,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
       "playerId": 146109,
       "name": "Georgios Koutsias",
       "teamId": 5531,
@@ -56,7 +65,7 @@
       "goals": 5,
       "assists": 4,
       "penalties": 1,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 144579,
@@ -86,15 +95,6 @@
       "playedMatches": 9
     },
     {
-      "playerId": 127034,
-      "name": "Borja Sainz",
-      "teamId": 503,
-      "goals": 5,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
       "playerId": 182080,
       "name": "Leandro Antonetti",
       "teamId": 9136,
@@ -110,7 +110,7 @@
       "goals": 4,
       "assists": 2,
       "penalties": 1,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 151113,
@@ -209,7 +209,16 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
+    },
+    {
+      "playerId": 249135,
+      "name": "Walace",
+      "teamId": 5533,
+      "goals": 3,
+      "assists": null,
+      "penalties": 1,
+      "playedMatches": 5
     },
     {
       "playerId": 553,
@@ -356,6 +365,15 @@
       "playedMatches": 11
     },
     {
+      "playerId": 125031,
+      "name": "Matchoi Djaló",
+      "teamId": 5529,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
       "playerId": 275465,
       "name": "Manuel Mendonça",
       "teamId": 583,
@@ -372,6 +390,15 @@
       "assists": 2,
       "penalties": null,
       "playedMatches": 11
+    },
+    {
+      "playerId": 37160,
+      "name": "Murilo",
+      "teamId": 5533,
+      "goals": 2,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 10
     },
     {
       "playerId": 262708,
@@ -392,15 +419,6 @@
       "playedMatches": 11
     },
     {
-      "playerId": 249135,
-      "name": "Walace",
-      "teamId": 5533,
-      "goals": 2,
-      "assists": null,
-      "penalties": 1,
-      "playedMatches": 5
-    },
-    {
       "playerId": 284599,
       "name": "Abdel Kader Njoya",
       "teamId": 5529,
@@ -416,7 +434,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 154741,
@@ -497,7 +515,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 149724,
@@ -506,7 +524,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 45671,
@@ -515,7 +533,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 169570,
@@ -623,7 +641,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 262713,
@@ -666,7 +684,7 @@
       "name": "Pablo Ruan",
       "teamId": 5529,
       "goals": 1,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 10
     },
@@ -713,7 +731,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 202693,
@@ -761,15 +779,6 @@
       "playedMatches": 10
     },
     {
-      "playerId": 125031,
-      "name": "Matchoi Djaló",
-      "teamId": 5529,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 9
-    },
-    {
       "playerId": 177322,
       "name": "Henrique Araujo",
       "teamId": 6618,
@@ -785,7 +794,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 39635,
@@ -794,7 +803,7 @@
       "goals": 1,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 276587,
@@ -812,7 +821,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 80584,
@@ -885,15 +894,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 7
-    },
-    {
-      "playerId": 37160,
-      "name": "Murilo",
-      "teamId": 5533,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 10
     },
     {
       "playerId": 298463,
