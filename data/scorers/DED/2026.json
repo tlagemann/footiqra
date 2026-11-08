@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "DED",
   "season": 2026,
-  "fetchedUtc": "2026-11-08T09:58:20.226Z",
+  "fetchedUtc": "2026-11-08T13:03:06.117Z",
   "scorers": [
     {
       "playerId": 121280,
@@ -38,7 +38,7 @@
       "goals": 8,
       "assists": 2,
       "penalties": 2,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 188914,
@@ -55,6 +55,15 @@
       "teamId": 674,
       "goals": 7,
       "assists": 1,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
+      "playerId": 244466,
+      "name": "Anis Moussa",
+      "teamId": 675,
+      "goals": 7,
+      "assists": 2,
       "penalties": null,
       "playedMatches": 11
     },
@@ -81,23 +90,14 @@
       "name": "Jacob Trenskow",
       "teamId": 673,
       "goals": 6,
-      "assists": 2,
+      "assists": 3,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 115116,
       "name": "Sven Mijnans",
       "teamId": 674,
-      "goals": 6,
-      "assists": 2,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 244466,
-      "name": "Anis Moussa",
-      "teamId": 675,
       "goals": 6,
       "assists": 2,
       "penalties": null,
@@ -110,7 +110,16 @@
       "goals": 6,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
+    },
+    {
+      "playerId": 189601,
+      "name": "Nacho Ferri",
+      "teamId": 675,
+      "goals": 6,
+      "assists": 3,
+      "penalties": 1,
+      "playedMatches": 12
     },
     {
       "playerId": 178402,
@@ -128,7 +137,7 @@
       "goals": 5,
       "assists": 2,
       "penalties": 1,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 265560,
@@ -146,7 +155,7 @@
       "goals": 5,
       "assists": 4,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 136381,
@@ -174,15 +183,6 @@
       "assists": 2,
       "penalties": null,
       "playedMatches": 10
-    },
-    {
-      "playerId": 189601,
-      "name": "Nacho Ferri",
-      "teamId": 675,
-      "goals": 5,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 11
     },
     {
       "playerId": 226917,
@@ -257,6 +257,15 @@
       "playedMatches": 12
     },
     {
+      "playerId": 125914,
+      "name": "Ringo Meerveld",
+      "teamId": 673,
+      "goals": 4,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 12
+    },
+    {
       "playerId": 191058,
       "name": "Angel Alarcon",
       "teamId": 676,
@@ -308,7 +317,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 297046,
@@ -362,7 +371,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 153600,
@@ -371,7 +380,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 144445,
@@ -407,7 +416,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 148291,
@@ -417,6 +426,15 @@
       "assists": 2,
       "penalties": null,
       "playedMatches": 11
+    },
+    {
+      "playerId": 80161,
+      "name": "Sem Steijn",
+      "teamId": 675,
+      "goals": 3,
+      "assists": 1,
+      "penalties": 1,
+      "playedMatches": 12
     },
     {
       "playerId": 179498,
@@ -452,7 +470,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 254333,
@@ -533,7 +551,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 137564,
@@ -542,7 +560,7 @@
       "goals": 2,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 7432,
@@ -623,7 +641,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 3558,
@@ -632,7 +650,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 186400,
@@ -641,7 +659,7 @@
       "goals": 2,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 190468,
@@ -659,16 +677,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
-    },
-    {
-      "playerId": 125914,
-      "name": "Ringo Meerveld",
-      "teamId": 673,
-      "goals": 2,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 171423,
@@ -704,7 +713,7 @@
       "goals": 2,
       "assists": 7,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 7350,
@@ -713,7 +722,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 7570,
@@ -740,7 +749,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 289506,
@@ -767,7 +776,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": 1,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 172942,
@@ -777,15 +786,6 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 12
-    },
-    {
-      "playerId": 80161,
-      "name": "Sem Steijn",
-      "teamId": 675,
-      "goals": 2,
-      "assists": 1,
-      "penalties": 1,
-      "playedMatches": 11
     },
     {
       "playerId": 7470,

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "SA",
   "season": 2026,
-  "fetchedUtc": "2026-11-08T09:57:49.146Z",
+  "fetchedUtc": "2026-11-08T13:02:34.147Z",
   "scorers": [
     {
       "playerId": 252836,
@@ -92,7 +92,7 @@
       "goals": 4,
       "assists": 1,
       "penalties": 1,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 192142,
@@ -111,6 +111,15 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 9
+    },
+    {
+      "playerId": 2200,
+      "name": "Davide Frattesi",
+      "teamId": 110,
+      "goals": 4,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 11
     },
     {
       "playerId": 261273,
@@ -153,9 +162,9 @@
       "name": "Tijjani Noslin",
       "teamId": 110,
       "goals": 4,
-      "assists": 3,
+      "assists": 4,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 182192,
@@ -173,7 +182,7 @@
       "goals": 4,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 1754,
@@ -183,15 +192,6 @@
       "assists": null,
       "penalties": 1,
       "playedMatches": 8
-    },
-    {
-      "playerId": 2200,
-      "name": "Davide Frattesi",
-      "teamId": 110,
-      "goals": 3,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 10
     },
     {
       "playerId": 192382,
@@ -227,7 +227,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 171121,
@@ -398,7 +398,7 @@
       "goals": 2,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 81440,
@@ -569,7 +569,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 44033,
@@ -623,7 +623,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 82020,
@@ -641,7 +641,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 16346,
@@ -704,7 +704,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 274076,
@@ -902,7 +902,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     }
   ]
 }
