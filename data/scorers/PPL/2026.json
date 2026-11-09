@@ -2,13 +2,13 @@
   "schemaVersion": 1,
   "competition": "PPL",
   "season": 2026,
-  "fetchedUtc": "2026-11-08T21:48:24.454Z",
+  "fetchedUtc": "2026-11-09T01:20:47.032Z",
   "scorers": [
     {
       "playerId": 67299,
       "name": "Vangelis Pavlidis",
       "teamId": 1903,
-      "goals": 10,
+      "goals": 11,
       "assists": 3,
       "penalties": 3,
       "playedMatches": 11
@@ -59,6 +59,15 @@
       "playedMatches": 11
     },
     {
+      "playerId": 182080,
+      "name": "Leandro Antonetti",
+      "teamId": 9136,
+      "goals": 5,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
       "playerId": 150519,
       "name": "Gabriel Veiga",
       "teamId": 503,
@@ -93,15 +102,6 @@
       "assists": 1,
       "penalties": 1,
       "playedMatches": 9
-    },
-    {
-      "playerId": 182080,
-      "name": "Leandro Antonetti",
-      "teamId": 9136,
-      "goals": 4,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 11
     },
     {
       "playerId": 1760,
@@ -455,6 +455,15 @@
       "playedMatches": 11
     },
     {
+      "playerId": 45401,
+      "name": "Ricardo Horta",
+      "teamId": 5613,
+      "goals": 2,
+      "assists": null,
+      "penalties": 1,
+      "playedMatches": 8
+    },
+    {
       "playerId": 32995,
       "name": "Raphael Guzzo",
       "teamId": 5575,
@@ -756,7 +765,7 @@
       "name": "Andreas Schjelderup",
       "teamId": 1903,
       "goals": 1,
-      "assists": 2,
+      "assists": 3,
       "penalties": null,
       "playedMatches": 11
     },
@@ -894,15 +903,6 @@
       "assists": 1,
       "penalties": 1,
       "playedMatches": 7
-    },
-    {
-      "playerId": 16335,
-      "name": "Jonas Wind",
-      "teamId": 5613,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 8
     }
   ]
 }

@@ -2,19 +2,19 @@
   "schemaVersion": 1,
   "competition": "PD",
   "season": 2026,
-  "fetchedUtc": "2026-11-08T21:46:53.461Z",
+  "fetchedUtc": "2026-11-09T01:19:13.837Z",
   "rows": [
     {
       "position": 1,
       "teamId": 81,
-      "playedGames": 11,
-      "won": 10,
+      "playedGames": 12,
+      "won": 11,
       "draw": 0,
       "lost": 1,
-      "points": 30,
-      "goalsFor": 46,
-      "goalsAgainst": 12,
-      "goalDifference": 34
+      "points": 33,
+      "goalsFor": 48,
+      "goalsAgainst": 13,
+      "goalDifference": 35
     },
     {
       "position": 2,
@@ -31,14 +31,14 @@
     {
       "position": 3,
       "teamId": 78,
-      "playedGames": 11,
+      "playedGames": 12,
       "won": 9,
       "draw": 1,
-      "lost": 1,
+      "lost": 2,
       "points": 28,
-      "goalsFor": 22,
-      "goalsAgainst": 8,
-      "goalDifference": 14
+      "goalsFor": 23,
+      "goalsAgainst": 10,
+      "goalDifference": 13
     },
     {
       "position": 4,
