@@ -72,6 +72,40 @@ function eventLocation(m: MatchDetail) {
   };
 }
 
+/**
+ * Fields that complete the SportsEvent markup. The competition goes in as
+ * organizer: a nested SportsEvent ("superEvent") is treated by Google as an
+ * event of its own and then fails for missing startDate and location.
+ */
+function eventDetails(m: MatchDetail, locale: Locale) {
+  const league = m.leagueSlug ? getLeagueBySlug(m.leagueSlug) : undefined;
+  const site = getSiteUrl();
+  const p = paths(locale);
+  const round = m.matchday
+    ? tr(locale, `, matchday ${m.matchday}`, `, ${m.matchday}. Spieltag`)
+    : "";
+  const image = m.archived
+    ? m.leagueSlug
+      ? ogImage.league(m.leagueSlug)
+      : ogImage.championsLeague
+    : ogImage.match(m.slug);
+  return {
+    // A football match lasts about two hours including the break.
+    endDate: new Date(Date.parse(m.utcDate) + 2 * 3600 * 1000).toISOString(),
+    description: tr(
+      locale,
+      `${m.home.name} vs ${m.away.name} (${m.competitionName}${round}): forecast, form and season stats of both clubs.`,
+      `${m.home.name} gegen ${m.away.name} (${m.competitionName}${round}): Prognose, Form und Saisonstatistik beider Vereine.`,
+    ),
+    image: `${site}${image}`,
+    organizer: {
+      "@type": "SportsOrganization",
+      name: league?.name ?? m.competitionName,
+      ...(league ? { url: `${site}${p.league(league.slug)}` } : {}),
+    },
+  };
+}
+
 /** "1 November 2026" / "1. November 2026" */
 const longDate = (locale: Locale, iso: string) =>
   fmtDate(locale, iso, { day: "numeric", month: "long", year: "numeric" });
@@ -490,7 +524,7 @@ function ArchivedMatch({ m, locale }: { m: MatchDetail; locale: Locale }) {
           homeTeam: { "@type": "SportsTeam", name: h.name },
           awayTeam: { "@type": "SportsTeam", name: a.name },
           location: eventLocation(m),
-          ...(league ? { superEvent: { "@type": "SportsEvent", name: league.name } } : {}),
+          ...eventDetails(m, locale),
         }}
       />
       <JsonLd
@@ -770,7 +804,7 @@ export async function MatchView({ locale, slug }: { locale: Locale; slug: string
             { "@type": "SportsTeam", name: a.name },
           ],
           location: eventLocation(m),
-          ...(league ? { superEvent: { "@type": "SportsEvent", name: league.name } } : {}),
+          ...eventDetails(m, locale),
         }}
       />
       <JsonLd
