@@ -1,46 +1,46 @@
 {
   "schemaVersion": 1,
   "provider": "football-data",
-  "lastSuccessfulRunUtc": "2026-11-10T21:50:47.161Z",
+  "lastSuccessfulRunUtc": "2026-11-11T01:15:36.960Z",
   "competitions": {
     "PL": {
       "season": 2026,
-      "lastSuccessUtc": "2026-11-10T21:49:54.816Z",
+      "lastSuccessUtc": "2026-11-11T01:14:44.680Z",
       "matchCount": 380
     },
     "PD": {
       "season": 2026,
-      "lastSuccessUtc": "2026-11-10T21:50:02.536Z",
+      "lastSuccessUtc": "2026-11-11T01:14:52.124Z",
       "matchCount": 380
     },
     "SA": {
       "season": 2026,
-      "lastSuccessUtc": "2026-11-10T21:50:09.850Z",
+      "lastSuccessUtc": "2026-11-11T01:14:59.603Z",
       "matchCount": 380
     },
     "BL1": {
       "season": 2026,
-      "lastSuccessUtc": "2026-11-10T21:50:17.157Z",
+      "lastSuccessUtc": "2026-11-11T01:15:07.183Z",
       "matchCount": 306
     },
     "FL1": {
       "season": 2026,
-      "lastSuccessUtc": "2026-11-10T21:50:24.718Z",
+      "lastSuccessUtc": "2026-11-11T01:15:14.605Z",
       "matchCount": 306
     },
     "CL": {
       "season": 2026,
-      "lastSuccessUtc": "2026-11-10T21:50:47.160Z",
+      "lastSuccessUtc": "2026-11-11T01:15:36.959Z",
       "matchCount": 144
     },
     "PPL": {
       "season": 2026,
-      "lastSuccessUtc": "2026-11-10T21:50:32.152Z",
+      "lastSuccessUtc": "2026-11-11T01:15:22.187Z",
       "matchCount": 306
     },
     "DED": {
       "season": 2026,
-      "lastSuccessUtc": "2026-11-10T21:50:39.794Z",
+      "lastSuccessUtc": "2026-11-11T01:15:29.594Z",
       "matchCount": 306
     }
   }
