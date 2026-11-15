@@ -23,6 +23,7 @@ describe("counterpart", () => {
     ["/top-scorers/", "/de/torjaeger/"],
     ["/table-calculator/", "/de/tabellenrechner/"],
     ["/leagues/serie-a/table-calculator/", "/de/ligen/serie-a/tabellenrechner/"],
+    ["/champions-league/table-calculator/", "/de/champions-league/tabellenrechner/"],
     ["/top-scorers/power-ranking/", "/de/torjaeger/power-ranking/"],
     ["/top-matches/", "/de/topspiele/"],
     ["/predictions/", "/de/prognosen/"],

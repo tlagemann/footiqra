@@ -36,6 +36,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     (l) => paths(l).scorers,
     (l) => paths(l).tableCalculator,
     ...LEAGUES.map((league) => (l: Locale) => paths(l).leagueCalculator(league.slug)),
+    (l) => paths(l).championsLeagueCalculator,
     (l) => paths(l).scorerIndex,
     ...LEAGUES.map((league) => (l: Locale) => paths(l).leagueScorers(league.slug)),
     (l) => paths(l).tableVsStrength,

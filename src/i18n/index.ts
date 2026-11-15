@@ -84,6 +84,7 @@ export function paths(locale: Locale) {
     tableVsStrength: `${b}${s.tableVsStrength}/`,
     methodology: `${b}${s.methodology}/`,
     championsLeague: `${b}${s.championsLeague}/`,
+    championsLeagueCalculator: `${b}${s.championsLeague}/${s.tableCalculator}/`,
     legal: `${b}${s.legal}/`,
     privacy: `${b}${s.privacy}/`,
     blog: `${b}${s.blog}/`,
@@ -122,6 +123,8 @@ export function counterpart(pathname: string, to: Locale): string {
     return p.league(parts[1]!);
   }
   if (first === "scorers" && parts[1] === "power-ranking") return p.scorerIndex;
+  if (first === "championsLeague" && parts[1] === src.tableCalculator)
+    return p.championsLeagueCalculator;
   if (first === "teams" && parts[1]) return p.team(parts[1]);
   if (first === "matches" && parts[1]) return p.match(parts[1]);
   if (first === "blog" && parts[1]) return p.blogPost(parts[1]);

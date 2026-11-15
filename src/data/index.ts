@@ -31,7 +31,11 @@ import {
   type ZoneChances,
 } from "./projection";
 import { matchDetail, type MatchDetail } from "./match-detail";
-import { tableCalculator, type TableCalculatorData } from "./table-calculator";
+import {
+  championsLeagueCalculator,
+  tableCalculator,
+  type TableCalculatorData,
+} from "./table-calculator";
 import { LEAGUES } from "@/config/leagues";
 import { computePowerRanking, type PowerRanking, type PowerRankingRow } from "./power-ranking";
 import {
@@ -409,6 +413,12 @@ export async function getTableCalculator(
 ): Promise<TableCalculatorData | undefined> {
   const snapshot = await loadSnapshot();
   return tableCalculator(snapshot, matchSlugs(snapshot), leagueSlug);
+}
+
+/** Calculator data for the Champions League league phase. */
+export async function getChampionsLeagueCalculator(): Promise<TableCalculatorData | undefined> {
+  const snapshot = await loadSnapshot();
+  return championsLeagueCalculator(snapshot, matchSlugs(snapshot));
 }
 
 export type { TitleRace };

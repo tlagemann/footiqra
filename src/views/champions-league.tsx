@@ -131,7 +131,18 @@ export async function ChampionsLeagueView({ locale }: { locale: Locale }) {
       )}
 
       <section aria-labelledby="cl-table">
-        <SectionHeading id="cl-table" title={t("League phase", "Ligaphase")} />
+        <SectionHeading
+          id="cl-table"
+          title={t("League phase", "Ligaphase")}
+          aside={
+            <Link
+              href={p.championsLeagueCalculator}
+              className="text-sm text-muted hover:text-foreground"
+            >
+              {t("Table calculator", "Tabellenrechner")}
+            </Link>
+          }
+        />
         {cl.table ? (
           <>
             <StandingsTable

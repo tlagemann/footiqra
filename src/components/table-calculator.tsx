@@ -40,12 +40,18 @@ export function TableCalculator({
   teams,
   fixtures,
   locale,
+  zones,
+  tieNote,
 }: {
   leagueSlug: string;
   season: number;
   teams: CalcTeam[];
   fixtures: CalcFixture[];
   locale: Locale;
+  /** Marks places 1 to `direct` and up to `playoff` with a coloured bar (Champions League). */
+  zones?: { direct: number; playoff: number };
+  /** Replaces the default note on tie-breakers below the table. */
+  tieNote?: string;
 }) {
   const t = (en: string, de: string) => tr(locale, en, de);
   const p = paths(locale);
@@ -176,7 +182,15 @@ export function TableCalculator({
         <tbody>
           {rows.map((r, i) => (
             <tr key={r.id} className="border-t border-line/80">
-              <td className="tabular py-2.5 pl-4 font-display font-bold">
+              <td className="tabular relative py-2.5 pl-4 font-display font-bold">
+                {zones && i < zones.playoff && (
+                  <span
+                    aria-hidden="true"
+                    className={`absolute top-2.5 bottom-2.5 left-1.5 w-1 rounded-full ${
+                      i < zones.direct ? "bg-brand" : "bg-neutral"
+                    }`}
+                  />
+                )}
                 {i + 1}
                 {r.change !== 0 && (
                   <span
@@ -396,10 +410,11 @@ export function TableCalculator({
         >
           {table}
           <p className="mt-3 text-sm text-muted">
-            {t(
-              "▲▼: places compared with the current table. Ties are split by goal difference, then goals scored; head-to-head rules are not applied.",
-              "▲▼: Plätze im Vergleich zur aktuellen Tabelle. Bei Punktgleichheit entscheiden Tordifferenz, dann erzielte Tore; der direkte Vergleich wird nicht angewendet.",
-            )}
+            {tieNote ??
+              t(
+                "▲▼: places compared with the current table. Ties are split by goal difference, then goals scored; head-to-head rules are not applied.",
+                "▲▼: Plätze im Vergleich zur aktuellen Tabelle. Bei Punktgleichheit entscheiden Tordifferenz, dann erzielte Tore; der direkte Vergleich wird nicht angewendet.",
+              )}
           </p>
         </div>
       </div>
