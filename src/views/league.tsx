@@ -22,7 +22,7 @@ import {
   getWeekAgo,
   nextWindow,
 } from "@/data";
-import { country, paths, seasonLabel, signed, tr, type Locale } from "@/i18n";
+import { country, fmtDate, paths, seasonLabel, signed, tr, type Locale } from "@/i18n";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { ogImage } from "@/og/images";
 
@@ -33,12 +33,16 @@ export function leagueStaticParams() {
 export async function leagueMetadata(locale: Locale, slug: string): Promise<Metadata> {
   const league = getLeagueBySlug(slug);
   if (!league) return {};
-  const ranking = await getPowerRanking();
+  const [ranking, table] = await Promise.all([getPowerRanking(), getLeagueTable(league.slug)]);
   const rows =
     ranking.status === "ok"
       ? ranking.data.rows.filter((r) => r.team.leagueSlug === league.slug)
       : [];
   const best = rows[0];
+  // A month in the title signals freshness for "<league> power rankings" searches.
+  const month = table
+    ? fmtDate(locale, table.fetchedUtc, { month: "long", year: "numeric" })
+    : null;
   const lead = best
     ? tr(
         locale,
@@ -52,11 +56,17 @@ export async function leagueMetadata(locale: Locale, slug: string): Promise<Meta
       );
   return pageMetadata({
     locale,
-    title: tr(
-      locale,
-      `${league.name} power rankings: every club by strength`,
-      `${league.name} Power-Ranking: alle Vereine nach Stärke`,
-    ),
+    title: month
+      ? tr(
+          locale,
+          `${league.name} power rankings (${month})`,
+          `${league.name} Power-Ranking (${month})`,
+        )
+      : tr(
+          locale,
+          `${league.name} power rankings: every club by strength`,
+          `${league.name} Power-Ranking: alle Vereine nach Stärke`,
+        ),
     description: `${lead} ${tr(
       locale,
       "Plus form, table and title chances.",

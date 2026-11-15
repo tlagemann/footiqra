@@ -73,7 +73,11 @@ export async function teamMetadata(locale: Locale, slug: string): Promise<Metada
   if (result.status !== "ok") return {};
   const { team } = result.data;
   const league = getLeagueBySlug(team.leagueSlug);
-  const [row, power] = await Promise.all([getTeamRanking(team.slug), getPowerRanking()]);
+  const [row, power, table] = await Promise.all([
+    getTeamRanking(team.slug),
+    getPowerRanking(),
+    getLeagueTable(team.leagueSlug),
+  ]);
   const leagueName = league?.name ?? tr(locale, "Europe", "Europa");
   const { fixtures } = result.data;
   // The snippet leads with what only Footiqra has (strength, form, win chance);
@@ -118,12 +122,14 @@ export async function teamMetadata(locale: Locale, slug: string): Promise<Metada
       ? `${tr(locale, "Next", "Nächstes Spiel")}: ${next.home.name} ${tr(locale, "vs", "gegen")} ${next.away.name} ${tr(locale, "on", "am")} ${fmtDate(locale, next.utcDate, { day: "numeric", month: "long" })}.`
       : null;
   const facts = [lead, form, nextLine].filter(Boolean);
+  // Searchers ask for "results", "fixtures"/"Spielplan" and "form"; the page leads with exactly that.
+  const season = table ? ` ${seasonLabel(table.season)}` : "";
   return pageMetadata({
     locale,
     title: tr(
       locale,
-      `${team.name}: form, strength and power ranking`,
-      `${team.name}: Form, Stärke und Power-Ranking`,
+      `${team.name}: results, fixtures & form${season}`,
+      `${team.name}: Ergebnisse, Spielplan & Form${season}`,
     ),
     description: facts.join(" "),
     paths: { en: paths("en").team(team.slug), de: paths("de").team(team.slug) },
@@ -203,7 +209,7 @@ export async function TeamView({ locale, slug }: { locale: Locale; slug: string 
           <h1 className="mt-1 font-display text-4xl font-extrabold tracking-[-0.045em] sm:text-6xl">
             {team.name}
             <span className="mt-2 block font-sans text-lg font-semibold tracking-normal text-muted sm:text-xl">
-              {t("Form, strength and power ranking", "Form, Stärke und Power-Ranking")}
+              {t("Results, fixtures and power ranking", "Ergebnisse, Spielplan und Power-Ranking")}
               {table ? ` ${seasonLabel(table.season)}` : ""}
             </span>
           </h1>
