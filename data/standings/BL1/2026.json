@@ -2,18 +2,18 @@
   "schemaVersion": 1,
   "competition": "BL1",
   "season": 2026,
-  "fetchedUtc": "2026-11-20T19:13:25.901Z",
+  "fetchedUtc": "2026-11-20T21:59:30.471Z",
   "rows": [
     {
       "position": 1,
       "teamId": 5,
-      "playedGames": 9,
+      "playedGames": 10,
       "won": 6,
-      "draw": 3,
+      "draw": 4,
       "lost": 0,
-      "points": 21,
-      "goalsFor": 29,
-      "goalsAgainst": 9,
+      "points": 22,
+      "goalsFor": 30,
+      "goalsAgainst": 10,
       "goalDifference": 20
     },
     {
@@ -162,6 +162,18 @@
     },
     {
       "position": 14,
+      "teamId": 1,
+      "playedGames": 10,
+      "won": 2,
+      "draw": 4,
+      "lost": 4,
+      "points": 10,
+      "goalsFor": 11,
+      "goalsAgainst": 15,
+      "goalDifference": -4
+    },
+    {
+      "position": 15,
       "teamId": 16,
       "playedGames": 9,
       "won": 2,
@@ -171,18 +183,6 @@
       "goalsFor": 20,
       "goalsAgainst": 20,
       "goalDifference": 0
-    },
-    {
-      "position": 15,
-      "teamId": 1,
-      "playedGames": 9,
-      "won": 2,
-      "draw": 3,
-      "lost": 4,
-      "points": 9,
-      "goalsFor": 10,
-      "goalsAgainst": 14,
-      "goalDifference": -4
     },
     {
       "position": 16,

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "FL1",
   "season": 2026,
-  "fetchedUtc": "2026-11-20T19:14:34.467Z",
+  "fetchedUtc": "2026-11-20T22:00:46.251Z",
   "scorers": [
     {
       "playerId": 552,
@@ -77,6 +77,15 @@
       "playedMatches": 8
     },
     {
+      "playerId": 4072,
+      "name": "Josh Maja",
+      "teamId": 533,
+      "goals": 5,
+      "assists": null,
+      "penalties": 1,
+      "playedMatches": 11
+    },
+    {
       "playerId": 98299,
       "name": "Boulaye Dia",
       "teamId": 529,
@@ -149,15 +158,6 @@
       "playedMatches": 10
     },
     {
-      "playerId": 4072,
-      "name": "Josh Maja",
-      "teamId": 533,
-      "goals": 4,
-      "assists": null,
-      "penalties": 1,
-      "playedMatches": 11
-    },
-    {
       "playerId": 4289,
       "name": "Daniel Namaso",
       "teamId": 519,
@@ -192,6 +192,15 @@
       "assists": 2,
       "penalties": null,
       "playedMatches": 5
+    },
+    {
+      "playerId": 134600,
+      "name": "Antoine Mille",
+      "teamId": 531,
+      "goals": 3,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 11
     },
     {
       "playerId": 136733,
@@ -282,6 +291,15 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 9
+    },
+    {
+      "playerId": 851,
+      "name": "Renaud Ripart",
+      "teamId": 531,
+      "goals": 2,
+      "assists": null,
+      "penalties": 2,
+      "playedMatches": 11
     },
     {
       "playerId": 8437,
@@ -626,15 +644,6 @@
       "playedMatches": 10
     },
     {
-      "playerId": 851,
-      "name": "Renaud Ripart",
-      "teamId": 531,
-      "goals": 1,
-      "assists": null,
-      "penalties": 1,
-      "playedMatches": 11
-    },
-    {
       "playerId": 178696,
       "name": "Lucas Maronnier",
       "teamId": 531,
@@ -750,15 +759,6 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 9
-    },
-    {
-      "playerId": 134600,
-      "name": "Antoine Mille",
-      "teamId": 531,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 11
     },
     {
       "playerId": 295761,

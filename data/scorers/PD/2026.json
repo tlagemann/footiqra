@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PD",
   "season": 2026,
-  "fetchedUtc": "2026-11-20T19:14:12.696Z",
+  "fetchedUtc": "2026-11-20T22:00:29.914Z",
   "scorers": [
     {
       "playerId": 37428,
@@ -50,6 +50,15 @@
       "playedMatches": 12
     },
     {
+      "playerId": 180218,
+      "name": "Roberto Fernández",
+      "teamId": 80,
+      "goals": 7,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 13
+    },
+    {
       "playerId": 115175,
       "name": "Sergio Camello",
       "teamId": 87,
@@ -66,15 +75,6 @@
       "assists": 5,
       "penalties": null,
       "playedMatches": 12
-    },
-    {
-      "playerId": 180218,
-      "name": "Roberto Fernández",
-      "teamId": 80,
-      "goals": 6,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 13
     },
     {
       "playerId": 214497,
@@ -630,7 +630,7 @@
       "name": "Tyrhys Dolan",
       "teamId": 80,
       "goals": 1,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 13
     },

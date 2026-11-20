@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "BL1",
   "season": 2026,
-  "fetchedUtc": "2026-11-20T19:14:26.677Z",
+  "fetchedUtc": "2026-11-20T22:00:38.185Z",
   "scorers": [
     {
       "playerId": 304,
@@ -180,7 +180,7 @@
       "name": "Said El Mala",
       "teamId": 1,
       "goals": 3,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 9
     },
@@ -581,6 +581,15 @@
       "playedMatches": 9
     },
     {
+      "playerId": 184533,
+      "name": "Nathaniel Brown",
+      "teamId": 5,
+      "goals": 2,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 10
+    },
+    {
       "playerId": 175951,
       "name": "Ezechiel Banzuzi",
       "teamId": 721,
@@ -890,15 +899,6 @@
       "playerId": 212291,
       "name": "Santiago Castaneda",
       "teamId": 29,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 9
-    },
-    {
-      "playerId": 145937,
-      "name": "Daniel Svensson",
-      "teamId": 4,
       "goals": 1,
       "assists": null,
       "penalties": null,
