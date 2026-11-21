@@ -2,8 +2,17 @@
   "schemaVersion": 1,
   "competition": "BL1",
   "season": 2026,
-  "fetchedUtc": "2026-11-21T13:09:14.302Z",
+  "fetchedUtc": "2026-11-21T15:57:44.357Z",
   "scorers": [
+    {
+      "playerId": 1826,
+      "name": "Patrik Schick",
+      "teamId": 3,
+      "goals": 9,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 10
+    },
     {
       "playerId": 304,
       "name": "Niclas Füllkrug",
@@ -11,15 +20,6 @@
       "goals": 9,
       "assists": null,
       "penalties": 3,
-      "playedMatches": 9
-    },
-    {
-      "playerId": 1826,
-      "name": "Patrik Schick",
-      "teamId": 3,
-      "goals": 8,
-      "assists": 2,
-      "penalties": null,
       "playedMatches": 9
     },
     {
@@ -38,7 +38,7 @@
       "goals": 6,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 45593,
@@ -50,13 +50,49 @@
       "playedMatches": 9
     },
     {
+      "playerId": 82404,
+      "name": "Jonathan Burkardt",
+      "teamId": 19,
+      "goals": 6,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 10
+    },
+    {
+      "playerId": 178783,
+      "name": "Romulo Cruz",
+      "teamId": 721,
+      "goals": 6,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
+      "playerId": 169295,
+      "name": "Antonio Nusa",
+      "teamId": 721,
+      "goals": 5,
+      "assists": 7,
+      "penalties": 2,
+      "playedMatches": 10
+    },
+    {
       "playerId": 145293,
       "name": "Yuito Suzuki",
       "teamId": 17,
       "goals": 5,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
+    },
+    {
+      "playerId": 156629,
+      "name": "Igor Matanovic",
+      "teamId": 17,
+      "goals": 5,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 10
     },
     {
       "playerId": 6661,
@@ -77,31 +113,13 @@
       "playedMatches": 9
     },
     {
-      "playerId": 82404,
-      "name": "Jonathan Burkardt",
-      "teamId": 19,
-      "goals": 5,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 9
-    },
-    {
       "playerId": 8484,
       "name": "Christopher Nkunku",
       "teamId": 721,
       "goals": 5,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 8
-    },
-    {
-      "playerId": 178783,
-      "name": "Romulo Cruz",
-      "teamId": 721,
-      "goals": 5,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 9
     },
     {
       "playerId": 22396,
@@ -113,31 +131,13 @@
       "playedMatches": 6
     },
     {
-      "playerId": 169295,
-      "name": "Antonio Nusa",
-      "teamId": 721,
-      "goals": 4,
-      "assists": 7,
-      "penalties": 1,
-      "playedMatches": 9
-    },
-    {
-      "playerId": 156629,
-      "name": "Igor Matanovic",
-      "teamId": 17,
-      "goals": 4,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 9
-    },
-    {
       "playerId": 82442,
       "name": "Joseph Scally",
       "teamId": 18,
       "goals": 4,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 183780,
@@ -146,7 +146,7 @@
       "goals": 4,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 101074,
@@ -155,7 +155,7 @@
       "goals": 4,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 8004,
@@ -200,7 +200,7 @@
       "goals": 3,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 202532,
@@ -209,7 +209,7 @@
       "goals": 3,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 9452,
@@ -218,7 +218,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 65692,
@@ -236,7 +236,7 @@
       "goals": 3,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 8785,
@@ -281,7 +281,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 7029,
@@ -290,7 +290,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 98330,
@@ -299,7 +299,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 265182,
@@ -308,7 +308,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 213737,
@@ -317,7 +317,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 274045,
@@ -326,7 +326,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 4
+      "playedMatches": 5
     },
     {
       "playerId": 182004,
@@ -335,7 +335,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 9848,
@@ -398,7 +398,16 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
+    },
+    {
+      "playerId": 154228,
+      "name": "Nicolás Ezequiel Fernández",
+      "teamId": 3,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 10
     },
     {
       "playerId": 188201,
@@ -416,7 +425,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 7633,
@@ -443,7 +452,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 6549,
@@ -470,7 +479,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 277592,
@@ -506,7 +515,7 @@
       "goals": 2,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 175704,
@@ -515,7 +524,7 @@
       "goals": 2,
       "assists": 4,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 133903,
@@ -524,7 +533,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 176617,
@@ -533,7 +542,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 10561,
@@ -542,7 +551,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 7532,
@@ -569,7 +578,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 113427,
@@ -596,7 +605,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 282450,
@@ -605,7 +614,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 113457,
@@ -614,7 +623,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 4
+      "playedMatches": 5
     },
     {
       "playerId": 56829,
@@ -623,7 +632,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 3
+      "playedMatches": 4
     },
     {
       "playerId": 9489,
@@ -632,7 +641,16 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
+    },
+    {
+      "playerId": 204136,
+      "name": "Afonso Moreira",
+      "teamId": 3,
+      "goals": 2,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 10
     },
     {
       "playerId": 150517,
@@ -641,7 +659,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 1858,
@@ -659,7 +677,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 30548,
@@ -668,7 +686,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 172452,
@@ -704,16 +722,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
-    },
-    {
-      "playerId": 154228,
-      "name": "Nicolás Ezequiel Fernández",
-      "teamId": 3,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 46125,
@@ -722,7 +731,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 6576,
@@ -803,7 +812,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 144393,
@@ -839,7 +848,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 44463,
@@ -848,7 +857,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 152726,
@@ -893,16 +902,7 @@
       "goals": 1,
       "assists": 4,
       "penalties": null,
-      "playedMatches": 9
-    },
-    {
-      "playerId": 212291,
-      "name": "Santiago Castaneda",
-      "teamId": 29,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     }
   ]
 }

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "SA",
   "season": 2026,
-  "fetchedUtc": "2026-11-21T13:09:10.942Z",
+  "fetchedUtc": "2026-11-21T15:57:37.943Z",
   "scorers": [
     {
       "playerId": 252836,
@@ -50,13 +50,22 @@
       "playedMatches": 11
     },
     {
+      "playerId": 171448,
+      "name": "Tijjani Noslin",
+      "teamId": 110,
+      "goals": 6,
+      "assists": 4,
+      "penalties": null,
+      "playedMatches": 12
+    },
+    {
       "playerId": 43285,
       "name": "Anastasios Douvikas",
       "teamId": 7397,
       "goals": 5,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 192142,
@@ -77,13 +86,22 @@
       "playedMatches": 9
     },
     {
+      "playerId": 2200,
+      "name": "Davide Frattesi",
+      "teamId": 110,
+      "goals": 5,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 12
+    },
+    {
       "playerId": 136113,
       "name": "Daniel Maldini",
       "teamId": 104,
       "goals": 5,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 40786,
@@ -111,15 +129,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 9
-    },
-    {
-      "playerId": 2200,
-      "name": "Davide Frattesi",
-      "teamId": 110,
-      "goals": 4,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 11
     },
     {
       "playerId": 261273,
@@ -167,15 +176,6 @@
       "playedMatches": 11
     },
     {
-      "playerId": 171448,
-      "name": "Tijjani Noslin",
-      "teamId": 110,
-      "goals": 4,
-      "assists": 4,
-      "penalties": null,
-      "playedMatches": 11
-    },
-    {
       "playerId": 182192,
       "name": "Diego Moreira",
       "teamId": 98,
@@ -198,9 +198,9 @@
       "name": "Gustav Isaksen",
       "teamId": 110,
       "goals": 4,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 1754,
@@ -254,7 +254,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 152770,
@@ -281,7 +281,7 @@
       "goals": 3,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 299423,
@@ -309,6 +309,15 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 11
+    },
+    {
+      "playerId": 247056,
+      "name": "Jacobo Ramón",
+      "teamId": 7397,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 12
     },
     {
       "playerId": 2040,
@@ -362,7 +371,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 125523,
@@ -461,7 +470,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 114054,
@@ -480,15 +489,6 @@
       "assists": 2,
       "penalties": null,
       "playedMatches": 10
-    },
-    {
-      "playerId": 247056,
-      "name": "Jacobo Ramón",
-      "teamId": 7397,
-      "goals": 2,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 11
     },
     {
       "playerId": 165857,
@@ -578,7 +578,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 44033,
@@ -614,7 +614,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 1789,
@@ -648,9 +648,9 @@
       "name": "Kenneth Taylor",
       "teamId": 110,
       "goals": 2,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 16346,
@@ -677,7 +677,7 @@
       "goals": 2,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 5
+      "playedMatches": 6
     },
     {
       "playerId": 129635,
@@ -687,6 +687,15 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 9
+    },
+    {
+      "playerId": 124620,
+      "name": "Lucas Da Cunha",
+      "teamId": 7397,
+      "goals": 2,
+      "assists": null,
+      "penalties": 1,
+      "playedMatches": 12
     },
     {
       "playerId": 8822,
@@ -722,7 +731,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 226967,
@@ -731,7 +740,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 114117,
@@ -893,16 +902,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 5
-    },
-    {
-      "playerId": 39330,
-      "name": "Johan Vásquez",
-      "teamId": 107,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 6
     }
   ]
 }

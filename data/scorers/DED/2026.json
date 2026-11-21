@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "DED",
   "season": 2026,
-  "fetchedUtc": "2026-11-21T13:09:37.245Z",
+  "fetchedUtc": "2026-11-21T15:58:06.008Z",
   "scorers": [
     {
       "playerId": 121280,
@@ -27,9 +27,9 @@
       "name": "Sven Mijnans",
       "teamId": 674,
       "goals": 9,
-      "assists": 2,
+      "assists": 3,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 7697,
@@ -65,7 +65,7 @@
       "goals": 7,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 244466,
@@ -218,7 +218,7 @@
       "goals": 4,
       "assists": 2,
       "penalties": 3,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 181984,
@@ -227,7 +227,7 @@
       "goals": 4,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 119731,
@@ -236,7 +236,7 @@
       "goals": 4,
       "assists": 1,
       "penalties": 1,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 117884,
@@ -410,6 +410,15 @@
       "playedMatches": 12
     },
     {
+      "playerId": 2004,
+      "name": "Ivan Perišić",
+      "teamId": 674,
+      "goals": 3,
+      "assists": 1,
+      "penalties": 1,
+      "playedMatches": 12
+    },
+    {
       "playerId": 272162,
       "name": "Aymen Sliti",
       "teamId": 670,
@@ -470,7 +479,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 182186,
@@ -515,7 +524,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 171440,
@@ -599,22 +608,13 @@
       "playedMatches": 12
     },
     {
-      "playerId": 2004,
-      "name": "Ivan Perišić",
-      "teamId": 674,
-      "goals": 2,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 11
-    },
-    {
       "playerId": 97534,
       "name": "Sergiño Dest",
       "teamId": 674,
       "goals": 2,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 246145,
@@ -641,7 +641,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 273158,
@@ -713,7 +713,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 246761,
@@ -758,7 +758,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 265472,
@@ -839,7 +839,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 283109,
@@ -875,7 +875,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 57281,
