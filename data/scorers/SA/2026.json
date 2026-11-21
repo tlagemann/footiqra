@@ -2,8 +2,17 @@
   "schemaVersion": 1,
   "competition": "SA",
   "season": 2026,
-  "fetchedUtc": "2026-11-21T15:57:37.943Z",
+  "fetchedUtc": "2026-11-21T19:00:48.020Z",
   "scorers": [
+    {
+      "playerId": 7457,
+      "name": "Donyell Malen",
+      "teamId": 100,
+      "goals": 12,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 11
+    },
     {
       "playerId": 252836,
       "name": "Gustavo Varela",
@@ -11,15 +20,6 @@
       "goals": 9,
       "assists": 1,
       "penalties": 2,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 7457,
-      "name": "Donyell Malen",
-      "teamId": 100,
-      "goals": 8,
-      "assists": 2,
-      "penalties": null,
       "playedMatches": 10
     },
     {
@@ -95,6 +95,15 @@
       "playedMatches": 12
     },
     {
+      "playerId": 261273,
+      "name": "Rodrigo Mora",
+      "teamId": 100,
+      "goals": 5,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 12
+    },
+    {
       "playerId": 136113,
       "name": "Daniel Maldini",
       "teamId": 104,
@@ -119,7 +128,7 @@
       "goals": 4,
       "assists": 1,
       "penalties": 1,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 4119,
@@ -128,16 +137,7 @@
       "goals": 4,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
-    },
-    {
-      "playerId": 261273,
-      "name": "Rodrigo Mora",
-      "teamId": 100,
-      "goals": 4,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 10
     },
     {
       "playerId": 67743,
@@ -236,7 +236,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 7567,
@@ -263,7 +263,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 171121,
@@ -272,7 +272,7 @@
       "goals": 3,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 203511,
@@ -290,7 +290,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 211564,
@@ -416,7 +416,7 @@
       "goals": 2,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 81440,
@@ -434,7 +434,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 265567,
@@ -524,7 +524,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 102395,
@@ -533,7 +533,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 2158,
@@ -603,9 +603,9 @@
       "name": "Emanuele Lulli",
       "teamId": 100,
       "goals": 2,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 167394,
@@ -623,7 +623,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 7905,
@@ -632,7 +632,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 82020,
@@ -641,7 +641,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 97537,
@@ -722,7 +722,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 274076,
@@ -767,7 +767,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 64243,
@@ -830,7 +830,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 98549,

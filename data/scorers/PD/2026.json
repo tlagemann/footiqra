@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PD",
   "season": 2026,
-  "fetchedUtc": "2026-11-21T15:57:30.439Z",
+  "fetchedUtc": "2026-11-21T19:00:36.303Z",
   "scorers": [
     {
       "playerId": 37428,
@@ -20,7 +20,7 @@
       "goals": 13,
       "assists": 2,
       "penalties": 3,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 202283,
@@ -146,7 +146,7 @@
       "goals": 4,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 171964,
@@ -218,7 +218,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 213043,
@@ -227,7 +227,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 136646,
@@ -245,7 +245,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 169162,
@@ -254,7 +254,7 @@
       "goals": 3,
       "assists": 4,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 152458,
@@ -308,7 +308,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 277484,
@@ -317,7 +317,7 @@
       "goals": 3,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 8412,
@@ -353,7 +353,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 32719,
@@ -461,7 +461,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 189380,
@@ -531,9 +531,9 @@
       "name": "Isco",
       "teamId": 90,
       "goals": 2,
-      "assists": 1,
+      "assists": 2,
       "penalties": 1,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 127657,
@@ -542,7 +542,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 288836,
@@ -596,7 +596,7 @@
       "goals": 1,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 185105,
@@ -605,7 +605,7 @@
       "goals": 1,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 32679,
@@ -659,7 +659,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 220538,
@@ -695,7 +695,7 @@
       "goals": 1,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 3201,
@@ -758,7 +758,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 126878,
@@ -830,7 +830,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 7
+      "playedMatches": 8
     },
     {
       "playerId": 278018,
@@ -884,7 +884,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 146969,

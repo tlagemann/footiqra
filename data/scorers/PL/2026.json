@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PL",
   "season": 2026,
-  "fetchedUtc": "2026-11-21T15:57:23.650Z",
+  "fetchedUtc": "2026-11-21T19:00:35.073Z",
   "scorers": [
     {
       "playerId": 38101,
@@ -95,6 +95,15 @@
       "playedMatches": 10
     },
     {
+      "playerId": 7839,
+      "name": "Dominic Calvert-Lewin",
+      "teamId": 341,
+      "goals": 4,
+      "assists": 2,
+      "penalties": 1,
+      "playedMatches": 11
+    },
+    {
       "playerId": 3257,
       "name": "Bruno Fernandes",
       "teamId": 66,
@@ -113,13 +122,22 @@
       "playedMatches": 10
     },
     {
+      "playerId": 16058,
+      "name": "Noah Okafor",
+      "teamId": 341,
+      "goals": 4,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 10
+    },
+    {
       "playerId": 171,
       "name": "Kai Havertz",
       "teamId": 57,
       "goals": 3,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 99813,
@@ -137,7 +155,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 140194,
@@ -185,9 +203,9 @@
       "playedMatches": 10
     },
     {
-      "playerId": 7839,
-      "name": "Dominic Calvert-Lewin",
-      "teamId": 341,
+      "playerId": 8076,
+      "name": "Harvey Barnes",
+      "teamId": 67,
       "goals": 3,
       "assists": 2,
       "penalties": null,
@@ -237,15 +255,6 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 9
-    },
-    {
-      "playerId": 16058,
-      "name": "Noah Okafor",
-      "teamId": 341,
-      "goals": 3,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 10
     },
     {
       "playerId": 97535,
@@ -317,16 +326,16 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 7798,
       "name": "Joe Willock",
       "teamId": 67,
       "goals": 2,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 246418,
@@ -372,15 +381,6 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 11
-    },
-    {
-      "playerId": 8076,
-      "name": "Harvey Barnes",
-      "teamId": 67,
-      "goals": 2,
-      "assists": 2,
-      "penalties": null,
-      "playedMatches": 10
     },
     {
       "playerId": 4184,
@@ -443,7 +443,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 138230,
@@ -497,6 +497,15 @@
       "goals": 2,
       "assists": 4,
       "penalties": 1,
+      "playedMatches": 11
+    },
+    {
+      "playerId": 7878,
+      "name": "Dominic Solanke",
+      "teamId": 73,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
       "playedMatches": 11
     },
     {
@@ -695,7 +704,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 83599,
@@ -731,7 +740,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 216835,
@@ -875,7 +884,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 213270,
@@ -894,15 +903,6 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 11
-    },
-    {
-      "playerId": 102603,
-      "name": "Enzo Fernández",
-      "teamId": 65,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 10
     }
   ]
 }

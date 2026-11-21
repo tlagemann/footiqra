@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "BL1",
   "season": 2026,
-  "fetchedUtc": "2026-11-21T15:57:44.357Z",
+  "fetchedUtc": "2026-11-21T19:00:51.549Z",
   "scorers": [
     {
       "playerId": 1826,
@@ -110,14 +110,23 @@
       "goals": 5,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
+    },
+    {
+      "playerId": 101074,
+      "name": "Felix Kalu Nmecha",
+      "teamId": 4,
+      "goals": 5,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 10
     },
     {
       "playerId": 8484,
       "name": "Christopher Nkunku",
       "teamId": 721,
       "goals": 5,
-      "assists": 2,
+      "assists": 3,
       "penalties": null,
       "playedMatches": 9
     },
@@ -149,15 +158,6 @@
       "playedMatches": 10
     },
     {
-      "playerId": 101074,
-      "name": "Felix Kalu Nmecha",
-      "teamId": 4,
-      "goals": 4,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
       "playerId": 8004,
       "name": "Harry Kane",
       "teamId": 5,
@@ -170,6 +170,15 @@
       "playerId": 9541,
       "name": "Dayot Upamecano",
       "teamId": 5,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 10
+    },
+    {
+      "playerId": 6634,
+      "name": "Ridle Baku",
+      "teamId": 721,
       "goals": 3,
       "assists": null,
       "penalties": null,
@@ -234,7 +243,7 @@
       "name": "Tidiam Gomis",
       "teamId": 721,
       "goals": 3,
-      "assists": 2,
+      "assists": 3,
       "penalties": null,
       "playedMatches": 10
     },
@@ -263,7 +272,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 202665,
@@ -275,13 +284,13 @@
       "playedMatches": 9
     },
     {
-      "playerId": 6634,
-      "name": "Ridle Baku",
+      "playerId": 150517,
+      "name": "Rocco Reitz",
       "teamId": 721,
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 7
     },
     {
       "playerId": 7029,
@@ -371,7 +380,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 150733,
@@ -461,7 +470,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 193605,
@@ -653,15 +662,6 @@
       "playedMatches": 10
     },
     {
-      "playerId": 150517,
-      "name": "Rocco Reitz",
-      "teamId": 721,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 7
-    },
-    {
       "playerId": 1858,
       "name": "Emmanuel Latte Lath",
       "teamId": 28,
@@ -713,7 +713,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 206319,
@@ -776,7 +776,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 128453,
@@ -785,7 +785,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 7562,

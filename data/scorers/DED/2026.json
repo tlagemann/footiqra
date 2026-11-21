@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "DED",
   "season": 2026,
-  "fetchedUtc": "2026-11-21T15:58:06.008Z",
+  "fetchedUtc": "2026-11-21T19:01:14.938Z",
   "scorers": [
     {
       "playerId": 121280,
@@ -63,7 +63,7 @@
       "name": "Guus Til",
       "teamId": 674,
       "goals": 7,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
       "playedMatches": 13
     },
@@ -110,7 +110,7 @@
       "goals": 6,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 210841,
@@ -122,13 +122,22 @@
       "playedMatches": 12
     },
     {
+      "playerId": 150305,
+      "name": "Nicolas Binder",
+      "teamId": 1909,
+      "goals": 6,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 12
+    },
+    {
       "playerId": 189601,
       "name": "Nacho Ferri",
       "teamId": 675,
       "goals": 6,
       "assists": 3,
       "penalties": 1,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 178402,
@@ -146,7 +155,7 @@
       "goals": 5,
       "assists": 2,
       "penalties": 1,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 265560,
@@ -155,7 +164,16 @@
       "goals": 5,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 9
+      "playedMatches": 10
+    },
+    {
+      "playerId": 181984,
+      "name": "Ruben van Bommel",
+      "teamId": 674,
+      "goals": 5,
+      "assists": 3,
+      "penalties": null,
+      "playedMatches": 12
     },
     {
       "playerId": 215554,
@@ -164,7 +182,7 @@
       "goals": 5,
       "assists": 4,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 136381,
@@ -182,7 +200,7 @@
       "goals": 5,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 125914,
@@ -194,15 +212,6 @@
       "playedMatches": 12
     },
     {
-      "playerId": 150305,
-      "name": "Nicolas Binder",
-      "teamId": 1909,
-      "goals": 5,
-      "assists": 2,
-      "penalties": null,
-      "playedMatches": 11
-    },
-    {
       "playerId": 226917,
       "name": "Tyrone Owusu",
       "teamId": 1912,
@@ -212,6 +221,15 @@
       "playedMatches": 12
     },
     {
+      "playerId": 191155,
+      "name": "Irakli Yegoian",
+      "teamId": 670,
+      "goals": 4,
+      "assists": 5,
+      "penalties": 2,
+      "playedMatches": 13
+    },
+    {
       "playerId": 21733,
       "name": "Tjaronn Chery",
       "teamId": 1915,
@@ -219,15 +237,6 @@
       "assists": 2,
       "penalties": 3,
       "playedMatches": 13
-    },
-    {
-      "playerId": 181984,
-      "name": "Ruben van Bommel",
-      "teamId": 674,
-      "goals": 4,
-      "assists": 3,
-      "penalties": null,
-      "playedMatches": 12
     },
     {
       "playerId": 119731,
@@ -281,7 +290,7 @@
       "goals": 4,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 191058,
@@ -293,22 +302,13 @@
       "playedMatches": 12
     },
     {
-      "playerId": 191155,
-      "name": "Irakli Yegoian",
-      "teamId": 670,
-      "goals": 3,
-      "assists": 5,
-      "penalties": 1,
-      "playedMatches": 12
-    },
-    {
       "playerId": 214463,
       "name": "David Garden",
       "teamId": 670,
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 184643,
@@ -425,7 +425,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 151613,
@@ -452,7 +452,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 80161,
@@ -461,7 +461,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": 1,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 179498,
@@ -470,7 +470,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 5
+      "playedMatches": 6
     },
     {
       "playerId": 7574,
@@ -488,7 +488,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 82116,
@@ -525,6 +525,15 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 13
+    },
+    {
+      "playerId": 7602,
+      "name": "Bryan Linssen",
+      "teamId": 1915,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 12
     },
     {
       "playerId": 171440,
@@ -596,7 +605,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 150603,
@@ -749,7 +758,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 217935,
@@ -767,7 +776,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 289506,
@@ -848,16 +857,16 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 121181,
       "name": "Jason Ceka",
       "teamId": 1909,
       "goals": 2,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 135009,
@@ -894,15 +903,6 @@
       "assists": 2,
       "penalties": null,
       "playedMatches": 11
-    },
-    {
-      "playerId": 280744,
-      "name": "Erik Flataker",
-      "teamId": 718,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 12
     }
   ]
 }
