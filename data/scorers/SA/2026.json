@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "SA",
   "season": 2026,
-  "fetchedUtc": "2026-11-21T19:00:48.020Z",
+  "fetchedUtc": "2026-11-21T21:54:10.012Z",
   "scorers": [
     {
       "playerId": 7457,
@@ -329,6 +329,15 @@
       "playedMatches": 11
     },
     {
+      "playerId": 7905,
+      "name": "Scott McTominay",
+      "teamId": 113,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 9
+    },
+    {
       "playerId": 217678,
       "name": "Samuel Mbangula",
       "teamId": 103,
@@ -624,15 +633,6 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 12
-    },
-    {
-      "playerId": 7905,
-      "name": "Scott McTominay",
-      "teamId": 113,
-      "goals": 2,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 9
     },
     {
       "playerId": 82020,

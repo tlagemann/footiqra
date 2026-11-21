@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PL",
   "season": 2026,
-  "fetchedUtc": "2026-11-21T19:00:35.073Z",
+  "fetchedUtc": "2026-11-21T21:53:53.008Z",
   "scorers": [
     {
       "playerId": 38101,
@@ -153,7 +153,7 @@
       "name": "Martin Ødegaard",
       "teamId": 57,
       "goals": 3,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 11
     },
@@ -527,6 +527,15 @@
       "playedMatches": 10
     },
     {
+      "playerId": 167720,
+      "name": "Noni Madueke",
+      "teamId": 57,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
       "playerId": 168949,
       "name": "Julio Enciso",
       "teamId": 349,
@@ -894,15 +903,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 7
-    },
-    {
-      "playerId": 6308,
-      "name": "Jay Dasilva",
-      "teamId": 1076,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 11
     }
   ]
 }

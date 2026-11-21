@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "FL1",
   "season": 2026,
-  "fetchedUtc": "2026-11-21T19:00:58.962Z",
+  "fetchedUtc": "2026-11-21T21:54:20.709Z",
   "scorers": [
     {
       "playerId": 552,
@@ -38,7 +38,7 @@
       "goals": 6,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 156808,
@@ -146,7 +146,7 @@
       "goals": 4,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 184726,
@@ -183,6 +183,15 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 7
+    },
+    {
+      "playerId": 182406,
+      "name": "Jacen Russell-Rowe",
+      "teamId": 511,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 11
     },
     {
       "playerId": 292172,
@@ -230,6 +239,15 @@
       "playedMatches": 9
     },
     {
+      "playerId": 204238,
+      "name": "Edan Diop",
+      "teamId": 548,
+      "goals": 3,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 8
+    },
+    {
       "playerId": 1023,
       "name": "Jonathan Clauss",
       "teamId": 522,
@@ -273,6 +291,15 @@
       "assists": 3,
       "penalties": null,
       "playedMatches": 9
+    },
+    {
+      "playerId": 212975,
+      "name": "Noah Edjouma",
+      "teamId": 512,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 7
     },
     {
       "playerId": 250795,
@@ -345,15 +372,6 @@
       "assists": 1,
       "penalties": 1,
       "playedMatches": 8
-    },
-    {
-      "playerId": 182406,
-      "name": "Jacen Russell-Rowe",
-      "teamId": 511,
-      "goals": 2,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 11
     },
     {
       "playerId": 119460,
@@ -473,15 +491,6 @@
       "playedMatches": 10
     },
     {
-      "playerId": 204238,
-      "name": "Edan Diop",
-      "teamId": 548,
-      "goals": 2,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 7
-    },
-    {
       "playerId": 165314,
       "name": "Dario Essugo",
       "teamId": 576,
@@ -527,6 +536,15 @@
       "playedMatches": 10
     },
     {
+      "playerId": 8762,
+      "name": "Romain Faivre",
+      "teamId": 519,
+      "goals": 2,
+      "assists": 3,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
       "playerId": 76723,
       "name": "Sofiane Diop",
       "teamId": 522,
@@ -543,15 +561,6 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 11
-    },
-    {
-      "playerId": 212975,
-      "name": "Noah Edjouma",
-      "teamId": 512,
-      "goals": 2,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 7
     },
     {
       "playerId": 8093,
@@ -587,7 +596,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 856,
@@ -632,7 +641,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 213221,
@@ -686,7 +695,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 287857,
@@ -749,7 +758,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 221295,
@@ -894,15 +903,6 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 10
-    },
-    {
-      "playerId": 64837,
-      "name": "Florian Sotoca",
-      "teamId": 546,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 11
     }
   ]
 }

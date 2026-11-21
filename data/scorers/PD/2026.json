@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PD",
   "season": 2026,
-  "fetchedUtc": "2026-11-21T19:00:36.303Z",
+  "fetchedUtc": "2026-11-21T21:53:58.712Z",
   "scorers": [
     {
       "playerId": 37428,
@@ -18,7 +18,7 @@
       "name": "Kylian Mbappé",
       "teamId": 86,
       "goals": 13,
-      "assists": 2,
+      "assists": 3,
       "penalties": 3,
       "playedMatches": 13
     },
@@ -113,6 +113,15 @@
       "playedMatches": 12
     },
     {
+      "playerId": 125010,
+      "name": "Jude Bellingham",
+      "teamId": 86,
+      "goals": 5,
+      "assists": 3,
+      "penalties": null,
+      "playedMatches": 13
+    },
+    {
       "playerId": 180282,
       "name": "Brugui",
       "teamId": 88,
@@ -136,15 +145,6 @@
       "teamId": 263,
       "goals": 4,
       "assists": 4,
-      "penalties": null,
-      "playedMatches": 13
-    },
-    {
-      "playerId": 125010,
-      "name": "Jude Bellingham",
-      "teamId": 86,
-      "goals": 4,
-      "assists": 3,
       "penalties": null,
       "playedMatches": 13
     },
@@ -225,9 +225,18 @@
       "name": "Isaac",
       "teamId": 559,
       "goals": 3,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
       "playedMatches": 12
+    },
+    {
+      "playerId": 247061,
+      "name": "Carlos Espí",
+      "teamId": 86,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 13
     },
     {
       "playerId": 136646,
@@ -311,6 +320,15 @@
       "playedMatches": 10
     },
     {
+      "playerId": 188859,
+      "name": "Pablo Duran",
+      "teamId": 558,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 12
+    },
+    {
       "playerId": 277484,
       "name": "Yan Diomandé",
       "teamId": 86,
@@ -345,15 +363,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 12
-    },
-    {
-      "playerId": 247061,
-      "name": "Carlos Espí",
-      "teamId": 86,
-      "goals": 2,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 13
     },
     {
       "playerId": 32719,
@@ -452,7 +461,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 32415,
@@ -489,15 +498,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 12
-    },
-    {
-      "playerId": 188859,
-      "name": "Pablo Duran",
-      "teamId": 558,
-      "goals": 2,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 11
     },
     {
       "playerId": 7848,
@@ -568,6 +568,15 @@
       "teamId": 87,
       "goals": 2,
       "assists": 2,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
+      "playerId": 178107,
+      "name": "Kike Salas",
+      "teamId": 559,
+      "goals": 2,
+      "assists": null,
       "penalties": null,
       "playedMatches": 11
     },
@@ -704,7 +713,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 32004,
@@ -894,15 +903,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 13
-    },
-    {
-      "playerId": 184273,
-      "name": "Facundo Buonanotte",
-      "teamId": 285,
-      "goals": 1,
-      "assists": 1,
-      "penalties": 1,
-      "playedMatches": 12
     }
   ]
 }
