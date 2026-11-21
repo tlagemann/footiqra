@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PL",
   "season": 2026,
-  "fetchedUtc": "2026-11-21T09:58:58.839Z",
+  "fetchedUtc": "2026-11-21T13:08:51.091Z",
   "scorers": [
     {
       "playerId": 38101,
@@ -11,7 +11,7 @@
       "goals": 9,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 6486,
@@ -74,7 +74,7 @@
       "goals": 5,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 131260,
@@ -326,7 +326,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 77641,
@@ -509,6 +509,15 @@
       "playedMatches": 10
     },
     {
+      "playerId": 138036,
+      "name": "Rodrigo Muniz",
+      "teamId": 63,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
       "playerId": 6451,
       "name": "Semi Ajayi",
       "teamId": 322,
@@ -560,7 +569,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 122266,
@@ -569,7 +578,7 @@
       "goals": 1,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 7459,
@@ -596,7 +605,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 4091,
@@ -695,7 +704,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 8065,
@@ -866,7 +875,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 30842,
@@ -894,15 +903,6 @@
       "assists": 2,
       "penalties": null,
       "playedMatches": 10
-    },
-    {
-      "playerId": 147891,
-      "name": "Jaouen Hadjam",
-      "teamId": 397,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 9
     }
   ]
 }
