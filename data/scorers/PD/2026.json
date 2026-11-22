@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PD",
   "season": 2026,
-  "fetchedUtc": "2026-11-22T13:07:08.987Z",
+  "fetchedUtc": "2026-11-22T15:56:43.574Z",
   "scorers": [
     {
       "playerId": 37428,
@@ -23,22 +23,31 @@
       "playedMatches": 13
     },
     {
+      "playerId": 265516,
+      "name": "Yassir Zabiri",
+      "teamId": 5335,
+      "goals": 11,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 13
+    },
+    {
       "playerId": 202283,
       "name": "Lamine Yamal",
       "teamId": 81,
       "goals": 10,
-      "assists": 8,
+      "assists": 9,
       "penalties": 1,
       "playedMatches": 13
     },
     {
-      "playerId": 265516,
-      "name": "Yassir Zabiri",
-      "teamId": 5335,
-      "goals": 9,
-      "assists": null,
+      "playerId": 214533,
+      "name": "Fermín López",
+      "teamId": 81,
+      "goals": 8,
+      "assists": 5,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 2237,
@@ -64,15 +73,6 @@
       "teamId": 87,
       "goals": 7,
       "assists": 2,
-      "penalties": null,
-      "playedMatches": 13
-    },
-    {
-      "playerId": 214533,
-      "name": "Fermín López",
-      "teamId": 81,
-      "goals": 7,
-      "assists": 5,
       "penalties": null,
       "playedMatches": 13
     },
@@ -164,7 +164,7 @@
       "goals": 4,
       "assists": null,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 182319,
@@ -173,7 +173,7 @@
       "goals": 4,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 2294,
@@ -398,7 +398,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 98741,
@@ -486,7 +486,7 @@
       "name": "Alberto Moleiro",
       "teamId": 94,
       "goals": 2,
-      "assists": 4,
+      "assists": 5,
       "penalties": null,
       "playedMatches": 13
     },
@@ -515,7 +515,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 69837,
@@ -560,7 +560,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 133276,
@@ -575,6 +575,15 @@
       "playerId": 178107,
       "name": "Kike Salas",
       "teamId": 559,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
+      "playerId": 113175,
+      "name": "Tajon Buchanan",
+      "teamId": 94,
       "goals": 2,
       "assists": null,
       "penalties": null,
@@ -785,7 +794,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 114955,
@@ -819,7 +828,7 @@
       "name": "Pedri",
       "teamId": 81,
       "goals": 1,
-      "assists": 2,
+      "assists": 3,
       "penalties": null,
       "playedMatches": 13
     },
@@ -866,7 +875,7 @@
       "goals": 1,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 77734,
@@ -890,15 +899,6 @@
       "playerId": 83351,
       "name": "Juan Iglesias",
       "teamId": 559,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 13
-    },
-    {
-      "playerId": 146969,
-      "name": "Ville Koski",
-      "teamId": 263,
       "goals": 1,
       "assists": null,
       "penalties": null,

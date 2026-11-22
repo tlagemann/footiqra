@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "SA",
   "season": 2026,
-  "fetchedUtc": "2026-11-22T13:07:11.576Z",
+  "fetchedUtc": "2026-11-22T15:56:47.616Z",
   "scorers": [
     {
       "playerId": 7457,
@@ -37,6 +37,15 @@
       "teamId": 102,
       "goals": 7,
       "assists": 2,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
+      "playerId": 67743,
+      "name": "Milutin Osmajić",
+      "teamId": 107,
+      "goals": 6,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 11
     },
@@ -140,15 +149,6 @@
       "playedMatches": 10
     },
     {
-      "playerId": 67743,
-      "name": "Milutin Osmajić",
-      "teamId": 107,
-      "goals": 4,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
       "playerId": 157538,
       "name": "Mateo Pellegrino",
       "teamId": 99,
@@ -245,7 +245,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 156912,
@@ -326,7 +326,7 @@
       "goals": 3,
       "assists": null,
       "penalties": 2,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 7905,
@@ -344,7 +344,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 246508,
@@ -362,7 +362,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 2097,
@@ -389,7 +389,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 101431,
@@ -407,7 +407,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 7693,
@@ -497,7 +497,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 8990,
@@ -576,9 +576,9 @@
       "name": "Junior Messias",
       "teamId": 107,
       "goals": 2,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 1886,
@@ -587,7 +587,7 @@
       "goals": 2,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 2016,
@@ -614,7 +614,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 99013,
@@ -623,7 +623,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 290391,
@@ -686,7 +686,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 161370,
@@ -707,6 +707,15 @@
       "playedMatches": 9
     },
     {
+      "playerId": 2013,
+      "name": "Nicolò Zaniolo",
+      "teamId": 115,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
       "playerId": 124620,
       "name": "Lucas Da Cunha",
       "teamId": 7397,
@@ -722,7 +731,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 133547,
@@ -803,7 +812,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 1852,
@@ -875,7 +884,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 102591,
@@ -884,7 +893,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 24217,
@@ -893,16 +902,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
-    },
-    {
-      "playerId": 153130,
-      "name": "Federico Gatti",
-      "teamId": 109,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 10
     }
   ]
 }

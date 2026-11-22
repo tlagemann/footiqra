@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "SA",
   "season": 2026,
-  "fetchedUtc": "2026-11-22T13:06:06.531Z",
+  "fetchedUtc": "2026-11-22T15:55:43.140Z",
   "rows": [
     {
       "position": 1,
@@ -66,6 +66,18 @@
     },
     {
       "position": 6,
+      "teamId": 109,
+      "playedGames": 12,
+      "won": 6,
+      "draw": 3,
+      "lost": 3,
+      "points": 21,
+      "goalsFor": 19,
+      "goalsAgainst": 12,
+      "goalDifference": 7
+    },
+    {
+      "position": 7,
       "teamId": 470,
       "playedGames": 11,
       "won": 6,
@@ -77,7 +89,7 @@
       "goalDifference": 9
     },
     {
-      "position": 7,
+      "position": 8,
       "teamId": 113,
       "playedGames": 12,
       "won": 5,
@@ -89,27 +101,15 @@
       "goalDifference": 5
     },
     {
-      "position": 8,
-      "teamId": 109,
-      "playedGames": 11,
-      "won": 5,
-      "draw": 3,
-      "lost": 3,
-      "points": 18,
-      "goalsFor": 15,
-      "goalsAgainst": 12,
-      "goalDifference": 3
-    },
-    {
       "position": 9,
       "teamId": 103,
-      "playedGames": 11,
+      "playedGames": 12,
       "won": 5,
-      "draw": 2,
+      "draw": 3,
       "lost": 4,
-      "points": 17,
-      "goalsFor": 16,
-      "goalsAgainst": 14,
+      "points": 18,
+      "goalsFor": 17,
+      "goalsAgainst": 15,
       "goalDifference": 2
     },
     {
@@ -222,27 +222,27 @@
     },
     {
       "position": 19,
-      "teamId": 454,
-      "playedGames": 11,
-      "won": 2,
-      "draw": 0,
-      "lost": 9,
+      "teamId": 115,
+      "playedGames": 12,
+      "won": 1,
+      "draw": 3,
+      "lost": 8,
       "points": 6,
-      "goalsFor": 8,
-      "goalsAgainst": 21,
+      "goalsFor": 13,
+      "goalsAgainst": 26,
       "goalDifference": -13
     },
     {
       "position": 20,
-      "teamId": 115,
-      "playedGames": 11,
-      "won": 1,
-      "draw": 2,
-      "lost": 8,
-      "points": 5,
-      "goalsFor": 12,
+      "teamId": 454,
+      "playedGames": 12,
+      "won": 2,
+      "draw": 0,
+      "lost": 10,
+      "points": 6,
+      "goalsFor": 8,
       "goalsAgainst": 25,
-      "goalDifference": -13
+      "goalDifference": -17
     }
   ]
 }

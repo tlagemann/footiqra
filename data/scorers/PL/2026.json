@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PL",
   "season": 2026,
-  "fetchedUtc": "2026-11-22T13:06:54.946Z",
+  "fetchedUtc": "2026-11-22T15:56:30.674Z",
   "scorers": [
     {
       "playerId": 38101,
@@ -20,7 +20,7 @@
       "goals": 7,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 171995,
@@ -110,7 +110,7 @@
       "goals": 4,
       "assists": 2,
       "penalties": 2,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 8626,
@@ -119,7 +119,7 @@
       "goals": 4,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 16058,
@@ -275,6 +275,15 @@
       "playedMatches": 11
     },
     {
+      "playerId": 4359,
+      "name": "Oliver McBurnie",
+      "teamId": 322,
+      "goals": 3,
+      "assists": 2,
+      "penalties": 1,
+      "playedMatches": 11
+    },
+    {
       "playerId": 176628,
       "name": "Emersonn",
       "teamId": 349,
@@ -362,7 +371,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 246670,
@@ -545,15 +554,6 @@
       "playedMatches": 11
     },
     {
-      "playerId": 4359,
-      "name": "Oliver McBurnie",
-      "teamId": 322,
-      "goals": 2,
-      "assists": 2,
-      "penalties": 1,
-      "playedMatches": 11
-    },
-    {
       "playerId": 113632,
       "name": "Tatsuhiro Sakamoto",
       "teamId": 1076,
@@ -659,7 +659,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": 1,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 217658,

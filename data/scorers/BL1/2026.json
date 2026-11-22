@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "BL1",
   "season": 2026,
-  "fetchedUtc": "2026-11-22T13:07:18.170Z",
+  "fetchedUtc": "2026-11-22T15:56:52.505Z",
   "scorers": [
     {
       "playerId": 1826,
@@ -20,7 +20,16 @@
       "goals": 9,
       "assists": null,
       "penalties": 3,
-      "playedMatches": 9
+      "playedMatches": 10
+    },
+    {
+      "playerId": 6661,
+      "name": "Michael Gregoritsch",
+      "teamId": 16,
+      "goals": 7,
+      "assists": null,
+      "penalties": 1,
+      "playedMatches": 10
     },
     {
       "playerId": 113765,
@@ -47,7 +56,7 @@
       "goals": 6,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 82404,
@@ -93,15 +102,6 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 10
-    },
-    {
-      "playerId": 6661,
-      "name": "Michael Gregoritsch",
-      "teamId": 16,
-      "goals": 5,
-      "assists": null,
-      "penalties": 1,
-      "playedMatches": 9
     },
     {
       "playerId": 33242,
@@ -236,7 +236,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 211796,
@@ -254,7 +254,7 @@
       "goals": 3,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 50215,
@@ -263,7 +263,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 5
+      "playedMatches": 6
     },
     {
       "playerId": 6523,
@@ -362,7 +362,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 178772,
@@ -371,7 +371,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 189873,
@@ -389,7 +389,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 61630,
@@ -443,7 +443,16 @@
       "goals": 2,
       "assists": 4,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
+    },
+    {
+      "playerId": 137302,
+      "name": "Ransford Königsdörffer",
+      "teamId": 15,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 10
     },
     {
       "playerId": 152692,
@@ -452,7 +461,7 @@
       "goals": 2,
       "assists": 5,
       "penalties": 1,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 99042,
@@ -569,7 +578,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 150647,
@@ -578,7 +587,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 177525,
@@ -596,7 +605,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 184533,
@@ -704,7 +713,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 6836,
@@ -740,15 +749,6 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
-    },
-    {
-      "playerId": 137302,
-      "name": "Ransford Königsdörffer",
-      "teamId": 15,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
       "playedMatches": 9
     },
     {
@@ -758,7 +758,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 608,
@@ -767,7 +767,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 5
+      "playedMatches": 6
     },
     {
       "playerId": 1847,
@@ -830,7 +830,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 7772,
@@ -866,16 +866,16 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 6707,
       "name": "Danny da Costa",
       "teamId": 15,
       "goals": 1,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 67408,

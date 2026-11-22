@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "DED",
   "season": 2026,
-  "fetchedUtc": "2026-11-22T13:07:41.327Z",
+  "fetchedUtc": "2026-11-22T15:57:15.731Z",
   "scorers": [
     {
       "playerId": 121280,
@@ -11,7 +11,7 @@
       "goals": 9,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 41302,
@@ -82,6 +82,15 @@
       "teamId": 678,
       "goals": 7,
       "assists": 1,
+      "penalties": null,
+      "playedMatches": 13
+    },
+    {
+      "playerId": 178402,
+      "name": "Ro-Zangelo Daal",
+      "teamId": 682,
+      "goals": 6,
+      "assists": 3,
       "penalties": null,
       "playedMatches": 13
     },
@@ -158,15 +167,6 @@
       "playedMatches": 13
     },
     {
-      "playerId": 178402,
-      "name": "Ro-Zangelo Daal",
-      "teamId": 682,
-      "goals": 5,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 13
-    },
-    {
       "playerId": 169190,
       "name": "Luciano Valente",
       "teamId": 675,
@@ -200,7 +200,16 @@
       "goals": 5,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
+    },
+    {
+      "playerId": 7841,
+      "name": "Davy Klaassen",
+      "teamId": 678,
+      "goals": 5,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 13
     },
     {
       "playerId": 125914,
@@ -239,6 +248,15 @@
       "playedMatches": 13
     },
     {
+      "playerId": 249025,
+      "name": "Jorthy Mokio",
+      "teamId": 678,
+      "goals": 4,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 13
+    },
+    {
       "playerId": 21733,
       "name": "Tjaronn Chery",
       "teamId": 1915,
@@ -263,7 +281,7 @@
       "goals": 4,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 9701,
@@ -281,7 +299,7 @@
       "goals": 4,
       "assists": 4,
       "penalties": 1,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 102189,
@@ -336,15 +354,6 @@
       "assists": 3,
       "penalties": null,
       "playedMatches": 12
-    },
-    {
-      "playerId": 249025,
-      "name": "Jorthy Mokio",
-      "teamId": 678,
-      "goals": 3,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 13
     },
     {
       "playerId": 297046,
@@ -416,7 +425,7 @@
       "goals": 3,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 2004,
@@ -437,20 +446,20 @@
       "playedMatches": 13
     },
     {
+      "playerId": 246145,
+      "name": "Mateo Chávez",
+      "teamId": 682,
+      "goals": 3,
+      "assists": 5,
+      "penalties": null,
+      "playedMatches": 13
+    },
+    {
       "playerId": 151613,
       "name": "Mathis Suray",
       "teamId": 718,
       "goals": 3,
       "assists": 4,
-      "penalties": null,
-      "playedMatches": 12
-    },
-    {
-      "playerId": 7841,
-      "name": "Davy Klaassen",
-      "teamId": 678,
-      "goals": 3,
-      "assists": 1,
       "penalties": null,
       "playedMatches": 13
     },
@@ -507,6 +516,15 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 12
+    },
+    {
+      "playerId": 7690,
+      "name": "Calvin Stengs",
+      "teamId": 682,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 13
     },
     {
       "playerId": 182186,
@@ -578,7 +596,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 214172,
@@ -587,7 +605,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 272985,
@@ -662,11 +680,11 @@
       "playedMatches": 12
     },
     {
-      "playerId": 246145,
-      "name": "Mateo Chávez",
+      "playerId": 188075,
+      "name": "Dave Kwakman",
       "teamId": 682,
       "goals": 2,
-      "assists": 3,
+      "assists": null,
       "penalties": null,
       "playedMatches": 13
     },
@@ -723,6 +741,15 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 13
+    },
+    {
+      "playerId": 214386,
+      "name": "Isaac Babadi",
+      "teamId": 6806,
+      "goals": 2,
+      "assists": 3,
+      "penalties": null,
+      "playedMatches": 9
     },
     {
       "playerId": 190468,
@@ -876,33 +903,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 13
-    },
-    {
-      "playerId": 244046,
-      "name": "Sem van Duijn",
-      "teamId": 676,
-      "goals": 2,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 11
-    },
-    {
-      "playerId": 283109,
-      "name": "Ismaël Baouf",
-      "teamId": 1909,
-      "goals": 2,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 13
-    },
-    {
-      "playerId": 121181,
-      "name": "Jason Ceka",
-      "teamId": 1909,
-      "goals": 2,
-      "assists": 2,
-      "penalties": null,
-      "playedMatches": 9
     }
   ]
 }
