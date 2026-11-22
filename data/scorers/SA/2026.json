@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "SA",
   "season": 2026,
-  "fetchedUtc": "2026-11-22T19:01:23.802Z",
+  "fetchedUtc": "2026-11-22T21:56:24.155Z",
   "scorers": [
     {
       "playerId": 7457,
@@ -41,6 +41,15 @@
       "playedMatches": 12
     },
     {
+      "playerId": 215433,
+      "name": "Francesco Esposito",
+      "teamId": 108,
+      "goals": 6,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 12
+    },
+    {
       "playerId": 192142,
       "name": "Alphadjo Cisse",
       "teamId": 98,
@@ -63,7 +72,7 @@
       "name": "Marcus Thuram-Ulien",
       "teamId": 108,
       "goals": 6,
-      "assists": 2,
+      "assists": 3,
       "penalties": null,
       "playedMatches": 12
     },
@@ -212,15 +221,6 @@
       "playedMatches": 10
     },
     {
-      "playerId": 215433,
-      "name": "Francesco Esposito",
-      "teamId": 108,
-      "goals": 3,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 12
-    },
-    {
       "playerId": 1106,
       "name": "Bremer",
       "teamId": 109,
@@ -354,6 +354,15 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 9
+    },
+    {
+      "playerId": 129947,
+      "name": "Charles De Ketelaere",
+      "teamId": 102,
+      "goals": 3,
+      "assists": 3,
+      "penalties": null,
+      "playedMatches": 12
     },
     {
       "playerId": 246508,
@@ -581,6 +590,15 @@
       "playedMatches": 12
     },
     {
+      "playerId": 154013,
+      "name": "Petar Sucic",
+      "teamId": 108,
+      "goals": 2,
+      "assists": null,
+      "penalties": 1,
+      "playedMatches": 12
+    },
+    {
       "playerId": 1886,
       "name": "Riccardo Orsolini",
       "teamId": 103,
@@ -606,6 +624,15 @@
       "assists": 2,
       "penalties": 1,
       "playedMatches": 12
+    },
+    {
+      "playerId": 1747,
+      "name": "Franck Kessié",
+      "teamId": 102,
+      "goals": 2,
+      "assists": null,
+      "penalties": 1,
+      "playedMatches": 6
     },
     {
       "playerId": 44033,
@@ -678,6 +705,15 @@
       "assists": 4,
       "penalties": null,
       "playedMatches": 12
+    },
+    {
+      "playerId": 30629,
+      "name": "Eljif Elmas",
+      "teamId": 102,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 11
     },
     {
       "playerId": 172413,
@@ -867,42 +903,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 12
-    },
-    {
-      "playerId": 187435,
-      "name": "Richie Sagrado",
-      "teamId": 454,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 12
-    },
-    {
-      "playerId": 122407,
-      "name": "Josh Doig",
-      "teamId": 471,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 12
-    },
-    {
-      "playerId": 102591,
-      "name": "Roberto Piccoli",
-      "teamId": 103,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 9
-    },
-    {
-      "playerId": 24217,
-      "name": "Artem Dovbyk",
-      "teamId": 103,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 10
     }
   ]
 }

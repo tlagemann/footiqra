@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "FL1",
   "season": 2026,
-  "fetchedUtc": "2026-11-22T19:01:38.837Z",
+  "fetchedUtc": "2026-11-22T21:56:39.293Z",
   "scorers": [
     {
       "playerId": 552,
@@ -17,8 +17,8 @@
       "playerId": 8476,
       "name": "Amine Gouiri",
       "teamId": 516,
-      "goals": 7,
-      "assists": 3,
+      "goals": 8,
+      "assists": 4,
       "penalties": 1,
       "playedMatches": 11
     },
@@ -68,6 +68,15 @@
       "playedMatches": 11
     },
     {
+      "playerId": 124178,
+      "name": "Louis Mafouta",
+      "teamId": 535,
+      "goals": 5,
+      "assists": null,
+      "penalties": 1,
+      "playedMatches": 11
+    },
+    {
       "playerId": 33154,
       "name": "Ferrán Torres",
       "teamId": 524,
@@ -99,15 +108,6 @@
       "name": "Josh Maja",
       "teamId": 533,
       "goals": 5,
-      "assists": null,
-      "penalties": 1,
-      "playedMatches": 11
-    },
-    {
-      "playerId": 124178,
-      "name": "Louis Mafouta",
-      "teamId": 535,
-      "goals": 4,
       "assists": null,
       "penalties": 1,
       "playedMatches": 11
@@ -272,6 +272,15 @@
       "goals": 3,
       "assists": null,
       "penalties": 1,
+      "playedMatches": 11
+    },
+    {
+      "playerId": 119703,
+      "name": "Igor Paixão",
+      "teamId": 516,
+      "goals": 3,
+      "assists": 1,
+      "penalties": null,
       "playedMatches": 11
     },
     {
@@ -527,15 +536,6 @@
       "playedMatches": 11
     },
     {
-      "playerId": 119703,
-      "name": "Igor Paixão",
-      "teamId": 516,
-      "goals": 2,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 11
-    },
-    {
       "playerId": 8762,
       "name": "Romain Faivre",
       "teamId": 519,
@@ -570,6 +570,15 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 11
+    },
+    {
+      "playerId": 138969,
+      "name": "Erwan Colas",
+      "teamId": 535,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 3
     },
     {
       "playerId": 8093,
@@ -894,15 +903,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 9
-    },
-    {
-      "playerId": 185033,
-      "name": "Amine Sbaï",
-      "teamId": 532,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 11
     }
   ]
 }

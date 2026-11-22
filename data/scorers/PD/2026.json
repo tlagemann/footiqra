@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PD",
   "season": 2026,
-  "fetchedUtc": "2026-11-22T19:01:16.410Z",
+  "fetchedUtc": "2026-11-22T21:56:16.040Z",
   "scorers": [
     {
       "playerId": 37428,
@@ -77,6 +77,15 @@
       "playedMatches": 13
     },
     {
+      "playerId": 213278,
+      "name": "Álex Baena",
+      "teamId": 78,
+      "goals": 6,
+      "assists": 3,
+      "penalties": null,
+      "playedMatches": 13
+    },
+    {
       "playerId": 214497,
       "name": "Fer Niño",
       "teamId": 285,
@@ -102,15 +111,6 @@
       "assists": 2,
       "penalties": null,
       "playedMatches": 10
-    },
-    {
-      "playerId": 213278,
-      "name": "Álex Baena",
-      "teamId": 78,
-      "goals": 5,
-      "assists": 3,
-      "penalties": null,
-      "playedMatches": 12
     },
     {
       "playerId": 125010,
@@ -140,6 +140,15 @@
       "playedMatches": 9
     },
     {
+      "playerId": 16739,
+      "name": "Alejandro Grimaldo",
+      "teamId": 78,
+      "goals": 5,
+      "assists": 2,
+      "penalties": 3,
+      "playedMatches": 13
+    },
+    {
       "playerId": 8474,
       "name": "Mariano Díaz",
       "teamId": 263,
@@ -155,7 +164,7 @@
       "goals": 4,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 82516,
@@ -183,15 +192,6 @@
       "assists": 4,
       "penalties": 2,
       "playedMatches": 13
-    },
-    {
-      "playerId": 16739,
-      "name": "Alejandro Grimaldo",
-      "teamId": 78,
-      "goals": 4,
-      "assists": 2,
-      "penalties": 2,
-      "playedMatches": 12
     },
     {
       "playerId": 32312,
@@ -272,7 +272,7 @@
       "goals": 3,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 32629,
@@ -299,7 +299,7 @@
       "goals": 3,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 3236,
@@ -371,7 +371,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 151439,
@@ -398,7 +398,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 82515,
