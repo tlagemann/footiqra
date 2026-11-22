@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "SA",
   "season": 2026,
-  "fetchedUtc": "2026-11-22T09:58:56.084Z",
+  "fetchedUtc": "2026-11-22T13:07:11.576Z",
   "scorers": [
     {
       "playerId": 7457,
@@ -227,7 +227,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 192382,
@@ -410,6 +410,15 @@
       "playedMatches": 9
     },
     {
+      "playerId": 7693,
+      "name": "Teun Koopmeiners",
+      "teamId": 109,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 12
+    },
+    {
       "playerId": 218474,
       "name": "Assane Diao",
       "teamId": 7397,
@@ -461,7 +470,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 188464,
@@ -470,7 +479,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 8658,
@@ -495,9 +504,9 @@
       "name": "Edon Zhegrova",
       "teamId": 109,
       "goals": 2,
-      "assists": 2,
+      "assists": 3,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 165857,
@@ -588,6 +597,15 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 10
+    },
+    {
+      "playerId": 8708,
+      "name": "Randal Kolo Muani",
+      "teamId": 109,
+      "goals": 2,
+      "assists": 2,
+      "penalties": 1,
+      "playedMatches": 12
     },
     {
       "playerId": 44033,
@@ -707,6 +725,15 @@
       "playedMatches": 11
     },
     {
+      "playerId": 133547,
+      "name": "Nick Woltemade",
+      "teamId": 109,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 10
+    },
+    {
       "playerId": 193,
       "name": "Yann Aurel Bisseck",
       "teamId": 108,
@@ -806,15 +833,6 @@
       "playedMatches": 7
     },
     {
-      "playerId": 7693,
-      "name": "Teun Koopmeiners",
-      "teamId": 109,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 11
-    },
-    {
       "playerId": 130420,
       "name": "Lazar Samardzic",
       "teamId": 102,
@@ -839,7 +857,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 187435,
@@ -848,7 +866,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 122407,
@@ -884,25 +902,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 31065,
-      "name": "Jesper Karlström",
-      "teamId": 115,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
       "playedMatches": 11
-    },
-    {
-      "playerId": 3851,
-      "name": "Albert Guðmundsson",
-      "teamId": 110,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 6
     }
   ]
 }

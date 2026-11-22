@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "DED",
   "season": 2026,
-  "fetchedUtc": "2026-11-22T09:59:24.834Z",
+  "fetchedUtc": "2026-11-22T13:07:41.327Z",
   "scorers": [
     {
       "playerId": 121280,
@@ -47,7 +47,7 @@
       "goals": 9,
       "assists": 2,
       "penalties": 3,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 243902,
@@ -56,7 +56,7 @@
       "goals": 8,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 7688,
@@ -83,7 +83,7 @@
       "goals": 7,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 148,
@@ -92,7 +92,7 @@
       "goals": 6,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 176746,
@@ -101,7 +101,7 @@
       "goals": 6,
       "assists": 3,
       "penalties": 2,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 265560,
@@ -164,7 +164,7 @@
       "goals": 5,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 169190,
@@ -230,6 +230,15 @@
       "playedMatches": 13
     },
     {
+      "playerId": 165131,
+      "name": "Devin Haen",
+      "teamId": 672,
+      "goals": 4,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 13
+    },
+    {
       "playerId": 21733,
       "name": "Tjaronn Chery",
       "teamId": 1915,
@@ -281,7 +290,7 @@
       "goals": 4,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 148291,
@@ -329,22 +338,13 @@
       "playedMatches": 12
     },
     {
-      "playerId": 165131,
-      "name": "Devin Haen",
-      "teamId": 672,
-      "goals": 3,
-      "assists": 2,
-      "penalties": null,
-      "playedMatches": 12
-    },
-    {
       "playerId": 249025,
       "name": "Jorthy Mokio",
       "teamId": 678,
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 297046,
@@ -362,7 +362,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 167699,
@@ -380,7 +380,7 @@
       "goals": 3,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 119460,
@@ -396,9 +396,9 @@
       "name": "Daouda Weidmann",
       "teamId": 666,
       "goals": 3,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 153600,
@@ -407,7 +407,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 144445,
@@ -452,7 +452,16 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
+    },
+    {
+      "playerId": 3558,
+      "name": "Marko Pjaca",
+      "teamId": 666,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 13
     },
     {
       "playerId": 7564,
@@ -524,7 +533,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 117796,
@@ -605,7 +614,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 137564,
@@ -641,7 +650,7 @@
       "goals": 2,
       "assists": 5,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 97534,
@@ -659,7 +668,7 @@
       "goals": 2,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 53469,
@@ -686,7 +695,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 214414,
@@ -698,22 +707,13 @@
       "playedMatches": 12
     },
     {
-      "playerId": 3558,
-      "name": "Marko Pjaca",
-      "teamId": 666,
-      "goals": 2,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 12
-    },
-    {
       "playerId": 186400,
       "name": "Younes Taha",
       "teamId": 666,
       "goals": 2,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 171438,
@@ -767,7 +767,7 @@
       "goals": 2,
       "assists": 7,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 7350,
@@ -776,7 +776,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 7570,
@@ -821,7 +821,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 45647,
@@ -839,7 +839,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 7470,
@@ -848,7 +848,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 80336,
