@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "SA",
   "season": 2026,
-  "fetchedUtc": "2026-11-22T15:56:47.616Z",
+  "fetchedUtc": "2026-11-22T19:01:23.802Z",
   "scorers": [
     {
       "playerId": 7457,
@@ -38,7 +38,16 @@
       "goals": 7,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
+    },
+    {
+      "playerId": 192142,
+      "name": "Alphadjo Cisse",
+      "teamId": 98,
+      "goals": 6,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 12
     },
     {
       "playerId": 67743,
@@ -56,7 +65,7 @@
       "goals": 6,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 171448,
@@ -77,22 +86,13 @@
       "playedMatches": 12
     },
     {
-      "playerId": 192142,
-      "name": "Alphadjo Cisse",
-      "teamId": 98,
-      "goals": 5,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 11
-    },
-    {
       "playerId": 3368,
       "name": "Adrien Rabiot",
       "teamId": 98,
       "goals": 5,
-      "assists": 4,
+      "assists": 6,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 2200,
@@ -128,7 +128,16 @@
       "goals": 5,
       "assists": 1,
       "penalties": 1,
-      "playedMatches": 11
+      "playedMatches": 12
+    },
+    {
+      "playerId": 145,
+      "name": "Christian Pulisic",
+      "teamId": 98,
+      "goals": 5,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 12
     },
     {
       "playerId": 3654,
@@ -164,7 +173,7 @@
       "goals": 4,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 250304,
@@ -180,18 +189,9 @@
       "name": "Diego Moreira",
       "teamId": 98,
       "goals": 4,
-      "assists": 3,
+      "assists": 4,
       "penalties": null,
-      "playedMatches": 9
-    },
-    {
-      "playerId": 145,
-      "name": "Christian Pulisic",
-      "teamId": 98,
-      "goals": 4,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 10
     },
     {
       "playerId": 128007,
@@ -209,7 +209,7 @@
       "goals": 3,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 215433,
@@ -218,7 +218,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 1106,
@@ -236,6 +236,15 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
+      "playedMatches": 12
+    },
+    {
+      "playerId": 101431,
+      "name": "Gonçalo Ramos",
+      "teamId": 98,
+      "goals": 3,
+      "assists": 2,
+      "penalties": 1,
       "playedMatches": 12
     },
     {
@@ -299,7 +308,7 @@
       "goals": 3,
       "assists": 4,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 183018,
@@ -392,15 +401,6 @@
       "playedMatches": 12
     },
     {
-      "playerId": 101431,
-      "name": "Gonçalo Ramos",
-      "teamId": 98,
-      "goals": 2,
-      "assists": 2,
-      "penalties": 1,
-      "playedMatches": 11
-    },
-    {
       "playerId": 2202,
       "name": "Domenico Berardi",
       "teamId": 471,
@@ -443,7 +443,7 @@
       "goals": 2,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 32703,
@@ -524,7 +524,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 152738,
@@ -677,7 +677,7 @@
       "goals": 2,
       "assists": 4,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 172413,
@@ -704,7 +704,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 2013,
@@ -749,7 +749,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 176944,
@@ -785,7 +785,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 175891,
@@ -848,7 +848,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 2230,

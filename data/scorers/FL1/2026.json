@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "FL1",
   "season": 2026,
-  "fetchedUtc": "2026-11-22T15:57:04.035Z",
+  "fetchedUtc": "2026-11-22T19:01:38.837Z",
   "scorers": [
     {
       "playerId": 552,
@@ -20,7 +20,7 @@
       "goals": 7,
       "assists": 3,
       "penalties": 1,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 149850,
@@ -48,6 +48,15 @@
       "assists": 2,
       "penalties": 2,
       "playedMatches": 10
+    },
+    {
+      "playerId": 98299,
+      "name": "Boulaye Dia",
+      "teamId": 529,
+      "goals": 6,
+      "assists": null,
+      "penalties": 1,
+      "playedMatches": 9
     },
     {
       "playerId": 3370,
@@ -95,22 +104,13 @@
       "playedMatches": 11
     },
     {
-      "playerId": 98299,
-      "name": "Boulaye Dia",
-      "teamId": 529,
-      "goals": 5,
-      "assists": null,
-      "penalties": 1,
-      "playedMatches": 9
-    },
-    {
       "playerId": 124178,
       "name": "Louis Mafouta",
       "teamId": 535,
       "goals": 4,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 175942,
@@ -263,7 +263,7 @@
       "goals": 3,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 80754,
@@ -272,7 +272,7 @@
       "goals": 3,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 8352,
@@ -317,7 +317,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 183643,
@@ -533,7 +533,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 8762,
@@ -623,7 +623,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 215864,
@@ -857,7 +857,7 @@
       "goals": 1,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 151264,

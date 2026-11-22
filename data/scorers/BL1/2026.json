@@ -2,8 +2,17 @@
   "schemaVersion": 1,
   "competition": "BL1",
   "season": 2026,
-  "fetchedUtc": "2026-11-22T15:56:52.505Z",
+  "fetchedUtc": "2026-11-22T19:01:31.752Z",
   "scorers": [
+    {
+      "playerId": 304,
+      "name": "Niclas Füllkrug",
+      "teamId": 12,
+      "goals": 10,
+      "assists": 1,
+      "penalties": 3,
+      "playedMatches": 10
+    },
     {
       "playerId": 1826,
       "name": "Patrik Schick",
@@ -11,15 +20,6 @@
       "goals": 9,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 10
-    },
-    {
-      "playerId": 304,
-      "name": "Niclas Füllkrug",
-      "teamId": 12,
-      "goals": 9,
-      "assists": null,
-      "penalties": 3,
       "playedMatches": 10
     },
     {
@@ -576,7 +576,7 @@
       "name": "Ludovit Reis",
       "teamId": 12,
       "goals": 2,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 10
     },
@@ -669,6 +669,15 @@
       "assists": 2,
       "penalties": null,
       "playedMatches": 10
+    },
+    {
+      "playerId": 122949,
+      "name": "Justin Njinmah",
+      "teamId": 12,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 4
     },
     {
       "playerId": 1858,
@@ -894,15 +903,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 6
-    },
-    {
-      "playerId": 144953,
-      "name": "Miguel Gutiérrez",
-      "teamId": 3,
-      "goals": 1,
-      "assists": 4,
-      "penalties": null,
-      "playedMatches": 10
     }
   ]
 }

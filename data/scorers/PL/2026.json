@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PL",
   "season": 2026,
-  "fetchedUtc": "2026-11-22T15:56:30.674Z",
+  "fetchedUtc": "2026-11-22T19:01:08.384Z",
   "scorers": [
     {
       "playerId": 38101,
@@ -131,6 +131,15 @@
       "playedMatches": 10
     },
     {
+      "playerId": 4359,
+      "name": "Oliver McBurnie",
+      "teamId": 322,
+      "goals": 4,
+      "assists": 2,
+      "penalties": 1,
+      "playedMatches": 11
+    },
+    {
       "playerId": 171,
       "name": "Kai Havertz",
       "teamId": 57,
@@ -185,6 +194,15 @@
       "playedMatches": 11
     },
     {
+      "playerId": 273423,
+      "name": "Víctor Muñoz",
+      "teamId": 64,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 10
+    },
+    {
       "playerId": 2074,
       "name": "Pedro Neto",
       "teamId": 61,
@@ -234,7 +252,7 @@
       "name": "Mohamed Belloumi",
       "teamId": 322,
       "goals": 3,
-      "assists": 2,
+      "assists": 3,
       "penalties": null,
       "playedMatches": 10
     },
@@ -269,15 +287,6 @@
       "playerId": 114123,
       "name": "Jack Rudoni",
       "teamId": 1076,
-      "goals": 3,
-      "assists": 2,
-      "penalties": 1,
-      "playedMatches": 11
-    },
-    {
-      "playerId": 4359,
-      "name": "Oliver McBurnie",
-      "teamId": 322,
       "goals": 3,
       "assists": 2,
       "penalties": 1,
@@ -347,6 +356,15 @@
       "playedMatches": 11
     },
     {
+      "playerId": 16347,
+      "name": "Dominik Szoboszlai",
+      "teamId": 64,
+      "goals": 2,
+      "assists": 1,
+      "penalties": 1,
+      "playedMatches": 9
+    },
+    {
       "playerId": 246418,
       "name": "Joshua King",
       "teamId": 63,
@@ -363,15 +381,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 11
-    },
-    {
-      "playerId": 273423,
-      "name": "Víctor Muñoz",
-      "teamId": 64,
-      "goals": 2,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 10
     },
     {
       "playerId": 246670,
@@ -581,6 +590,15 @@
       "playedMatches": 11
     },
     {
+      "playerId": 19334,
+      "name": "Florian Wirtz",
+      "teamId": 64,
+      "goals": 2,
+      "assists": 4,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
       "playerId": 6451,
       "name": "Semi Ajayi",
       "teamId": 322,
@@ -650,15 +668,6 @@
       "goals": 1,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 9
-    },
-    {
-      "playerId": 16347,
-      "name": "Dominik Szoboszlai",
-      "teamId": 64,
-      "goals": 1,
-      "assists": 1,
-      "penalties": 1,
       "playedMatches": 9
     },
     {
@@ -894,15 +903,6 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 11
-    },
-    {
-      "playerId": 213270,
-      "name": "Mohamed Cho",
-      "teamId": 322,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 8
     }
   ]
 }
