@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PL",
   "season": 2026,
-  "fetchedUtc": "2026-11-23T19:15:07.693Z",
+  "fetchedUtc": "2026-11-23T22:02:28.941Z",
   "scorers": [
     {
       "playerId": 38101,
@@ -82,6 +82,15 @@
       "teamId": 65,
       "goals": 5,
       "assists": 2,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
+      "playerId": 101910,
+      "name": "Keane Lewis-Potter",
+      "teamId": 402,
+      "goals": 4,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 11
     },
@@ -174,6 +183,15 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 11
+    },
+    {
+      "playerId": 10000,
+      "name": "Vitaly Janelt",
+      "teamId": 402,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 10
     },
     {
       "playerId": 190851,
@@ -309,24 +327,6 @@
       "assists": 1,
       "penalties": 1,
       "playedMatches": 11
-    },
-    {
-      "playerId": 101910,
-      "name": "Keane Lewis-Potter",
-      "teamId": 402,
-      "goals": 2,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 11
-    },
-    {
-      "playerId": 10000,
-      "name": "Vitaly Janelt",
-      "teamId": 402,
-      "goals": 2,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 10
     },
     {
       "playerId": 142075,
@@ -471,6 +471,15 @@
       "assists": 2,
       "penalties": null,
       "playedMatches": 10
+    },
+    {
+      "playerId": 151119,
+      "name": "Fabio Carvalho",
+      "teamId": 402,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 7
     },
     {
       "playerId": 212309,
@@ -855,18 +864,9 @@
       "name": "Jaidon Anthony",
       "teamId": 402,
       "goals": 1,
-      "assists": 2,
+      "assists": 4,
       "penalties": null,
       "playedMatches": 11
-    },
-    {
-      "playerId": 151119,
-      "name": "Fabio Carvalho",
-      "teamId": 402,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 7
     },
     {
       "playerId": 31941,

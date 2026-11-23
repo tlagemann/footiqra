@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PD",
   "season": 2026,
-  "fetchedUtc": "2026-11-23T19:15:11.086Z",
+  "fetchedUtc": "2026-11-23T22:02:36.629Z",
   "scorers": [
     {
       "playerId": 37428,
@@ -522,7 +522,7 @@
       "name": "Germán Valera",
       "teamId": 285,
       "goals": 2,
-      "assists": null,
+      "assists": 1,
       "penalties": null,
       "playedMatches": 13
     },
@@ -570,6 +570,15 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 13
+    },
+    {
+      "playerId": 206721,
+      "name": "Dani Requena",
+      "teamId": 88,
+      "goals": 2,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 12
     },
     {
       "playerId": 133276,
@@ -765,7 +774,7 @@
       "name": "Jon Olasagasti",
       "teamId": 88,
       "goals": 1,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
       "playedMatches": 13
     },
@@ -894,15 +903,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 9
-    },
-    {
-      "playerId": 83351,
-      "name": "Juan Iglesias",
-      "teamId": 559,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 13
     }
   ]
 }

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "SA",
   "season": 2026,
-  "fetchedUtc": "2026-11-23T19:15:18.351Z",
+  "fetchedUtc": "2026-11-23T22:02:46.277Z",
   "scorers": [
     {
       "playerId": 7457,
@@ -17,10 +17,10 @@
       "playerId": 252836,
       "name": "Gustavo Varela",
       "teamId": 5911,
-      "goals": 9,
+      "goals": 11,
       "assists": 1,
-      "penalties": 2,
-      "playedMatches": 10
+      "penalties": 3,
+      "playedMatches": 11
     },
     {
       "playerId": 169216,
@@ -173,7 +173,7 @@
       "goals": 4,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 3220,
@@ -191,7 +191,7 @@
       "goals": 4,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 182192,
@@ -293,6 +293,15 @@
       "playedMatches": 12
     },
     {
+      "playerId": 265567,
+      "name": "Jay Robinson",
+      "teamId": 5911,
+      "goals": 3,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 12
+    },
+    {
       "playerId": 299423,
       "name": "Simone Lontani",
       "teamId": 112,
@@ -371,7 +380,7 @@
       "goals": 3,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 822,
@@ -462,15 +471,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 12
-    },
-    {
-      "playerId": 265567,
-      "name": "Jay Robinson",
-      "teamId": 5911,
-      "goals": 2,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 11
     },
     {
       "playerId": 82132,
@@ -578,7 +578,7 @@
       "goals": 2,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 97869,
@@ -857,7 +857,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 186575,
