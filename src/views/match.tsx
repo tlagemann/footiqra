@@ -1364,6 +1364,23 @@ export async function MatchView({ locale, slug }: { locale: Locale; slug: string
           </Link>
         )}
         <Link
+          href={league ? p.leagueCalculator(league.slug) : p.championsLeagueCalculator}
+          className="rounded-full bg-surface px-4 py-2 font-medium hover:bg-surface-strong"
+        >
+          {t(
+            `${league?.name ?? "Champions League"} table calculator`,
+            `Tabellenrechner ${league?.name ?? "Champions League"}`,
+          )}
+        </Link>
+        {league && (
+          <Link
+            href={p.leaguePredictions(league.slug)}
+            className="rounded-full bg-surface px-4 py-2 font-medium hover:bg-surface-strong"
+          >
+            {t(`${league.name} predictions`, `${league.name} Prognosen`)}
+          </Link>
+        )}
+        <Link
           href={p.predictions}
           className="rounded-full bg-surface px-4 py-2 font-medium hover:bg-surface-strong"
         >

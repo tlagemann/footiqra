@@ -18,12 +18,12 @@ import {
   nextWindow,
   topAcrossLeagues,
 } from "@/data";
-import { getBlogPost, getBlogPosts } from "@/blog/posts";
+import { getBlogPosts } from "@/blog/posts";
 import { genericOg, matchOg, teamOg } from "./templates";
 
-/** One image per post slug; posts in both languages share the English one if it exists. */
+/** One image per post (file name key); both language versions share it. */
 function blogPostSlugs(): string[] {
-  return [...new Set([...getBlogPosts("en"), ...getBlogPosts("de")].map((post) => post.slug))];
+  return [...new Set([...getBlogPosts("en"), ...getBlogPosts("de")].map((post) => post.key))];
 }
 
 /**
@@ -322,7 +322,9 @@ export async function renderOgImage(file: string[]): Promise<ImageResponse | nul
           subtitle: "League comparisons, biggest movers and predictions from the power ranking.",
         });
       }
-      const post = getBlogPost("en", name) ?? getBlogPost("de", name);
+      const post =
+        getBlogPosts("en").find((p) => p.key === name) ??
+        getBlogPosts("de").find((p) => p.key === name);
       if (!post) return null;
       return genericOg({ eyebrow: "Blog", title: post.title, subtitle: post.description });
     }

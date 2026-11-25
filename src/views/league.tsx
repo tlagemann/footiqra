@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { getBlogPosts } from "@/blog/posts";
 import { DataNotice } from "@/components/data-notice";
 import { JsonLd } from "@/components/json-ld";
 import { LastUpdated } from "@/components/match-list";
@@ -114,6 +115,19 @@ export async function LeagueView({ locale, slug }: { locale: Locale; slug: strin
       : undefined;
   const strengthRank =
     ranking.status === "ok" && strength ? ranking.data.leagues.indexOf(strength) + 1 : undefined;
+  // Crawlable summary for "<league> power rankings" searches: strength leader vs table leader.
+  const leader = rows[0];
+  const tableLeader = table?.rows[0];
+  const leaderName = leader ? leader.team.shortName || leader.team.name : "";
+  const intro = leader
+    ? tr(
+        locale,
+        `The ${league.name} power ranking rates all ${rows.length} clubs by strength, not points, and updates after every match. ${leaderName} ${tableLeader && tableLeader.team.slug !== leader.team.slug ? `are the strongest team, while ${tableLeader.team.name} top the table` : "are the strongest team and also top the table"}.`,
+        `Das Power-Ranking der ${league.name} bewertet alle ${rows.length} Vereine nach Stärke statt nach Punkten und wird nach jedem Spiel aktualisiert. ${leaderName} ${tableLeader && tableLeader.team.slug !== leader.team.slug ? `ist das stärkste Team, Tabellenführer ist ${tableLeader.team.name}` : "ist das stärkste Team und führt auch die Tabelle an"}.`,
+      )
+    : null;
+  // Newest weekly "biggest movers" article, for readers who want the story behind the numbers.
+  const movers = getBlogPosts(locale).find((post) => post.key.startsWith("power-ranking-movers-"));
 
   return (
     <div className="space-y-14">
@@ -129,7 +143,12 @@ export async function LeagueView({ locale, slug }: { locale: Locale; slug: strin
           <Eyebrow>{country(locale, league.country)}</Eyebrow>
           <h1 className="mt-4 font-display text-5xl font-extrabold tracking-[-0.045em] sm:text-7xl">
             {league.name}
+            <span className="mt-3 block font-sans text-lg font-semibold tracking-normal text-muted sm:text-xl">
+              {t("Power ranking", "Power-Ranking")}
+              {table ? ` ${seasonLabel(table.season)}` : ""}
+            </span>
           </h1>
+          {intro && <p className="mt-5 max-w-2xl text-lg text-muted">{intro}</p>}
         </div>
         {strength && (
           <dl className="grid grid-cols-3 gap-3">
@@ -190,6 +209,47 @@ export async function LeagueView({ locale, slug }: { locale: Locale; slug: strin
         </section>
       )}
 
+      <section aria-labelledby="teams-heading">
+        <SectionHeading
+          id="teams-heading"
+          title={t(`${league.name} power ranking`, `${league.name} Power-Ranking`)}
+          aside={
+            <span className="flex flex-wrap items-center gap-4 text-sm">
+              <Link href={p.methodology} className="text-muted hover:text-foreground">
+                {t("What the numbers mean", "Was die Zahlen bedeuten")}
+              </Link>
+              {movers && (
+                <Link href={p.blogPost(movers.slug)} className="font-semibold hover:underline">
+                  {t("This week's movers", "Gewinner und Verlierer der Woche")}{" "}
+                  <span aria-hidden>→</span>
+                </Link>
+              )}
+            </span>
+          }
+        />
+        {rows.length > 0 ? (
+          <RankingTable
+            rows={rows}
+            caption={t(
+              `${league.name} teams ordered by Footiqra power rating`,
+              `${league.name}: Vereine nach Footiqra Power-Rating`,
+            )}
+            showLeague={false}
+            rankLabel={t("Overall", "Gesamt")}
+            locale={locale}
+          />
+        ) : (
+          <DataNotice
+            reason={
+              teams.status === "ok"
+                ? t("The ranking is being calculated.", "Das Ranking wird berechnet.")
+                : t(teams.reason, "Es wurden noch keine Spieldaten importiert.")
+            }
+            locale={locale}
+          />
+        )}
+        {teams.status === "ok" && <LastUpdated utc={teams.lastUpdatedUtc} locale={locale} />}
+      </section>
       {scorers.length > 0 && (
         <section aria-labelledby="scorers-teaser">
           <SectionHeading
@@ -307,11 +367,19 @@ export async function LeagueView({ locale, slug }: { locale: Locale; slug: strin
       <section aria-labelledby="table-heading">
         <SectionHeading
           id="table-heading"
-          title={t("Table", "Tabelle")}
+          title={t(`${league.name} table`, `Tabelle ${league.name}`)}
           aside={
             table && (
-              <span className="text-sm text-muted">
-                {t("Season", "Saison")} {seasonLabel(table.season)}
+              <span className="flex flex-wrap items-center gap-4 text-sm">
+                <span className="text-muted">
+                  {t("Season", "Saison")} {seasonLabel(table.season)}
+                </span>
+                <Link
+                  href={p.leagueCalculator(league.slug)}
+                  className="font-semibold hover:underline"
+                >
+                  {t("Table calculator", "Tabellenrechner")} <span aria-hidden>→</span>
+                </Link>
               </span>
             )
           }
@@ -360,40 +428,6 @@ export async function LeagueView({ locale, slug }: { locale: Locale; slug: strin
           />
         </section>
       )}
-
-      <section aria-labelledby="teams-heading">
-        <SectionHeading
-          id="teams-heading"
-          title={t("Teams by power rating", "Vereine nach Power-Rating")}
-          aside={
-            <Link href={p.methodology} className="text-sm text-muted hover:text-foreground">
-              {t("What the numbers mean", "Was die Zahlen bedeuten")}
-            </Link>
-          }
-        />
-        {rows.length > 0 ? (
-          <RankingTable
-            rows={rows}
-            caption={t(
-              `${league.name} teams ordered by Footiqra power rating`,
-              `${league.name}: Vereine nach Footiqra Power-Rating`,
-            )}
-            showLeague={false}
-            rankLabel={t("Overall", "Gesamt")}
-            locale={locale}
-          />
-        ) : (
-          <DataNotice
-            reason={
-              teams.status === "ok"
-                ? t("The ranking is being calculated.", "Das Ranking wird berechnet.")
-                : t(teams.reason, "Es wurden noch keine Spieldaten importiert.")
-            }
-            locale={locale}
-          />
-        )}
-        {teams.status === "ok" && <LastUpdated utc={teams.lastUpdatedUtc} locale={locale} />}
-      </section>
     </div>
   );
 }

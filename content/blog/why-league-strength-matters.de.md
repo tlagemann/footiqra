@@ -2,6 +2,7 @@
 title: Warum die Ligastärke im Fußball zählt
 description: Sieg ist nicht gleich Sieg: Warum dasselbe Ergebnis in manchen Ligen mehr zählt und wie Footiqra die Stärke der Ligen misst.
 published: 2026-11-02
+slug: warum-ligastaerke-zaehlt
 ---
 
 Jede Liga vergibt drei Punkte für einen Sieg. Das macht Tabellen leicht lesbar, verdeckt aber eine einfache Tatsache: In der Premier League zu gewinnen ist schwerer als in der Eredivisie. Jedes Ranking, das Vereine über Ligagrenzen vergleicht, muss das berücksichtigen. Genau dafür gibt es die Ligastärke.
@@ -39,7 +40,7 @@ Das heißt auch: Die Ligastärke ändert sich langsam. Ein einzelnes Überraschu
 - **[Torjäger-Power-Ranking](/de/torjaeger/power-ranking/):** Tore werden nach der Stärke der Liga gewichtet, in der sie gefallen sind.
 - **[Ligenübersicht](/de/ligen/):** Zeigt die aktuelle Stärke aller sieben Ligen.
 
-Wie die sieben Ligen heute im Vergleich stehen, zeigt der Artikel [Welche ist die stärkste Liga Europas?](/de/blog/strongest-league-in-europe/)
+Wie die sieben Ligen heute im Vergleich stehen, zeigt der Artikel [Welche ist die stärkste Liga Europas?](/de/blog/staerkste-liga-europas/)
 
 ## Häufige Fragen
 

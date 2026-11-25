@@ -2,6 +2,7 @@
 title: "Brighton ist Europas siebtbestes Team: der Beweis"
 description: "Vor Atlético, Liverpool und Inter: Warum Brighton im Footiqra Power-Ranking auf Platz sieben unter 132 Vereinen aus Europas Topligen steht."
 published: 2026-11-03
+slug: brighton-siebtbestes-team-europas
 ---
 
 Brighton & Hove Albion ist gerade die siebtbeste Fußballmannschaft Europas. Nicht die siebtbeste der Premier League, sondern Platz sieben unter allen 132 Vereinen aus Europas sieben Topligen. Im Footiqra Power-Ranking liegt Brighton vor Atlético Madrid, Liverpool, Inter und Borussia Dortmund.
@@ -43,7 +44,7 @@ In der Premier League steht Brighton mit 19 Punkten auf Platz drei, zwei hinter 
 
 ## Der Haken: der Premier-League-Bonus
 
-Einen berechtigten Einwand gibt es. Jedes Rating enthält die Stärke der eigenen Liga, und die Premier League ist mit Abstand die stärkste Liga Europas (siehe [Welche ist die stärkste Liga Europas?](/de/blog/strongest-league-in-europe/)). Ihre Vereine bekommen etwa 56 Punkte mehr Ligastärke als die aus La Liga.
+Einen berechtigten Einwand gibt es. Jedes Rating enthält die Stärke der eigenen Liga, und die Premier League ist mit Abstand die stärkste Liga Europas (siehe [Welche ist die stärkste Liga Europas?](/de/blog/staerkste-liga-europas/)). Ihre Vereine bekommen etwa 56 Punkte mehr Ligastärke als die aus La Liga.
 
 Dieser Bonus bringt Brighton vor Atlético. Nur nach eigener Form läge Atlético vorn. Gegenüber Liverpool erklärt dagegen kein Bonus etwas: Beide spielen in derselben Liga, und Brighton liegt allein wegen der Ergebnisse vorn, obwohl Liverpool das direkte Duell im Oktober 2:0 gewonnen hat.
 

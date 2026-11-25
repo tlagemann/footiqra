@@ -2,9 +2,10 @@
 title: "Glossar: Elo-Rating, Ligastärke und mehr"
 description: Elo-Rating, Ligastärke, Erwartungswert und mehr: alle Begriffe hinter dem Footiqra Power-Ranking, einfach erklärt.
 published: 2026-11-02
+slug: glossar-elo-rating-ligastaerke
 ---
 
-Power-Rankings haben ihre eigene Sprache. Dieses Glossar erklärt jeden Begriff, der dir auf Footiqra begegnet, in ein bis zwei Sätzen und in alphabetischer Reihenfolge. Wie alles zusammenhängt, zeigt [So funktioniert das Footiqra Power-Ranking](/de/blog/how-the-power-ranking-works/).
+Power-Rankings haben ihre eigene Sprache. Dieses Glossar erklärt jeden Begriff, der dir auf Footiqra begegnet, in ein bis zwei Sätzen und in alphabetischer Reihenfolge. Wie alles zusammenhängt, zeigt [So funktioniert das Footiqra Power-Ranking](/de/blog/so-funktioniert-das-power-ranking/).
 
 ## Aufsteiger-Abschlag
 
@@ -40,7 +41,7 @@ Wie weit sich ein Rating nach einem einzelnen Spiel bewegen kann. Footiqra nutzt
 
 ## Ligastärke
 
-Ein Wert, den sich alle Vereine einer Liga teilen und der misst, wie stark die Liga im Vergleich zu den anderen ist. Er startet bei den UEFA-Koeffizienten und bewegt sich nur durch Ergebnisse im Europapokal. [Warum die Ligastärke im Fußball zählt](/de/blog/why-league-strength-matters/) erklärt die Idee genauer.
+Ein Wert, den sich alle Vereine einer Liga teilen und der misst, wie stark die Liga im Vergleich zu den anderen ist. Er startet bei den UEFA-Koeffizienten und bewegt sich nur durch Ergebnisse im Europapokal. [Warum die Ligastärke im Fußball zählt](/de/blog/warum-ligastaerke-zaehlt/) erklärt die Idee genauer.
 
 ## Power-Ranking
 

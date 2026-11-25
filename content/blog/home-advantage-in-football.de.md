@@ -2,6 +2,7 @@
 title: Wie viel ist der Heimvorteil im Fußball wert?
 description: Wir haben 4.725 Spiele aus Europas sieben Top-Ligen ausgewertet. Der Heimvorteil bringt rund einen Drittelpunkt pro Spiel, je nach Liga sehr unterschiedlich.
 published: 2026-11-05
+slug: heimvorteil-im-fussball
 ---
 
 Dass ein Heimspiel hilft, weiß jeder Fußballfan. Aber wie viel genau? Wir haben alle Ligaspiele der letzten beiden abgeschlossenen Spielzeiten in den sieben Ligen ausgewertet, die Footiqra abdeckt: 4.725 Partien aus 2024/25 und 2025/26.

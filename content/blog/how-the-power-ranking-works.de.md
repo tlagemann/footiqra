@@ -2,6 +2,7 @@
 title: So funktioniert das Footiqra Power-Ranking
 description: Wie Footiqra alle Vereine der sieben Topligen Europas auf einer Skala bewertet: mit Elo-Ratings und Ligastärke aus dem Europapokal.
 published: 2026-11-02
+slug: so-funktioniert-das-power-ranking
 ---
 
 Ist Bayern gerade stärker als Arsenal? Die Tabellen beantworten das nicht, denn beide Vereine spielen in verschiedenen Ligen gegen verschiedene Gegner. Das Footiqra Power-Ranking kann es: Es bewertet jeden Verein der sieben Topligen Europas auf einer gemeinsamen Skala, allein auf Basis von Spielergebnissen.

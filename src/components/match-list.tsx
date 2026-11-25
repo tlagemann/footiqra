@@ -4,7 +4,7 @@ import type { MatchView } from "@/data";
 import { fmtDate, paths, tr, type Locale } from "@/i18n";
 import { Crest } from "./ui";
 
-const COMPETITION_LABEL: Record<string, string> = {
+export const COMPETITION_LABEL: Record<string, string> = {
   ...Object.fromEntries(LEAGUES.map((l) => [l.providerCodes.footballData, l.name])),
   CL: "Champions League",
 };

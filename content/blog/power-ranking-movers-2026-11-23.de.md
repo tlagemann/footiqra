@@ -2,6 +2,7 @@
 title: "Leeds siegt 4:1 bei Chelsea: die Gewinner und Verlierer der Woche"
 description: Leeds gewinnt 4:1 an der Stamford Bridge und klettert vier Plätze, Chelsea stürzt elf ab. Die größten Bewegungen im Power-Ranking vom 16. bis 23. November 2026.
 published: 2026-11-25
+slug: power-ranking-gewinner-verlierer-2026-11-23
 ---
 
 Ein Ergebnis hat die Woche im Footiqra Power-Ranking geprägt. Leeds United reiste als Außenseiter an die Stamford Bridge und gewann **4:1**. Leeds holte damit 20,5 Ratingpunkte, mehr als jeder andere Verein in Europas sieben Topligen, und kletterte von Platz 19 auf Platz 15. Chelsea verlor genau so viel und rutschte um elf Plätze ab, von 22 auf 33.
@@ -24,7 +25,7 @@ Dieser Beitrag vergleicht das Ranking vom 16. November mit dem vom 23. November 
 
 ## Leeds überrascht an der Stamford Bridge
 
-Vor dem Anpfiff am 21. November sah unser Modell Chelsea mit 47 % als Favoriten, Leeds kam auf 29 %. Schon ein knapper Auswärtssieg des Außenseiters hätte die Ratings bewegt. Drei Tore Unterschied in der Fremde wirken aber deutlich stärker, denn das Modell berücksichtigt neben dem Ergebnis auch [die Höhe des Sieges](/de/blog/football-ratings-glossary/).
+Vor dem Anpfiff am 21. November sah unser Modell Chelsea mit 47 % als Favoriten, Leeds kam auf 29 %. Schon ein knapper Auswärtssieg des Außenseiters hätte die Ratings bewegt. Drei Tore Unterschied in der Fremde wirken aber deutlich stärker, denn das Modell berücksichtigt neben dem Ergebnis auch [die Höhe des Sieges](/de/blog/glossar-elo-rating-ligastaerke/).
 
 Für Chelsea war die Niederlage doppelt teuer: Der Klub verlor genau die Punkte, die Leeds gewann, und fiel aus den Top 30. Prognose und direkte Duelle stehen auf der [Spielseite](/de/spiele/chelsea-fc-vs-leeds-united-fc-2026-27/).
 
@@ -57,11 +58,15 @@ Arsenal bleibt an der Spitze, verlor nach dem 2:2 in Newcastle aber 3,3 Punkte. 
 
 ## Keine Verschiebungen zwischen den Ligen
 
-In dieser Woche gab es keine Europapokalspiele, deshalb blieb die Ligastärke unverändert. Im Footiqra Modell bewegt sie sich nur durch Ergebnisse im Europapokal, wie in [So funktioniert das Power-Ranking](/de/blog/how-the-power-ranking-works/) erklärt. Alle Bewegungen dieser Woche gehen auf Ligaspiele zurück.
+In dieser Woche gab es keine Europapokalspiele, deshalb blieb die Ligastärke unverändert. Im Footiqra Modell bewegt sie sich nur durch Ergebnisse im Europapokal, wie in [So funktioniert das Power-Ranking](/de/blog/so-funktioniert-das-power-ranking/) erklärt. Alle Bewegungen dieser Woche gehen auf Ligaspiele zurück.
 
 ## Datenstand
 
 Vergleich des Power-Rankings vom 16. November 2026 mit dem vom 23. November 2026, berücksichtigt sind alle Spiele bis einschließlich 23. November. Seitdem ging die Champions League weiter: Stand 25. November hat PSG Arsenal an der Spitze überholt. Das [aktuelle Ranking](/de/) wird mehrmals täglich aktualisiert.
+
+## Power-Rankings der einzelnen Ligen
+
+So stehen die Vereine innerhalb ihrer Liga: [Premier League Power-Ranking](/de/ligen/premier-league/), [La Liga Power-Ranking](/de/ligen/la-liga/), [Serie A Power-Ranking](/de/ligen/serie-a/), [Bundesliga Power-Ranking](/de/ligen/bundesliga/), [Ligue 1 Power-Ranking](/de/ligen/ligue-1/), [Primeira Liga Power-Ranking](/de/ligen/primeira-liga/) und [Eredivisie Power-Ranking](/de/ligen/eredivisie/).
 
 ## FAQ
 

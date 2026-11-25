@@ -2,6 +2,7 @@
 title: "Barça lag bei 76 % Titelchance: Was ist passiert?"
 description: Neun Siege aus neun Spielen, dann eine schwache Woche. Wie Barças Meisterchance von 76 % auf 52 % fiel und warum Real Madrid wieder im Rennen ist.
 published: 2026-11-03
+slug: barcelona-meisterchancen-was-ist-passiert
 ---
 
 Am 19. Oktober wirkte der FC Barcelona unschlagbar. Neun Ligaspiele, neun Siege, fünf Punkte Vorsprung und Platz eins im Footiqra Power-Ranking. Unsere Simulationen gaben Barça eine **Meisterchance von 76 %**. Zwei Wochen später liegt sie bei **52 %**, und Real Madrid hat seine Chance mehr als verdoppelt.

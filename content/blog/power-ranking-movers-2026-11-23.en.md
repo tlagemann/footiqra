@@ -63,6 +63,10 @@ There were no European matches this week, so league strength did not change. In 
 
 Comparison of the power ranking of 16 November 2026 with that of 23 November 2026, based on all matches played up to and including 23 November. Since then, the Champions League has continued: as of 25 November, PSG have overtaken Arsenal at the top. The [current ranking](/) is updated several times a day.
 
+## Power rankings by league
+
+Where every club stands within its own league: [Premier League power rankings](/leagues/premier-league/), [La Liga power rankings](/leagues/la-liga/), [Serie A power rankings](/leagues/serie-a/), [Bundesliga power rankings](/leagues/bundesliga/), [Ligue 1 power rankings](/leagues/ligue-1/), [Primeira Liga power rankings](/leagues/primeira-liga/) and [Eredivisie power rankings](/leagues/eredivisie/).
+
 ## FAQ
 
 ### Why did Leeds gain so many points from one win?

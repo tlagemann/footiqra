@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getBlogPosts, translatedBlogSlugs } from "@/blog/posts";
+import { getBlogPosts, getBlogTranslation } from "@/blog/posts";
 import { LEAGUES } from "@/config/leagues";
 import { getSiteUrl } from "@/config/site";
 import { getAllTeamSlugs, getLastUpdated, getMatchSitemapEntries, getUefaRanking } from "@/data";
@@ -83,23 +83,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }));
   });
   // Posts exist per language; only translated posts list each other as alternates.
-  const translated = new Set(translatedBlogSlugs());
+  // A German version may have its own slug, so alternates are looked up per post.
   const posts = (["en", "de"] as const).flatMap((l) =>
-    getBlogPosts(l).map((post) => ({
-      url: `${base}${paths(l).blogPost(post.slug)}`,
-      lastModified: post.updated,
-      ...(translated.has(post.slug)
-        ? {
-            alternates: {
-              languages: {
-                en: `${base}${paths("en").blogPost(post.slug)}`,
-                de: `${base}${paths("de").blogPost(post.slug)}`,
-                "x-default": `${base}${paths("en").blogPost(post.slug)}`,
+    getBlogPosts(l).map((post) => {
+      const en = getBlogTranslation(post, "en");
+      const de = getBlogTranslation(post, "de");
+      return {
+        url: `${base}${paths(l).blogPost(post.slug)}`,
+        lastModified: post.updated,
+        ...(en && de
+          ? {
+              alternates: {
+                languages: {
+                  en: `${base}${paths("en").blogPost(en.slug)}`,
+                  de: `${base}${paths("de").blogPost(de.slug)}`,
+                  "x-default": `${base}${paths("en").blogPost(en.slug)}`,
+                },
               },
-            },
-          }
-        : {}),
-    })),
+            }
+          : {}),
+      };
+    }),
   );
   return [...shared, ...posts];
 }

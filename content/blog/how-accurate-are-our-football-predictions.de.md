@@ -2,6 +2,7 @@
 title: Wie gut sind unsere Fußball-Prognosen? Wir haben jede einzelne geprüft
 description: Wir haben 5.614 Spiele nachgespielt und jede Footiqra-Prognose mit dem Ergebnis verglichen. Wenn wir 70 % sagen, passiert es so oft wirklich.
 published: 2026-11-05
+slug: wie-gut-sind-fussball-prognosen
 ---
 
 Zu jedem Spiel auf Footiqra gibt es eine Prognose: die Wahrscheinlichkeit für Heimsieg, Unentschieden und Auswärtssieg. Eine Prozentzahl ist aber nur etwas wert, wenn sie sich bewährt. Also haben wir nachgeprüft.
@@ -47,7 +48,7 @@ So liest man eine Prognose am sinnvollsten. **60 % heißt nicht „gewinnt“.**
 
 ## Das Problem mit dem Unentschieden
 
-Unentschieden sind das am schwersten vorherzusagende Ergebnis im Fußball. In unseren Daten endeten **24,7 % aller Spiele remis**, trotzdem stuft das Modell ein Remis nie als wahrscheinlichstes Ergebnis ein. Die Remis-Chance liegt bei völlig ausgeglichenen Spielen bei höchstens rund 25 %, und selbst dann ist ein Heimsieg wegen des [Heimvorteils](/de/blog/home-advantage-in-football/) immer etwas wahrscheinlicher.
+Unentschieden sind das am schwersten vorherzusagende Ergebnis im Fußball. In unseren Daten endeten **24,7 % aller Spiele remis**, trotzdem stuft das Modell ein Remis nie als wahrscheinlichstes Ergebnis ein. Die Remis-Chance liegt bei völlig ausgeglichenen Spielen bei höchstens rund 25 %, und selbst dann ist ein Heimsieg wegen des [Heimvorteils](/de/blog/heimvorteil-im-fussball/) immer etwas wahrscheinlicher.
 
 Das ist weniger ein Fehler als die Natur des Fußballs: Selbst wenn ein Remis recht wahrscheinlich ist, ist es selten wahrscheinlicher als Heim- und Auswärtssieg zugleich. Es bedeutet aber, dass Unentschieden in engen Spielen leicht unterschätzt werden. Wo wir einem Remis 20 bis 25 % gaben, endete das Spiel in 26,1 % der Fälle tatsächlich unentschieden.
 
@@ -63,7 +64,7 @@ Der Wert ist mit jeder Saison gestiegen:
 | 2025/26          | 2.467  | 52,2 %                                  |
 | 2026/27 (bisher) | 675    | 53,5 %                                  |
 
-Der Hauptgrund: 2024/25 ist die erste Saison in unseren Daten. Jeder Verein startete also mit demselben Grundrating plus der Stärke seiner Liga. Es dauerte Monate, bis die Ergebnisse die Vereine richtig sortiert hatten. Seitdem nimmt jede Saison die Hälfte des Ratings aus dem Vorjahr mit, wie in [So funktioniert das Footiqra Power-Ranking](/de/blog/how-the-power-ranking-works/) erklärt.
+Der Hauptgrund: 2024/25 ist die erste Saison in unseren Daten. Jeder Verein startete also mit demselben Grundrating plus der Stärke seiner Liga. Es dauerte Monate, bis die Ergebnisse die Vereine richtig sortiert hatten. Seitdem nimmt jede Saison die Hälfte des Ratings aus dem Vorjahr mit, wie in [So funktioniert das Footiqra Power-Ranking](/de/blog/so-funktioniert-das-power-ranking/) erklärt.
 
 Sind rund 52 % gut? Das klingt bescheiden, aber Fußball ist ein torarmes Spiel mit drei möglichen Ausgängen und viel Zufall. Kein Modell, auch unseres nicht, liegt auch nur annähernd immer richtig.
 

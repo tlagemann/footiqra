@@ -2,13 +2,14 @@
 title: Die 7 Ligen im Footiqra Power-Ranking
 description: Premier League, La Liga, Serie A, Bundesliga, Ligue 1, Eredivisie und Primeira Liga: die sieben Ligen bei Footiqra und warum.
 published: 2026-11-02
+slug: die-7-ligen-im-power-ranking
 ---
 
 Das Footiqra Power-Ranking deckt sieben Ligen und alle ihre Vereine ab: 132 Klubs auf einer gemeinsamen Skala. Dieser Artikel stellt jede Liga vor, erklärt, warum genau diese sieben dabei sind, und zeigt, wo jede von ihnen im Ranking gestartet ist.
 
 ## Warum diese sieben Ligen?
 
-Die fünf großen Ligen sind gesetzt: Sie stellen die meisten Champions-League-Plätze und führen die Fünfjahreswertung der UEFA an. Eredivisie und Primeira Liga vervollständigen das Bild, weil ihre Vereine im Europapokal regelmäßig auf die großen fünf treffen. Genau diese Spiele braucht das Ranking, um Ligen miteinander zu vergleichen. Mehr dazu steht in [So funktioniert das Footiqra Power-Ranking](/de/blog/how-the-power-ranking-works/).
+Die fünf großen Ligen sind gesetzt: Sie stellen die meisten Champions-League-Plätze und führen die Fünfjahreswertung der UEFA an. Eredivisie und Primeira Liga vervollständigen das Bild, weil ihre Vereine im Europapokal regelmäßig auf die großen fünf treffen. Genau diese Spiele braucht das Ranking, um Ligen miteinander zu vergleichen. Mehr dazu steht in [So funktioniert das Footiqra Power-Ranking](/de/blog/so-funktioniert-das-power-ranking/).
 
 ## Die Ligen im Überblick
 
@@ -54,7 +55,7 @@ Die niederländische Liga steht für Offensivfußball und starke Nachwuchsarbeit
 
 ## Wie stark ist jede Liga gerade?
 
-Die Koeffizienten zeigen, wo jede Liga gestartet ist, nicht wo sie heute steht. Jedes Europapokalspiel seit 2024/25 hat diese Werte verschoben. Das aktuelle Bild zeigt der Artikel [Welche ist die stärkste Liga Europas?](/de/blog/strongest-league-in-europe/), die Live-Werte stehen in der [Ligenübersicht](/de/ligen/).
+Die Koeffizienten zeigen, wo jede Liga gestartet ist, nicht wo sie heute steht. Jedes Europapokalspiel seit 2024/25 hat diese Werte verschoben. Das aktuelle Bild zeigt der Artikel [Welche ist die stärkste Liga Europas?](/de/blog/staerkste-liga-europas/), die Live-Werte stehen in der [Ligenübersicht](/de/ligen/).
 
 ## Häufige Fragen
 

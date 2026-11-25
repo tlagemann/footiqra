@@ -23,7 +23,8 @@ interface NavItem {
 /** Blog state from the server: whether to show the link, and which posts exist in both languages. */
 export interface BlogNav {
   show: boolean;
-  translated: string[];
+  /** Blog post path -> path of the same post in the other language. */
+  counterparts: Record<string, string>;
   /** Show the UEFA five-year ranking (only once its earlier seasons are complete). */
   uefa?: boolean;
 }
@@ -172,23 +173,24 @@ function buildNav(locale: Locale, blog: BlogNav): NavItem[] {
 function LanguageSwitch({
   locale,
   pathname,
-  translatedPosts,
+  postCounterparts,
   className = "",
 }: {
   locale: Locale;
   pathname: string;
-  translatedPosts: string[];
+  postCounterparts: Record<string, string>;
   className?: string;
 }) {
   const other: Locale = locale === "de" ? "en" : "de";
-  const blogPost = pathname.slice(paths(locale).blog.length).replace(/\/$/, "");
-  const untranslatedPost =
-    pathname.startsWith(paths(locale).blog) &&
-    blogPost !== "" &&
-    !translatedPosts.includes(blogPost);
+  const path = pathname.endsWith("/") ? pathname : `${pathname}/`;
+  const isPost = path.startsWith(paths(locale).blog) && path !== paths(locale).blog;
+  // German posts can have their own slug, so posts use the explicit mapping.
+  const href = isPost
+    ? (postCounterparts[path] ?? paths(other).blog)
+    : counterpart(pathname, other);
   return (
     <a
-      href={untranslatedPost ? paths(other).blog : counterpart(pathname, other)}
+      href={href}
       hrefLang={other}
       lang={other}
       className={className}
@@ -372,7 +374,7 @@ export function MainNav({ locale, blog }: { locale: Locale; blog: BlogNav }) {
         <LanguageSwitch
           locale={locale}
           pathname={pathname}
-          translatedPosts={blog.translated}
+          postCounterparts={blog.counterparts}
           className="rounded-full bg-surface px-3.5 py-2 text-sm font-semibold text-muted transition hover:bg-foreground hover:text-inverse"
         />
       </div>
@@ -382,7 +384,7 @@ export function MainNav({ locale, blog }: { locale: Locale; blog: BlogNav }) {
         <LanguageSwitch
           locale={locale}
           pathname={pathname}
-          translatedPosts={blog.translated}
+          postCounterparts={blog.counterparts}
           className="rounded-full bg-surface px-3.5 py-2 text-sm font-semibold text-muted"
         />
         <button

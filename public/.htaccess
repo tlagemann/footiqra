@@ -11,6 +11,18 @@ ErrorDocument 404 /page-not-found/
   # so they no longer compete with the matchday tips under /prognosen/ for the same searches.
   RewriteRule ^de/ligen/([^/]+)/prognose/?$ /de/ligen/$1/tabellenprognose/ [R=301,L]
 
+  # German blog posts got German URL slugs (25.11.2026); old English slugs redirect.
+  RewriteRule ^de/blog/barcelona-title-chances-what-went-wrong/?$ /de/blog/barcelona-meisterchancen-was-ist-passiert/ [R=301,L]
+  RewriteRule ^de/blog/brighton-europes-7th-best-team/?$ /de/blog/brighton-siebtbestes-team-europas/ [R=301,L]
+  RewriteRule ^de/blog/football-ratings-glossary/?$ /de/blog/glossar-elo-rating-ligastaerke/ [R=301,L]
+  RewriteRule ^de/blog/home-advantage-in-football/?$ /de/blog/heimvorteil-im-fussball/ [R=301,L]
+  RewriteRule ^de/blog/how-accurate-are-our-football-predictions/?$ /de/blog/wie-gut-sind-fussball-prognosen/ [R=301,L]
+  RewriteRule ^de/blog/how-the-power-ranking-works/?$ /de/blog/so-funktioniert-das-power-ranking/ [R=301,L]
+  RewriteRule ^de/blog/power-ranking-movers-2026-11-23/?$ /de/blog/power-ranking-gewinner-verlierer-2026-11-23/ [R=301,L]
+  RewriteRule ^de/blog/strongest-league-in-europe/?$ /de/blog/staerkste-liga-europas/ [R=301,L]
+  RewriteRule ^de/blog/the-7-leagues-we-rank/?$ /de/blog/die-7-ligen-im-power-ranking/ [R=301,L]
+  RewriteRule ^de/blog/why-league-strength-matters/?$ /de/blog/warum-ligastaerke-zaehlt/ [R=301,L]
+
   # Folders without their own page (e.g. /teams/, /de/vereine/) answer 404 instead of 403.
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteCond %{REQUEST_FILENAME}/index.html !-f

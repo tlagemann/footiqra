@@ -1,4 +1,4 @@
-import { hasBlogPosts, translatedBlogSlugs } from "@/blog/posts";
+import { blogPostCounterparts, hasBlogPosts } from "@/blog/posts";
 import { SOCIAL, OWNER } from "@/config/site";
 import { getUefaRanking } from "@/data";
 import Link from "next/link";
@@ -23,7 +23,7 @@ export async function SiteHeader({ locale }: { locale: Locale }) {
           locale={locale}
           blog={{
             show: hasBlogPosts(),
-            translated: translatedBlogSlugs(),
+            counterparts: blogPostCounterparts(),
             uefa: uefa !== null && !uefa.historyIncomplete,
           }}
         />

@@ -5,7 +5,7 @@ import {
   BLOG_PLACEHOLDER_SLUG,
   getBlogPost,
   getBlogPosts,
-  translatedBlogSlugs,
+  getBlogTranslation,
   type BlogPost,
 } from "@/blog/posts";
 import { JsonLd } from "@/components/json-ld";
@@ -23,10 +23,6 @@ import { ogImage } from "@/og/images";
 
 const longDate = (locale: Locale, iso: string) =>
   fmtDate(locale, `${iso}T12:00:00Z`, { day: "numeric", month: "long", year: "numeric" });
-
-function hasTranslation(slug: string): boolean {
-  return translatedBlogSlugs().includes(slug);
-}
 
 export function blogIndexMetadata(locale: Locale): Metadata {
   return pageMetadata({
@@ -81,7 +77,7 @@ export function BlogIndexView({ locale }: { locale: Locale }) {
   const posts = getBlogPosts(locale);
   // German readers also see English posts that have no translation yet.
   const untranslated =
-    locale === "de" ? getBlogPosts("en").filter((post) => !hasTranslation(post.slug)) : [];
+    locale === "de" ? getBlogPosts("en").filter((post) => !getBlogTranslation(post, "de")) : [];
   return (
     <div className="max-w-3xl space-y-12">
       <JsonLd
@@ -141,15 +137,18 @@ export function blogStaticParams(locale: Locale): { slug: string }[] {
 export function blogPostMetadata(locale: Locale, slug: string): Metadata {
   const post = getBlogPost(locale, slug);
   if (!post) return {};
+  const en = getBlogTranslation(post, "en");
+  const de = getBlogTranslation(post, "de");
   const meta = pageMetadata({
     locale,
     title: post.title,
     description: post.description,
     path: paths(locale).blogPost(slug),
-    paths: hasTranslation(slug)
-      ? { en: paths("en").blogPost(slug), de: paths("de").blogPost(slug) }
-      : undefined,
-    image: ogImage.blogPost(slug),
+    paths:
+      en && de
+        ? { en: paths("en").blogPost(en.slug), de: paths("de").blogPost(de.slug) }
+        : undefined,
+    image: ogImage.blogPost(post.key),
   });
   return {
     ...meta,
@@ -181,7 +180,7 @@ function articleJsonLd(post: BlogPost) {
     inLanguage: HTML_LANG[post.locale],
     url,
     mainEntityOfPage: url,
-    image: `${site}${ogImage.blogPost(post.slug)}`,
+    image: `${site}${ogImage.blogPost(post.key)}`,
     author: publisher,
     publisher,
   };

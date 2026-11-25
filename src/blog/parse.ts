@@ -15,7 +15,11 @@ import { z } from "zod";
  *   published: 2026-11-09
  *   updated: 2026-11-12        (optional)
  *   draft: true                (optional; drafts only show in `npm run dev`)
+ *   slug: so-funktioniert-das-power-ranking   (optional; URL of this language version)
  *   ---
+ *
+ * Without `slug` the URL is the file name. A German file can set its own German
+ * slug and still pairs with the English file of the same name (hreflang, switch).
  *
  * The body is Markdown and starts with level-2 headings (the title is the h1).
  * A section "## FAQ" (or "## Häufige Fragen") with "### Question" headings
@@ -23,6 +27,7 @@ import { z } from "zod";
  */
 
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
+const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 export const frontMatterSchema = z
   .object({
@@ -31,6 +36,10 @@ export const frontMatterSchema = z
     published: z.string().regex(DATE, "published must be YYYY-MM-DD"),
     updated: z.string().regex(DATE, "updated must be YYYY-MM-DD").optional(),
     draft: z.enum(["true", "false"]).optional(),
+    slug: z
+      .string()
+      .regex(SLUG, "slug: only lowercase letters, digits and single hyphens")
+      .optional(),
   })
   .strict();
 
@@ -48,6 +57,8 @@ export interface ParsedPost {
   /** Last change; equals `published` when the post was never updated. */
   updated: string;
   draft: boolean;
+  /** URL slug from the front matter, if the file sets one. */
+  slug?: string;
   html: string;
   faq: FaqItem[];
   readingMinutes: number;
@@ -182,6 +193,7 @@ export function parsePost(raw: string): ParsedPost {
     published: front.published,
     updated: front.updated ?? front.published,
     draft: front.draft === "true",
+    ...(front.slug ? { slug: front.slug } : {}),
     html: renderMarkdown(body),
     faq: extractFaq(body),
     readingMinutes: readingMinutes(body),

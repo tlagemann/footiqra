@@ -3,13 +3,14 @@ title: Welche ist die stärkste Liga Europas? (November 2026)
 description: Die Premier League führt deutlich, Ligue 1 ist Zweiter und die Bundesliga wieder im Plus: die Ligastärke der sieben Topligen Europas, Stand 15. November 2026.
 published: 2026-11-02
 updated: 2026-11-15
+slug: staerkste-liga-europas
 ---
 
 Die Premier League ist die stärkste Liga Europas, und ihr Vorsprung ist noch gewachsen. So lautet das Urteil des Footiqra Power-Rankings mit Stand 15. November 2026. Die Ligue 1 bleibt Zweiter vor La Liga, die Bundesliga liegt wieder über dem Schnitt der sieben Ligen, und im Duell um Platz sechs hat die Primeira Liga die Eredivisie überholt.
 
 ## Das Ranking der Ligastärke
 
-Die Ligastärke misst, wie stark eine Liga im Vergleich zu den anderen ist, gemessen an den Ergebnissen im Europapokal seit 2024/25. Null ist der Schnitt der sieben Ligen. [Warum die Ligastärke im Fußball zählt](/de/blog/why-league-strength-matters/) erklärt die Idee.
+Die Ligastärke misst, wie stark eine Liga im Vergleich zu den anderen ist, gemessen an den Ergebnissen im Europapokal seit 2024/25. Null ist der Schnitt der sieben Ligen. [Warum die Ligastärke im Fußball zählt](/de/blog/warum-ligastaerke-zaehlt/) erklärt die Idee.
 
 | Platz | Liga                                        | Stärke | Zum Saisonstart | Veränderung | Seit 2. Nov. | Ø Rating | Vereine in Top 20 |
 | ----- | ------------------------------------------- | ------ | --------------- | ----------- | ------------ | -------- | ----------------- |

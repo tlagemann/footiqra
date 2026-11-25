@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { DataNotice } from "@/components/data-notice";
 import { JsonLd } from "@/components/json-ld";
 import { ForecastList } from "@/components/forecast-list";
-import { LastUpdated, MatchList } from "@/components/match-list";
+import { COMPETITION_LABEL, LastUpdated, MatchList } from "@/components/match-list";
 import { Crest, FormGuide, SectionHeading } from "@/components/ui";
 import { getLeagueBySlug, NO_ARTICLE } from "@/config/leagues";
 import {
@@ -52,6 +52,48 @@ function tableExcerpt<T extends { team: { slug: string | null } }>(rows: T[], sl
   if (i < 0) return [];
   const start = Math.max(0, Math.min(i - 2, rows.length - 5));
   return rows.slice(start, start + 5);
+}
+
+/** Result of a finished match from the club's point of view. */
+function outcome(m: MatchView, slug: string): "W" | "D" | "L" | null {
+  if (m.homeGoals === null || m.awayGoals === null) return null;
+  const home = m.home.slug === slug;
+  const own = home ? m.homeGoals : m.awayGoals;
+  const other = home ? m.awayGoals : m.homeGoals;
+  return own > other ? "W" : own < other ? "L" : "D";
+}
+
+/** The last five finished matches (all competitions) with wins, draws, goals and points. */
+function recentForm(results: MatchView[], slug: string) {
+  const matches = results
+    .map((m) => ({ match: m, result: outcome(m, slug) }))
+    .filter((r): r is { match: MatchView; result: "W" | "D" | "L" } => r.result !== null)
+    .slice(0, 5);
+  let goalsFor = 0;
+  let goalsAgainst = 0;
+  for (const { match } of matches) {
+    const home = match.home.slug === slug;
+    goalsFor += (home ? match.homeGoals : match.awayGoals) ?? 0;
+    goalsAgainst += (home ? match.awayGoals : match.homeGoals) ?? 0;
+  }
+  const count = (r: "W" | "D" | "L") => matches.filter((m) => m.result === r).length;
+  const wins = count("W");
+  const draws = count("D");
+  return {
+    matches,
+    wins,
+    draws,
+    losses: count("L"),
+    goalsFor,
+    goalsAgainst,
+    points: wins * 3 + draws,
+  };
+}
+
+function formWord(locale: Locale, r: "W" | "D" | "L"): string {
+  return locale === "de"
+    ? { W: "Sieg", D: "Unentschieden", L: "Niederlage" }[r]
+    : { W: "win", D: "draw", L: "defeat" }[r];
 }
 
 /** One letter per result: W/D/L in English, S/U/N in German. */
@@ -170,6 +212,7 @@ export async function TeamView({ locale, slug }: { locale: Locale; slug: string 
     power.status === "ok" ? power.data.rows.map((r) => [r.team.slug, r.rank]) : [],
   );
   const lastResult = results[0];
+  const form = recentForm(results, team.slug);
   const forecasts = (await getUpcomingForecasts())
     .filter((f) => f.home.slug === team.slug || f.away.slug === team.slug)
     .slice(0, 3);
@@ -271,6 +314,58 @@ export async function TeamView({ locale, slug }: { locale: Locale; slug: string 
         </dl>
       )}
 
+      {form.matches.length > 0 && (
+        <section aria-labelledby="form-heading">
+          <SectionHeading
+            id="form-heading"
+            title={t(
+              `${team.name} recent form: last ${form.matches.length} results`,
+              `${team.name} Form: die letzten ${form.matches.length} Spiele`,
+            )}
+          />
+          <div className="rounded-3xl bg-surface p-5 sm:p-7">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+              <FormGuide form={[...form.matches].reverse().map((m) => m.result)} locale={locale} />
+              <p className="text-muted">
+                {t(
+                  `${form.wins} ${form.wins === 1 ? "win" : "wins"}, ${form.draws} ${form.draws === 1 ? "draw" : "draws"}, ${form.losses} ${form.losses === 1 ? "defeat" : "defeats"} · goals ${form.goalsFor}:${form.goalsAgainst} · ${form.points} of ${form.matches.length * 3} points`,
+                  `${form.wins} ${form.wins === 1 ? "Sieg" : "Siege"}, ${form.draws} Unentschieden, ${form.losses} ${form.losses === 1 ? "Niederlage" : "Niederlagen"} · Tore ${form.goalsFor}:${form.goalsAgainst} · ${form.points} von ${form.matches.length * 3} Punkten`,
+                )}
+              </p>
+            </div>
+            <ol className="mt-5 space-y-2">
+              {form.matches.map(({ match, result }) => (
+                <li
+                  key={match.id}
+                  className="flex flex-wrap items-baseline gap-x-3 gap-y-1 border-t border-line/80 pt-2 first:border-t-0 first:pt-0"
+                >
+                  <span className="w-24 shrink-0 text-sm text-muted">{day(match.utcDate)}</span>
+                  <span className="min-w-0 flex-1 font-semibold">
+                    {match.slug ? (
+                      <Link href={p.match(match.slug)} className="hover:underline">
+                        {scoreLine(match)}
+                      </Link>
+                    ) : (
+                      scoreLine(match)
+                    )}
+                  </span>
+                  <span className="text-sm text-muted">
+                    {COMPETITION_LABEL[match.competition] ?? match.competition} ·{" "}
+                    {formWord(locale, result)}
+                  </span>
+                </li>
+              ))}
+            </ol>
+            <p className="mt-4 text-sm text-muted">
+              {t(
+                "All competitions, newest first. The form guide reads left to right, oldest to newest.",
+                "Alle Wettbewerbe, neuestes Spiel zuerst. Die Formkurve liest sich von links nach rechts, vom ältesten zum neuesten Spiel.",
+              )}
+            </p>
+          </div>
+        </section>
+      )}
+
       <section aria-labelledby="results-heading">
         <SectionHeading id="results-heading" title={t("Latest results", "Letzte Ergebnisse")} />
         {results.length > 0 ? (
@@ -337,9 +432,17 @@ export async function TeamView({ locale, slug }: { locale: Locale; slug: string 
             id="table-heading"
             title={t(`${league.name} table`, `Tabelle ${league.name}`)}
             aside={
-              <Link href={p.league(league.slug)} className="text-sm font-semibold hover:underline">
-                {t("Full table", "Ganze Tabelle")} <span aria-hidden>→</span>
-              </Link>
+              <span className="flex flex-wrap items-center gap-4 text-sm">
+                <Link
+                  href={p.leagueCalculator(league.slug)}
+                  className="text-muted hover:text-foreground"
+                >
+                  {t("Table calculator", "Tabellenrechner")}
+                </Link>
+                <Link href={p.league(league.slug)} className="font-semibold hover:underline">
+                  {t("Full table", "Ganze Tabelle")} <span aria-hidden>→</span>
+                </Link>
+              </span>
             }
           />
           <StandingsTable
