@@ -10,17 +10,17 @@ Dieser Beitrag vergleicht das Ranking vom 16. November mit dem vom 23. November 
 
 ## Die größten Bewegungen
 
-| Verein | Liga | Platz 16.11. | Platz 23.11. | Rating | Ergebnis |
-| --- | --- | --- | --- | --- | --- |
-| Leeds United | Premier League | 19 | **15** | +20,5 | Chelsea 1:4 Leeds |
-| Hull City | Premier League | 42 | **35** | +18,0 | Hull 2:0 Brighton |
-| Monza | Serie A | 114 | **105** | +17,0 | Monza 3:0 Florenz |
-| Genua | Serie A | 90 | **79** | +16,4 | Sassuolo 0:2 Genua |
-| Liverpool | Premier League | 9 | **7** | +10,9 | Liverpool 4:0 Man United |
-| Chelsea | Premier League | 22 | **33** | -20,5 | Chelsea 1:4 Leeds |
-| Brighton | Premier League | 7 | **8** | -17,9 | Hull 2:0 Brighton |
-| Florenz | Serie A | 86 | **98** | -17,0 | Monza 3:0 Florenz |
-| Marseille | Ligue 1 | 26 | **34** | -15,2 | Marseille 2:3 Le Mans |
+| Verein       | Liga           | Platz 16.11. | Platz 23.11. | Rating | Ergebnis                 |
+| ------------ | -------------- | ------------ | ------------ | ------ | ------------------------ |
+| Leeds United | Premier League | 19           | **15**       | +20,5  | Chelsea 1:4 Leeds        |
+| Hull City    | Premier League | 42           | **35**       | +18,0  | Hull 2:0 Brighton        |
+| Monza        | Serie A        | 114          | **105**      | +17,0  | Monza 3:0 Florenz        |
+| Genua        | Serie A        | 90           | **79**       | +16,4  | Sassuolo 0:2 Genua       |
+| Liverpool    | Premier League | 9            | **7**        | +10,9  | Liverpool 4:0 Man United |
+| Chelsea      | Premier League | 22           | **33**       | -20,5  | Chelsea 1:4 Leeds        |
+| Brighton     | Premier League | 7            | **8**        | -17,9  | Hull 2:0 Brighton        |
+| Florenz      | Serie A        | 86           | **98**       | -17,0  | Monza 3:0 Florenz        |
+| Marseille    | Ligue 1        | 26           | **34**       | -15,2  | Marseille 2:3 Le Mans    |
 
 ## Leeds überrascht an der Stamford Bridge
 
@@ -34,18 +34,18 @@ Brighton ging am 22. November mit 48 % als Favorit in das Spiel bei Hull City un
 
 ## Veränderungen in den Top 10
 
-| Platz | Verein | Rating | Vorwoche | Veränderung |
-| --- | --- | --- | --- | --- |
-| 1 | Arsenal | 1758 | 1 | -3,3 |
-| 2 | Paris Saint-Germain | 1754 | 2 | +6,1 |
-| 3 | FC Barcelona | 1731 | 3 | +3,5 |
-| 4 | Real Madrid | 1709 | 5 | +3,4 |
-| 5 | FC Bayern München | 1709 | 4 | -7,6 |
-| 6 | Manchester City | 1681 | 6 | -4,6 |
-| 7 | Liverpool | 1676 | 9 | +10,9 |
-| 8 | Brighton | 1667 | 7 | -17,9 |
-| 9 | Inter | 1665 | 8 | -3,0 |
-| 10 | Bournemouth | 1651 | 11 | +9,6 |
+| Platz | Verein              | Rating | Vorwoche | Veränderung |
+| ----- | ------------------- | ------ | -------- | ----------- |
+| 1     | Arsenal             | 1758   | 1        | -3,3        |
+| 2     | Paris Saint-Germain | 1754   | 2        | +6,1        |
+| 3     | FC Barcelona        | 1731   | 3        | +3,5        |
+| 4     | Real Madrid         | 1709   | 5        | +3,4        |
+| 5     | FC Bayern München   | 1709   | 4        | -7,6        |
+| 6     | Manchester City     | 1681   | 6        | -4,6        |
+| 7     | Liverpool           | 1676   | 9        | +10,9       |
+| 8     | Brighton            | 1667   | 7        | -17,9       |
+| 9     | Inter               | 1665   | 8        | -3,0        |
+| 10    | Bournemouth         | 1651   | 11       | +9,6        |
 
 Drei Entwicklungen fallen auf:
 
