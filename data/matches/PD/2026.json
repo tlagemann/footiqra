@@ -2120,7 +2120,7 @@
     {
       "id": 564698,
       "utcDate": "2026-12-09T19:00:00.000Z",
-      "status": "CANCELLED",
+      "status": "TIMED",
       "matchday": 8,
       "stage": "REGULAR_SEASON",
       "homeTeamId": 87,
@@ -2129,7 +2129,7 @@
       "awayGoals": 0,
       "duration": "REGULAR",
       "winner": "DRAW",
-      "lastUpdated": "2026-11-25T00:20:29.000Z"
+      "lastUpdated": "2026-11-25T19:25:09.000Z"
     },
     {
       "id": 564783,
