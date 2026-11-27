@@ -2,8 +2,17 @@
   "schemaVersion": 1,
   "competition": "DED",
   "season": 2026,
-  "fetchedUtc": "2026-11-27T13:31:47.549Z",
+  "fetchedUtc": "2026-11-27T23:30:44.046Z",
   "scorers": [
+    {
+      "playerId": 188914,
+      "name": "Thom van Bergen",
+      "teamId": 677,
+      "goals": 10,
+      "assists": 3,
+      "penalties": 1,
+      "playedMatches": 14
+    },
     {
       "playerId": 121280,
       "name": "Søren Tengstedt",
@@ -20,16 +29,7 @@
       "goals": 9,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 13
-    },
-    {
-      "playerId": 188914,
-      "name": "Thom van Bergen",
-      "teamId": 677,
-      "goals": 9,
-      "assists": 3,
-      "penalties": 1,
-      "playedMatches": 13
+      "playedMatches": 14
     },
     {
       "playerId": 115116,
@@ -245,7 +245,7 @@
       "goals": 4,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 13
+      "playedMatches": 14
     },
     {
       "playerId": 249025,
@@ -614,7 +614,7 @@
       "goals": 2,
       "assists": 3,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 70571,
@@ -758,7 +758,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 13
+      "playedMatches": 14
     },
     {
       "playerId": 280290,
@@ -857,7 +857,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 172942,

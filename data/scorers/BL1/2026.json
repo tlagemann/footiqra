@@ -2,16 +2,16 @@
   "schemaVersion": 1,
   "competition": "BL1",
   "season": 2026,
-  "fetchedUtc": "2026-11-27T13:31:02.566Z",
+  "fetchedUtc": "2026-11-27T23:30:20.102Z",
   "scorers": [
     {
       "playerId": 304,
       "name": "Niclas Füllkrug",
       "teamId": 12,
-      "goals": 10,
+      "goals": 11,
       "assists": 1,
       "penalties": 3,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 1826,
@@ -140,13 +140,22 @@
       "playedMatches": 6
     },
     {
+      "playerId": 150733,
+      "name": "Eren Dinkci",
+      "teamId": 12,
+      "goals": 4,
+      "assists": 1,
+      "penalties": null,
+      "playedMatches": 11
+    },
+    {
       "playerId": 82442,
       "name": "Joseph Scally",
       "teamId": 18,
       "goals": 4,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 183780,
@@ -383,15 +392,6 @@
       "playedMatches": 10
     },
     {
-      "playerId": 150733,
-      "name": "Eren Dinkci",
-      "teamId": 12,
-      "goals": 2,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 10
-    },
-    {
       "playerId": 61630,
       "name": "Marco Grüll",
       "teamId": 12,
@@ -533,7 +533,7 @@
       "goals": 2,
       "assists": null,
       "penalties": 1,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 175704,
@@ -578,7 +578,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 150647,
@@ -630,9 +630,9 @@
       "name": "Wael Mohya",
       "teamId": 18,
       "goals": 2,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 113457,
@@ -680,6 +680,15 @@
       "playedMatches": 4
     },
     {
+      "playerId": 727,
+      "name": "Franck Honorat",
+      "teamId": 18,
+      "goals": 2,
+      "assists": 2,
+      "penalties": null,
+      "playedMatches": 7
+    },
+    {
       "playerId": 1858,
       "name": "Emmanuel Latte Lath",
       "teamId": 28,
@@ -722,7 +731,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 6836,
@@ -857,7 +866,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 8
+      "playedMatches": 9
     },
     {
       "playerId": 44463,
@@ -866,7 +875,7 @@
       "goals": 1,
       "assists": null,
       "penalties": null,
-      "playedMatches": 9
+      "playedMatches": 10
     },
     {
       "playerId": 152726,
@@ -894,15 +903,6 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 7
-    },
-    {
-      "playerId": 6555,
-      "name": "Mitchell Weiser",
-      "teamId": 12,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 6
     }
   ]
 }

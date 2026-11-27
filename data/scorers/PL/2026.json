@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "PL",
   "season": 2026,
-  "fetchedUtc": "2026-11-27T13:30:17.562Z",
+  "fetchedUtc": "2026-11-27T23:29:45.651Z",
   "scorers": [
     {
       "playerId": 38101,
@@ -74,7 +74,7 @@
       "goals": 5,
       "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 133242,
@@ -209,6 +209,15 @@
       "goals": 3,
       "assists": 3,
       "penalties": 1,
+      "playedMatches": 12
+    },
+    {
+      "playerId": 4091,
+      "name": "Morgan Gibbs-White",
+      "teamId": 351,
+      "goals": 3,
+      "assists": 3,
+      "penalties": 2,
       "playedMatches": 11
     },
     {
@@ -225,9 +234,9 @@
       "name": "Pedro Neto",
       "teamId": 61,
       "goals": 3,
-      "assists": 1,
+      "assists": 2,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 123286,
@@ -263,7 +272,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 213072,
@@ -309,6 +318,15 @@
       "assists": 2,
       "penalties": 1,
       "playedMatches": 11
+    },
+    {
+      "playerId": 150599,
+      "name": "Emanuel Emegha",
+      "teamId": 61,
+      "goals": 3,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 4
     },
     {
       "playerId": 176628,
@@ -380,7 +398,7 @@
       "goals": 2,
       "assists": null,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 246670,
@@ -444,6 +462,15 @@
       "assists": null,
       "penalties": null,
       "playedMatches": 10
+    },
+    {
+      "playerId": 256339,
+      "name": "Igor Jesus",
+      "teamId": 351,
+      "goals": 2,
+      "assists": null,
+      "penalties": null,
+      "playedMatches": 8
     },
     {
       "playerId": 7561,
@@ -515,7 +542,7 @@
       "goals": 2,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 6
+      "playedMatches": 7
     },
     {
       "playerId": 34646,
@@ -689,15 +716,6 @@
       "playedMatches": 11
     },
     {
-      "playerId": 4091,
-      "name": "Morgan Gibbs-White",
-      "teamId": 351,
-      "goals": 1,
-      "assists": 3,
-      "penalties": 1,
-      "playedMatches": 10
-    },
-    {
       "playerId": 161088,
       "name": "Alex Scott",
       "teamId": 1044,
@@ -749,7 +767,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 9053,
@@ -833,15 +851,6 @@
       "playedMatches": 11
     },
     {
-      "playerId": 256339,
-      "name": "Igor Jesus",
-      "teamId": 351,
-      "goals": 1,
-      "assists": null,
-      "penalties": null,
-      "playedMatches": 7
-    },
-    {
       "playerId": 8259,
       "name": "Lewis Dunk",
       "teamId": 397,
@@ -894,15 +903,6 @@
       "assists": 1,
       "penalties": null,
       "playedMatches": 9
-    },
-    {
-      "playerId": 191140,
-      "name": "Lewis Hall",
-      "teamId": 67,
-      "goals": 1,
-      "assists": 1,
-      "penalties": null,
-      "playedMatches": 11
     }
   ]
 }
