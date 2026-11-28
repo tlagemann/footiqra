@@ -276,7 +276,7 @@ async function main() {
     join(OUT, "captions.md"),
     `Data as of ${stamp} (UTC). Review numbers before posting.\n\n${captions.join("\n")}`,
   );
-  console.log(`Wrote ${Object.keys(slides).length} slides and captions.md to ${OUT}`);
+  console.info(`Wrote ${Object.keys(slides).length} slides and captions.md to ${OUT}`);
 }
 
 main().catch((e) => {
