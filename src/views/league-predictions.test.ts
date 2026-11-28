@@ -6,7 +6,9 @@ let id = 0;
 const fc = (matchday: number, utcDate: string) =>
   ({ id: ++id, matchday, utcDate, leagueSlug: "la-liga" }) as unknown as MatchForecast;
 const round = (matchday: number, day: string, n = 10) =>
-  Array.from({ length: n }, (_, i) => fc(matchday, `${day}T${String(12 + (i % 9)).padStart(2, "0")}:00:00Z`));
+  Array.from({ length: n }, (_, i) =>
+    fc(matchday, `${day}T${String(12 + (i % 9)).padStart(2, "0")}:00:00Z`),
+  );
 
 describe("nextMatchdays", () => {
   it("does not let matches brought forward pull a later round to the front", () => {

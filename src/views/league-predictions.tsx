@@ -47,7 +47,10 @@ export function nextMatchdays(
   for (const f of own) byDay.set(f.matchday, [...(byDay.get(f.matchday) ?? []), f]);
   const time = (f: MatchForecast) => Date.parse(f.utcDate);
   const byTime = (a: MatchForecast, b: MatchForecast) => time(a) - time(b) || a.id - b.id;
-  const groups = [...byDay].map(([matchday, list]) => ({ matchday, forecasts: [...list].sort(byTime) }));
+  const groups = [...byDay].map(([matchday, list]) => ({
+    matchday,
+    forecasts: [...list].sort(byTime),
+  }));
   // A round is dated by its median kickoff, so single matches brought forward or postponed
   // (e.g. for the Spanish Supercup) do not move the whole round.
   const median = (g: MatchdayGroup) => time(g.forecasts[Math.floor((g.forecasts.length - 1) / 2)]!);
