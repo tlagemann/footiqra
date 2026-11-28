@@ -45,22 +45,28 @@ export function nextMatchdays(
   const own = forecasts.filter((f) => f.leagueSlug === leagueSlug);
   const byDay = new Map<number | null, MatchForecast[]>();
   for (const f of own) byDay.set(f.matchday, [...(byDay.get(f.matchday) ?? []), f]);
-  const groups = [...byDay].map(([matchday, list]) => ({ matchday, forecasts: list }));
-  const first = (g: MatchdayGroup) => Date.parse(g.forecasts[0]!.utcDate);
-  groups.sort((a, b) => first(a) - first(b));
+  const time = (f: MatchForecast) => Date.parse(f.utcDate);
+  const byTime = (a: MatchForecast, b: MatchForecast) => time(a) - time(b) || a.id - b.id;
+  const groups = [...byDay].map(([matchday, list]) => ({ matchday, forecasts: [...list].sort(byTime) }));
+  // A round is dated by its median kickoff, so single matches brought forward or postponed
+  // (e.g. for the Spanish Supercup) do not move the whole round.
+  const median = (g: MatchdayGroup) => time(g.forecasts[Math.floor((g.forecasts.length - 1) / 2)]!);
+  groups.sort((a, b) => median(a) - median(b));
   const rounds = groups.filter((g) => g.forecasts.length >= 3).slice(0, count);
   if (rounds.length === 0) return groups.slice(0, count);
-  const lastEnd = Math.max(...rounds.at(-1)!.forecasts.map((f) => Date.parse(f.utcDate)));
-  // Leftover matches of earlier rounds played within the window join the round on the same dates.
+  const end = (r: MatchdayGroup) => Math.max(...r.forecasts.map(time));
+  const lastEnd = end(rounds.at(-1)!);
+  // Single matches of other rounds played within the window join the round on the same dates.
+  const extra = new Map<MatchdayGroup, MatchForecast[]>();
   for (const g of groups) {
-    if (rounds.includes(g) || first(g) > lastEnd) continue;
-    const host =
-      rounds.find((r) => first(g) <= Math.max(...r.forecasts.map((f) => Date.parse(f.utcDate)))) ??
-      rounds.at(-1)!;
-    host.forecasts = [...host.forecasts, ...g.forecasts].sort(
-      (a, b) => Date.parse(a.utcDate) - Date.parse(b.utcDate) || a.id - b.id,
-    );
+    if (rounds.includes(g)) continue;
+    for (const f of g.forecasts) {
+      if (time(f) > lastEnd) continue;
+      const host = rounds.find((r) => time(f) <= end(r)) ?? rounds.at(-1)!;
+      extra.set(host, [...(extra.get(host) ?? []), f]);
+    }
   }
+  for (const [host, list] of extra) host.forecasts = [...host.forecasts, ...list].sort(byTime);
   return rounds;
 }
 
