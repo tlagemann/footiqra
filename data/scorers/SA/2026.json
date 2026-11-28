@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "competition": "SA",
   "season": 2026,
-  "fetchedUtc": "2026-11-28T07:50:20.238Z",
+  "fetchedUtc": "2026-11-28T13:39:20.384Z",
   "scorers": [
     {
       "playerId": 7457,
@@ -29,7 +29,7 @@
       "goals": 8,
       "assists": null,
       "penalties": null,
-      "playedMatches": 10
+      "playedMatches": 11
     },
     {
       "playerId": 120679,
@@ -137,7 +137,7 @@
       "goals": 5,
       "assists": 1,
       "penalties": 1,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 145,
@@ -308,7 +308,7 @@
       "goals": 3,
       "assists": null,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 211564,
@@ -317,7 +317,7 @@
       "goals": 3,
       "assists": 4,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 183018,
@@ -704,7 +704,7 @@
       "goals": 2,
       "assists": 4,
       "penalties": null,
-      "playedMatches": 12
+      "playedMatches": 13
     },
     {
       "playerId": 30629,
@@ -866,7 +866,7 @@
       "goals": 1,
       "assists": 1,
       "penalties": null,
-      "playedMatches": 11
+      "playedMatches": 12
     },
     {
       "playerId": 45680,
